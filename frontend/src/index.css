@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: dark; }
+  html, body, #root { height: 100%; }
+  body {
+    @apply bg-ink-950 text-ink-100 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+  }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { @apply bg-ink-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-ink-700 rounded; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-ink-600; }
+}
+
+@layer components {
+  .panel { @apply bg-ink-900 border border-ink-800 rounded-lg; }
+  .panel-head {
+    @apply px-4 py-3 border-b border-ink-800 flex items-center justify-between;
+  }
+  .btn {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm
+           font-medium transition-colors disabled:opacity-40
+           disabled:cursor-not-allowed;
+  }
+  .btn-primary { @apply btn bg-accent-600 hover:bg-accent-500 text-white; }
+  .btn-ghost {
+    @apply btn bg-ink-800 hover:bg-ink-700 text-ink-200 border border-ink-700;
+  }
+  .btn-sm { @apply px-2 py-1 text-xs; }
+  .input {
+    @apply bg-ink-850 border border-ink-700 rounded-md px-3 py-1.5 text-sm
+           text-ink-100 placeholder-ink-400 focus:outline-none
+           focus:ring-1 focus:ring-accent-500 focus:border-accent-500;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-2xs
+           font-medium uppercase tracking-wide;
+  }
+  .th {
+    @apply text-2xs uppercase tracking-wider text-ink-400 font-semibold
+           px-3 py-2 text-left sticky top-0 bg-ink-900 z-10
+           border-b border-ink-800;
+  }
+  .td { @apply px-3 py-2 text-sm border-b border-ink-850/70 align-top; }
+  .num { @apply font-mono tabular-nums; }
+  .link { @apply text-accent-400 hover:text-accent-300 hover:underline; }
+}
