@@ -89,6 +89,34 @@ through the identical path.
         └──────────┘
 ```
 
+## Processing modes and the native-text boundary
+
+The visual-first claim is only meaningful if it can be enforced and audited, so
+it is expressed in code rather than in a comment.
+
+| Mode | What extraction may see |
+|---|---|
+| `VISUAL_ONLY` | The rendered page image, OCR text and boxes, and the layout, tables and charts derived from them. Any native-PDF-text read that feeds extraction raises `NativeTextAccessViolation`. **No fallback** — an unrecoverable field is left absent or flagged, never filled in from glyphs. |
+| `HYBRID` (default) | The same visual pipeline, plus the text layer as an independent corroborating channel. |
+
+`app/core/modes.py` gates every native-text read through `guard_native_text`,
+which classifies each call site by scope: `INGESTION_VALIDATION` (metadata only,
+permitted everywhere), `CORROBORATION` (feeds layout typography and currency
+recovery, so **blocked** in visual-only) and `EVALUATION_BASELINE` (measurement,
+permitted everywhere). Every access is recorded in a per-run ledger stored on the
+`processing_runs` row and returned by `GET /documents/{id}/status`, so a run can
+be audited afterwards rather than trusted.
+
+Because the pipeline analyses pages on a `ThreadPoolExecutor` and `ContextVar`s
+do not propagate into worker threads, the mode is copied into each task
+explicitly — without that the guard would be inactive in exactly the threads
+doing the work. A test pins this.
+
+Measured outcome: on the acceptance document the two modes score identically
+(F1 1.00), and on a PDF containing only rasterised images `VISUAL_ONLY` extracts
+251 facts where both text baselines extract zero. The full audit is in
+[VISUAL_ONLY.md](VISUAL_ONLY.md).
+
 ## Technology choices
 
 Every choice below was made against the actual target machine: Windows 11,
@@ -123,10 +151,13 @@ FinSight sets `limit_type: max` at 1600 instead. Angle classification is
 disabled, since results releases are not rotated, saving roughly 20% of runtime.
 
 **Known limitation, handled explicitly:** the PP-OCR recognition charset has no
-rupee sign, so currency glyphs are dropped from recognised text. The
-`app/ocr/textlayer.py` channel recovers them for digital PDFs (measured: 8
-symbols recovered on page 1 alone), and the unit normaliser falls back on
-lexical cues for scans. This is recorded on the element, not hidden.
+rupee sign, so currency glyphs are dropped from recognised text. In hybrid mode
+the `app/ocr/textlayer.py` channel recovers them (measured: 8 symbols recovered
+on page 1 alone). In visual-only mode that channel is blocked, so the currency is
+inferred from India-only magnitude words read from the pixels — "crore" and
+"lakh" — and flagged as `currency_inferred` with a small confidence penalty, so a
+deduction is never mistaken for a symbol that was read. A scanned rupee document
+that never spells out a currency word leaves the currency `UNKNOWN`.
 
 Results are cached on disk keyed by **content hash** + page + render signature +
 OCR signature. Identical pixels always produce identical OCR, so re-ingesting or
@@ -381,16 +412,23 @@ not overstate itself.
    releases and financial statements. A heavily designed investor presentation
    with overlapping graphics and unusual reading order would need a trained
    layout model; the `LayoutEngine` seam exists for exactly that.
-3. **OCR drops currency glyphs.** Recovered from the text layer for digital
-   PDFs; a *scanned* rupee document relies on lexical cues instead.
+3. **OCR drops currency glyphs.** Recovered from the text layer in hybrid mode;
+   in visual-only mode the currency is inferred from Indian magnitude words and
+   flagged as inferred. A scanned rupee document that never writes "crore",
+   "lakh" or "Rs." leaves the currency `UNKNOWN`.
 4. **Multi-page table continuation** is detected structurally (matching column
    count and headers). A continuation whose structure changes mid-table will be
    treated as a new table.
 5. **The ground-truth key covers 85 facts**, chosen to span 6 entities, 4
    periods and 5 tables. It is a rigorous spot check, not exhaustive coverage of
    all 400 extracted facts.
-6. **Commentary summarisation is optional and off by default.** A local Ollama
+6. **Typography is coarser without a text layer.** In visual-only mode font size
+   falls back to the OCR box height and boldness is unavailable, so heading
+   detection rests on size, case, position and length. This costs nothing
+   measurable on the benchmark, but a document that distinguishes sections *only*
+   by weight would be harder.
+7. **Commentary summarisation is optional and off by default.** A local Ollama
    model can be enabled for summaries only; it can never introduce a fact, and
    the entire pipeline is fully functional without it.
-7. **Single-node deployment.** The job queue is in-process. Horizontal scaling
+8. **Single-node deployment.** The job queue is in-process. Horizontal scaling
    would mean swapping the queue module for a broker-backed one.

@@ -16,6 +16,7 @@ from app.core.errors import (
     CorruptDocument, EmptyDocument, EncryptedDocument, ValidationFailure,
 )
 from app.core.logging import get_logger
+from app.core.modes import NativeTextScope, guard_native_text
 
 log = get_logger("ingestion.validator")
 
@@ -86,6 +87,14 @@ def probe_pdf(path: str | Path) -> PdfProbe:
         meta = {k: v for k, v in (doc.metadata or {}).items() if v}
         version = str(meta.get("format", "unknown"))
 
+        # INGESTION_VALIDATION scope: this counts characters to decide
+        # whether a text layer exists at all.  It is pure metadata --
+        # nothing downstream of ingestion branches on it and it never
+        # reaches extraction -- so it is permitted in every mode, but it
+        # is still recorded in the ledger so the audit is complete.
+        guard_native_text("ingestion.validator.probe_pdf",
+                          NativeTextScope.INGESTION_VALIDATION,
+                          detail=f"pages={page_count}")
         total_chars = 0
         pages_with_text = 0
         sizes: list[tuple[float, float]] = []

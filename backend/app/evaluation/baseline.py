@@ -37,6 +37,7 @@ from time import perf_counter
 import pymupdf
 
 from app.core.logging import get_logger
+from app.core.modes import NativeTextScope, guard_native_text
 from app.extraction.taxonomy import match_metric
 from app.normalization.numbers import looks_numeric, normalize_number, parse_number
 from app.normalization.periods import DEFAULT_CALENDAR, find_all_periods, parse_period
@@ -99,6 +100,11 @@ def run_baseline(pdf_path: str | Path, *, mode: str = "line_reconstructed",
     ``mode`` selects ``naive`` (content-stream order) or ``line_reconstructed``
     (words grouped by y-position).  Neither performs column analysis.
     """
+    # EVALUATION_BASELINE scope: reading the text layer *is* the point of
+    # this function -- it exists to be measured against the visual
+    # pipeline -- so it is permitted in every mode and recorded as such.
+    guard_native_text("evaluation.baseline.run_baseline",
+                      NativeTextScope.EVALUATION_BASELINE, detail=mode)
     t0 = perf_counter()
     result = BaselineResult()
     result.mode = mode

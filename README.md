@@ -22,8 +22,10 @@ PDF → validate → render pages → OCR (+ text-layer corroboration)
     → database → API → dashboard → human review
 ```
 
-- **Visual-first.** Rendered page images are the canonical representation, so
-  scanned and born-digital PDFs go through the same path.
+- **Visual-first, and provably so.** Rendered page images are the canonical
+  representation, so scanned and born-digital PDFs go through the same path. A
+  strict `VISUAL_ONLY` mode hard-blocks the PDF text layer from reaching
+  extraction — see [docs/VISUAL_ONLY.md](docs/VISUAL_ONLY.md) for the audit.
 - **Traceable.** Click any number and see the page, the region, the table cell,
   the OCR text and a crop of the exact source area.
 - **Validated.** Reported growth rates, margins, accounting identities and
@@ -40,17 +42,35 @@ content plus statements.
 | | |
 |---|---|
 | Pages processed | **34 / 34** (0 failed) |
-| Financial facts | **400** across 42 canonical metrics |
-| Tables reconstructed | **24** (1,607 cells, 100% numeric parse rate) |
+| Financial facts | **397** across 42 canonical metrics |
+| Tables reconstructed | **30** (1,663 cells, 100% numeric parse rate) |
 | Charts / figures | 1 |
-| Validation checks | **125** — 116 passed, 4 warnings, **0 failures** |
-| Facts needing review | 24 (6%) |
+| Validation checks | **119** — 106 passed, 4 warnings, **0 failures** |
+| Facts needing review | 49 (12%) |
 | Provenance coverage | **100%** — every fact resolves to a bounding box |
 | Accuracy vs. hand-built key | **precision 1.00, recall 1.00, F1 1.00** (85 facts) |
-| Processing time | 321 s cold (9.4 s/page) on a CPU-only laptop; 115 s re-run with the OCR cache warm |
+| Same, with the PDF text layer blocked | **precision 1.00, recall 1.00, F1 1.00** |
+| Processing time | 321 s cold (9.4 s/page) on a CPU-only laptop; 131 s re-run with the OCR cache warm |
 
 Full detail, including the baseline comparison, is in
 [docs/EVALUATION.md](docs/EVALUATION.md).
+
+## Can it process a PDF with no text layer?
+
+**Yes.** A 7-page PDF containing only rasterised images — 0 extractable
+characters, 0 words, 0 embedded fonts — processed in `VISUAL_ONLY` mode:
+
+| | native text (naive) | native text (strong) | **VISUAL_ONLY** |
+|---|---|---|---|
+| Financial facts | 0 | 0 | **251** |
+| Tables reconstructed | 0 | 0 | **9** |
+| Facts with a bounding box | 0 | 0 | **251** |
+| F1 vs. hand-built key | 0 | 0 | **1.00** |
+| Extraction used PDF text | true | true | **false** |
+
+Both text baselines return nothing, because there is nothing to read. The full
+audit — how the boundary is enforced, what it caught, and the honest
+limitations — is in [docs/VISUAL_ONLY.md](docs/VISUAL_ONLY.md).
 
 ## Why visual processing matters
 
@@ -59,12 +79,13 @@ visual stages removed:
 
 | | Text baseline (naive) | Text baseline (strong) | Visual pipeline |
 |---|---|---|---|
-| Facts extracted | 1 | 78 | **400** |
-| Tables reconstructed | 0 | 0 | **24** |
-| Facts with a unit | 1 | 4 | **384** |
-| Facts with a currency | 0 | 0 | **316** |
+| Facts extracted | 1 | 78 | **397** |
+| Tables reconstructed | 0 | 0 | **30** |
+| Facts with a unit | 1 | 4 | **369** |
+| Facts with a currency | 0 | 0 | **309** |
 | Facts with growth linkage | 0 | 0 | **96** |
-| Facts with a source bounding box | 0 | 0 | **400** |
+| Facts with a source bounding box | 0 | 0 | **397** |
+| F1 against the hand-built key | 0 | 0.067 | **1.00** |
 | Numbers seen but discarded | — | 423 | 0 |
 
 The naive baseline reads the PDF's content stream in its native order and finds
@@ -115,6 +136,7 @@ cd backend && python cli.py ingest ../data/benchmark/Media_Release_RIL_Q1_FY2026
 | [docs/SETUP.md](docs/SETUP.md) | Installation, configuration, running, troubleshooting, deployment |
 | [docs/API.md](docs/API.md) | Every endpoint with request and response shapes |
 | [docs/EVALUATION.md](docs/EVALUATION.md) | Metrics, ground-truth methodology, baseline comparison, results |
+| [docs/VISUAL_ONLY.md](docs/VISUAL_ONLY.md) | The visual-only audit: enforcement, image-only test, three-mode comparison |
 
 ## Repository layout
 
@@ -122,7 +144,7 @@ cd backend && python cli.py ingest ../data/benchmark/Media_Release_RIL_Q1_FY2026
 backend/
   app/
     api/            FastAPI routers
-    core/           logging, errors, geometry, ids
+    core/           logging, errors, geometry, ids, processing modes
     config/         settings (all tunables in one place)
     ingestion/      upload storage, PDF validation
     rendering/      PyMuPDF page rasterisation + cache
@@ -138,17 +160,17 @@ backend/
     review/         human-in-the-loop workflow
     comparison/     period and document comparison
     export/         JSON / CSV / XLSX
-    evaluation/     metrics framework and baseline comparison
+    evaluation/     metrics, baseline and three-mode comparison
     database/       SQLAlchemy models, session, repository
     services/       pipeline orchestrator, persistence bridge
     workers/        background job queue
-  tests/            206 tests
+  tests/            226 tests
   cli.py            command-line interface
 frontend/src/
   views/            dashboard, upload, document tabs, compare, search, system
   components/       page canvas with overlays, provenance panel, UI primitives
   api/              typed API client
-data/benchmark/     acceptance PDF and its hand-built ground-truth key
+data/benchmark/     acceptance PDF, image-only fixture, ground-truth keys
 docs/
 ```
 
@@ -158,11 +180,12 @@ docs/
 cd backend && python -m pytest
 ```
 
-206 tests covering normalisation, taxonomy, table reconstruction, fact
+226 tests covering normalisation, taxonomy, table reconstruction, fact
 extraction, the validation engine, confidence scoring, ingestion security,
 rendering, the full pipeline (including corrupt, non-PDF, image-only and
 OCR-failure cases), the API contract, background jobs and the evaluation
-framework.
+framework, and the visual-only boundary (including that it holds inside worker
+threads).
 
 ## Known limitations
 
@@ -174,8 +197,10 @@ These are real and deliberately not hidden — see
 - **Layout detection is heuristic**, not a learned model. It is strong on the
   clean, ruled documents this system targets and would need a trained model for
   heavily designed investor presentations. The engine interface exists for that.
-- **OCR drops currency glyphs.** The PP-OCR charset has no rupee sign; the
-  symbol is recovered from the PDF text layer, so a *scanned* rupee document
-  relies on lexical cues ("crore", "Rs.") instead.
+- **OCR drops currency glyphs.** The PP-OCR charset has no rupee sign. In hybrid
+  mode the symbol is recovered from the PDF text layer; in visual-only mode the
+  currency is inferred from India-only magnitude words read from the pixels
+  ("crore", "lakh") and flagged as inferred. A scanned rupee document that never
+  spells out a currency word would leave it `UNKNOWN`.
 - **Commentary summarisation is optional** and off by default; a local Ollama
   model can be enabled, but it can never introduce a fact.

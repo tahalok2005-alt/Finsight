@@ -171,7 +171,16 @@ def extract_from_table(table: ExtractedTable, ctx: TableFactContext,
         if match is None:
             continue
         uom = _uom_text(table, row, uom_cols)
-        row_context = f"{label} {uom} {context_text}"
+        # Unit resolution is strictly layered, most specific first:
+        #   1. the row label and its own unit-of-measure cell
+        #   2. the table's declared unit (already resolved from an explicit
+        #      "(Rs in crore)" declaration by the table builder)
+        # The surrounding caption prose is deliberately NOT consulted here.  A
+        # window of narrative above a rupee table routinely mentions "533
+        # million subscribers", and letting that through reported the whole
+        # table in millions.
+        row_context = f"{label} {uom}".strip()
+        row_declares_unit = bool(uom.strip())
 
         # ---- period columns ------------------------------------------------
         row_facts: list[tuple[FinancialFact, TableColumn, NormalizedPeriod | None]] = []
@@ -182,7 +191,8 @@ def extract_from_table(table: ExtractedTable, ctx: TableFactContext,
             fact = _fact_from_cell(
                 cell=cell, table=table, ctx=ctx, match=match, label=label,
                 column=col, period=period, row_context=row_context,
-                table_unit=table_unit, table_currency=table_currency)
+                table_unit=table_unit, table_currency=table_currency,
+                row_declares_unit=row_declares_unit)
             if fact is not None:
                 facts.append(fact)
                 row_facts.append((fact, col, period))
@@ -196,14 +206,17 @@ def _fact_from_cell(*, cell: TableCell, table: ExtractedTable,
                     ctx: TableFactContext, match: MetricMatch, label: str,
                     column: TableColumn, period: NormalizedPeriod | None,
                     row_context: str, table_unit: MagnitudeUnit | None,
-                    table_currency: Currency | None) -> FinancialFact | None:
+                    table_currency: Currency | None,
+                    row_declares_unit: bool = False) -> FinancialFact | None:
     expected = match.definition.value_type
     # A metric declared as a percentage or ratio must not inherit the table's
     # monetary unit -- that is how "EBITDA margin 15.9" becomes "15.9 crore".
-    unit_default = None if expected in (
-        ValueType.PERCENTAGE, ValueType.RATIO, ValueType.COUNT) else table_unit
-    cur_default = None if expected in (
-        ValueType.PERCENTAGE, ValueType.RATIO, ValueType.COUNT) else table_currency
+    non_monetary = expected in (
+        ValueType.PERCENTAGE, ValueType.RATIO, ValueType.COUNT)
+    # The table-level unit is a *fallback*: it does not apply to a
+    # non-monetary metric, nor to a row that stated its own unit.
+    unit_default = None if (non_monetary or row_declares_unit) else table_unit
+    cur_default = None if (non_monetary or row_declares_unit) else table_currency
 
     num = normalize_number(cell.text, context=row_context,
                            default_currency=cur_default,

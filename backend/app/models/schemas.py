@@ -264,6 +264,12 @@ class NormalizedNumber(Base):
     magnitude: MagnitudeUnit = MagnitudeUnit.NONE
     currency: Currency = Currency.UNKNOWN
     currency_symbol: str | None = None
+    currency_inferred: bool = Field(
+        default=False,
+        description="True when the currency was deduced from context (e.g. an "
+                    "India-only magnitude word) rather than read as a symbol. "
+                    "Kept distinct so a reader can tell the two apart.",
+    )
     base_value: float | None = Field(
         default=None,
         description="Value converted to base units (currency units, not lakh/"

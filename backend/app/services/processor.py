@@ -13,6 +13,7 @@ from app.config.settings import settings
 from app.core.logging import get_logger
 from app.database import repository as repo
 from app.database.session import session_scope
+from app.core.modes import ProcessingMode
 from app.models.enums import DocumentStatus, StageStatus
 from app.models.schemas import StageRecord
 from app.ocr.registry import get_engine, probe_engines
@@ -61,7 +62,9 @@ STAGE_TO_STATUS = {
 
 
 def process_document(document_id: str, *, trigger: str = "upload",
-                     force_ocr: bool = False) -> PipelineResult:
+                     force_ocr: bool = False,
+                     mode: ProcessingMode | str = ProcessingMode.HYBRID,
+                     ) -> PipelineResult:
     """Run the pipeline for one document and persist everything it produced."""
     with session_scope() as session:
         doc = repo.get_document(session, document_id)
@@ -93,7 +96,8 @@ def process_document(document_id: str, *, trigger: str = "upload",
                         document_id=document_id, error=str(exc))
 
     pipeline = Pipeline(document_id, pdf_path, progress=on_progress,
-                        force_ocr=force_ocr, content_hash=content_hash)
+                        force_ocr=force_ocr, content_hash=content_hash,
+                        mode=mode)
     result = pipeline.run()
 
     with session_scope() as session:
@@ -133,6 +137,17 @@ def process_document(document_id: str, *, trigger: str = "upload",
                                 else "FAILED"),
                         duration_ms=result.duration_ms, error=result.error)
 
+        # record how this run was produced, so a stored result can always be
+        # traced to the mode that produced it
+        from app.database.models import ProcessingRun  # noqa: PLC0415
+        run_row = session.get(ProcessingRun, run_id)
+        if run_row is not None:
+            run_row.settings_snapshot = {
+                **(run_row.settings_snapshot or {}),
+                "processing_mode": result.mode,
+                "native_text_audit": result.native_text_audit,
+            }
+
         doc = repo.get_document(session, document_id)
         if doc is not None and result.metadata.get("sections"):
             doc.pdf_metadata = {**(doc.pdf_metadata or {}),
@@ -140,5 +155,8 @@ def process_document(document_id: str, *, trigger: str = "upload",
 
     log.info("processor.persisted", document_id=document_id,
              status=str(result.status), facts=len(result.facts),
-             tables=len(result.tables), pages=len(result.pages))
+             tables=len(result.tables), pages=len(result.pages),
+             mode=result.mode,
+             native_text_for_extraction=result.native_text_audit.get(
+                 "extraction_fed_by_native_text"))
     return result

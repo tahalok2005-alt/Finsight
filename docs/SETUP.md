@@ -97,12 +97,14 @@ cd backend
 python cli.py init-db [--drop]        # create (or recreate) the schema
 python cli.py engines                 # which OCR engines are actually usable
 python cli.py ingest <file.pdf>       # ingest and process, printing a summary
+python cli.py ingest <file.pdf> --mode VISUAL_ONLY   # block the PDF text layer
 python cli.py list                    # all documents with status and counts
 python cli.py status <document_id>    # one document's counts and metadata
 python cli.py show <document_id>      # extracted facts as a table
 python cli.py export <document_id> --format json|csv|xlsx [-o out]
 python cli.py evaluate <document_id>  # metrics, accuracy, baseline comparison
 python cli.py baseline <file.pdf> --document-id <id>   # baseline only
+python cli.py modes <file.pdf> --visual <id> --hybrid <id>   # three-way comparison
 ```
 
 Useful flags: `ingest --force-ocr` bypasses the OCR cache;
@@ -131,6 +133,11 @@ The settings that matter most:
 | `FINSIGHT_WORKER_THREADS` | `2` | Documents processed concurrently |
 | `FINSIGHT_MAX_UPLOAD_MB` | `200` | Upload size cap |
 | `FINSIGHT_LOG_JSON` | `false` | JSON structured logs for aggregation |
+
+Processing mode is chosen per run rather than by configuration: `HYBRID` is the
+default, and `--mode VISUAL_ONLY` (CLI) forbids the PDF text layer from reaching
+extraction. The mode and its access ledger are recorded on every processing run
+and returned by `GET /documents/{id}/status`.
 
 The effective settings are recorded on **every processing run** (`settings_snapshot`
 on `processing_runs`), so a result can always be tied back to the configuration
@@ -165,7 +172,7 @@ export FINSIGHT_LLM_MODEL=qwen3:4b
 cd backend && python -m pytest
 ```
 
-206 tests, about 2.5 minutes (the pipeline tests run real OCR). To skip those:
+226 tests, about 3.5 minutes (the pipeline tests run real OCR). To skip those:
 
 ```bash
 python -m pytest -m "not slow"

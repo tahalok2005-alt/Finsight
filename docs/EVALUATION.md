@@ -1,5 +1,11 @@
 # Evaluation
 
+> **Note.** The figures below are for the production **HYBRID** mode. The same
+> document processed in strict **VISUAL_ONLY** mode — with the PDF text layer
+> hard-blocked from reaching extraction — scores identically (F1 1.00) and is
+> audited separately in [VISUAL_ONLY.md](VISUAL_ONLY.md), together with an
+> image-only PDF test.
+
 Two kinds of measurement, kept separate because they answer different questions:
 
 - **Intrinsic metrics** need no ground truth and run on any document. They
@@ -30,7 +36,7 @@ runtime; it is loaded only to score a finished run.
 - 5 different tables across pages 1, 4, 5, 7, 8, 11 and 16
 - monetary, percentage, ratio and count value types
 
-This is a rigorous spot check, not exhaustive coverage of all 400 extracted
+This is a rigorous spot check, not exhaustive coverage of all 397 extracted
 facts. It was chosen to exercise the parts most likely to break: multi-entity
 attribution, period-to-column mapping, percentage-versus-monetary typing, and
 operational tables with a separate unit-of-measure column.
@@ -73,38 +79,38 @@ box is right, but the key names the other occurrence.
 | | mean confidence | 0.842 |
 | | worst page confidence | 0.761 |
 | | text-layer agreement | **0.932** |
-| **Tables** | reconstructed | 24 |
-| | mean confidence | 0.949 |
-| | cells | 1,607 (1,189 numeric) |
+| **Tables** | reconstructed | 30 |
+| | mean confidence | 0.942 |
+| | cells | 1,663 (1,195 numeric) |
 | | numeric parse rate | **1.00** |
-| | with resolved period columns | 18 |
-| | continuations linked | 3 |
-| **Normalisation** | unit resolved | 0.96 |
-| | currency resolved | 0.79 |
-| | period resolved | **0.98** |
+| | with resolved period columns | 19 |
+| | continuations linked | 4 |
+| **Normalisation** | unit resolved | 0.93 |
+| | currency resolved | 0.78 |
+| | period resolved | **0.93** |
 | | entity resolved | **1.00** |
 | | growth linked | 0.24 |
 | **Provenance** | facts with a record | **1.00** |
 | | records with a bounding box | **1.00** |
-| **Confidence** | HIGH / MEDIUM / LOW | 355 / 33 / 12 |
-| **Validation** | checks run | 125 |
-| | passed / warnings / **failures** | 116 / 4 / **0** |
-| | pass rate | 0.928 |
-| **Review** | queue | 24 (6% of facts) |
+| **Confidence** | HIGH / MEDIUM / LOW | 326 / 59 / 12 |
+| **Validation** | checks run | 119 |
+| | passed / warnings / **failures** | 106 / 4 / **0** |
+| | pass rate | 0.891 |
+| **Review** | queue | 49 (12% of facts) |
 | **Performance** | total, cold (empty OCR cache) | 321 s |
 | | per page, cold | 9.4 s |
-| | total, OCR cache warm | 115 s |
+| | total, OCR cache warm | 131 s |
 
 Reading the softer numbers honestly:
 
-- **currency resolved 0.79** — the remaining 21% are percentages, ratios and
+- **currency resolved 0.78** — the remaining 22% are percentages, ratios and
   counts, which correctly have no currency. This is the metric behaving as
   designed, not a gap.
 - **growth linked 0.24** — growth is only attached where the document supplies a
   comparison column or states a change in prose. Most cells are a single
   period's value with nothing to compare against, and inventing a comparison
   would be wrong.
-- **validation pass rate 0.928** — the 4 warnings and 5 review flags are real
+- **validation pass rate 0.891** — the 4 warnings and 9 review flags are real
   observations about the document (segment sums that legitimately differ from
   consolidated totals because of eliminations, and figures whose magnitude the
   document never declared), not extraction errors.
@@ -113,14 +119,14 @@ Reading the softer numbers honestly:
 
 | Family | Passed | Warning | Requires review |
 |---|---|---|---|
-| growth | 48 | — | — |
-| margin | 23 | 3 | — |
+| growth | 41 | — | — |
+| margin | 20 | 3 | — |
 | derived | 8 | — | — |
 | ratio | 4 | — | — |
 | aggregation | 33 | 1 | — |
-| consistency | — | — | 5 |
+| consistency | — | — | 9 |
 
-All 48 reported growth rates on the document recompute correctly from the two
+All 41 reported growth rates on the document recompute correctly from the two
 period values. The `derived` family confirms PBT − Tax = PAT and Debt − Cash =
 Net Debt across every period.
 
@@ -142,19 +148,20 @@ therefore which period — a figure belongs to.
 
 | | naive text | strong text | **visual pipeline** |
 |---|---|---|---|
-| Facts extracted | 1 | 78 | **400** |
-| Distinct metrics | 1 | 32 | **42** |
-| Tables reconstructed | 0 | 0 | **24** |
-| Table cells | 0 | 0 | **2,152** |
-| Facts with a unit | 1 | 4 | **384** |
-| Facts with a currency | 0 | 0 | **316** |
+| Facts extracted | 1 | 78 | **397** |
+| Distinct metrics | 1 | 32 | **43** |
+| Tables reconstructed | 0 | 0 | **30** |
+| Table cells | 0 | 0 | **2,291** |
+| Facts with a unit | 1 | 4 | **369** |
+| Facts with a currency | 0 | 0 | **309** |
 | Facts with growth linkage | 0 | 0 | **96** |
-| Facts with an entity | 0 | 0 | **400** |
-| Facts with a source bounding box | 0 | 0 | **400** |
-| Facts passing arithmetic validation | 0 | 0 | **203** |
+| Facts with an entity | 0 | 0 | **397** |
+| Facts with a source bounding box | 0 | 0 | **397** |
+| Facts passing arithmetic validation | 0 | 0 | **179** |
+| F1 against the hand-built key | **0** | **0.067** | **1.00** |
 | Numeric tokens seen | 2,136 | 2,238 | — |
 | Numbers seen but discarded | — | **423** | 0 |
-| Runtime | 2.4 s | 2.2 s | 321 s cold / 115 s warm |
+| Runtime | 4.8 s | 2.6 s | 321 s cold / 131 s warm |
 
 ### What the numbers mean
 
@@ -176,7 +183,7 @@ in a caption above the table — only the table structure connects that caption 
 the figures beneath it. The visual pipeline resolves units for 384 facts and
 currency for 316.
 
-**Validation is only possible downstream of correct attribution.** 203 visual
+**Validation is only possible downstream of correct attribution.** 179 visual
 facts passed an independent arithmetic check. The baselines pass none, because
 recomputing a growth rate requires knowing that two numbers are the same metric,
 same entity, adjacent periods — which is exactly what column geometry establishes.
@@ -236,7 +243,7 @@ measures nothing.
 
 ## Test suite
 
-206 automated tests (`cd backend && python -m pytest`), covering:
+226 automated tests (`cd backend && python -m pytest`), covering:
 
 | Area | Coverage |
 |---|---|
@@ -254,3 +261,4 @@ measures nothing.
 | API | every endpoint, upload validation, duplicate detection, provenance resolution, exports, review workflow preserving the extracted value |
 | Workers | job success and failure both recorded on the job *and* the document |
 | Evaluation | intrinsic metrics, accuracy scoring, wrong values counted rather than hidden, baseline behaviour on an image-only PDF |
+| Visual-only | the native-text boundary (including inside worker threads), an image-only PDF processed end to end, provenance resolving to rendered-image coordinates, hybrid and visual-only remaining distinct — see [VISUAL_ONLY.md](VISUAL_ONLY.md) |

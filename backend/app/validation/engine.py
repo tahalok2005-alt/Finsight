@@ -61,11 +61,22 @@ class ValidationReport:
 
 
 def _idx(facts: Sequence[FinancialFact]) -> dict[Key, list[FinancialFact]]:
+    """Bucket facts by (entity, period, metric) for cross-fact rules.
+
+    Facts with **no** period are excluded.  "Unattributed" is not a period: two
+    figures that both failed period resolution are not thereby known to belong
+    to the same period, and bucketing them together lets a margin rule divide
+    one quarter's profit by another quarter's revenue.  They are still checked
+    individually by the sanity and coverage rules, which is where a missing
+    period gets surfaced.
+    """
     out: dict[Key, list[FinancialFact]] = defaultdict(list)
     for f in facts:
         if f.nature != StatementNature.ACTUAL and f.nature != "actual":
             continue
-        out[(f.entity or "", f.period or "", f.canonical_metric)].append(f)
+        if not f.period:
+            continue
+        out[(f.entity or "", f.period, f.canonical_metric)].append(f)
     return out
 
 
@@ -362,7 +373,9 @@ def check_aggregation(document_id: str, facts: Sequence[FinancialFact],
     for f in facts:
         if f.value is None or f.value_type != ValueType.MONETARY:
             continue
-        by_metric_period[(f.canonical_metric, f.period or "")].append(f)
+        if not f.period:
+            continue  # see _idx: an unattributed period is not a period
+        by_metric_period[(f.canonical_metric, f.period)].append(f)
 
     for (metric, period), group in by_metric_period.items():
         total_fact = next(

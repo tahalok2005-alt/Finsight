@@ -1,0 +1,811 @@
+{
+  "document": "RIL_Q1_FY27_IMAGE_ONLY.pdf",
+  "derived_from": "Media_Release_RIL_Q1_FY2026-27_Financial_and_Operational_Performance.truth.json",
+  "page_mapping": {
+    "1": 1,
+    "4": 2,
+    "5": 3,
+    "7": 4,
+    "8": 5,
+    "11": 6,
+    "21": 7
+  },
+  "how_this_was_built": [
+    "Subset of the hand-built key for the source PDF, restricted to the",
+    "pages that were rasterised into the image-only fixture, with page",
+    "numbers remapped to their new positions.  The values themselves",
+    "were read off the original document by eye and are unchanged; no",
+    "pipeline output was consulted."
+  ],
+  "facts": [
+    {
+      "canonical_metric": "gross_revenue",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 340257,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "gross_revenue",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 325290,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "gross_revenue",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 273252,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "gross_revenue",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 1175919,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 54067,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 48588,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 49100,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 207911,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "ebitda_margin",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 15.9,
+      "unit": "percent",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "ebitda_margin",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 14.9,
+      "unit": "percent",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "ebitda_margin",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 18.0,
+      "unit": "percent",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "ebitda_margin",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 17.7,
+      "unit": "percent",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "depreciation",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 15100,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "depreciation",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 14808,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "depreciation",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 13842,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "depreciation",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 57688,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "finance_costs",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 8337,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "finance_costs",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 6585,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "finance_costs",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 7036,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "finance_costs",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 27061,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pbt",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 30630,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pbt",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 27195,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pbt",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 28222,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pbt",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 123162,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "tax_expense",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 7629,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "tax_expense",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 6579,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "tax_expense",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 6465,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "tax_expense",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 27552,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pat",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 23001,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pat",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 20616,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pat",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 21757,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pat",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 95610,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pat_after_associates",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 23196,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pat_after_associates",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 20589,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pat_after_associates",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 21859,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "pat_after_associates",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 95754,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "capex",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 38682,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "capex",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 40560,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "capex",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 29875,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "capex",
+      "entity": "Consolidated",
+      "period": "FY26",
+      "value": 144271,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "outstanding_debt",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 369705,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "outstanding_debt",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 374421,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "outstanding_debt",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 338432,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "cash_and_equivalents",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 246791,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "cash_and_equivalents",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 249704,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "cash_and_equivalents",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 220851,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "net_debt",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 122914,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "net_debt",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 124717,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "net_debt",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 117581,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "net_debt_to_ebitda",
+      "entity": "Consolidated",
+      "period": "Q1 FY27",
+      "value": 0.57,
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "net_debt_to_ebitda",
+      "entity": "Consolidated",
+      "period": "Q4 FY26",
+      "value": 0.64,
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "net_debt_to_ebitda",
+      "entity": "Consolidated",
+      "period": "Q1 FY26",
+      "value": 0.6,
+      "page": 1,
+      "source_page": 1
+    },
+    {
+      "canonical_metric": "gross_revenue",
+      "entity": "JPL",
+      "period": "Q1 FY27",
+      "value": 45961,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "gross_revenue",
+      "entity": "JPL",
+      "period": "Q1 FY26",
+      "value": 41054,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "revenue_from_operations",
+      "entity": "JPL",
+      "period": "Q1 FY27",
+      "value": 39173,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "JPL",
+      "period": "Q1 FY27",
+      "value": 20865,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "JPL",
+      "period": "Q1 FY26",
+      "value": 18135,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "ebitda_margin",
+      "entity": "JPL",
+      "period": "Q1 FY27",
+      "value": 53.3,
+      "unit": "percent",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "depreciation",
+      "entity": "JPL",
+      "period": "Q1 FY27",
+      "value": 7458,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "finance_costs",
+      "entity": "JPL",
+      "period": "Q1 FY27",
+      "value": 2980,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "pat",
+      "entity": "JPL",
+      "period": "Q1 FY27",
+      "value": 7764,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 2,
+      "source_page": 4
+    },
+    {
+      "canonical_metric": "gross_revenue",
+      "entity": "RRVL",
+      "period": "Q1 FY27",
+      "value": 90408,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 4,
+      "source_page": 7
+    },
+    {
+      "canonical_metric": "gross_revenue",
+      "entity": "RRVL",
+      "period": "Q1 FY26",
+      "value": 84171,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 4,
+      "source_page": 7
+    },
+    {
+      "canonical_metric": "revenue_from_operations",
+      "entity": "RRVL",
+      "period": "Q1 FY27",
+      "value": 79745,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 4,
+      "source_page": 7
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "RRVL",
+      "period": "Q1 FY27",
+      "value": 6309,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 4,
+      "source_page": 7
+    },
+    {
+      "canonical_metric": "ebitda_margin",
+      "entity": "RRVL",
+      "period": "Q1 FY27",
+      "value": 7.9,
+      "unit": "percent",
+      "page": 4,
+      "source_page": 7
+    },
+    {
+      "canonical_metric": "investment_income",
+      "entity": "RRVL",
+      "period": "Q1 FY27",
+      "value": 374,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 4,
+      "source_page": 7
+    },
+    {
+      "canonical_metric": "pat",
+      "entity": "RRVL",
+      "period": "Q1 FY27",
+      "value": 2806,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 4,
+      "source_page": 7
+    },
+    {
+      "canonical_metric": "revenue",
+      "entity": "O2C",
+      "period": "Q1 FY27",
+      "value": 201803,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 6,
+      "source_page": 11
+    },
+    {
+      "canonical_metric": "revenue",
+      "entity": "O2C",
+      "period": "Q4 FY26",
+      "value": 184944,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 6,
+      "source_page": 11
+    },
+    {
+      "canonical_metric": "revenue",
+      "entity": "O2C",
+      "period": "Q1 FY26",
+      "value": 154804,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 6,
+      "source_page": 11
+    },
+    {
+      "canonical_metric": "revenue",
+      "entity": "O2C",
+      "period": "FY26",
+      "value": 662401,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 6,
+      "source_page": 11
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "O2C",
+      "period": "Q1 FY27",
+      "value": 17010,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 6,
+      "source_page": 11
+    },
+    {
+      "canonical_metric": "ebitda",
+      "entity": "O2C",
+      "period": "Q1 FY26",
+      "value": 14511,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 6,
+      "source_page": 11
+    },
+    {
+      "canonical_metric": "ebitda_margin",
+      "entity": "O2C",
+      "period": "Q1 FY27",
+      "value": 8.4,
+      "unit": "percent",
+      "page": 6,
+      "source_page": 11
+    },
+    {
+      "canonical_metric": "depreciation",
+      "entity": "O2C",
+      "period": "Q1 FY27",
+      "value": 2840,
+      "unit": "crore",
+      "currency": "INR",
+      "page": 6,
+      "source_page": 11
+    },
+    {
+      "canonical_metric": "subscribers",
+      "entity": "JPL",
+      "period": "Q1 FY27",
+      "value": 533.3,
+      "unit": "million",
+      "page": 3,
+      "source_page": 5
+    },
+    {
+      "canonical_metric": "subscribers",
+      "entity": "JPL",
+      "period": "Q1 FY26",
+      "value": 498.1,
+      "unit": "million",
+      "page": 3,
+      "source_page": 5
+    },
+    {
+      "canonical_metric": "store_count",
+      "entity": "RRVL",
+      "period": "Q1 FY27",
+      "value": 20169,
+      "page": 5,
+      "source_page": 8
+    },
+    {
+      "canonical_metric": "store_count",
+      "entity": "RRVL",
+      "period": "Q1 FY26",
+      "value": 19592,
+      "page": 5,
+      "source_page": 8
+    },
+    {
+      "canonical_metric": "area_operated",
+      "entity": "RRVL",
+      "period": "Q1 FY27",
+      "value": 78.4,
+      "page": 5,
+      "source_page": 8
+    }
+  ]
+}

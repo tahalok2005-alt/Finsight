@@ -40,6 +40,7 @@ from app.core.ids import stable_id
 from app.core.logging import get_logger
 from app.models.schemas import BBoxModel, OCRElement, PageOCRResult
 from app.ocr.base import EngineInfo, OCREngine
+from app.ocr.cache import element_id
 
 log = get_logger("ocr.rapidocr")
 
@@ -170,10 +171,13 @@ class RapidOCREngine(OCREngine):
                 bbox = BBox.from_polygon(polygon).clipped(w, h)
                 if bbox.area <= 0:
                     continue
-                eid = stable_id("ocr", document_id, page_number, idx,
-                                round(bbox.x, 1), round(bbox.y, 1), text)
+                # index by final position, not raw detector index, so the id
+                # is reproducible from the cached element list alone
+                eid = element_id(document_id, page_number, len(elements),
+                                 bbox.x, bbox.y, text)
                 elements.append(OCRElement(
                     id=eid, document_id=document_id, page_number=page_number,
+                    reading_index=len(elements),
                     text=text, confidence=confidence,
                     bbox=BBoxModel(**bbox.as_dict()), polygon=polygon,
                     line_id=None, source="ocr",

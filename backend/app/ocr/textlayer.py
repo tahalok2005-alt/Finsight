@@ -23,6 +23,7 @@ import pymupdf
 
 from app.core.geometry import BBox
 from app.core.logging import get_logger
+from app.core.modes import NativeTextScope, guard_native_text
 
 log = get_logger("ocr.textlayer")
 
@@ -54,7 +55,14 @@ def extract_words(pdf_path: str | Path, page_number: int,
 
     ``scale`` must be ``dpi / 72`` for the render that produced the page image,
     so text-layer boxes and OCR boxes share one coordinate frame.
+
+    This is the CORROBORATION scope: its output feeds layout typography and
+    currency recovery, so it genuinely reaches extraction and is refused in
+    VISUAL_ONLY mode rather than being silently skipped.
     """
+    guard_native_text("ocr.textlayer.extract_words",
+                      NativeTextScope.CORROBORATION,
+                      detail=f"page={page_number}")
     words: list[TextLayerWord] = []
     try:
         with pymupdf.open(pdf_path) as doc:

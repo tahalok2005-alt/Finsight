@@ -13,6 +13,7 @@ recorded on the run.
 """
 from __future__ import annotations
 
+import contextvars
 import threading
 import traceback
 from concurrent.futures import ThreadPoolExecutor
@@ -27,6 +28,10 @@ from app.config.settings import settings
 from app.core.errors import FinSightError, StageFailure
 from app.core.ids import new_uuid, stable_id
 from app.core.logging import get_logger, stage_timer
+from app.core.modes import (
+    AccessLedger, NativeTextScope, ProcessingMode, current_ledger,
+    native_text_allowed, processing_mode,
+)
 from app.document import assembly
 from app.extraction import confidence as conf_mod
 from app.extraction.facts import TableFactContext, deduplicate, extract_from_table
@@ -73,6 +78,7 @@ class PageArtifacts:
     charts: list[ExtractedChart] = field(default_factory=list)
     error: str | None = None
     signals_v_lines: list = field(default_factory=list)
+    corroboration: dict = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -93,6 +99,8 @@ class PipelineResult:
     metadata: dict = field(default_factory=dict)
     error: str | None = None
     duration_ms: float = 0.0
+    mode: str = str(ProcessingMode.HYBRID)
+    native_text_audit: dict = field(default_factory=dict)
 
     @property
     def pages_failed(self) -> int:
@@ -110,8 +118,10 @@ class Pipeline:
                  progress: ProgressFn | None = None,
                  page_workers: int | None = None,
                  force_ocr: bool = False,
-                 content_hash: str | None = None):
+                 content_hash: str | None = None,
+                 mode: ProcessingMode | str = ProcessingMode.HYBRID):
         self.document_id = document_id
+        self.mode = ProcessingMode(mode)
         self.force_ocr = force_ocr
         # OCR results are cached against the file's content, not its id
         self.cache_scope = content_hash or document_id
@@ -139,6 +149,19 @@ class Pipeline:
 
     # ------------------------------------------------------------------- run
     def run(self) -> PipelineResult:
+        """Execute the pipeline under this run's processing mode.
+
+        The mode is entered here so that every stage -- including the
+        per-page worker threads -- inherits it, and so the access ledger
+        covers the whole run.
+        """
+        with processing_mode(self.mode) as ledger:
+            result = self._run(ledger)
+        result.mode = str(self.mode)
+        result.native_text_audit = ledger.summary()
+        return result
+
+    def _run(self, ledger: AccessLedger) -> PipelineResult:
         t_start = perf_counter()
         result = PipelineResult(document_id=self.document_id,
                                 status=DocumentStatus.FAILED, probe=None)
@@ -249,6 +272,12 @@ class Pipeline:
         failed = 0
         artifacts: list[PageArtifacts] = []
 
+        # ContextVars do NOT propagate into ThreadPoolExecutor workers, so the
+        # processing mode (and its access ledger) must be carried across
+        # explicitly.  Without this the native-text guard would be inactive in
+        # exactly the threads that do the page work.
+        parent_context = contextvars.copy_context()
+
         def work(page_number: int) -> PageArtifacts:
             return self._process_one_page(renderer, engine, page_number, probe)
 
@@ -256,7 +285,10 @@ class Pipeline:
         # parallelism here without the memory cost of extra processes.
         with ThreadPoolExecutor(max_workers=self.page_workers,
                                 thread_name_prefix="page") as pool:
-            for art in pool.map(work, range(1, total + 1)):
+            def work_in_context(page_number: int) -> PageArtifacts:
+                return parent_context.copy().run(work, page_number)
+
+            for art in pool.map(work_in_context, range(1, total + 1)):
                 artifacts.append(art)
                 if art.page.status == StageStatus.FAILED:
                     failed += 1
@@ -307,7 +339,8 @@ class Pipeline:
             ocr_sig = settings.ocr_signature
             ocr_result = (None if self.force_ocr else
                           ocr_cache.load(self.cache_scope, page_number,
-                                         render_sig, ocr_sig))
+                                         render_sig, ocr_sig,
+                                         document_id=self.document_id))
             if ocr_result is None:
                 ocr_result = engine.recognize(image, document_id=self.document_id,
                                               page_number=page_number)
@@ -323,14 +356,25 @@ class Pipeline:
             info.ocr_element_count = len(ocr_result.elements)
             info.ocr_mean_confidence = ocr_result.mean_confidence
 
-            # auxiliary channel: corroborate against the PDF text layer
-            words = textlayer.extract_words(self.pdf_path, page_number,
-                                            rendered.scale)
-            info.has_text_layer = bool(words)
-            info.text_layer_chars = sum(len(w.text) for w in words)
-            info.is_scanned = not info.has_text_layer
-            if words:
-                textlayer.corroborate(art.elements, words)
+            # Auxiliary channel: corroborate against the PDF text layer.
+            # In VISUAL_ONLY this is skipped entirely -- not attempted and
+            # caught, which would be a fallback in disguise.  Everything below
+            # this point therefore sees only pixel-derived evidence.
+            if native_text_allowed(NativeTextScope.CORROBORATION):
+                words = textlayer.extract_words(self.pdf_path, page_number,
+                                                rendered.scale)
+                info.has_text_layer = bool(words)
+                info.text_layer_chars = sum(len(w.text) for w in words)
+                info.is_scanned = not info.has_text_layer
+                if words:
+                    art.corroboration = textlayer.corroborate(art.elements, words)
+            else:
+                # Unknown rather than False: visual-only mode deliberately does
+                # not look, so it cannot report whether a text layer exists.
+                info.has_text_layer = False
+                info.text_layer_chars = 0
+                info.is_scanned = True
+                art.corroboration = {"skipped": "VISUAL_ONLY"}
 
             art.lines = group_lines(art.elements, document_id=self.document_id,
                                     page_number=page_number)

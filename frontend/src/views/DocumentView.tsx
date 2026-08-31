@@ -120,6 +120,14 @@ export function DocumentView() {
                   </span>
                 )}
                 <span>{formatDuration(d.processing_ms)}</span>
+                {status.data?.processing_mode === "VISUAL_ONLY" && (
+                  <span
+                    className="chip bg-accent-600/10 text-accent-300 border border-accent-500/30"
+                    title="Extracted from rendered page images only; the PDF text layer was blocked from reaching extraction."
+                  >
+                    visual-only
+                  </span>
+                )}
               </div>
             </div>
             <div className="flex items-center gap-2 shrink-0">

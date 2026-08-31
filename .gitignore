@@ -34,3 +34,6 @@ data/*.db-wal
 .idea/
 .DS_Store
 Thumbs.db
+
+# Generated image-only test fixture (rebuild with scripts/make_image_only_pdf.py)
+data/benchmark/RIL_Q1_FY27_IMAGE_ONLY.pdf

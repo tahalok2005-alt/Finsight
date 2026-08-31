@@ -49,18 +49,19 @@ class JobQueue:
 
     # ---------------------------------------------------------------- submit
     def submit(self, document_id: str, *, job_type: str = "process",
-               force_ocr: bool = False) -> str:
+               force_ocr: bool = False, mode: str | None = None) -> str:
         """Queue a processing job and return its id."""
         self.start()
         with session_scope() as session:
             job = repo.enqueue_job(session, document_id, job_type=job_type,
-                                   payload={"force_ocr": force_ocr})
+                                   payload={"force_ocr": force_ocr,
+                                            "mode": mode})
             job_id = job.id
             repo.set_status(session, document_id, DocumentStatus.QUEUED)
 
         assert self._pool is not None
         future = self._pool.submit(self._run, job_id, document_id, job_type,
-                                   force_ocr)
+                                   force_ocr, mode)
         with self._lock:
             self._futures[job_id] = future
         log.info("queue.submitted", job_id=job_id, document_id=document_id,
@@ -69,15 +70,17 @@ class JobQueue:
 
     # ------------------------------------------------------------- execution
     def _run(self, job_id: str, document_id: str, job_type: str,
-             force_ocr: bool) -> None:
+             force_ocr: bool, mode: str | None = None) -> None:
         from app.services.processor import process_document  # local: avoids cycle
 
         with session_scope() as session:
             repo.claim_job(session, job_id)
         try:
             if job_type in ("process", "reprocess"):
-                process_document(document_id, trigger=job_type,
-                                 force_ocr=force_ocr)
+                from app.core.modes import ProcessingMode  # noqa: PLC0415
+                process_document(
+                    document_id, trigger=job_type, force_ocr=force_ocr,
+                    mode=ProcessingMode(mode) if mode else ProcessingMode.HYBRID)
             else:
                 raise ValueError(f"Unknown job type {job_type!r}")
             with session_scope() as session:

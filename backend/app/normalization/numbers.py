@@ -40,6 +40,10 @@ _MAGNITUDE_WORDS: list[tuple[re.Pattern[str], MagnitudeUnit]] = [
     (re.compile(r"\bthousands?\b|\b000s?\b|\bk\b", re.I), MagnitudeUnit.THOUSAND),
 ]
 
+#: Magnitude words used only in the Indian numbering system.  Seeing one is
+#: strong evidence the amount is in rupees even when no symbol was legible.
+INDIAN_MAGNITUDES = frozenset({MagnitudeUnit.CRORE, MagnitudeUnit.LAKH})
+
 CURRENCY_SYMBOLS: dict[str, Currency] = {
     "₹": Currency.INR, "$": Currency.USD, "€": Currency.EUR,
     "£": Currency.GBP, "¥": Currency.JPY,
@@ -199,6 +203,21 @@ def normalize_number(text: str, *, context: str = "",
             vtype = ValueType.MONETARY
 
     magnitude = magnitude or MagnitudeUnit.NONE
+
+    # Currency inferred from an India-specific magnitude word.
+    #
+    # This matters for visual-only processing: the PP-OCR charset cannot emit
+    # the rupee sign, so the symbol is simply absent from a pixel-only reading.
+    # But "crore" and "lakh" are read from the pixels like any other word, and
+    # they are only ever used for rupee amounts.  The inference therefore comes
+    # from the document's own visible text -- not from the PDF text layer -- and
+    # it is flagged as *inferred* rather than presented as a symbol that was
+    # actually read.
+    inferred = False
+    if currency is None and magnitude in INDIAN_MAGNITUDES:
+        currency = Currency.INR
+        inferred = True
+
     currency = currency or Currency.UNKNOWN
 
     base = None
@@ -211,11 +230,14 @@ def normalize_number(text: str, *, context: str = "",
         confidence -= 0.15
     if currency == Currency.UNKNOWN and vtype == ValueType.MONETARY:
         confidence -= 0.10
+    if inferred:
+        confidence -= 0.05
 
     return NormalizedNumber(
         value=value, raw_text=token.strip(), is_negative=is_neg,
         negative_from_parentheses=from_paren, value_type=vtype,
         magnitude=magnitude, currency=currency, currency_symbol=symbol,
+        currency_inferred=inferred,
         base_value=base, confidence=round(max(0.3, confidence), 3))
 
 

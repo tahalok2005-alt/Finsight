@@ -47,9 +47,14 @@ GROWTH_HEADER_RE = re.compile(
     r"%\s*(chg|change|growth)|y-?o-?y|q-?o-?q|yoy|qoq|\bgrowth\b|\bchange\b|\bvar\b",
     re.I)
 SERIAL_HEADER_RE = re.compile(r"^(sr\.?|s\.?\s*no\.?|no\.?|#|sl\.?)\s*$", re.I)
+#: An explicit unit declaration above a table.  Both orderings occur in the
+#: wild -- "(Rs in crore)" and "(in Rs crore)" -- and the currency symbol may be
+#: missing entirely when OCR could not emit it, so every part is optional except
+#: the magnitude word itself.
 UNIT_DECL_RE = re.compile(
-    r"\(\s*(?:in\s+)?(?:rs\.?|inr|₹|\$|usd|us\$)?\s*"
-    r"(crore|cr|lakh|lac|million|mn|billion|bn|thousand|000s?)\s*\)?", re.I)
+    r"\(\s*(?:in\s+)?(?:rs\.?|inr|₹|\$|usd|us\$)?\s*(?:in\s+)?"
+    r"(crore|cr|lakh|lac|million|mn|billion|bn|thousand|000s?)\b[^)]{0,30}\)?",
+    re.I)
 
 
 @dataclass(slots=True)
@@ -314,11 +319,29 @@ def build_table(*, document_id: str, page_number: int, region_id: str | None,
         for el in r.elements:
             grid.setdefault((r.index, _assign_column(el, cols)), []).append(el)
 
-    unit_hint = detect_magnitude(context_text) or detect_magnitude(title)
-    m = UNIT_DECL_RE.search(context_text or "")
-    if m and not unit_hint:
-        unit_hint = detect_magnitude(m.group(0))
-    currency_hint, _ = detect_currency(f"{context_text} {title}")
+    # An explicit unit *declaration* -- "(Rs in crore)" -- is authoritative.
+    # A bare magnitude word anywhere in the surrounding prose is not: a page
+    # whose bullets mention "533 million subscribers" would otherwise declare
+    # its rupee table to be in millions.  The declaration is therefore tried
+    # first, and loose prose only as a last resort.
+    # Sources are tried most-specific first.  The declaration frequently sits
+    # on the table's own first line -- it is part of the band, not of the
+    # caption above it -- so the table's own text is searched before the
+    # surrounding context, whose window can catch narrative prose ("533
+    # million subscribers") that has nothing to do with the table's unit.
+    own_text = "\n".join(ln.text for ln in lines[:3])
+    unit_hint = None
+    currency_hint = None
+    for source in (own_text, context_text or "", title or ""):
+        decl = UNIT_DECL_RE.search(source)
+        if decl:
+            unit_hint = detect_magnitude(decl.group(0))
+            currency_hint, _ = detect_currency(decl.group(0))
+            break
+    if unit_hint is None:
+        unit_hint = detect_magnitude(title) or detect_magnitude(context_text)
+    if currency_hint is None:
+        currency_hint, _ = detect_currency(f"{title} {context_text}")
 
     for (r_idx, c_idx), els in sorted(grid.items()):
         els.sort(key=lambda e: (e.bbox.y, e.bbox.x))

@@ -112,6 +112,22 @@ SECTION_BANNER_RE = re.compile(
     r"operating (metrics|update)|key (metrics|highlights?))\b", re.I)
 
 
+def _is_prose_line(line: TextLine) -> bool:
+    """True when a line reads as a sentence rather than a table header.
+
+    Judged from the recognised words alone, so it behaves identically with and
+    without a PDF text layer.
+    """
+    text = line.text.strip()
+    if not text:
+        return True
+    words = text.split()
+    if len(words) > 12:
+        return True
+    # a trailing full stop marks a sentence; header cells do not carry one
+    return text.endswith((".", "!", "?")) and len(words) > 4
+
+
 def _is_banner_line(line: TextLine, ctx: LayoutContext) -> bool:
     """A heading-like line that runs across the table's column structure.
 
@@ -212,7 +228,12 @@ def detect_table_bands(lines: list[TextLine], signals: PageSignals,
             gap = lines[start].bbox.y - prev.bbox.y1
             if gap > ctx.line_height * 2.6:
                 break
-            if len(prev.elements) < 2 and not prev.is_bold:
+            # Stop at prose.  A header is terse -- "Particulars", "Quarter
+            # Ended", "1Q FY27" -- whereas a sentence above the table is not.
+            # Word count is a purely visual test; the earlier version used the
+            # text layer's bold flag here, which silently disabled header
+            # absorption whenever no text layer existed.
+            if _is_prose_line(prev):
                 break
             if _numeric_fraction(prev) > 0.8:
                 break

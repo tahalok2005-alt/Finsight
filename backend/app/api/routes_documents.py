@@ -183,6 +183,13 @@ def get_status(document_id: str, session: DbSession) -> dict:
         "error": doc.error, "updated_at": doc.updated_at,
         "run_id": run.id if run else None,
         "engine_versions": run.engine_versions if run else {},
+        # which processing mode produced this result, and whether any
+        # native PDF text reached extraction -- the audit trail for the
+        # visual-first claim
+        "processing_mode": (run.settings_snapshot or {}).get(
+            "processing_mode") if run else None,
+        "native_text_audit": (run.settings_snapshot or {}).get(
+            "native_text_audit", {}) if run else {},
     }
 
 

@@ -80,6 +80,12 @@ export interface ProcessingStatus {
   updated_at: string | null;
   run_id: string | null;
   engine_versions: Record<string, unknown>;
+  processing_mode: string | null;
+  native_text_audit: {
+    extraction_fed_by_native_text?: boolean;
+    corroboration_accesses?: number;
+    allowed_by_scope?: Record<string, number>;
+  };
 }
 
 export interface Provenance {

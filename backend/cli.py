@@ -75,9 +75,12 @@ def cmd_ingest(args) -> int:
           f"{'scanned' if probe.is_scanned else 'digital'})")
     print("Processing...")
 
+    from app.core.modes import ProcessingMode
     from app.services.processor import process_document
+    mode = ProcessingMode(args.mode)
+    print(f"Mode: {mode}")
     result = process_document(document_id, trigger="cli",
-                              force_ocr=args.force_ocr)
+                              force_ocr=args.force_ocr, mode=mode)
 
     print(f"\nStatus:      {result.status}")
     print(f"Duration:    {result.duration_ms / 1000:.1f}s")
@@ -88,6 +91,12 @@ def cmd_ingest(args) -> int:
     print(f"Commentary:  {len(result.commentary)}")
     print(f"Guidance:    {len(result.guidance)}")
     print(f"Validations: {len(result.validations)}")
+    audit = result.native_text_audit or {}
+    print(f"\nProcessing mode:       {result.mode}")
+    print(f"Native-text accesses:  {audit.get('allowed_by_scope', {})}")
+    print(f"Blocked accesses:      {audit.get('blocked_total', 0)}")
+    print(f"Extraction used native PDF text: "
+          f"{audit.get('extraction_fed_by_native_text')}")
     if result.error:
         print(f"Error:       {result.error}")
     print(f"\nDocument id: {document_id}")
@@ -163,6 +172,17 @@ def cmd_evaluate(args) -> int:
     return 0
 
 
+def cmd_modes(args) -> int:
+    from app.evaluation.modes import compare_modes
+    report = compare_modes(args.path, args.visual, args.hybrid,
+                           truth_path=args.truth)
+    print(report['table'])
+    if args.json:
+        print()
+        print(json.dumps(report['profiles'], indent=2, default=str))
+    return 0
+
+
 def cmd_baseline(args) -> int:
     from app.evaluation.baseline import compare_baseline_vs_visual
     report = compare_baseline_vs_visual(args.path, document_id=args.document_id)
@@ -184,6 +204,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("path")
     p.add_argument("--force-ocr", action="store_true")
     p.add_argument("--allow-duplicate", action="store_true")
+    p.add_argument("--mode", choices=["HYBRID", "VISUAL_ONLY"],
+                   default="HYBRID",
+                   help="VISUAL_ONLY forbids any native PDF text reaching "
+                        "extraction; there is no fallback.")
     p.set_defaults(func=cmd_ingest)
 
     p = sub.add_parser("status"); p.add_argument("document_id")
@@ -205,6 +229,17 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("evaluate")
     p.add_argument("document_id"); p.add_argument("--truth")
     p.set_defaults(func=cmd_evaluate)
+
+    p = sub.add_parser("modes",
+                       help="native text vs visual-only vs hybrid")
+    p.add_argument("path", help="the source PDF")
+    p.add_argument("--visual", required=True,
+                   help="document id processed in VISUAL_ONLY mode")
+    p.add_argument("--hybrid", required=True,
+                   help="document id processed in HYBRID mode")
+    p.add_argument("--truth")
+    p.add_argument("--json", action="store_true")
+    p.set_defaults(func=cmd_modes)
 
     p = sub.add_parser("baseline")
     p.add_argument("path"); p.add_argument("--document-id")
