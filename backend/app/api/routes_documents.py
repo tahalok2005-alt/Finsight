@@ -6,13 +6,14 @@ from datetime import timezone
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, File, Form, Query, UploadFile
+from fastapi import APIRouter, File, Form, Query, Request, UploadFile
 from fastapi.responses import FileResponse, Response
 from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 
 from app.api.deps import DbSession, PaginationDep, get_document_or_404, page_envelope
 from app.config.settings import settings
+from app.core import limits, workspace
 from app.core.errors import (
     ConflictError, ResourceNotFound, ValidationFailure,
 )
@@ -21,7 +22,7 @@ from app.core.ids import new_uuid, sha256_file
 from app.core.logging import get_logger
 from app.database import repository as repo
 from app.database.models import (
-    FinancialFactRow, Page, ProcessingRun, ProvenanceRow, RegionRow, StageRun,
+    Document, FinancialFactRow, Page, ProcessingRun, ProvenanceRow, RegionRow, StageRun,
 )
 from app.database.models_intelligence import FactRelationRow
 from app.ingestion import storage
@@ -29,6 +30,7 @@ from app.ingestion.validator import probe_pdf
 from app.models.enums import DocumentStatus, PIPELINE_ORDER
 from app.provenance import service as prov_service
 from app.rendering.renderer import PageRenderer
+from app.services.retention import purge_document_artifacts
 from app.workers.queue import queue
 
 router = APIRouter(prefix="/documents", tags=["documents"])
@@ -79,7 +81,7 @@ def _document_dto(doc, counts: dict | None = None) -> dict[str, Any]:
 
 
 @router.post("", status_code=201)
-async def upload_document(session: DbSession,
+async def upload_document(session: DbSession, request: Request,
                           file: UploadFile = File(...),
                           allow_duplicate: bool = Form(False)) -> dict:
     """Accept a PDF, validate it, and queue processing.
@@ -89,13 +91,19 @@ async def upload_document(session: DbSession,
     """
     if not file.filename:
         raise ValidationFailure("A filename is required")
+    limits.check_upload_allowed(
+        session, request.client.host if request.client else None)
 
     document_id = new_uuid()[:24]
     stored_path, size = storage.store_stream(document_id, file.filename, file.file)
 
     try:
         content_hash = sha256_file(stored_path)
-        existing = repo.find_by_hash(session, content_hash)
+        # Within the uploader's own workspace only. Searched instance-wide, a
+        # visitor uploading a public filing would be told another stranger's
+        # document id and file name, and that the stranger had it.
+        existing = repo.find_by_hash(session, content_hash,
+                                     where=workspace.owns(Document))
         if existing is not None and not allow_duplicate:
             storage.delete_document_files(document_id)
             raise ConflictError(
@@ -114,7 +122,8 @@ async def upload_document(session: DbSession,
             stored_path=str(stored_path), content_hash=content_hash,
             size_bytes=size,
             settings_snapshot={"render_dpi": settings.render_dpi,
-                               "ocr_engine": settings.ocr_engine})
+                               "ocr_engine": settings.ocr_engine},
+            workspace_id=workspace.current() if workspace.enabled() else None)
         doc.page_count = probe.page_count
         doc.pdf_version = probe.pdf_version
         doc.is_scanned = probe.is_scanned
@@ -141,7 +150,7 @@ def list_documents(session: DbSession, pagination: PaginationDep,
                    search: str | None = Query(None)) -> dict:
     rows, total = repo.list_documents(
         session, limit=pagination.limit, offset=pagination.offset,
-        status=status, search=search)
+        status=status, search=search, where=workspace.owns(Document))
     counts = repo.document_counts_bulk(session, [d.id for d in rows])
     items = [_document_dto(d, counts.get(d.id)) for d in rows]
     return page_envelope(items, total, pagination)
@@ -523,6 +532,7 @@ def delete_document(document_id: str, session: DbSession) -> Response:
     # is concerned.  A directory that would not go is logged rather than
     # swallowed, so a leak shows up somewhere a person will see it.
     removed = storage.delete_document_files(document_id)
+    purge_document_artifacts(document_id)
     log.info("documents.deleted", document_id=document_id,
              files_removed=removed)
     return Response(status_code=204)
@@ -572,7 +582,7 @@ def bulk_delete(payload: BulkDeleteRequest, session: DbSession) -> dict:
 
     for document_id in dict.fromkeys(payload.document_ids):  # de-duplicated
         doc = repo.get_document(session, document_id)
-        if doc is None:
+        if doc is None or not workspace.visible(doc):
             missing.append(document_id)
             continue
         try:
@@ -590,6 +600,7 @@ def bulk_delete(payload: BulkDeleteRequest, session: DbSession) -> dict:
             failed.append({"document_id": document_id, "error": str(exc)})
             continue
         storage.delete_document_files(document_id)
+        purge_document_artifacts(document_id)
         deleted.append(document_id)
 
     log.info("documents.bulk_deleted", requested=len(payload.document_ids),
@@ -698,14 +709,14 @@ def _resolve_page_image(session, document_id: str, page_number: int,
 def page_image(document_id: str, page_number: int, session: DbSession):
     path = _resolve_page_image(session, document_id, page_number)
     return FileResponse(path, media_type="image/png",
-                        headers={"Cache-Control": "public, max-age=86400"})
+                        headers={"Cache-Control": "private, max-age=86400"})
 
 
 @router.get("/{document_id}/pages/{page_number}/thumbnail")
 def page_thumbnail(document_id: str, page_number: int, session: DbSession):
     path = _resolve_page_image(session, document_id, page_number, thumbnail=True)
     return FileResponse(path, media_type="image/png",
-                        headers={"Cache-Control": "public, max-age=86400"})
+                        headers={"Cache-Control": "private, max-age=86400"})
 
 
 @router.get("/{document_id}/pages/{page_number}/crop")
@@ -717,4 +728,4 @@ def page_crop(document_id: str, page_number: int, session: DbSession,
     crop = prov_service.cached_crop(document_id, page_number, image_path,
                                     BBox(x, y, w, h))
     return FileResponse(crop, media_type="image/png",
-                        headers={"Cache-Control": "public, max-age=86400"})
+                        headers={"Cache-Control": "private, max-age=86400"})

@@ -216,6 +216,20 @@ class Settings(BaseSettings):
     #: the right default on a laptop and the wrong one on a public URL, where
     #: anyone could otherwise upload, read and delete every document.
     access_password: SecretStr | None = None
+    #: Public mode. Each browser gets a private workspace from a cookie, and
+    #: sees, searches and deletes only the documents it uploaded. Off, every
+    #: visitor shares one pool -- right for a laptop or a team, wrong for
+    #: strangers, who would read each other's filings.
+    workspaces_enabled: bool = False
+    #: Delete every document this many hours after upload, together with every
+    #: cached page image and OCR result older than that. Unset, nothing is
+    #: ever removed automatically.
+    retention_hours: float | None = None
+    #: Limits that apply only in public mode, where one visitor's uploads
+    #: must not starve everyone else of the few CPU cores there are.
+    max_active_per_workspace: int = 2
+    max_active_documents: int = 10
+    uploads_per_ip_per_hour: int = 20
 
     @field_validator("data_dir", "upload_dir", "render_dir", "cache_dir", "export_dir")
     @classmethod

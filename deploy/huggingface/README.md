@@ -21,5 +21,7 @@ service, and no language model is used.
 
 Source and documentation: <https://github.com/tahalok2005-alt/Finsight>
 
-**Note:** storage on a free Space is temporary. Uploaded documents are removed
-when the Space restarts or goes to sleep.
+**Your documents are private.** Only the browser that uploaded a document can
+see it, and every document is deleted 24 hours after upload — sooner if the
+Space restarts. There are no accounts: clearing your cookies or switching
+browsers starts a new, empty workspace. Limits: 25 MB and 60 pages per file.

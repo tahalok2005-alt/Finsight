@@ -10,6 +10,11 @@ import type {
 
 export const API = "/api/v1";
 
+/** Sent with every change. A public instance refuses changes without it: a
+ *  page on another site cannot add a custom header to a cross-site request,
+ *  so this is what tells the server a request came from this dashboard. */
+const REQUEST_HEADER = { "X-FinSight-Request": "1" };
+
 export class ApiError extends Error {
   status: number;
   code: string;
@@ -36,6 +41,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
       ...(init?.body && !(init.body instanceof FormData)
         ? { "Content-Type": "application/json" }
         : {}),
+      ...(init?.method && init.method !== "GET" ? REQUEST_HEADER : {}),
       ...init?.headers,
     },
   });
@@ -123,6 +129,7 @@ export const api = {
       form.append("file", file);
       const xhr = new XMLHttpRequest();
       xhr.open("POST", `${API}/documents`);
+      xhr.setRequestHeader("X-FinSight-Request", REQUEST_HEADER["X-FinSight-Request"]);
       xhr.upload.onprogress = (e) => {
         if (e.lengthComputable && onProgress) {
           onProgress(Math.round((e.loaded / e.total) * 100));

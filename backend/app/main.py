@@ -15,10 +15,12 @@ from app.api import (
 from app.api.frontend import mount_frontend
 from app.config.settings import settings
 from app.core.access import install_access_control
+from app.core.workspace import install_workspaces
 from app.core.errors import FinSightError
 from app.core.logging import configure_logging, get_logger
 from app.database.session import init_db
 from app.ocr.registry import probe_engines
+from app.services.retention import sweeper
 from app.services.reconcile import (
     reconcile_interrupted_runs, sweep_orphaned_files,
 )
@@ -52,18 +54,22 @@ async def lifespan(app: FastAPI):
     if swept:
         log.info("api.swept_orphan_files", directories=swept)
     queue.start()
+    sweeper.start()
     engines = probe_engines()
     usable = [n for n, i in engines.items() if i.get("available")]
     log.info("api.startup", version=settings.app_version,
              environment=settings.environment, ocr_engines=usable,
              configured_engine=settings.ocr_engine,
              password_required=PASSWORD_REQUIRED,
-             serving_dashboard=settings.static_dir is not None)
+             serving_dashboard=settings.static_dir is not None,
+             private_workspaces=settings.workspaces_enabled,
+             retention_hours=settings.retention_hours)
     if settings.ocr_engine not in usable:
         # Loud, but not fatal: uploads will fail honestly at the OCR stage.
         log.error("api.ocr_engine_unavailable",
                   configured=settings.ocr_engine, available=usable)
     yield
+    sweeper.stop()
     queue.shutdown(wait=False)
     log.info("api.shutdown")
 
@@ -87,6 +93,7 @@ app.add_middleware(
     expose_headers=["Content-Disposition"],
 )
 
+install_workspaces(app)
 PASSWORD_REQUIRED = install_access_control(app)
 
 

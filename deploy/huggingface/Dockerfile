@@ -60,12 +60,18 @@ RUN mkdir -p data && chown finsight:finsight data
 USER finsight
 WORKDIR /app/backend
 
-# Set FINSIGHT_ACCESS_PASSWORD under the Space's Settings > Variables and
-# secrets, as a secret. Free Space storage is temporary: uploads are gone
-# after a restart.
+# Public mode: every browser gets a private workspace, and documents are
+# deleted 24 hours after upload -- which is also the honest promise on a free
+# Space, whose storage does not survive a restart anyway. The limits keep one
+# visitor from occupying both CPU cores. Each can be overridden under the
+# Space's Settings > Variables and secrets.
 ENV FINSIGHT_STATIC_DIR=/app/frontend/dist \
     FINSIGHT_ENVIRONMENT=prod \
     FINSIGHT_LOG_JSON=true \
+    FINSIGHT_WORKSPACES_ENABLED=true \
+    FINSIGHT_RETENTION_HOURS=24 \
+    FINSIGHT_MAX_UPLOAD_MB=25 \
+    FINSIGHT_MAX_PAGES=60 \
     PORT=7860
 EXPOSE 7860
 

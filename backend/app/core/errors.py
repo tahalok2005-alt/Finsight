@@ -61,6 +61,16 @@ class ConflictError(FinSightError):
     code = "conflict"
 
 
+class TooManyRequests(FinSightError):
+    status_code = 429
+    code = "too_many_requests"
+
+
+class ServiceBusy(FinSightError):
+    status_code = 503
+    code = "service_busy"
+
+
 class EngineUnavailable(FinSightError):
     status_code = 503
     code = "engine_unavailable"

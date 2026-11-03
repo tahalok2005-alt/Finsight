@@ -12,6 +12,7 @@ import {
   dateTime, duration, isActivePhase, since, statusMeta,
 } from "../utils/lifecycle";
 import { ConfirmDialog, Empty, ErrorState, Spinner } from "../components/ui";
+import { privacyNote, useWorkspacePolicy } from "../api/policy";
 
 /**
  * The Documents area: everything the user has uploaded, and what it is doing.
@@ -244,6 +245,7 @@ export function DocumentsView() {
   const [bulkNote, setBulkNote] = useState<string | null>(null);
   const lastToggled = useRef<string | null>(null);
   const qc = useQueryClient();
+  const note = privacyNote(useWorkspacePolicy());
 
   const q = useQuery({
     queryKey: ["documents", search],
@@ -335,6 +337,7 @@ export function DocumentsView() {
           <p className="page-sub">
             {counts.all} total
             {counts.active ? ` · ${counts.active} in progress` : ""}
+            {note ? ` · ${note}` : ""}
           </p>
         </div>
         <div className="flex items-center gap-2">

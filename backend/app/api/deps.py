@@ -6,6 +6,7 @@ from typing import Annotated, Any, Iterator
 from fastapi import Depends, Query
 from sqlalchemy.orm import Session
 
+from app.core import workspace
 from app.core.errors import DocumentNotFound
 from app.database import repository as repo
 from app.database.models import Document
@@ -16,7 +17,9 @@ DbSession = Annotated[Session, Depends(get_db)]
 
 def get_document_or_404(document_id: str, session: Session) -> Document:
     doc = repo.get_document(session, document_id)
-    if doc is None:
+    # Another workspace's document is answered exactly as a missing one, so a
+    # visitor cannot even learn that it exists.
+    if doc is None or not workspace.visible(doc):
         raise DocumentNotFound(f"No document with id {document_id!r}",
                                detail={"document_id": document_id})
     return doc

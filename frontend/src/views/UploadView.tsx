@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AlertTriangle, CheckCircle2, FileUp, Loader2, X } from "lucide-react";
 import clsx from "clsx";
 import { ApiError, api } from "../api/client";
+import { privacyNote, useWorkspacePolicy } from "../api/policy";
 import { Panel, ProgressBar } from "../components/ui";
 import { formatBytes } from "../utils/format";
 
@@ -19,9 +20,10 @@ interface Job {
   warnings?: string[];
 }
 
-const MAX_MB = 200;
-
 export function UploadView() {
+  const policy = useWorkspacePolicy();
+  const MAX_MB = policy.max_upload_mb;
+  const note = privacyNote(policy);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [dragging, setDragging] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -77,7 +79,7 @@ export function UploadView() {
         });
       }
     },
-    [update],
+    [update, MAX_MB],
   );
 
   const accept = useCallback(
@@ -99,6 +101,7 @@ export function UploadView() {
         <p className="text-sm text-ink-400 mt-0.5">
           Earnings releases, quarterly results, annual reports — digital or scanned
         </p>
+        {note && <p className="text-sm text-ink-300 mt-2">{note}</p>}
       </header>
 
       <div className="p-6 max-w-3xl space-y-5">
@@ -129,7 +132,8 @@ export function UploadView() {
             Drop PDF files here, or click to choose
           </p>
           <p className="text-xs text-ink-500 mt-1.5">
-            PDF only · up to {MAX_MB} MB · scanned documents are supported
+            PDF only · up to {MAX_MB} MB and {policy.max_pages} pages · scanned
+            documents are supported
           </p>
           <input
             ref={inputRef}

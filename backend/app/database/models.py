@@ -51,6 +51,10 @@ class Document(Base, TimestampMixin):
     content_hash: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
     size_bytes: Mapped[int] = mapped_column(Integer, nullable=False)
     mime_type: Mapped[str] = mapped_column(String(128), default="application/pdf")
+    #: The private workspace that uploaded this document: a hash of the
+    #: visitor's browser cookie, never the cookie itself. NULL when workspaces
+    #: are off, which is every local and single-team installation.
+    workspace_id: Mapped[str | None] = mapped_column(String(64), index=True)
 
     status: Mapped[str] = mapped_column(String(32), nullable=False, index=True)
     error: Mapped[str | None] = mapped_column(Text)

@@ -10,6 +10,7 @@ from sqlalchemy import func, select
 
 from app.api.deps import DbSession
 from app.config.settings import settings
+from app.core import workspace
 from app.database.models import (
     ChartRow, CommentaryRow, Document, FinancialFactRow, GuidanceRow, JobRow,
     TableRow, ValidationResultRow,
@@ -44,6 +45,11 @@ def system_info() -> dict[str, Any]:
     return {
         "app": {"name": settings.app_name, "version": settings.app_version,
                 "environment": settings.environment},
+        # what the dashboard tells a visitor about their documents
+        "workspaces": {"enabled": settings.workspaces_enabled,
+                       "retention_hours": settings.retention_hours,
+                       "max_upload_mb": settings.max_upload_mb,
+                       "max_pages": settings.max_pages},
         "runtime": {"python": sys.version.split()[0],
                     "platform": platform.platform(),
                     "processor": platform.processor()},
@@ -73,13 +79,21 @@ def system_info() -> dict[str, Any]:
 
 @router.get("/overview")
 def overview(session: DbSession) -> dict:
-    """Dashboard summary across every document."""
+    """Dashboard summary across every document the caller may see.
+
+    In public mode that is the caller's own workspace: every query below is
+    limited by ``workspace.owns``, including the job counts.
+    """
+    owns = workspace.owns
+
     def count(model, *conds) -> int:
         return int(session.scalar(
-            select(func.count()).select_from(model).where(*conds)) or 0)
+            select(func.count()).select_from(model)
+            .where(owns(model), *conds)) or 0)
 
     by_status = {r[0]: r[1] for r in session.execute(
-        select(Document.status, func.count()).group_by(Document.status)).all()}
+        select(Document.status, func.count()).where(owns(Document))
+        .group_by(Document.status)).all()}
 
     # Both spellings of the file name. The client types this list as the same
     # document shape it gets everywhere else, which calls the field
@@ -93,18 +107,22 @@ def overview(session: DbSession) -> dict:
         "created_at": d.created_at, "processing_ms": d.processing_ms,
         "error": d.error,
     } for d in session.scalars(
-        select(Document).order_by(Document.created_at.desc()).limit(10))]
+        select(Document).where(owns(Document))
+        .order_by(Document.created_at.desc()).limit(10))]
 
     validation_summary = {r[0]: r[1] for r in session.execute(
         select(ValidationResultRow.status, func.count())
+        .where(owns(ValidationResultRow))
         .group_by(ValidationResultRow.status)).all()}
 
     band_summary = {r[0]: r[1] for r in session.execute(
         select(FinancialFactRow.confidence_band, func.count())
+        .where(owns(FinancialFactRow))
         .group_by(FinancialFactRow.confidence_band)).all()}
 
     top_metrics = [{"metric": r[0], "count": r[1]} for r in session.execute(
         select(FinancialFactRow.canonical_metric, func.count())
+        .where(owns(FinancialFactRow))
         .group_by(FinancialFactRow.canonical_metric)
         .order_by(func.count().desc()).limit(12)).all()]
 

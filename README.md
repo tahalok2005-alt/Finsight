@@ -248,9 +248,10 @@ docker build -t finsight .
 docker run --rm -p 7860:7860 finsight      # then open http://localhost:7860
 ```
 
-To deploy it — Hugging Face Spaces for a free demo, or your own server — see
-[docs/DEPLOY.md](docs/DEPLOY.md). Set `FINSIGHT_ACCESS_PASSWORD` before
-putting it on a public address.
+To deploy it — free on Hugging Face Spaces, or on your own server — see
+[docs/DEPLOY.md](docs/DEPLOY.md). Before it goes on a public address, choose a
+mode: **public**, where every browser gets a private workspace and documents
+are deleted after a set time, or **private**, behind one shared password.
 
 To process the acceptance document without the UI:
 

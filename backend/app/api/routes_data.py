@@ -11,6 +11,7 @@ from sqlalchemy import func, or_, select
 from app.api.deps import DbSession, PaginationDep, get_document_or_404, page_envelope
 from app.comparison import service as comparison_service
 from app.config.settings import settings
+from app.core import workspace
 from app.core.errors import ResourceNotFound, ValidationFailure
 from app.core.geometry import BBox
 from app.core.logging import get_logger
@@ -521,6 +522,7 @@ def search(session: DbSession, q: str = Query(..., min_length=2),
     results: dict[str, list[dict]] = {}
 
     def scope(stmt, model):
+        stmt = stmt.where(workspace.owns(model))
         return stmt.where(model.document_id == document_id) if document_id else stmt
 
     doc_stmt = select(Document).where(or_(
@@ -528,6 +530,7 @@ def search(session: DbSession, q: str = Query(..., min_length=2),
         func.lower(func.coalesce(Document.title, "")).like(like),
         func.lower(func.coalesce(Document.company_name, "")).like(like),
         func.lower(func.coalesce(Document.report_period, "")).like(like)))
+    doc_stmt = doc_stmt.where(workspace.owns(Document))
     if document_id:
         doc_stmt = doc_stmt.where(Document.id == document_id)
     results["documents"] = [

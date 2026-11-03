@@ -60,11 +60,13 @@ def _chunks(items: Sequence[Any], size: int = 900) -> Iterable[Sequence[Any]]:
 def create_document(session: Session, *, document_id: str, filename: str,
                     original_filename: str, stored_path: str,
                     content_hash: str, size_bytes: int,
-                    settings_snapshot: dict | None = None) -> Document:
+                    settings_snapshot: dict | None = None,
+                    workspace_id: str | None = None) -> Document:
     doc = Document(
         id=document_id, filename=filename, original_filename=original_filename,
         stored_path=stored_path, content_hash=content_hash,
-        size_bytes=size_bytes, status=DocumentStatus.UPLOADED.value,
+        size_bytes=size_bytes, workspace_id=workspace_id,
+        status=DocumentStatus.UPLOADED.value,
         settings_snapshot=settings_snapshot or {}, pdf_metadata={})
     session.add(doc)
     session.flush()
@@ -75,17 +77,23 @@ def get_document(session: Session, document_id: str) -> Document | None:
     return session.get(Document, document_id)
 
 
-def find_by_hash(session: Session, content_hash: str) -> Document | None:
+def find_by_hash(session: Session, content_hash: str,
+                 *, where=None) -> Document | None:
+    stmt = select(Document).where(Document.content_hash == content_hash)
+    if where is not None:
+        stmt = stmt.where(where)
     return session.scalars(
-        select(Document).where(Document.content_hash == content_hash)
-        .order_by(Document.created_at.desc()).limit(1)).first()
+        stmt.order_by(Document.created_at.desc()).limit(1)).first()
 
 
 def list_documents(session: Session, *, limit: int = 50, offset: int = 0,
-                   status: str | None = None, search: str | None = None
-                   ) -> tuple[list[Document], int]:
+                   status: str | None = None, search: str | None = None,
+                   where=None) -> tuple[list[Document], int]:
     stmt = select(Document)
     count_stmt = select(func.count()).select_from(Document)
+    if where is not None:
+        stmt = stmt.where(where)
+        count_stmt = count_stmt.where(where)
     if status:
         stmt = stmt.where(Document.status == status)
         count_stmt = count_stmt.where(Document.status == status)
