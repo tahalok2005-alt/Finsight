@@ -1,0 +1,13 @@
+# Files a Linux container reads keep Unix line endings on every checkout,
+# Windows included. A Dockerfile uploaded to a Hugging Face Space straight
+# from a Windows working copy would otherwise carry CRLF, and a "\" followed
+# by "\r" is not a line continuation.
+Dockerfile           text eol=lf
+**/Dockerfile        text eol=lf
+.dockerignore        text eol=lf
+docker-compose.yml   text eol=lf
+*.sh                 text eol=lf
+
+# Binary fixtures are never line-converted.
+*.pdf                binary
+*.png                binary
