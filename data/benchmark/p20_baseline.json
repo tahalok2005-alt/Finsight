@@ -1,0 +1,189 @@
+{
+  "rows": [
+    {
+      "document": "GROWW",
+      "page": 6,
+      "table": "Statement of the unaudited consolidated financial results",
+      "expected": 99,
+      "extracted_on_page": 93,
+      "matched": 93,
+      "missing": 6,
+      "wrong": 0,
+      "period_accuracy": 1.0,
+      "entity_accuracy": 1.0,
+      "unit_accuracy": 1.0,
+      "value_accuracy": 1.0,
+      "seconds": 131.5,
+      "causes": {
+        "A. taxonomy/metric vocabulary": 4,
+        "M. duplicate/corroboration handling": 2
+      }
+    },
+    {
+      "document": "HDFC",
+      "page": 1,
+      "table": "UNAUDITED STANDALONE FINANCIAL RESULTS FOR THE QUARTER ENDED",
+      "expected": 52,
+      "extracted_on_page": 61,
+      "matched": 44,
+      "missing": 8,
+      "wrong": 0,
+      "period_accuracy": 1.0,
+      "entity_accuracy": 1.0,
+      "unit_accuracy": 1.0,
+      "value_accuracy": 1.0,
+      "seconds": 153.5,
+      "causes": {
+        "A. taxonomy/metric vocabulary": 4,
+        "C. label parsing": 4
+      }
+    }
+  ],
+  "causes": {
+    "A. taxonomy/metric vocabulary": 8,
+    "M. duplicate/corroboration handling": 2,
+    "C. label parsing": 4
+  },
+  "misses": [
+    {
+      "golden": "Income tax relating to above [c1] = 0.03",
+      "row": "Income tax relating to above",
+      "column": "c1",
+      "value": 0.03,
+      "cause": "A. taxonomy/metric vocabulary",
+      "detail": "no taxonomy entry for 'Income tax relating to above Items that will be reclassified to profit or loss'",
+      "doc": "GROWW",
+      "page": 6
+    },
+    {
+      "golden": "Income tax relating to above [c2] = -1.95",
+      "row": "Income tax relating to above",
+      "column": "c2",
+      "value": -1.95,
+      "cause": "A. taxonomy/metric vocabulary",
+      "detail": "no taxonomy entry for 'Income tax relating to above Items that will be reclassified to profit or loss'",
+      "doc": "GROWW",
+      "page": 6
+    },
+    {
+      "golden": "Income tax relating to above [c3] = 0.44",
+      "row": "Income tax relating to above",
+      "column": "c3",
+      "value": 0.44,
+      "cause": "A. taxonomy/metric vocabulary",
+      "detail": "no taxonomy entry for 'Income tax relating to above Items that will be reclassified to profit or loss'",
+      "doc": "GROWW",
+      "page": 6
+    },
+    {
+      "golden": "Income tax relating to above [c4] = -3.02",
+      "row": "Income tax relating to above",
+      "column": "c4",
+      "value": -3.02,
+      "cause": "A. taxonomy/metric vocabulary",
+      "detail": "no taxonomy entry for 'Income tax relating to above Items that will be reclassified to profit or loss'",
+      "doc": "GROWW",
+      "page": 6
+    },
+    {
+      "golden": "Other comprehensive income/(loss) for the period/year attributable to: Shareholders of the Company [c1] = -0.04",
+      "row": "Other comprehensive income/(loss) for the period/year attributable to: Shareholders of the Company",
+      "column": "c1",
+      "value": -0.04,
+      "cause": "M. duplicate/corroboration handling",
+      "detail": "a matching fact exists but was paired with another golden row by the matcher",
+      "doc": "GROWW",
+      "page": 6
+    },
+    {
+      "golden": "Other comprehensive income/(loss) for the period/year attributable to: Shareholders of the Company [c2] = 10.32",
+      "row": "Other comprehensive income/(loss) for the period/year attributable to: Shareholders of the Company",
+      "column": "c2",
+      "value": 10.32,
+      "cause": "M. duplicate/corroboration handling",
+      "detail": "a matching fact exists but was paired with another golden row by the matcher",
+      "doc": "GROWW",
+      "page": 6
+    },
+    {
+      "golden": "d) Others [c1] = 1771.42",
+      "row": "d) Others",
+      "column": "c1",
+      "value": 1771.42,
+      "cause": "A. taxonomy/metric vocabulary",
+      "detail": "no taxonomy entry for 'd) Others'",
+      "doc": "HDFC",
+      "page": 1
+    },
+    {
+      "golden": "d) Others [c2] = 1455.41",
+      "row": "d) Others",
+      "column": "c2",
+      "value": 1455.41,
+      "cause": "A. taxonomy/metric vocabulary",
+      "detail": "no taxonomy entry for 'd) Others'",
+      "doc": "HDFC",
+      "page": 1
+    },
+    {
+      "golden": "d) Others [c3] = 1537.31",
+      "row": "d) Others",
+      "column": "c3",
+      "value": 1537.31,
+      "cause": "A. taxonomy/metric vocabulary",
+      "detail": "no taxonomy entry for 'd) Others'",
+      "doc": "HDFC",
+      "page": 1
+    },
+    {
+      "golden": "d) Others [c4] = 6139.54",
+      "row": "d) Others",
+      "column": "c4",
+      "value": 6139.54,
+      "cause": "A. taxonomy/metric vocabulary",
+      "detail": "no taxonomy entry for 'd) Others'",
+      "doc": "HDFC",
+      "page": 1
+    },
+    {
+      "golden": "Operating Profit before provisions and contingencies (3)-(6) [c1] = 28168.06",
+      "row": "Operating Profit before provisions and contingencies (3)-(6)",
+      "column": "c1",
+      "value": 28168.06,
+      "cause": "C. label parsing",
+      "detail": "label read as 'Operating Prafit befare provisians and contingencies (3)-(6)'; the printed label 'Operating Profit before provisions and contingencies (3)-(6)' does match (pre_provision_operating_profit) -- recognition damaged it",
+      "doc": "HDFC",
+      "page": 1
+    },
+    {
+      "golden": "Operating Profit before provisions and contingencies (3)-(6) [c2] = 27802.92",
+      "row": "Operating Profit before provisions and contingencies (3)-(6)",
+      "column": "c2",
+      "value": 27802.92,
+      "cause": "C. label parsing",
+      "detail": "label read as 'Operating Prafit befare provisians and contingencies (3)-(6)'; the printed label 'Operating Profit before provisions and contingencies (3)-(6)' does match (pre_provision_operating_profit) -- recognition damaged it",
+      "doc": "HDFC",
+      "page": 1
+    },
+    {
+      "golden": "Operating Profit before provisions and contingencies (3)-(6) [c3] = 35733.96",
+      "row": "Operating Profit before provisions and contingencies (3)-(6)",
+      "column": "c3",
+      "value": 35733.96,
+      "cause": "C. label parsing",
+      "detail": "label read as 'Operating Prafit befare provisians and contingencies (3)-(6)'; the printed label 'Operating Profit before provisions and contingencies (3)-(6)' does match (pre_provision_operating_profit) -- recognition damaged it",
+      "doc": "HDFC",
+      "page": 1
+    },
+    {
+      "golden": "Operating Profit before provisions and contingencies (3)-(6) [c4] = 118558.28",
+      "row": "Operating Profit before provisions and contingencies (3)-(6)",
+      "column": "c4",
+      "value": 118558.28,
+      "cause": "C. label parsing",
+      "detail": "label read as 'Operating Prafit befare provisians and contingencies (3)-(6)'; the printed label 'Operating Profit before provisions and contingencies (3)-(6)' does match (pre_provision_operating_profit) -- recognition damaged it",
+      "doc": "HDFC",
+      "page": 1
+    }
+  ]
+}

@@ -20,6 +20,7 @@ from app.database.models import (
 )
 from app.export import exporters
 from app.extraction import taxonomy
+from app.models.enums import REVIEW_REASON_TEXT
 from app.models.schemas import ReviewRequest
 from app.provenance import service as prov_service
 from app.review import service as review_service
@@ -42,14 +43,30 @@ def _fact_dto(f: FinancialFactRow, prov: ProvenanceRow | None,
         "canonical_metric": f.canonical_metric,
         "metric_display": f.metric_display or f.metric,
         "entity": f.entity, "kind": f.kind, "nature": f.nature,
+        # The reporting basis (standalone / consolidated / segment / unknown)
+        # and how reconciliation classified this figure against others in
+        # the same slot: a genuine conflict, a different basis, a repeat.
+        "entity_type": f.entity_type,
+        "duplicate_resolution": f.duplicate_resolution,
         "value": f.value, "corrected_value": f.corrected_value,
         "effective_value": (f.corrected_value if f.corrected_value is not None
                             else f.value),
         "raw_value": f.raw_value, "value_type": f.value_type,
         "currency": f.currency, "unit": f.unit, "base_value": f.base_value,
+        # Whether the currency or scale was carried to this figure from the
+        # table's declaration or the document rather than printed with it --
+        # a rupee glyph OCR cannot read leaves "crore" to imply rupees.
+        "currency_inferred": bool(f.currency_inferred),
+        "unit_inferred": bool(f.unit_inferred),
         "period": f.period, "period_type": f.period_type,
         "fiscal_year": f.fiscal_year, "quarter": f.quarter,
         "period_raw": f.period_raw,
+        # The dates the source actually supports, plus how the period was
+        # arrived at and how sure the resolver was.  A null date means the
+        # document never established one -- the client must not fill it in.
+        "period_start": f.period_start, "period_end": f.period_end,
+        "period_confidence": f.period_confidence,
+        "period_basis": f.period_basis,
         "comparison_period": f.comparison_period,
         "comparison_value": f.comparison_value,
         "growth": f.growth, "growth_type": f.growth_type,
@@ -58,8 +75,15 @@ def _fact_dto(f: FinancialFactRow, prov: ProvenanceRow | None,
         "confidence_breakdown": f.confidence_breakdown,
         "validation_status": f.validation_status,
         "requires_review": f.requires_review, "review_state": f.review_state,
+        # Not just that a figure needs a look, but what to look at.
+        "review_reason": f.review_reason,
+        "review_explanation": (REVIEW_REASON_TEXT.get(f.review_reason)
+                               if f.review_reason else None),
         "source_page": f.source_page, "original_text": f.original_text,
         "context_text": f.context_text, "meta": f.meta,
+        # The basis the figure is stated on, where the source states one:
+        # "excluding a one-off gain", "Adjusted" (Phase 22).
+        "qualification": (f.meta or {}).get("qualification"),
         "table_id": f.table_id, "cell_id": f.cell_id, "region_id": f.region_id,
     }
     if prov is not None:

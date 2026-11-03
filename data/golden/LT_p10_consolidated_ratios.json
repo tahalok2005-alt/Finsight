@@ -1,0 +1,373 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "Regulation 52(4) ratio disclosures for the GROUP (note (a): 'the Group has",
+  "diversified nature of businesses'), continuing the consolidated results.",
+  "Four columns as on page 9 but with no audit status in the heads.",
+  "Ratios are multiples; the two margins print their own '%'; only lines 13",
+  "and 14 are in crore (stated in their labels). Line 12 is 'NA' in every",
+  "column and is not a fact. Note (c) states a second, differently qualified",
+  "debt-equity ratio (1.12, INCLUDING borrowings held for sale) in prose; the",
+  "table's 1.01 EXCLUDES them (note (b)). Only the table is transcribed here.",
+  "Native page; figures from the text layer.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "LT",
+ "document": "src/LT_Q1FY27_results.pdf",
+ "issuer": "Larsen & Toubro Limited",
+ "page": 10,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Additional disclosures as per Regulation 52(4) (consolidated ratios)",
+  "statement": "ratios",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "note (a) 'the Group'; disclosure (v) of the consolidated results",
+  "unit_declaration": {
+   "text": "(none for the table; lines 13-14 state '[₹ Crore]')",
+   "unit": null,
+   "currency": null,
+   "scope": "row",
+   "placement": "in the row labels"
+  },
+  "bbox_pt": [
+   55,
+   58,
+   830,
+   432
+  ],
+  "bbox_rel": [
+   0.0653,
+   0.0487,
+   0.9858,
+   0.3629
+  ],
+  "page_height_pt": 1190.52,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter ended",
+    "header_lines": [
+     "June 30,",
+     "2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter ended",
+    "header_lines": [
+     "March 31,",
+     "2026"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter ended",
+    "header_lines": [
+     "June 30,",
+     "2025"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   },
+   {
+    "id": "c4",
+    "group": "Year ended",
+    "header_lines": [
+     "March 31,",
+     "2026"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26"
+   }
+  ],
+  "rows": [
+   {
+    "label": "1 Debt equity ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 106.5,
+    "printed": [
+     "1.01",
+     "0.95",
+     "1.13",
+     "0.95"
+    ],
+    "values": [
+     1.01,
+     0.95,
+     1.13,
+     0.95
+    ],
+    "metric": "debt_to_equity"
+   },
+   {
+    "label": "2 Debt service coverage ratio (DSCR)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 130.9,
+    "printed": [
+     "10.72",
+     "9.00",
+     "0.92",
+     "2.27"
+    ],
+    "values": [
+     10.72,
+     9.0,
+     0.92,
+     2.27
+    ],
+    "metric": null
+   },
+   {
+    "label": "3 Interest service coverage ratio (ISCR)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 155.2,
+    "printed": [
+     "11.42",
+     "11.55",
+     "7.15",
+     "9.19"
+    ],
+    "values": [
+     11.42,
+     11.55,
+     7.15,
+     9.19
+    ],
+    "metric": "interest_coverage"
+   },
+   {
+    "label": "4 Current ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 179.6,
+    "printed": [
+     "1.25",
+     "1.25",
+     "1.21",
+     "1.25"
+    ],
+    "values": [
+     1.25,
+     1.25,
+     1.21,
+     1.25
+    ],
+    "metric": "current_ratio"
+   },
+   {
+    "label": "5 Long term debt to working capital ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 203.9,
+    "printed": [
+     "1.07",
+     "1.05",
+     "1.25",
+     "1.05"
+    ],
+    "values": [
+     1.07,
+     1.05,
+     1.25,
+     1.05
+    ],
+    "metric": null
+   },
+   {
+    "label": "6 Bad debts to accounts receivable ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 228.3,
+    "printed": [
+     "0.00",
+     "0.01",
+     "0.00",
+     "0.01"
+    ],
+    "values": [
+     0.0,
+     0.01,
+     0.0,
+     0.01
+    ],
+    "metric": null
+   },
+   {
+    "label": "7 Current liability ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 252.7,
+    "printed": [
+     "0.74",
+     "0.72",
+     "0.75",
+     "0.72"
+    ],
+    "values": [
+     0.74,
+     0.72,
+     0.75,
+     0.72
+    ],
+    "metric": null
+   },
+   {
+    "label": "8 Total debt to total assets ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 277.0,
+    "printed": [
+     "0.28",
+     "0.27",
+     "0.34",
+     "0.27"
+    ],
+    "values": [
+     0.28,
+     0.27,
+     0.34,
+     0.27
+    ],
+    "metric": "debt_to_assets"
+   },
+   {
+    "label": "9 Debtors turnover ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 301.4,
+    "printed": [
+     "4.49",
+     "4.34",
+     "4.40",
+     "4.34"
+    ],
+    "values": [
+     4.49,
+     4.34,
+     4.4,
+     4.34
+    ],
+    "metric": null
+   },
+   {
+    "label": "10 Operating margin (%)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 325.7,
+    "printed": [
+     "9.00",
+     "10.40",
+     "9.92",
+     "10.20"
+    ],
+    "values": [
+     9.0,
+     10.4,
+     9.92,
+     10.2
+    ],
+    "metric": "ebit_margin"
+   },
+   {
+    "label": "11 Net profit margin (%)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 350.1,
+    "printed": [
+     "7.34",
+     "7.41",
+     "6.78",
+     "6.63"
+    ],
+    "values": [
+     7.34,
+     7.41,
+     6.78,
+     6.63
+    ],
+    "metric": "net_margin"
+   },
+   {
+    "label": "13 Capital Redemption Reserve/Debenture Redemption Reserve [₹ Crore]",
+    "stock": true,
+    "unit": "crore",
+    "currency": "INR",
+    "y": 397.9,
+    "printed": [
+     "338.23",
+     "338.23",
+     "338.23",
+     "338.23"
+    ],
+    "values": [
+     338.23,
+     338.23,
+     338.23,
+     338.23
+    ],
+    "metric": null
+   },
+   {
+    "label": "14 Net worth [₹ Crore] (As per section 2(57) of Companies Act, 2013)",
+    "stock": true,
+    "unit": "crore",
+    "currency": "INR",
+    "y": 422.3,
+    "printed": [
+     "106288.94",
+     "107329.44",
+     "94839.81",
+     "107329.44"
+    ],
+    "values": [
+     106288.94,
+     107329.44,
+     94839.81,
+     107329.44
+    ],
+    "metric": "net_worth"
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "a ratio reported in crore, or a crore line reported as a ratio",
+   "'NA' extracted as a figure",
+   "the prose debt-equity ratio of note (c) (1.12, including held-for-sale borrowings) merged with the table's 1.01",
+   "a formula in the lower table read as a figure"
+  ]
+ }
+}

@@ -1,0 +1,299 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "Two BASES side by side: group heads 'Standalone' and 'Consolidated', each over",
+  "'Q1 FY27' and 'Q1 FY26'. Every line is a balance (or a ratio of balances) at the",
+  "quarter end. '₹ CRORE, UNLESS STATED OTHERWISE': the debt-equity ratio is a",
+  "multiple and book value is per share. Standalone NCI is a dash. Indian grouping.",
+  "Figures from the slide's text layer, layout confirmed on the render.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NTPC_PPT",
+ "document": "src/NTPC_Q1FY27_OFS.pdf",
+ "issuer": "NTPC Limited",
+ "page": 17,
+ "transcription": {
+  "method": "slide text layer at recorded y; render checked",
+  "verified_against": "render at 90 dpi",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "OTHER KEY FINANCIAL INFORMATION (₹ CRORE, UNLESS STATED OTHERWISE)",
+  "statement": "kpi",
+  "nature": "point_in_time",
+  "basis": null,
+  "basis_evidence": "group heads 'Standalone' / 'Consolidated' over the columns",
+  "unit_declaration": {
+   "text": "₹ CRORE, UNLESS STATED OTHERWISE",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "slide title"
+  },
+  "bbox_pt": [
+   90,
+   70,
+   870,
+   500
+  ],
+  "bbox_rel": [
+   0.0938,
+   0.1296,
+   0.9062,
+   0.9259
+  ],
+  "page_height_pt": 540,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Standalone",
+    "header_lines": [
+     "Q1",
+     "FY27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "basis": "Standalone"
+   },
+   {
+    "id": "c2",
+    "group": "Standalone",
+    "header_lines": [
+     "Q1",
+     "FY26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "basis": "Standalone"
+   },
+   {
+    "id": "c3",
+    "group": "Consolidated",
+    "header_lines": [
+     "Q1",
+     "FY27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "basis": "Consolidated"
+   },
+   {
+    "id": "c4",
+    "group": "Consolidated",
+    "header_lines": [
+     "Q1",
+     "FY26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "basis": "Consolidated"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Regulated Equity",
+    "stock": true,
+    "y": 172.5,
+    "printed": [
+     "92,797",
+     "92,344",
+     "1,21,745",
+     "1,11,393"
+    ],
+    "values": [
+     92797.0,
+     92344.0,
+     121745.0,
+     111393.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Gross Fixed Assets",
+    "stock": true,
+    "y": 208.9,
+    "printed": [
+     "3,29,740",
+     "3,21,983",
+     "4,80,743",
+     "4,19,648"
+    ],
+    "values": [
+     329740.0,
+     321983.0,
+     480743.0,
+     419648.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "CWIP",
+    "stock": true,
+    "y": 245.3,
+    "printed": [
+     "50,846",
+     "49,529",
+     "85,527",
+     "94,932"
+    ],
+    "values": [
+     50846.0,
+     49529.0,
+     85527.0,
+     94932.0
+    ],
+    "metric": "capital_work_in_progress"
+   },
+   {
+    "label": "Investments in Subsidiaries & JVs",
+    "stock": true,
+    "y": 277.8,
+    "printed": [
+     "39,495",
+     "34,297",
+     "23,973",
+     "19,410"
+    ],
+    "values": [
+     39495.0,
+     34297.0,
+     23973.0,
+     19410.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Long-term debt (incl. current maturity)",
+    "stock": true,
+    "y": 312.7,
+    "printed": [
+     "1,55,925",
+     "1,69,141",
+     "2,33,684",
+     "2,31,510"
+    ],
+    "values": [
+     155925.0,
+     169141.0,
+     233684.0,
+     231510.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Short-term debt",
+    "stock": true,
+    "y": 347.7,
+    "printed": [
+     "34,482",
+     "13,297",
+     "38,398",
+     "16,850"
+    ],
+    "values": [
+     34482.0,
+     13297.0,
+     38398.0,
+     16850.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total Equity",
+    "stock": true,
+    "y": 380.2,
+    "printed": [
+     "1,80,178",
+     "1,66,478",
+     "2,09,845",
+     "1,90,143"
+    ],
+    "values": [
+     180178.0,
+     166478.0,
+     209845.0,
+     190143.0
+    ],
+    "metric": "net_worth"
+   },
+   {
+    "label": "Non-controlling interest in Total Equity",
+    "stock": true,
+    "y": 413.3,
+    "printed": [
+     "-",
+     "-",
+     "8,144",
+     "7,139"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     8144.0,
+     7139.0
+    ],
+    "metric": "non_controlling_interests"
+   },
+   {
+    "label": "Debt Equity Ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "stock": true,
+    "y": 447.3,
+    "printed": [
+     "1.06",
+     "1.10",
+     "1.30",
+     "1.31"
+    ],
+    "values": [
+     1.06,
+     1.1,
+     1.3,
+     1.31
+    ],
+    "metric": "debt_to_equity"
+   },
+   {
+    "label": "Book Value per Share (₹/Share)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "stock": true,
+    "y": 481.5,
+    "printed": [
+     "185.81",
+     "171.69",
+     "216.41",
+     "196.09"
+    ],
+    "values": [
+     185.81,
+     171.69,
+     216.41,
+     196.09
+    ],
+    "metric": "book_value_per_share"
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "a consolidated figure attributed to the standalone entity, or the reverse",
+   "long-term and short-term debt merged",
+   "the debt-equity ratio or book value reported in crore",
+   "a dash (standalone NCI) extracted as 0"
+  ]
+ }
+}

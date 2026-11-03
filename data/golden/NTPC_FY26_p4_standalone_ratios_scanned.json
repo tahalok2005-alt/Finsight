@@ -1,0 +1,419 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A SCANNED exchange filing: lines 17-29 of the standalone results -- the",
+  "SEBI ratio disclosures -- continued from page 3 under the same five",
+  "columns. Each label carries its formula in brackets. Ratios are",
+  "multiples (unit 'ratio'), the two margins are percentages; neither is in",
+  "crore although the page is declared '₹ crore'. The turnover ratios are",
+  "ANNUALISED (a qualifier on the quarter columns). Line 23 is a dash in",
+  "every column and is not a fact. The operating margin is the filer's own",
+  "(it does not recompute from page 3's PBT + finance costs) and is recorded",
+  "as printed.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NTPC_FY26",
+ "document": "src/NTPC_FY26_annual_results.pdf",
+ "issuer": "NTPC Limited",
+ "page": 4,
+ "transcription": {
+  "method": "read by eye from the render; positions from the filer's OCR layer",
+  "verified_against": "page render at 170 dpi",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "STATEMENT OF AUDITED STANDALONE FINANCIAL RESULTS (continued): ratios",
+  "statement": "ratios",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "continuation of page 3's standalone results",
+  "unit_declaration": {
+   "text": "₹ crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   45,
+   68,
+   585,
+   450
+  ],
+  "bbox_rel": [
+   0.0756,
+   0.0808,
+   0.9831,
+   0.5346
+  ],
+  "page_height_pt": 841.68,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.03.2026",
+     "(Audited - refer note 14)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.12.2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": "2025-10-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q3 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c3",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.03.2025",
+     "(Audited - refer note 14)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2025-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY25",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c4",
+    "group": null,
+    "header_lines": [
+     "Year ended",
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c5",
+    "group": null,
+    "header_lines": [
+     "Year ended",
+     "31.03.2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "17 Capital redemption reserve",
+    "stock": true,
+    "y": 129.7,
+    "printed": [
+     "197.89",
+     "197.89",
+     "197.89",
+     "197.89",
+     "197.89"
+    ],
+    "values": [
+     197.89,
+     197.89,
+     197.89,
+     197.89,
+     197.89
+    ],
+    "metric": null
+   },
+   {
+    "label": "18 Debt equity ratio (Paid-up debt capital / Shareholder's Equity)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 143.3,
+    "printed": [
+     "1.09",
+     "1.09",
+     "1.15",
+     "1.09",
+     "1.15"
+    ],
+    "values": [
+     1.09,
+     1.09,
+     1.15,
+     1.09,
+     1.15
+    ],
+    "metric": "debt_to_equity"
+   },
+   {
+    "label": "19 Debt service coverage ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 164.5,
+    "printed": [
+     "1.22",
+     "1.27",
+     "1.19",
+     "1.68",
+     "1.37"
+    ],
+    "values": [
+     1.22,
+     1.27,
+     1.19,
+     1.68,
+     1.37
+    ],
+    "metric": null
+   },
+   {
+    "label": "20 Interest service coverage ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 211.3,
+    "printed": [
+     "5.80",
+     "5.00",
+     "4.17",
+     "4.75",
+     "4.14"
+    ],
+    "values": [
+     5.8,
+     5.0,
+     4.17,
+     4.75,
+     4.14
+    ],
+    "metric": "interest_coverage"
+   },
+   {
+    "label": "21 Current ratio (Current assets / Current liabilities)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 243.7,
+    "printed": [
+     "0.94",
+     "0.96",
+     "0.96",
+     "0.94",
+     "0.96"
+    ],
+    "values": [
+     0.94,
+     0.96,
+     0.96,
+     0.94,
+     0.96
+    ],
+    "metric": "current_ratio"
+   },
+   {
+    "label": "22 Long term debt to working capital ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 266.4,
+    "printed": [
+     "9.50",
+     "8.41",
+     "10.14",
+     "9.50",
+     "10.14"
+    ],
+    "values": [
+     9.5,
+     8.41,
+     10.14,
+     9.5,
+     10.14
+    ],
+    "metric": null
+   },
+   {
+    "label": "23 Bad debts to account receivable ratio (Bad debts / Average Trade receivables)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 303.8,
+    "printed": [
+     "-",
+     "-",
+     "-",
+     "-",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "24 Current liability ratio (Current liabilities / (Non current liabilities + Current liabilities))",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 323.6,
+    "printed": [
+     "0.37",
+     "0.33",
+     "0.33",
+     "0.37",
+     "0.33"
+    ],
+    "values": [
+     0.37,
+     0.33,
+     0.33,
+     0.37,
+     0.33
+    ],
+    "metric": null
+   },
+   {
+    "label": "25 Total debts to total assets ratio (Paid up debt capital / Total assets)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 344.5,
+    "printed": [
+     "0.46",
+     "0.44",
+     "0.45",
+     "0.46",
+     "0.45"
+    ],
+    "values": [
+     0.46,
+     0.44,
+     0.45,
+     0.46,
+     0.45
+    ],
+    "metric": "debt_to_assets"
+   },
+   {
+    "label": "26 Debtors turnover ratio (Revenue from operations / Average trade receivables) - Annualised",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 368.0,
+    "printed": [
+     "6.14",
+     "6.34",
+     "5.93",
+     "5.56",
+     "5.94"
+    ],
+    "values": [
+     6.14,
+     6.34,
+     5.93,
+     5.56,
+     5.94
+    ],
+    "metric": null
+   },
+   {
+    "label": "27 Inventory turnover ratio (Revenue from operations / Average inventory) - Annualised",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 388.6,
+    "printed": [
+     "10.63",
+     "10.37",
+     "10.41",
+     "9.48",
+     "9.66"
+    ],
+    "values": [
+     10.63,
+     10.37,
+     10.41,
+     9.48,
+     9.66
+    ],
+    "metric": null
+   },
+   {
+    "label": "28 Operating margin (%) (Earnings before interest and tax / Revenue from operations)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 412.9,
+    "printed": [
+     "24.12",
+     "21.83",
+     "21.36",
+     "21.85",
+     "20.42"
+    ],
+    "values": [
+     24.12,
+     21.83,
+     21.36,
+     21.85,
+     20.42
+    ],
+    "metric": "ebit_margin"
+   },
+   {
+    "label": "29 Net profit margin (%) (Profit for the period / Revenue from operations)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 435.2,
+    "printed": [
+     "20.29",
+     "12.27",
+     "13.16",
+     "14.00",
+     "11.56"
+    ],
+    "values": [
+     20.29,
+     12.27,
+     13.16,
+     14.0,
+     11.56
+    ],
+    "metric": "net_margin"
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "a ratio or margin reported in crore because the page is declared '₹ crore'",
+   "a dash (line 23) extracted as 0",
+   "the formula text in a label read as figures",
+   "the quarter to 31.03.2026 and the year to 31.03.2026 resolving to one period"
+  ]
+ }
+}

@@ -1,0 +1,658 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output",
+  "and NOT from the filer's OCR layer. The page is a scan; its OCR layer reads",
+  "'1.39,720.22', '1.423 15', '(150 07)' and '(1142)' where the page prints",
+  "1,39,720.22, 1,423.15, (150.07) and (11.42), and reads the rupee sign as",
+  "'?Crore'. Every figure below was read from crops ts_p1_a/b/c.png at 2.3x.",
+  "Figures use INDIAN digit grouping (1,37,963.03 = 137963.03). Q1 is marked",
+  "'Audited'. Every printed subtotal closes on every column.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "TATASTEEL",
+ "document": "src/TATASTEEL_Q1FY27_sebi_results.pdf",
+ "issuer": "Tata Steel Limited",
+ "page": 1,
+ "transcription": {
+  "method": "read by eye from 2.3x crops of the scanned page",
+  "verified_against": "ts_p1_a.png, ts_p1_b.png, ts_p1_c.png; identities",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Standalone Statement of Profit and Loss for the quarter ended on 30th June 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "statement title",
+  "unit_declaration": {
+   "text": "₹ Crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right; the filer's OCR reads the rupee sign as '?'"
+  },
+  "bbox_pt": [
+   78,
+   100,
+   535,
+   715
+  ],
+  "bbox_rel": [
+   0.1307,
+   0.1186,
+   0.8961,
+   0.8482
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "on 30.06.2026",
+     "Audited"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "on 31.03.2026",
+     "(refer note 7)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": null
+   },
+   {
+    "id": "c3",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "on 30.06.2025",
+     "Audited"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c4",
+    "group": null,
+    "header_lines": [
+     "Financial year",
+     "ended on",
+     "31.03.2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "a) Sales / income from operations",
+    "y": 185.2,
+    "values": [
+     36452.27,
+     37916.21,
+     30599.1,
+     137963.03
+    ],
+    "metric": "sales",
+    "metric_alt": [
+     "sale_of_products"
+    ]
+   },
+   {
+    "label": "b) Other operating revenues",
+    "y": 197.4,
+    "values": [
+     444.28,
+     531.75,
+     415.26,
+     1757.19
+    ],
+    "metric": "other_operating_revenue"
+   },
+   {
+    "label": "Total revenue from operations [1(a) + 1(b)]",
+    "is_total": true,
+    "y": 209.4,
+    "values": [
+     36896.55,
+     38447.96,
+     31014.36,
+     139720.22
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "Other income",
+    "serial": 2,
+    "y": 221.3,
+    "values": [
+     491.35,
+     220.81,
+     555.07,
+     2165.7
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "Total income [1 + 2]",
+    "serial": 3,
+    "is_total": true,
+    "y": 234.1,
+    "values": [
+     37387.9,
+     38668.77,
+     31569.43,
+     141885.92
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "a) Cost of materials consumed",
+    "y": 257.3,
+    "values": [
+     12976.96,
+     13145.95,
+     10833.48,
+     47978.73
+    ],
+    "metric": "raw_material_cost"
+   },
+   {
+    "label": "b) Purchases of stock-in-trade",
+    "y": 269.2,
+    "values": [
+     1866.96,
+     1423.15,
+     988.33,
+     5075.9
+    ],
+    "metric": "purchases_of_stock_in_trade"
+   },
+   {
+    "label": "c) Changes in inventories of finished and semi-finished goods, stock-in-trade and work-in-progress",
+    "y": 284.4,
+    "values": [
+     -1984.56,
+     -5.88,
+     -851.3,
+     -365.03
+    ],
+    "metric": "changes_in_inventories"
+   },
+   {
+    "label": "d) Employee benefits expense",
+    "y": 298.7,
+    "values": [
+     2024.93,
+     1900.86,
+     1996.27,
+     7755.7
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "e) Finance costs",
+    "y": 309.9,
+    "values": [
+     1357.43,
+     1318.25,
+     1271.09,
+     5116.88
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "f) Depreciation and amortisation expense",
+    "y": 320.9,
+    "values": [
+     2205.11,
+     1897.41,
+     1626.58,
+     7068.68
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "g) Other expenses",
+    "y": 332.1,
+    "values": [
+     12829.05,
+     12511.05,
+     10928.14,
+     46803.1
+    ],
+    "metric": "other_expenses"
+   },
+   {
+    "label": "Total expenses [4(a) to 4(g)]",
+    "is_total": true,
+    "y": 343.1,
+    "values": [
+     31275.88,
+     32190.79,
+     26792.59,
+     119433.96
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "Profit / (Loss) before exceptional items & tax [3 - 4]",
+    "serial": 5,
+    "is_total": true,
+    "y": 353.9,
+    "values": [
+     6112.02,
+     6477.98,
+     4776.84,
+     22451.96
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "a) Provision for impairment and non-recoverability of non-current assets / non-current investments / loans and advances / other financial assets",
+    "y": 379.7,
+    "values": [
+     -40.06,
+     -291.45,
+     -124.9,
+     -948.4
+    ],
+    "metric": null
+   },
+   {
+    "label": "b) Profit / (loss) on sale of non-current investments / business undertakings / non-current assets",
+    "y": 400.2,
+    "values": [
+     "nil",
+     322.08,
+     "nil",
+     322.08
+    ],
+    "metric": null
+   },
+   {
+    "label": "c) Restructuring, redundancy and other provisions (net)",
+    "y": 415.5,
+    "values": [
+     -261.07,
+     -150.07,
+     -104.64,
+     -425.68
+    ],
+    "metric": null
+   },
+   {
+    "label": "d) Statutory impact of new labour codes",
+    "y": 426.8,
+    "values": [
+     "nil",
+     -11.42,
+     "nil",
+     -72.53
+    ],
+    "metric": null
+   },
+   {
+    "label": "e) Fair value gain / (loss) on non-current investments (net)",
+    "y": 438.2,
+    "values": [
+     9.63,
+     -1.19,
+     10.46,
+     25.67
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total exceptional items [6(a) to 6(e)]",
+    "is_total": true,
+    "y": 449.6,
+    "values": [
+     -291.5,
+     -132.05,
+     -219.08,
+     -1098.86
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "Profit / (Loss) before tax [5 + 6]",
+    "serial": 7,
+    "is_total": true,
+    "y": 461.1,
+    "values": [
+     5820.52,
+     6345.93,
+     4557.76,
+     21353.1
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "a) Current tax",
+    "y": 482.9,
+    "values": [
+     1404.08,
+     1612.27,
+     1021.13,
+     4917.07
+    ],
+    "metric": "current_tax"
+   },
+   {
+    "label": "b) Current tax in relation to earlier years",
+    "y": 494.0,
+    "values": [
+     -480.25,
+     54.61,
+     -209.27,
+     -164.54
+    ],
+    "metric": null
+   },
+   {
+    "label": "c) Deferred tax",
+    "y": 504.8,
+    "values": [
+     361.1,
+     19.31,
+     222.65,
+     535.44
+    ],
+    "metric": "deferred_tax"
+   },
+   {
+    "label": "Total tax expense [8(a) to 8(c)]",
+    "is_total": true,
+    "y": 516.0,
+    "values": [
+     1284.93,
+     1686.19,
+     1034.51,
+     5287.97
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Net Profit / (Loss) for the period [7 - 8]",
+    "serial": 9,
+    "is_total": true,
+    "y": 527.1,
+    "values": [
+     4535.59,
+     4659.74,
+     3523.25,
+     16065.13
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "A (i) Items that will not be reclassified to profit or loss",
+    "y": 548.8,
+    "values": [
+     -1035.91,
+     -4905.27,
+     3290.82,
+     -2780.54
+    ],
+    "metric": "oci_items_not_reclassified"
+   },
+   {
+    "label": "A (ii) Income tax relating to items that will not be reclassified to profit or loss",
+    "y": 563.1,
+    "values": [
+     -22.76,
+     36.24,
+     -75.53,
+     -79.95
+    ],
+    "metric": "oci_tax_not_reclassified"
+   },
+   {
+    "label": "B (i) Items that will be reclassified to profit or loss",
+    "y": 576.8,
+    "values": [
+     0.5,
+     88.42,
+     6.45,
+     121.34
+    ],
+    "metric": "oci_items_reclassified"
+   },
+   {
+    "label": "B (ii) Income tax relating to items that will be reclassified to profit or loss",
+    "y": 591.3,
+    "values": [
+     -0.13,
+     -22.25,
+     -1.62,
+     -30.54
+    ],
+    "metric": "oci_tax_reclassified"
+   },
+   {
+    "label": "Total other comprehensive income",
+    "is_total": true,
+    "y": 605.6,
+    "values": [
+     -1058.3,
+     -4802.86,
+     3220.12,
+     -2769.69
+    ],
+    "metric": "other_comprehensive_income"
+   },
+   {
+    "label": "Total Comprehensive Income for the period [9 + 10]",
+    "serial": 11,
+    "is_total": true,
+    "y": 617.4,
+    "values": [
+     3477.29,
+     -143.12,
+     6743.37,
+     13295.44
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "Paid-up equity share capital [Face value ₹ 1 per share]",
+    "serial": 12,
+    "stock": true,
+    "y": 628.5,
+    "values": [
+     1248.6,
+     1248.6,
+     1248.6,
+     1248.6
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Paid-up debt capital",
+    "serial": 13,
+    "stock": true,
+    "y": 640.0,
+    "values": [
+     15159.95,
+     15159.21,
+     15157.0,
+     15159.21
+    ],
+    "metric": "paid_up_debt_capital"
+   },
+   {
+    "label": "Reserves excluding revaluation reserves",
+    "serial": 14,
+    "stock": true,
+    "y": 651.4,
+    "values": [
+     null,
+     null,
+     null,
+     134284.71
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "Securities premium reserve",
+    "serial": 15,
+    "stock": true,
+    "y": 662.9,
+    "values": [
+     31290.24,
+     31290.24,
+     31290.24,
+     31290.24
+    ],
+    "metric": "share_premium"
+   },
+   {
+    "label": "Basic earnings per share (not annualised) - in Rupees (after exceptional items)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "unit_evidence": "'- in Rupees' on the row label",
+    "y": 688.8,
+    "values": [
+     3.63,
+     3.74,
+     2.82,
+     12.87
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "Diluted earnings per share (not annualised) - in Rupees (after exceptional items)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "unit_evidence": "'- in Rupees' on the row label",
+    "y": 707.0,
+    "values": [
+     3.63,
+     3.73,
+     2.82,
+     12.87
+    ],
+    "metric": "diluted_eps"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total revenue from operations [1(a) + 1(b)]",
+    "plus": [
+     "a) Sales / income from operations",
+     "b) Other operating revenues"
+    ]
+   },
+   {
+    "target": "Total income [1 + 2]",
+    "plus": [
+     "Total revenue from operations [1(a) + 1(b)]",
+     "Other income"
+    ]
+   },
+   {
+    "target": "Total expenses [4(a) to 4(g)]",
+    "plus": [
+     "a) Cost of materials consumed",
+     "b) Purchases of stock-in-trade",
+     "c) Changes in inventories of finished and semi-finished goods, stock-in-trade and work-in-progress",
+     "d) Employee benefits expense",
+     "e) Finance costs",
+     "f) Depreciation and amortisation expense",
+     "g) Other expenses"
+    ]
+   },
+   {
+    "target": "Profit / (Loss) before exceptional items & tax [3 - 4]",
+    "plus": [
+     "Total income [1 + 2]"
+    ],
+    "minus": [
+     "Total expenses [4(a) to 4(g)]"
+    ]
+   },
+   {
+    "target": "Total exceptional items [6(a) to 6(e)]",
+    "plus": [
+     "a) Provision for impairment and non-recoverability of non-current assets / non-current investments / loans and advances / other financial assets",
+     "b) Profit / (loss) on sale of non-current investments / business undertakings / non-current assets",
+     "c) Restructuring, redundancy and other provisions (net)",
+     "d) Statutory impact of new labour codes",
+     "e) Fair value gain / (loss) on non-current investments (net)"
+    ]
+   },
+   {
+    "target": "Profit / (Loss) before tax [5 + 6]",
+    "plus": [
+     "Profit / (Loss) before exceptional items & tax [3 - 4]",
+     "Total exceptional items [6(a) to 6(e)]"
+    ]
+   },
+   {
+    "target": "Total tax expense [8(a) to 8(c)]",
+    "plus": [
+     "a) Current tax",
+     "b) Current tax in relation to earlier years",
+     "c) Deferred tax"
+    ]
+   },
+   {
+    "target": "Net Profit / (Loss) for the period [7 - 8]",
+    "plus": [
+     "Profit / (Loss) before tax [5 + 6]"
+    ],
+    "minus": [
+     "Total tax expense [8(a) to 8(c)]"
+    ]
+   },
+   {
+    "target": "Total other comprehensive income",
+    "plus": [
+     "A (i) Items that will not be reclassified to profit or loss",
+     "A (ii) Income tax relating to items that will not be reclassified to profit or loss",
+     "B (i) Items that will be reclassified to profit or loss",
+     "B (ii) Income tax relating to items that will be reclassified to profit or loss"
+    ]
+   },
+   {
+    "target": "Total Comprehensive Income for the period [9 + 10]",
+    "plus": [
+     "Net Profit / (Loss) for the period [7 - 8]",
+     "Total other comprehensive income"
+    ]
+   }
+  ],
+  "page_height_pt": 843.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "1,39,720.22 read as 139.72 or 1.39 (Indian digit grouping)",
+   "the Q4 FY26 column and the FY26 column resolving to the same period",
+   "any fact on this page attributed to the consolidated entity",
+   "EPS carrying crore"
+  ]
+ }
+}

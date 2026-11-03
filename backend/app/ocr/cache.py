@@ -95,8 +95,9 @@ def load(cache_scope: str, page_number: int, render_signature: str,
                     error=str(exc))
         try:
             p.unlink()
-        except OSError:
-            pass
+        except OSError as unlink_error:      # e.g. the file is locked
+            log.debug("ocr.cache_unlink_failed", path=str(p),
+                      error=str(unlink_error))
         return None
     return rebind(result, document_id) if document_id else result
 
@@ -121,6 +122,6 @@ def clear(cache_scope: str) -> int:
         try:
             f.unlink()
             n += 1
-        except OSError:
-            pass
+        except OSError as exc:               # e.g. the file is locked
+            log.debug("ocr.cache_unlink_failed", path=str(f), error=str(exc))
     return n

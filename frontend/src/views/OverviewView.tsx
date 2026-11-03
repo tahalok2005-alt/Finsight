@@ -1,22 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import {
-  AlertTriangle, CheckCircle2, ClipboardList, FileText, Table2, Upload,
+  AlertTriangle, CheckCircle2, ChevronRight, ClipboardList, FileText, Table2,
+  Upload,
 } from "lucide-react";
-import {
-  Bar, BarChart, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis,
-} from "recharts";
 import { api } from "../api/client";
 import {
   Empty, ErrorNote, Panel, ProgressBar, Spinner, Stat, StatusChip,
 } from "../components/ui";
 import {
-  TERMINAL_STATUSES, formatDuration, relativeTime, titleCase,
+  TERMINAL_STATUSES, formatDuration, relativeTime,
 } from "../utils/format";
-
-const BAND_COLOR: Record<string, string> = {
-  HIGH: "#10b981", MEDIUM: "#3b82f6", LOW: "#f59e0b", REQUIRES_REVIEW: "#ef4444",
-};
+import { statusMeta } from "../utils/lifecycle";
 
 export function OverviewView() {
   const { data, isLoading, error, refetch } = useQuery({
@@ -36,11 +31,12 @@ export function OverviewView() {
     );
   if (!data) return null;
 
-  const bands = Object.entries(data.extraction.confidence_bands).map(([k, v]) => ({
-    band: k.replace("_", " "),
-    key: k,
-    count: v,
-  }));
+  // Work, not statistics: what is running, and what is waiting on a person.
+  const recent = data.recent_documents;
+  const inFlight = recent.filter((d) => !TERMINAL_STATUSES.has(d.status));
+  const attention = recent.filter((d) =>
+    ["FAILED", "INTERRUPTED", "REQUIRES_REVIEW", "PARTIALLY_COMPLETED"]
+      .includes(d.status));
 
   return (
     <div className="h-full overflow-y-auto">
@@ -71,7 +67,7 @@ export function OverviewView() {
             tone={data.documents.failed > 0 ? "warn" : "accent"}
           />
           <Stat
-            label="Financial facts"
+            label="Financial figures"
             value={data.extraction.facts.toLocaleString()}
             hint={`${data.extraction.tables} tables · ${data.extraction.charts} charts`}
             tone="pass"
@@ -124,7 +120,7 @@ export function OverviewView() {
                     <tr key={d.id} className="hover:bg-ink-850/60">
                       <td className="td">
                         <Link to={`/documents/${d.id}`} className="link font-medium">
-                          {d.company_name ?? d.original_filename}
+                          {d.company_name || d.original_filename}
                         </Link>
                         <p className="text-2xs text-ink-500 truncate max-w-[280px]">
                           {d.original_filename}
@@ -140,7 +136,12 @@ export function OverviewView() {
                       <td className="td">
                         <StatusChip status={d.status} />
                         {!TERMINAL_STATUSES.has(d.status) && (
-                          <ProgressBar value={0.5} className="mt-1.5 w-20" />
+                          // real page progress, never a placeholder value
+                          <ProgressBar
+                            value={(d.pages_processed ?? 0)
+                              / Math.max(1, d.page_count ?? 1)}
+                            className="mt-1.5 w-20"
+                          />
                         )}
                       </td>
                       <td className="td text-2xs text-ink-500">
@@ -155,57 +156,68 @@ export function OverviewView() {
             )}
           </Panel>
 
-          <div className="space-y-6">
-            <Panel title="Confidence distribution" subtitle="All extracted facts">
-              {bands.every((b) => b.count === 0) ? (
-                <Empty title="No facts extracted yet" />
+          <div className="space-y-4">
+            {/* Two panels replace the confidence histogram and the "most
+                extracted metrics" list that used to sit here.  Both of those
+                described the corpus without giving anyone anything to do; a
+                landing screen should surface work, not statistics. */}
+            <Panel title="Needs your attention"
+                   subtitle="Documents waiting on a person"
+                   bodyClassName="p-0">
+              {attention.length === 0 ? (
+                <Empty title="Nothing waiting"
+                       hint="No document is failed, interrupted or flagged for review." />
               ) : (
-                <ResponsiveContainer width="100%" height={170}>
-                  <BarChart data={bands} layout="vertical" margin={{ left: 8, right: 12 }}>
-                    <XAxis type="number" hide />
-                    <YAxis
-                      dataKey="band"
-                      type="category"
-                      width={104}
-                      tick={{ fill: "#8593b1", fontSize: 11 }}
-                      axisLine={false}
-                      tickLine={false}
-                    />
-                    <Tooltip
-                      cursor={{ fill: "#161e31" }}
-                      contentStyle={{
-                        background: "#111828", border: "1px solid #1e2842",
-                        borderRadius: 6, fontSize: 12,
-                      }}
-                    />
-                    <Bar dataKey="count" radius={[0, 3, 3, 0]}>
-                      {bands.map((b) => (
-                        <Cell key={b.key} fill={BAND_COLOR[b.key] ?? "#3b82f6"} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+                <ul className="divide-y divide-ink-800">
+                  {attention.slice(0, 6).map((d) => {
+                    const meta = statusMeta(d.status);
+                    return (
+                      <li key={d.id}>
+                        <Link to={`/documents/${d.id}`}
+                              className="flex items-center gap-2.5 px-3.5 h-11
+                                         hover:bg-ink-850 transition-colors">
+                          <span className={meta.chip}>{meta.label}</span>
+                          <span className="flex-1 min-w-0 truncate text-xs text-ink-100">
+                            {d.company_name || d.original_filename}
+                          </span>
+                          <ChevronRight size={13} className="text-ink-500 shrink-0" />
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               )}
             </Panel>
 
-            <Panel title="Most extracted metrics">
-              {data.extraction.top_metrics.length === 0 ? (
-                <Empty title="Nothing extracted yet" />
+            <Panel title="Processing now" bodyClassName="p-0">
+              {inFlight.length === 0 ? (
+                <Empty title="Nothing processing"
+                       hint="Uploaded documents appear here while they run." />
               ) : (
-                <ul className="space-y-1.5">
-                  {data.extraction.top_metrics.slice(0, 8).map((m) => (
-                    <li key={m.metric} className="flex items-center gap-2 text-sm">
-                      <span className="flex-1 truncate text-ink-300">
-                        {titleCase(m.metric)}
-                      </span>
-                      <span className="num text-ink-400 text-xs">{m.count}</span>
-                      <div className="w-16">
-                        <ProgressBar
-                          value={m.count / (data.extraction.top_metrics[0]?.count || 1)}
-                        />
-                      </div>
-                    </li>
-                  ))}
+                <ul className="divide-y divide-ink-800">
+                  {inFlight.map((d) => {
+                    const total = d.page_count || 0;
+                    const done = d.pages_processed || 0;
+                    const pct = total ? Math.round((done / total) * 100) : 0;
+                    return (
+                      <li key={d.id} className="px-3.5 py-2.5">
+                        <Link to={`/documents/${d.id}`}
+                              className="text-xs text-ink-100 hover:text-accent-300
+                                         truncate block">
+                          {d.original_filename}
+                        </Link>
+                        <div className="flex items-center gap-2 mt-1.5">
+                          <div className="h-1 flex-1 bg-ink-800 rounded-full overflow-hidden">
+                            <div className="h-full bg-run-500 rounded-full"
+                                 style={{ width: `${pct}%` }} />
+                          </div>
+                          <span className="text-2xs num text-ink-300">
+                            {done}/{total || "?"}
+                          </span>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </Panel>
@@ -242,7 +254,7 @@ export function OverviewView() {
             <div className="space-y-2 text-sm">
               <Line
                 icon={<FileText size={14} className="text-accent-400" />}
-                label="Facts"
+                label="Figures"
                 value={data.extraction.facts}
               />
               <Line

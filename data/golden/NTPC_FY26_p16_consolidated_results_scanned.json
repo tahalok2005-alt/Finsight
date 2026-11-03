@@ -1,0 +1,876 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A SCANNED filing: consolidated results, INR crore, five columns (three quarters,",
+  "two years; the quarter and year to 31.03.2026 share an end date). Unseparated",
+  "figures; the filer's OCR layer damages some ('p.44)' for (1.44)). Every figure read",
+  "from the render; every subtotal re-added.",
+  "Line 3 is profit before tax, regulatory deferral balances AND the share of joint",
+  "ventures; line 5 adds that share (the statement's PBT). Line 7 is a qualified profit",
+  "after tax (before regulatory deferral movements; metric null); line 9 is profit.",
+  "OCI item (ii) has TWO parts with no total, so neither part is the income tax on",
+  "items not reclassified (metric null); a tax line labelled '(a) Net actuarial",
+  "gains/(losses)...' names the tax on that item, not the item. The year column of",
+  "(i)(c) prints a dash while the quarters print figures -- as printed.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NTPC_FY26",
+ "document": "src/NTPC_FY26_annual_results.pdf",
+ "issuer": "NTPC Limited",
+ "page": 16,
+ "transcription": {
+  "method": "read by eye from the render; positions from the filer's OCR layer",
+  "verified_against": "page render at 170-220 dpi and the statement's own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "STATEMENT OF AUDITED CONSOLIDATED FINANCIAL RESULTS FOR THE QUARTER AND YEAR ENDED 31 MARCH 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "title 'STATEMENT OF AUDITED CONSOLIDATED FINANCIAL RESULTS'",
+  "unit_declaration": {
+   "text": "₹ Crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   110,
+   124,
+   530,
+   660
+  ],
+  "bbox_rel": [
+   0.1848,
+   0.1473,
+   0.8906,
+   0.7841
+  ],
+  "page_height_pt": 841.68,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.03.2026",
+     "(Audited - refer note 14)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.12.2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": "2025-10-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q3 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c3",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.03.2025",
+     "(Audited - refer note 14)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2025-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY25",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c4",
+    "group": null,
+    "header_lines": [
+     "Year ended",
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c5",
+    "group": null,
+    "header_lines": [
+     "Year ended",
+     "31.03.2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "1(a) Revenue from operations",
+    "y": 191.5,
+    "printed": [
+     "49687.77",
+     "45845.68",
+     "49833.70",
+     "187384.63",
+     "188138.06"
+    ],
+    "values": [
+     49687.77,
+     45845.68,
+     49833.7,
+     187384.63,
+     188138.06
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "1(b) Other income",
+    "y": 199.4,
+    "printed": [
+     "722.81",
+     "459.09",
+     "1251.35",
+     "2413.93",
+     "2724.39"
+    ],
+    "values": [
+     722.81,
+     459.09,
+     1251.35,
+     2413.93,
+     2724.39
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "Total income (a+b)",
+    "is_total": true,
+    "y": 207.0,
+    "printed": [
+     "50410.58",
+     "46304.77",
+     "51085.05",
+     "189798.56",
+     "190862.45"
+    ],
+    "values": [
+     50410.58,
+     46304.77,
+     51085.05,
+     189798.56,
+     190862.45
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "2(a) Fuel cost",
+    "y": 223.5,
+    "printed": [
+     "21678.64",
+     "22775.82",
+     "24913.37",
+     "92489.84",
+     "101514.84"
+    ],
+    "values": [
+     21678.64,
+     22775.82,
+     24913.37,
+     92489.84,
+     101514.84
+    ],
+    "metric": null
+   },
+   {
+    "label": "2(b) Electricity purchased for trading",
+    "y": 231.1,
+    "printed": [
+     "1427.59",
+     "1446.47",
+     "1571.64",
+     "5752.63",
+     "5517.59"
+    ],
+    "values": [
+     1427.59,
+     1446.47,
+     1571.64,
+     5752.63,
+     5517.59
+    ],
+    "metric": null
+   },
+   {
+    "label": "2(c) Employee benefits expense",
+    "y": 238.6,
+    "printed": [
+     "2064.80",
+     "1756.72",
+     "2004.98",
+     "6986.28",
+     "6796.13"
+    ],
+    "values": [
+     2064.8,
+     1756.72,
+     2004.98,
+     6986.28,
+     6796.13
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "2(d) Finance costs",
+    "y": 246.2,
+    "printed": [
+     "3736.82",
+     "3164.09",
+     "3648.04",
+     "13800.89",
+     "13168.07"
+    ],
+    "values": [
+     3736.82,
+     3164.09,
+     3648.04,
+     13800.89,
+     13168.07
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "2(e) Depreciation, amortisation and impairment expense",
+    "y": 253.4,
+    "printed": [
+     "5133.79",
+     "5093.04",
+     "4663.07",
+     "19629.33",
+     "17401.19"
+    ],
+    "values": [
+     5133.79,
+     5093.04,
+     4663.07,
+     19629.33,
+     17401.19
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "2(f) Other expenses",
+    "y": 260.9,
+    "printed": [
+     "9196.26",
+     "5297.09",
+     "6589.66",
+     "26870.13",
+     "20181.93"
+    ],
+    "values": [
+     9196.26,
+     5297.09,
+     6589.66,
+     26870.13,
+     20181.93
+    ],
+    "metric": "other_expenses"
+   },
+   {
+    "label": "Total expenses (a+b+c+d+e+f)",
+    "is_total": true,
+    "y": 268.2,
+    "printed": [
+     "43237.90",
+     "39533.23",
+     "43390.76",
+     "165529.10",
+     "164579.75"
+    ],
+    "values": [
+     43237.9,
+     39533.23,
+     43390.76,
+     165529.1,
+     164579.75
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "3 Profit before tax, regulatory deferral account balances and share of profit of joint ventures (1-2)",
+    "is_total": true,
+    "y": 276.1,
+    "printed": [
+     "7172.68",
+     "6771.54",
+     "7694.29",
+     "24269.46",
+     "26282.70"
+    ],
+    "values": [
+     7172.68,
+     6771.54,
+     7694.29,
+     24269.46,
+     26282.7
+    ],
+    "metric": "pbt_before_associates"
+   },
+   {
+    "label": "4 Share of profits/(loss) of joint ventures accounted for using equity method",
+    "y": 306.8,
+    "printed": [
+     "1193.70",
+     "613.73",
+     "632.51",
+     "2864.10",
+     "2213.71"
+    ],
+    "values": [
+     1193.7,
+     613.73,
+     632.51,
+     2864.1,
+     2213.71
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "5 Profit before tax and regulatory deferral account balances (3+4)",
+    "is_total": true,
+    "y": 321.8,
+    "printed": [
+     "8366.38",
+     "7385.27",
+     "8326.80",
+     "27133.56",
+     "28496.41"
+    ],
+    "values": [
+     8366.38,
+     7385.27,
+     8326.8,
+     27133.56,
+     28496.41
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "6(a) Current tax (Refer Note 5)",
+    "y": 344.1,
+    "printed": [
+     "1249.25",
+     "1295.07",
+     "811.10",
+     "4533.79",
+     "4071.21"
+    ],
+    "values": [
+     1249.25,
+     1295.07,
+     811.1,
+     4533.79,
+     4071.21
+    ],
+    "metric": "current_tax"
+   },
+   {
+    "label": "6(b) Deferred tax",
+    "y": 351.7,
+    "printed": [
+     "(10311.36)",
+     "1158.00",
+     "1914.54",
+     "(7410.21)",
+     "4173.97"
+    ],
+    "values": [
+     -10311.36,
+     1158.0,
+     1914.54,
+     -7410.21,
+     4173.97
+    ],
+    "metric": "deferred_tax"
+   },
+   {
+    "label": "Total tax expense (a+b)",
+    "is_total": true,
+    "y": 359.9,
+    "printed": [
+     "(9062.11)",
+     "2453.07",
+     "2725.64",
+     "(2876.42)",
+     "8245.18"
+    ],
+    "values": [
+     -9062.11,
+     2453.07,
+     2725.64,
+     -2876.42,
+     8245.18
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "7 Profit before regulatory deferral account balances (5-6)",
+    "is_total": true,
+    "y": 367.5,
+    "printed": [
+     "17428.49",
+     "4932.20",
+     "5601.16",
+     "30009.98",
+     "20251.23"
+    ],
+    "values": [
+     17428.49,
+     4932.2,
+     5601.16,
+     30009.98,
+     20251.23
+    ],
+    "metric": null
+   },
+   {
+    "label": "8 Net movement in regulatory deferral account balances (net of tax) (Refer Note 6)",
+    "y": 384.1,
+    "printed": [
+     "(6813.54)",
+     "664.85",
+     "2295.98",
+     "(2464.22)",
+     "3701.92"
+    ],
+    "values": [
+     -6813.54,
+     664.85,
+     2295.98,
+     -2464.22,
+     3701.92
+    ],
+    "metric": null
+   },
+   {
+    "label": "9 Profit for the period (7+8)",
+    "is_total": true,
+    "y": 400.6,
+    "printed": [
+     "10614.95",
+     "5597.05",
+     "7897.14",
+     "27545.76",
+     "23953.15"
+    ],
+    "values": [
+     10614.95,
+     5597.05,
+     7897.14,
+     27545.76,
+     23953.15
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "10(i)(a) Net actuarial gains/(losses) on defined benefit plans",
+    "y": 422.9,
+    "printed": [
+     "35.13",
+     "(69.80)",
+     "(117.32)",
+     "(174.40)",
+     "(237.27)"
+    ],
+    "values": [
+     35.13,
+     -69.8,
+     -117.32,
+     -174.4,
+     -237.27
+    ],
+    "metric": "oci_remeasurement_benefit_plans"
+   },
+   {
+    "label": "10(i)(b) Net gains/(losses) on fair value of equity instruments",
+    "y": 437.7,
+    "printed": [
+     "(2.54)",
+     "(6.94)",
+     "25.28",
+     "(4.80)",
+     "(23.92)"
+    ],
+    "values": [
+     -2.54,
+     -6.94,
+     25.28,
+     -4.8,
+     -23.92
+    ],
+    "metric": "oci_fair_value_investments"
+   },
+   {
+    "label": "10(i)(c) Share of other comprehensive income of joint ventures accounted for under the equity method",
+    "y": 452.5,
+    "printed": [
+     "(2.73)",
+     "1.89",
+     "3.10",
+     "-",
+     "(0.33)"
+    ],
+    "values": [
+     -2.73,
+     1.89,
+     3.1,
+     "nil",
+     -0.33
+    ],
+    "metric": null
+   },
+   {
+    "label": "10(ii)(a) Income tax on items not reclassified: Net actuarial gains/(losses) on defined benefit plans",
+    "y": 482.3,
+    "printed": [
+     "(6.14)",
+     "12.20",
+     "20.54",
+     "30.47",
+     "41.46"
+    ],
+    "values": [
+     -6.14,
+     12.2,
+     20.54,
+     30.47,
+     41.46
+    ],
+    "metric": null
+   },
+   {
+    "label": "10(ii)(b) Income tax on items not reclassified: Share of other comprehensive income of joint ventures",
+    "y": 497.1,
+    "printed": [
+     "(0.07)",
+     "-",
+     "-",
+     "(0.07)",
+     "-"
+    ],
+    "values": [
+     -0.07,
+     "nil",
+     "nil",
+     -0.07,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "10(iii)(a) Exchange differences on translation of foreign operations",
+    "y": 528.1,
+    "printed": [
+     "96.98",
+     "16.98",
+     "(23.54)",
+     "188.36",
+     "(110.28)"
+    ],
+    "values": [
+     96.98,
+     16.98,
+     -23.54,
+     188.36,
+     -110.28
+    ],
+    "metric": "foreign_currency_translation_reserve"
+   },
+   {
+    "label": "10(iii)(b) Net movement in cost and effective portion of cash flow hedges",
+    "y": 542.8,
+    "printed": [
+     "(2.22)",
+     "4.46",
+     "-",
+     "2.24",
+     "-"
+    ],
+    "values": [
+     -2.22,
+     4.46,
+     "nil",
+     2.24,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "10(iv) Income tax on items that will be reclassified to profit or loss",
+    "y": 557.9,
+    "printed": [
+     "(0.24)",
+     "-",
+     "-",
+     "(0.24)",
+     "-"
+    ],
+    "values": [
+     -0.24,
+     "nil",
+     "nil",
+     -0.24,
+     "nil"
+    ],
+    "metric": "oci_tax_reclassified"
+   },
+   {
+    "label": "Other comprehensive income for the period (net of tax) [(i)+(ii)+(iii)+(iv)]",
+    "is_total": true,
+    "y": 572.0,
+    "printed": [
+     "118.17",
+     "(41.21)",
+     "(91.94)",
+     "41.56",
+     "(330.34)"
+    ],
+    "values": [
+     118.17,
+     -41.21,
+     -91.94,
+     41.56,
+     -330.34
+    ],
+    "metric": "other_comprehensive_income"
+   },
+   {
+    "label": "11 Total comprehensive income for the period (9+10)",
+    "is_total": true,
+    "y": 588.2,
+    "printed": [
+     "10733.12",
+     "5555.84",
+     "7805.20",
+     "27587.32",
+     "23622.81"
+    ],
+    "values": [
+     10733.12,
+     5555.84,
+     7805.2,
+     27587.32,
+     23622.81
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "12 Profit attributable to owners of the parent company",
+    "y": 604.1,
+    "printed": [
+     "10486.47",
+     "5488.67",
+     "7611.22",
+     "27052.52",
+     "23422.46"
+    ],
+    "values": [
+     10486.47,
+     5488.67,
+     7611.22,
+     27052.52,
+     23422.46
+    ],
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "13 Profit attributable to non-controlling interest",
+    "y": 616.3,
+    "printed": [
+     "128.48",
+     "108.38",
+     "285.92",
+     "493.24",
+     "530.69"
+    ],
+    "values": [
+     128.48,
+     108.38,
+     285.92,
+     493.24,
+     530.69
+    ],
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "14 Other comprehensive income attributable to owners of the parent company",
+    "y": 629.3,
+    "printed": [
+     "119.61",
+     "(41.76)",
+     "(89.93)",
+     "42.33",
+     "(328.30)"
+    ],
+    "values": [
+     119.61,
+     -41.76,
+     -89.93,
+     42.33,
+     -328.3
+    ],
+    "metric": "oci_attributable_to_owners"
+   },
+   {
+    "label": "15 Other comprehensive income attributable to non controlling interest",
+    "y": 644.7,
+    "printed": [
+     "(1.44)",
+     "0.55",
+     "(2.01)",
+     "(0.77)",
+     "(2.04)"
+    ],
+    "values": [
+     -1.44,
+     0.55,
+     -2.01,
+     -0.77,
+     -2.04
+    ],
+    "metric": "oci_attributable_to_nci"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total income (a+b)",
+    "plus": [
+     "1(a) Revenue from operations",
+     "1(b) Other income"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Total expenses (a+b+c+d+e+f)",
+    "plus": [
+     "2(a) Fuel cost",
+     "2(b) Electricity purchased for trading",
+     "2(c) Employee benefits expense",
+     "2(d) Finance costs",
+     "2(e) Depreciation, amortisation and impairment expense",
+     "2(f) Other expenses"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "3 Profit before tax, regulatory deferral account balances and share of profit of joint ventures (1-2)",
+    "plus": [
+     "Total income (a+b)"
+    ],
+    "minus": [
+     "Total expenses (a+b+c+d+e+f)"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "5 Profit before tax and regulatory deferral account balances (3+4)",
+    "plus": [
+     "3 Profit before tax, regulatory deferral account balances and share of profit of joint ventures (1-2)",
+     "4 Share of profits/(loss) of joint ventures accounted for using equity method"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Total tax expense (a+b)",
+    "plus": [
+     "6(a) Current tax (Refer Note 5)",
+     "6(b) Deferred tax"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "7 Profit before regulatory deferral account balances (5-6)",
+    "plus": [
+     "5 Profit before tax and regulatory deferral account balances (3+4)"
+    ],
+    "minus": [
+     "Total tax expense (a+b)"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "9 Profit for the period (7+8)",
+    "plus": [
+     "7 Profit before regulatory deferral account balances (5-6)",
+     "8 Net movement in regulatory deferral account balances (net of tax) (Refer Note 6)"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Other comprehensive income for the period (net of tax) [(i)+(ii)+(iii)+(iv)]",
+    "plus": [
+     "10(i)(a) Net actuarial gains/(losses) on defined benefit plans",
+     "10(i)(b) Net gains/(losses) on fair value of equity instruments",
+     "10(i)(c) Share of other comprehensive income of joint ventures accounted for under the equity method",
+     "10(ii)(a) Income tax on items not reclassified: Net actuarial gains/(losses) on defined benefit plans",
+     "10(ii)(b) Income tax on items not reclassified: Share of other comprehensive income of joint ventures",
+     "10(iii)(a) Exchange differences on translation of foreign operations",
+     "10(iii)(b) Net movement in cost and effective portion of cash flow hedges",
+     "10(iv) Income tax on items that will be reclassified to profit or loss"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "11 Total comprehensive income for the period (9+10)",
+    "plus": [
+     "9 Profit for the period (7+8)",
+     "Other comprehensive income for the period (net of tax) [(i)+(ii)+(iii)+(iv)]"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "9 Profit for the period (7+8)",
+    "plus": [
+     "12 Profit attributable to owners of the parent company",
+     "13 Profit attributable to non-controlling interest"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Other comprehensive income for the period (net of tax) [(i)+(ii)+(iii)+(iv)]",
+    "plus": [
+     "14 Other comprehensive income attributable to owners of the parent company",
+     "15 Other comprehensive income attributable to non controlling interest"
+    ],
+    "tolerance": 0.05
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "profit before regulatory deferral balances (line 7) reported as the profit for the period",
+   "the tax on actuarial gains (10(ii)(a)) reported as the actuarial gains themselves",
+   "line 3 (before the share of joint ventures) reported as profit before tax",
+   "the quarter to 31.03.2026 and the year to 31.03.2026 resolving to one period"
+  ]
+ }
+}

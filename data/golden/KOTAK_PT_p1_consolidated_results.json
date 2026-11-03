@@ -1,0 +1,894 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "SIX period columns of THREE durations: quarters ending 31-Dec-25, 30-Sep-25",
+  "and 31-Dec-24; nine months ending 31-Dec-25 and 31-Dec-24; the year ending",
+  "31-Mar-25. Two pairs share an end date and differ only in duration (the Q3",
+  "quarter and the nine months, in each year). Dates are printed 'dd-Mon-yy'.",
+  "Figures from the native text layer; header read from the render.",
+  "The same statement, scanned and signed, is in KOTAK (board outcome); see",
+  "KOTAK_p7 golden for the cross-source copy.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "KOTAK_PT",
+ "document": "src/KOTAK_Q3FY26_press_table.pdf",
+ "issuer": "Kotak Mahindra Bank Limited",
+ "page": 1,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "page render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "UNAUDITED CONSOLIDATED FINANCIAL RESULTS FOR THE QUARTER AND NINE MONTHS ENDED 31ST DECEMBER, 2025",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "'KOTAK MAHINDRA BANK LIMITED (CONSOLIDATED)' and the statement title",
+  "unit_declaration": {
+   "text": "₹ crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   40,
+   135,
+   575,
+   770
+  ],
+  "bbox_rel": [
+   0.0672,
+   0.1601,
+   0.9657,
+   0.9134
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter ended",
+    "header_lines": [
+     "31-Dec-25",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": "2025-10-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q3 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter ended",
+    "header_lines": [
+     "30-Sep-25",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-09-30",
+    "period_start": "2025-07-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q2 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter ended",
+    "header_lines": [
+     "31-Dec-24",
+     "(Unaudited)"
+    ],
+    "period_end": "2024-12-31",
+    "period_start": "2024-10-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q3 FY25",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c4",
+    "group": "Nine months ended",
+    "header_lines": [
+     "31-Dec-25",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": "2025-04-01",
+    "period_type": "nine_month",
+    "fiscal_label": "9M FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c5",
+    "group": "Nine months ended",
+    "header_lines": [
+     "31-Dec-24",
+     "(Unaudited)"
+    ],
+    "period_end": "2024-12-31",
+    "period_start": "2024-04-01",
+    "period_type": "nine_month",
+    "fiscal_label": "9M FY25",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c6",
+    "group": "Year ended",
+    "header_lines": [
+     "31-Mar-25",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Interest earned (a+b+c+d)",
+    "serial": 1,
+    "is_total": true,
+    "y": 184.0,
+    "printed": [
+     "17,506.80",
+     "17,198.74",
+     "16,633.14",
+     "51,953.85",
+     "48,896.90",
+     "65,668.83"
+    ],
+    "values": [
+     17506.8,
+     17198.74,
+     16633.14,
+     51953.85,
+     48896.9,
+     65668.83
+    ],
+    "metric": "interest_earned"
+   },
+   {
+    "label": "(a) Interest/discount on advances/bills",
+    "y": 197.2,
+    "printed": [
+     "12,717.93",
+     "12,425.61",
+     "12,011.13",
+     "37,489.73",
+     "35,149.03",
+     "47,301.01"
+    ],
+    "values": [
+     12717.93,
+     12425.61,
+     12011.13,
+     37489.73,
+     35149.03,
+     47301.01
+    ],
+    "metric": "interest_on_advances"
+   },
+   {
+    "label": "(b) Income on investments",
+    "y": 212.2,
+    "printed": [
+     "4,052.86",
+     "4,120.74",
+     "3,993.25",
+     "12,441.68",
+     "11,930.02",
+     "15,990.32"
+    ],
+    "values": [
+     4052.86,
+     4120.74,
+     3993.25,
+     12441.68,
+     11930.02,
+     15990.32
+    ],
+    "metric": "investment_income"
+   },
+   {
+    "label": "(c) Interest on balances with Reserve Bank of India (RBI) & other interbank funds",
+    "y": 238.1,
+    "printed": [
+     "567.80",
+     "469.78",
+     "489.89",
+     "1,508.48",
+     "1,427.87",
+     "1,814.12"
+    ],
+    "values": [
+     567.8,
+     469.78,
+     489.89,
+     1508.48,
+     1427.87,
+     1814.12
+    ],
+    "metric": "interest_on_rbi_balances"
+   },
+   {
+    "label": "Interest earned: (d) Others",
+    "y": 265.6,
+    "printed": [
+     "168.21",
+     "182.61",
+     "138.87",
+     "513.96",
+     "389.98",
+     "563.38"
+    ],
+    "values": [
+     168.21,
+     182.61,
+     138.87,
+     513.96,
+     389.98,
+     563.38
+    ],
+    "metric": "other_interest_income"
+   },
+   {
+    "label": "Other income (a+b+c)",
+    "serial": 2,
+    "is_total": true,
+    "y": 280.6,
+    "printed": [
+     "10,343.99",
+     "7,702.65",
+     "7,312.65",
+     "27,502.25",
+     "27,004.78",
+     "37,407.27"
+    ],
+    "values": [
+     10343.99,
+     7702.65,
+     7312.65,
+     27502.25,
+     27004.78,
+     37407.27
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "(a) Profit/(Loss) on sale of Investments including revaluation (insurance business)",
+    "y": 306.6,
+    "printed": [
+     "969.17",
+     "(633.02)",
+     "(1,078.93)",
+     "2,720.43",
+     "3,548.04",
+     "2,231.15"
+    ],
+    "values": [
+     969.17,
+     -633.02,
+     -1078.93,
+     2720.43,
+     3548.04,
+     2231.15
+    ],
+    "metric": null
+   },
+   {
+    "label": "(b) Premium on Insurance Business",
+    "y": 334.0,
+    "printed": [
+     "4,852.45",
+     "4,347.19",
+     "4,207.51",
+     "11,957.76",
+     "11,105.48",
+     "18,220.87"
+    ],
+    "values": [
+     4852.45,
+     4347.19,
+     4207.51,
+     11957.76,
+     11105.48,
+     18220.87
+    ],
+    "metric": "insurance_premium_income"
+   },
+   {
+    "label": "(c) Other income (Refer Note 4)",
+    "y": 349.0,
+    "printed": [
+     "4,522.37",
+     "3,988.48",
+     "4,184.07",
+     "12,824.06",
+     "12,351.26",
+     "16,955.25"
+    ],
+    "values": [
+     4522.37,
+     3988.48,
+     4184.07,
+     12824.06,
+     12351.26,
+     16955.25
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "Total income (1+2)",
+    "serial": 3,
+    "is_total": true,
+    "y": 364.0,
+    "printed": [
+     "27,850.79",
+     "24,901.39",
+     "23,945.79",
+     "79,456.10",
+     "75,901.68",
+     "103,076.10"
+    ],
+    "values": [
+     27850.79,
+     24901.39,
+     23945.79,
+     79456.1,
+     75901.68,
+     103076.1
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Interest expended",
+    "serial": 4,
+    "y": 379.0,
+    "printed": [
+     "7,384.43",
+     "7,332.56",
+     "7,169.69",
+     "22,244.08",
+     "21,113.92",
+     "28,270.91"
+    ],
+    "values": [
+     7384.43,
+     7332.56,
+     7169.69,
+     22244.08,
+     21113.92,
+     28270.91
+    ],
+    "metric": "interest_expended"
+   },
+   {
+    "label": "Operating expenses (a+b+c)",
+    "serial": 5,
+    "is_total": true,
+    "y": 394.0,
+    "printed": [
+     "12,993.43",
+     "10,551.64",
+     "9,541.85",
+     "35,347.33",
+     "33,234.26",
+     "45,760.32"
+    ],
+    "values": [
+     12993.43,
+     10551.64,
+     9541.85,
+     35347.33,
+     33234.26,
+     45760.32
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "(a) Employees Cost (Refer Note 5)",
+    "y": 409.0,
+    "printed": [
+     "3,435.31",
+     "3,079.79",
+     "2,958.80",
+     "9,625.30",
+     "8,727.23",
+     "11,963.60"
+    ],
+    "values": [
+     3435.31,
+     3079.79,
+     2958.8,
+     9625.3,
+     8727.23,
+     11963.6
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "(b) Policy holders' reserves, surrender expense and claims (insurance business) (Refer Note 6)",
+    "y": 435.0,
+    "printed": [
+     "5,727.36",
+     "3,832.14",
+     "3,109.76",
+     "14,719.44",
+     "14,510.84",
+     "20,021.36"
+    ],
+    "values": [
+     5727.36,
+     3832.14,
+     3109.76,
+     14719.44,
+     14510.84,
+     20021.36
+    ],
+    "metric": "insurance_claims_expense"
+   },
+   {
+    "label": "(c) Other operating expenses",
+    "y": 462.6,
+    "printed": [
+     "3,830.76",
+     "3,639.71",
+     "3,473.29",
+     "11,002.59",
+     "9,996.19",
+     "13,775.36"
+    ],
+    "values": [
+     3830.76,
+     3639.71,
+     3473.29,
+     11002.59,
+     9996.19,
+     13775.36
+    ],
+    "metric": "other_operating_expenses"
+   },
+   {
+    "label": "Total expenditure (4+5) (excluding provisions and contingencies)",
+    "serial": 6,
+    "is_total": true,
+    "y": 482.1,
+    "printed": [
+     "20,377.86",
+     "17,884.20",
+     "16,711.54",
+     "57,591.41",
+     "54,348.18",
+     "74,031.23"
+    ],
+    "values": [
+     20377.86,
+     17884.2,
+     16711.54,
+     57591.41,
+     54348.18,
+     74031.23
+    ],
+    "metric": "total_expenditure"
+   },
+   {
+    "label": "Operating profit (3-6) (Profit before provisions and contingencies)",
+    "serial": 7,
+    "is_total": true,
+    "y": 511.7,
+    "printed": [
+     "7,472.93",
+     "7,017.19",
+     "7,234.25",
+     "21,864.69",
+     "21,553.50",
+     "29,044.87"
+    ],
+    "values": [
+     7472.93,
+     7017.19,
+     7234.25,
+     21864.69,
+     21553.5,
+     29044.87
+    ],
+    "metric": "pre_provision_operating_profit"
+   },
+   {
+    "label": "Provisions (other than tax) and contingencies (Refer Note 7)",
+    "serial": 8,
+    "y": 542.1,
+    "printed": [
+     "939.59",
+     "1,054.42",
+     "1,054.17",
+     "3,315.18",
+     "2,718.97",
+     "3,859.24"
+    ],
+    "values": [
+     939.59,
+     1054.42,
+     1054.17,
+     3315.18,
+     2718.97,
+     3859.24
+    ],
+    "metric": "provisions_and_contingencies"
+   },
+   {
+    "label": "Exceptional items (Refer Note 8)",
+    "serial": 9,
+    "y": 562.5,
+    "printed": [
+     "-",
+     "-",
+     "-",
+     "-",
+     "3,803.40",
+     "3,803.40"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     3803.4,
+     3803.4
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "Profit from ordinary activities before tax (7-8+9)",
+    "serial": 10,
+    "is_total": true,
+    "y": 581.3,
+    "printed": [
+     "6,533.34",
+     "5,962.77",
+     "6,180.08",
+     "18,549.51",
+     "22,637.93",
+     "28,989.03"
+    ],
+    "values": [
+     6533.34,
+     5962.77,
+     6180.08,
+     18549.51,
+     22637.93,
+     28989.03
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Tax expense",
+    "serial": 11,
+    "y": 600.0,
+    "printed": [
+     "1,629.34",
+     "1,516.83",
+     "1,540.45",
+     "4,770.44",
+     "5,601.13",
+     "7,043.29"
+    ],
+    "values": [
+     1629.34,
+     1516.83,
+     1540.45,
+     4770.44,
+     5601.13,
+     7043.29
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Net Profit from ordinary activities after tax before Minority Interest (10–11)",
+    "serial": 12,
+    "is_total": true,
+    "y": 618.7,
+    "printed": [
+     "4,904.00",
+     "4,445.94",
+     "4,639.63",
+     "13,779.07",
+     "17,036.80",
+     "21,945.74"
+    ],
+    "values": [
+     4904.0,
+     4445.94,
+     4639.63,
+     13779.07,
+     17036.8,
+     21945.74
+    ],
+    "metric": "pat_ordinary_activities"
+   },
+   {
+    "label": "Extraordinary items (net of tax expense)",
+    "serial": 13,
+    "y": 637.4,
+    "printed": [
+     "-",
+     "-",
+     "-",
+     "-",
+     "-",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": "extraordinary_items"
+   },
+   {
+    "label": "Net Profit after tax before Minority Interest (12-13)",
+    "serial": 14,
+    "is_total": true,
+    "y": 656.3,
+    "printed": [
+     "4,904.00",
+     "4,445.94",
+     "4,639.63",
+     "13,779.07",
+     "17,036.80",
+     "21,945.74"
+    ],
+    "values": [
+     4904.0,
+     4445.94,
+     4639.63,
+     13779.07,
+     17036.8,
+     21945.74
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Less: Share of Minority Interest",
+    "serial": 15,
+    "y": 675.0,
+    "printed": [
+     "-",
+     "-",
+     "-",
+     "-",
+     "-",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "Add: Share in Profit/(Loss) of associates",
+    "serial": 16,
+    "y": 690.7,
+    "printed": [
+     "20.29",
+     "22.33",
+     "61.39",
+     "85.67",
+     "156.43",
+     "180.25"
+    ],
+    "values": [
+     20.29,
+     22.33,
+     61.39,
+     85.67,
+     156.43,
+     180.25
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Profit after tax (14-15+16)",
+    "serial": 17,
+    "is_total": true,
+    "y": 705.5,
+    "printed": [
+     "4,924.29",
+     "4,468.27",
+     "4,701.02",
+     "13,864.74",
+     "17,193.23",
+     "22,125.99"
+    ],
+    "values": [
+     4924.29,
+     4468.27,
+     4701.02,
+     13864.74,
+     17193.23,
+     22125.99
+    ],
+    "metric": "pat_attributable_to_owners",
+    "metric_alt": [
+     "pat",
+     "pat_after_associates"
+    ]
+   },
+   {
+    "label": "Paid Up Equity Capital (Face value of ₹ 1 per share) (Refer Note 9)",
+    "serial": 18,
+    "stock": true,
+    "y": 723.2,
+    "printed": [
+     "994.55",
+     "994.30",
+     "994.09",
+     "994.55",
+     "994.09",
+     "994.11"
+    ],
+    "values": [
+     994.55,
+     994.3,
+     994.09,
+     994.55,
+     994.09,
+     994.11
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Group Reserves (excluding Minority Interest and Revaluation reserves)",
+    "serial": 19,
+    "stock": true,
+    "y": 745.8,
+    "printed": [
+     "",
+     "",
+     "",
+     "",
+     "",
+     "156,400.97"
+    ],
+    "values": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     156400.97
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "Minority Interest",
+    "serial": 20,
+    "stock": true,
+    "y": 764.5,
+    "printed": [
+     "-",
+     "-",
+     "-",
+     "-",
+     "-",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": "non_controlling_interests"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Interest earned (a+b+c+d)",
+    "plus": [
+     "(a) Interest/discount on advances/bills",
+     "(b) Income on investments",
+     "(c) Interest on balances with Reserve Bank of India (RBI) & other interbank funds",
+     "(d) Others"
+    ]
+   },
+   {
+    "target": "Other income (a+b+c)",
+    "plus": [
+     "(a) Profit/(Loss) on sale of Investments including revaluation (insurance business)",
+     "(b) Premium on Insurance Business",
+     "(c) Other income (Refer Note 4)"
+    ]
+   },
+   {
+    "target": "Total income (1+2)",
+    "plus": [
+     "Interest earned (a+b+c+d)",
+     "Other income (a+b+c)"
+    ]
+   },
+   {
+    "target": "Operating expenses (a+b+c)",
+    "plus": [
+     "(a) Employees Cost (Refer Note 5)",
+     "(b) Policy holders' reserves, surrender expense and claims (insurance business) (Refer Note 6)",
+     "(c) Other operating expenses"
+    ]
+   },
+   {
+    "target": "Total expenditure (4+5) (excluding provisions and contingencies)",
+    "plus": [
+     "Interest expended",
+     "Operating expenses (a+b+c)"
+    ]
+   },
+   {
+    "target": "Operating profit (3-6) (Profit before provisions and contingencies)",
+    "plus": [
+     "Total income (1+2)"
+    ],
+    "minus": [
+     "Total expenditure (4+5) (excluding provisions and contingencies)"
+    ]
+   },
+   {
+    "target": "Profit from ordinary activities before tax (7-8+9)",
+    "plus": [
+     "Operating profit (3-6) (Profit before provisions and contingencies)",
+     "Exceptional items (Refer Note 8)"
+    ],
+    "minus": [
+     "Provisions (other than tax) and contingencies (Refer Note 7)"
+    ]
+   },
+   {
+    "target": "Net Profit from ordinary activities after tax before Minority Interest (10–11)",
+    "plus": [
+     "Profit from ordinary activities before tax (7-8+9)"
+    ],
+    "minus": [
+     "Tax expense"
+    ]
+   },
+   {
+    "target": "Net Profit after tax before Minority Interest (12-13)",
+    "plus": [
+     "Net Profit from ordinary activities after tax before Minority Interest (10–11)"
+    ],
+    "minus": [
+     "Extraordinary items (net of tax expense)"
+    ]
+   },
+   {
+    "target": "Profit after tax (14-15+16)",
+    "plus": [
+     "Net Profit after tax before Minority Interest (12-13)",
+     "Add: Share in Profit/(Loss) of associates"
+    ],
+    "minus": [
+     "Less: Share of Minority Interest"
+    ]
+   }
+  ],
+  "page_height_pt": 843.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "the Q3 FY26 quarter and the nine months to 31-Dec-25 resolving to the same period",
+   "a nine-month figure typed as a quarter or a year",
+   "any fact on this page attributed to the standalone entity"
+  ]
+ }
+}

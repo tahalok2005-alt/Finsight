@@ -1,0 +1,788 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A SCANNED exchange filing: standalone results, INR crore, five columns --",
+  "three quarters (31.03.2026, 31.12.2025, 31.03.2025) and two years to 31",
+  "March. The quarter and the year to 31.03.2026 share an end date.",
+  "Figures unseparated. Every figure read from the render; subtotals re-added.",
+  "QUALIFIED FIGURES: two EPS lines for every period -- INCLUDING and",
+  "EXCLUDING the net movement in regulatory deferral account balances; both",
+  "are EPS (basic = diluted), differently qualified, and are distinct facts.",
+  "'Profit before regulatory deferral account balances' (line 5) is a",
+  "qualified profit after tax, not the profit for the period (metric null).",
+  "Line 3 is the statement's profit before tax. 'Net worth*' EXCLUDES the fly",
+  "ash utilisation reserve and OCI items (footnote on page 4), so it differs",
+  "from total equity on page 5.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NTPC_FY26",
+ "document": "src/NTPC_FY26_annual_results.pdf",
+ "issuer": "NTPC Limited",
+ "page": 3,
+ "transcription": {
+  "method": "read by eye from the render; positions from the filer's OCR layer",
+  "verified_against": "page render at 180 dpi and the statement's own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "STATEMENT OF AUDITED STANDALONE FINANCIAL RESULTS FOR THE QUARTER AND YEAR ENDED 31 MARCH 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "title 'STATEMENT OF AUDITED STANDALONE FINANCIAL RESULTS'",
+  "unit_declaration": {
+   "text": "₹ crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   50,
+   120,
+   585,
+   603
+  ],
+  "bbox_rel": [
+   0.084,
+   0.1426,
+   0.9831,
+   0.7164
+  ],
+  "page_height_pt": 841.68,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.03.2026",
+     "(Audited - refer note 14)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.12.2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": "2025-10-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q3 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c3",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.03.2025",
+     "(Audited - refer note 14)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2025-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY25",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c4",
+    "group": null,
+    "header_lines": [
+     "Year ended",
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c5",
+    "group": null,
+    "header_lines": [
+     "Year ended",
+     "31.03.2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "1(a) Revenue from operations",
+    "y": 188.9,
+    "printed": [
+     "43110.74",
+     "40643.79",
+     "43903.65",
+     "165493.74",
+     "170037.37"
+    ],
+    "values": [
+     43110.74,
+     40643.79,
+     43903.65,
+     165493.74,
+     170037.37
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "1(b) Other income",
+    "y": 197.5,
+    "printed": [
+     "918.95",
+     "1028.95",
+     "1909.00",
+     "4230.86",
+     "4376.12"
+    ],
+    "values": [
+     918.95,
+     1028.95,
+     1909.0,
+     4230.86,
+     4376.12
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "Total income (a+b)",
+    "is_total": true,
+    "y": 206.9,
+    "printed": [
+     "44029.69",
+     "41672.74",
+     "45812.65",
+     "169724.60",
+     "174413.49"
+    ],
+    "values": [
+     44029.69,
+     41672.74,
+     45812.65,
+     169724.6,
+     174413.49
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "2(a) Fuel cost",
+    "y": 225.6,
+    "printed": [
+     "20907.52",
+     "21757.56",
+     "24128.00",
+     "88605.04",
+     "97060.24"
+    ],
+    "values": [
+     20907.52,
+     21757.56,
+     24128.0,
+     88605.04,
+     97060.24
+    ],
+    "metric": null
+   },
+   {
+    "label": "2(b) Electricity purchased for trading",
+    "y": 235.0,
+    "printed": [
+     "1014.31",
+     "942.54",
+     "1048.83",
+     "3800.85",
+     "3767.70"
+    ],
+    "values": [
+     1014.31,
+     942.54,
+     1048.83,
+     3800.85,
+     3767.7
+    ],
+    "metric": null
+   },
+   {
+    "label": "2(c) Employee benefits expense",
+    "y": 243.6,
+    "printed": [
+     "1712.63",
+     "1471.91",
+     "1665.83",
+     "5843.12",
+     "5724.67"
+    ],
+    "values": [
+     1712.63,
+     1471.91,
+     1665.83,
+     5843.12,
+     5724.67
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "2(d) Finance costs",
+    "y": 251.9,
+    "printed": [
+     "2666.95",
+     "2275.24",
+     "3097.33",
+     "10442.18",
+     "11057.04"
+    ],
+    "values": [
+     2666.95,
+     2275.24,
+     3097.33,
+     10442.18,
+     11057.04
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "2(e) Depreciation, amortisation and impairment expense",
+    "y": 260.2,
+    "printed": [
+     "4051.39",
+     "4116.99",
+     "4032.46",
+     "16030.85",
+     "15055.84"
+    ],
+    "values": [
+     4051.39,
+     4116.99,
+     4032.46,
+     16030.85,
+     15055.84
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "2(f) Other expenses",
+    "y": 268.7,
+    "printed": [
+     "6972.16",
+     "4480.11",
+     "5805.96",
+     "22445.63",
+     "18111.60"
+    ],
+    "values": [
+     6972.16,
+     4480.11,
+     5805.96,
+     22445.63,
+     18111.6
+    ],
+    "metric": "other_expenses"
+   },
+   {
+    "label": "Total expenses (a+b+c+d+e+f)",
+    "is_total": true,
+    "y": 277.3,
+    "printed": [
+     "37324.96",
+     "35044.35",
+     "39778.41",
+     "147167.67",
+     "150777.09"
+    ],
+    "values": [
+     37324.96,
+     35044.35,
+     39778.41,
+     147167.67,
+     150777.09
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "3 Profit before tax and regulatory deferral account balances (1-2)",
+    "is_total": true,
+    "y": 286.6,
+    "printed": [
+     "6704.73",
+     "6628.39",
+     "6034.24",
+     "22556.93",
+     "23636.40"
+    ],
+    "values": [
+     6704.73,
+     6628.39,
+     6034.24,
+     22556.93,
+     23636.4
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "4(a) Current tax (Refer Note 4)",
+    "y": 311.3,
+    "printed": [
+     "1194.00",
+     "1169.37",
+     "686.67",
+     "4057.82",
+     "3657.81"
+    ],
+    "values": [
+     1194.0,
+     1169.37,
+     686.67,
+     4057.82,
+     3657.81
+    ],
+    "metric": "current_tax"
+   },
+   {
+    "label": "4(b) Deferred tax (Refer Note 6)",
+    "y": 320.3,
+    "printed": [
+     "(9931.27)",
+     "939.99",
+     "1633.54",
+     "(7561.43)",
+     "3641.88"
+    ],
+    "values": [
+     -9931.27,
+     939.99,
+     1633.54,
+     -7561.43,
+     3641.88
+    ],
+    "metric": "deferred_tax"
+   },
+   {
+    "label": "Total tax expense (a+b)",
+    "is_total": true,
+    "y": 330.0,
+    "printed": [
+     "(8737.27)",
+     "2109.36",
+     "2320.21",
+     "(3503.61)",
+     "7299.69"
+    ],
+    "values": [
+     -8737.27,
+     2109.36,
+     2320.21,
+     -3503.61,
+     7299.69
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "5 Profit before regulatory deferral account balances (3-4)",
+    "is_total": true,
+    "y": 339.4,
+    "printed": [
+     "15442.00",
+     "4519.03",
+     "3714.03",
+     "26060.54",
+     "16336.71"
+    ],
+    "values": [
+     15442.0,
+     4519.03,
+     3714.03,
+     26060.54,
+     16336.71
+    ],
+    "metric": null
+   },
+   {
+    "label": "6 Net movement in regulatory deferral account balances (net of tax) (Refer Note 6 and 7)",
+    "y": 348.0,
+    "printed": [
+     "(6694.73)",
+     "467.91",
+     "2064.11",
+     "(2898.32)",
+     "3312.70"
+    ],
+    "values": [
+     -6694.73,
+     467.91,
+     2064.11,
+     -2898.32,
+     3312.7
+    ],
+    "metric": null
+   },
+   {
+    "label": "7 Profit for the period (5+6)",
+    "is_total": true,
+    "y": 367.1,
+    "printed": [
+     "8747.27",
+     "4986.94",
+     "5778.14",
+     "23162.22",
+     "19649.41"
+    ],
+    "values": [
+     8747.27,
+     4986.94,
+     5778.14,
+     23162.22,
+     19649.41
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "OCI (i)(a) Net actuarial gains/(losses) on defined benefit plans",
+    "y": 392.3,
+    "printed": [
+     "5.13",
+     "(63.24)",
+     "(91.90)",
+     "(184.73)",
+     "(194.73)"
+    ],
+    "values": [
+     5.13,
+     -63.24,
+     -91.9,
+     -184.73,
+     -194.73
+    ],
+    "metric": "oci_remeasurement_benefit_plans"
+   },
+   {
+    "label": "OCI (i)(b) Net gains/(losses) on fair value of equity instruments",
+    "y": 400.9,
+    "printed": [
+     "(4.28)",
+     "(6.94)",
+     "21.60",
+     "(6.54)",
+     "(27.60)"
+    ],
+    "values": [
+     -4.28,
+     -6.94,
+     21.6,
+     -6.54,
+     -27.6
+    ],
+    "metric": "oci_fair_value_investments"
+   },
+   {
+    "label": "OCI (ii) Income tax on items not reclassified: (a) Net actuarial gains/(losses) on defined benefit plans",
+    "y": 427.9,
+    "printed": [
+     "(0.89)",
+     "11.05",
+     "16.05",
+     "32.28",
+     "34.02"
+    ],
+    "values": [
+     -0.89,
+     11.05,
+     16.05,
+     32.28,
+     34.02
+    ],
+    "metric": "oci_tax_not_reclassified"
+   },
+   {
+    "label": "Other comprehensive income for the period (net of tax)",
+    "is_total": true,
+    "y": 436.6,
+    "printed": [
+     "(0.04)",
+     "(59.13)",
+     "(54.25)",
+     "(158.99)",
+     "(188.31)"
+    ],
+    "values": [
+     -0.04,
+     -59.13,
+     -54.25,
+     -158.99,
+     -188.31
+    ],
+    "metric": "other_comprehensive_income"
+   },
+   {
+    "label": "9 Total comprehensive income for the period (7+8)",
+    "is_total": true,
+    "y": 445.6,
+    "printed": [
+     "8747.23",
+     "4927.81",
+     "5723.89",
+     "23003.23",
+     "19461.10"
+    ],
+    "values": [
+     8747.23,
+     4927.81,
+     5723.89,
+     23003.23,
+     19461.1
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "10 EPS (of ₹ 10/- each) (not annualised) (including net movement in regulatory deferral account balances): Basic and Diluted (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 460.6,
+    "printed": [
+     "9.02",
+     "5.14",
+     "5.96",
+     "23.89",
+     "20.26"
+    ],
+    "values": [
+     9.02,
+     5.14,
+     5.96,
+     23.89,
+     20.26
+    ],
+    "metric": "eps",
+    "metric_alt": [
+     "diluted_eps"
+    ]
+   },
+   {
+    "label": "11 EPS (of ₹ 10/- each) (not annualised) (excluding net movement in regulatory deferral account balances): Basic and Diluted (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 492.6,
+    "printed": [
+     "15.93",
+     "4.66",
+     "3.83",
+     "26.88",
+     "16.85"
+    ],
+    "values": [
+     15.93,
+     4.66,
+     3.83,
+     26.88,
+     16.85
+    ],
+    "metric": "eps",
+    "metric_alt": [
+     "diluted_eps"
+    ]
+   },
+   {
+    "label": "12 Paid-up equity share capital (Face value of share ₹ 10/- each)",
+    "stock": true,
+    "y": 523.9,
+    "printed": [
+     "9696.67",
+     "9696.67",
+     "9696.67",
+     "9696.67",
+     "9696.67"
+    ],
+    "values": [
+     9696.67,
+     9696.67,
+     9696.67,
+     9696.67,
+     9696.67
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "13 Paid-up debt capital",
+    "stock": true,
+    "y": 547.7,
+    "printed": [
+     "190109.58",
+     "186215.21",
+     "185243.57",
+     "190109.58",
+     "185243.57"
+    ],
+    "values": [
+     190109.58,
+     186215.21,
+     185243.57,
+     190109.58,
+     185243.57
+    ],
+    "metric": "paid_up_debt_capital"
+   },
+   {
+    "label": "14 Other equity excluding revaluation reserve",
+    "stock": true,
+    "y": 561.0,
+    "printed": [
+     "165168.58",
+     "160496.69",
+     "151943.88",
+     "165168.58",
+     "151943.88"
+    ],
+    "values": [
+     165168.58,
+     160496.69,
+     151943.88,
+     165168.58,
+     151943.88
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "15 Net worth* (excluding fly ash utilisation reserve and items of OCI)",
+    "stock": true,
+    "y": 582.6,
+    "printed": [
+     "174688.19",
+     "168603.25",
+     "160259.96",
+     "174688.19",
+     "160259.96"
+    ],
+    "values": [
+     174688.19,
+     168603.25,
+     160259.96,
+     174688.19,
+     160259.96
+    ],
+    "metric": "net_worth"
+   },
+   {
+    "label": "16 Debenture redemption reserve",
+    "stock": true,
+    "y": 596.3,
+    "printed": [
+     "1587.81",
+     "1621.50",
+     "1857.74",
+     "1587.81",
+     "1857.74"
+    ],
+    "values": [
+     1587.81,
+     1621.5,
+     1857.74,
+     1587.81,
+     1857.74
+    ],
+    "metric": null
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total income (a+b)",
+    "plus": [
+     "1(a) Revenue from operations",
+     "1(b) Other income"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Total expenses (a+b+c+d+e+f)",
+    "plus": [
+     "2(a) Fuel cost",
+     "2(b) Electricity purchased for trading",
+     "2(c) Employee benefits expense",
+     "2(d) Finance costs",
+     "2(e) Depreciation, amortisation and impairment expense",
+     "2(f) Other expenses"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "3 Profit before tax and regulatory deferral account balances (1-2)",
+    "plus": [
+     "Total income (a+b)"
+    ],
+    "minus": [
+     "Total expenses (a+b+c+d+e+f)"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Total tax expense (a+b)",
+    "plus": [
+     "4(a) Current tax (Refer Note 4)",
+     "4(b) Deferred tax (Refer Note 6)"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "5 Profit before regulatory deferral account balances (3-4)",
+    "plus": [
+     "3 Profit before tax and regulatory deferral account balances (1-2)"
+    ],
+    "minus": [
+     "Total tax expense (a+b)"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "7 Profit for the period (5+6)",
+    "plus": [
+     "5 Profit before regulatory deferral account balances (3-4)",
+     "6 Net movement in regulatory deferral account balances (net of tax) (Refer Note 6 and 7)"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Other comprehensive income for the period (net of tax)",
+    "plus": [
+     "OCI (i)(a) Net actuarial gains/(losses) on defined benefit plans",
+     "OCI (i)(b) Net gains/(losses) on fair value of equity instruments",
+     "OCI (ii) Income tax on items not reclassified: (a) Net actuarial gains/(losses) on defined benefit plans"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "9 Total comprehensive income for the period (7+8)",
+    "plus": [
+     "7 Profit for the period (5+6)",
+     "Other comprehensive income for the period (net of tax)"
+    ],
+    "tolerance": 0.05
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "the including- and excluding-regulatory-deferral EPS merged into one unqualified EPS",
+   "profit before regulatory deferral account balances (line 5) reported as the profit for the period",
+   "the quarter to 31.03.2026 and the year to 31.03.2026 resolving to one period",
+   "a negative deferred tax (a credit) reported as a charge"
+  ]
+ }
+}

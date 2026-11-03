@@ -1,0 +1,530 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output",
+  "and NOT from the filer's OCR layer (crops ib_p1_a/b/c.png at 2.3x).",
+  "A PSU-bank scan. THOUSANDS ARE SEPARATED BY A SPACE ('18 090.16'), not a",
+  "comma. Exceptional and extraordinary items are printed '0.00' -- real",
+  "zeros, and facts. The bilingual letterhead is recognised as garbage by the",
+  "filer's OCR layer. EXCLUDED: row 16 'Reserves excluding Revaluation",
+  "Reserves (as per balance sheet of previous accounting year)': its figure is",
+  "as at a balance-sheet date that is NOT its column's period, and the page",
+  "does not say which date applies to the year column. That is genuinely",
+  "ambiguous and is recorded as such rather than guessed. EPS is marked '*'",
+  "(not annualised) in the quarter columns.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "INDIANBANK",
+ "document": "src/INDIANBANK_Q1FY27_results.pdf",
+ "issuer": "Indian Bank",
+ "page": 1,
+ "transcription": {
+  "method": "read by eye from 2.3x crops of the scanned page",
+  "verified_against": "ib_p1_a/b/c.png; identities",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Reviewed Standalone Financial Results for the Quarter Ended 30th June 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "statement title",
+  "unit_declaration": {
+   "text": "(Rs. in crores)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   60,
+   55,
+   560,
+   640
+  ],
+  "bbox_rel": [
+   0.1008,
+   0.0653,
+   0.9412,
+   0.7601
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter ended",
+    "header_lines": [
+     "30.06.2026",
+     "(Reviewed)"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "reviewed"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter ended",
+    "header_lines": [
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter ended",
+    "header_lines": [
+     "30.06.2025",
+     "(Reviewed)"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "reviewed"
+   },
+   {
+    "id": "c4",
+    "group": "Year ended",
+    "header_lines": [
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Interest earned (a)+(b)+(c)+(d)",
+    "serial": 1,
+    "is_total": true,
+    "y": 95,
+    "values": [
+     18090.16,
+     17480.39,
+     16282.71,
+     67450.71
+    ],
+    "metric": "interest_earned"
+   },
+   {
+    "label": "(a) Interest/ discount on advances/ bills",
+    "y": 112,
+    "values": [
+     13123.41,
+     12702.39,
+     11737.8,
+     48853.54
+    ],
+    "metric": "interest_on_advances"
+   },
+   {
+    "label": "(b) Income on investments",
+    "y": 126,
+    "values": [
+     4222.47,
+     4105.08,
+     3944.56,
+     16068.25
+    ],
+    "metric": "investment_income"
+   },
+   {
+    "label": "(c) Interest on balances with Reserve Bank of India and other inter bank funds",
+    "y": 140,
+    "values": [
+     399.86,
+     438.17,
+     393.79,
+     1648.78
+    ],
+    "metric": "interest_on_rbi_balances"
+   },
+   {
+    "label": "Interest earned: (d) Others",
+    "y": 155,
+    "values": [
+     344.42,
+     234.75,
+     206.56,
+     880.14
+    ],
+    "printed": "(d) Others",
+    "metric": "other_interest_income"
+   },
+   {
+    "label": "Other Income",
+    "serial": 2,
+    "y": 171,
+    "values": [
+     2633.46,
+     2499.68,
+     2438.6,
+     9990.58
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "Total Income (1+2)",
+    "serial": 3,
+    "is_total": true,
+    "y": 187,
+    "values": [
+     20723.62,
+     19980.07,
+     18721.31,
+     77441.29
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Interest Expended",
+    "serial": 4,
+    "y": 204,
+    "values": [
+     10655.4,
+     10370.88,
+     9923.84,
+     40535.79
+    ],
+    "metric": "interest_expended"
+   },
+   {
+    "label": "Operating Expenses (a) + (b)",
+    "serial": 5,
+    "is_total": true,
+    "y": 221,
+    "values": [
+     4510.93,
+     4323.46,
+     4027.19,
+     16989.4
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "(a) Employees cost",
+    "y": 238,
+    "values": [
+     3070.58,
+     2711.65,
+     2612.26,
+     10760.29
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "(b) Other Operating expenses",
+    "y": 253,
+    "values": [
+     1440.35,
+     1611.81,
+     1414.93,
+     6229.11
+    ],
+    "metric": "other_operating_expenses"
+   },
+   {
+    "label": "Total Expenditure (4+5) (excluding provisions and contingencies)",
+    "serial": 6,
+    "is_total": true,
+    "y": 270,
+    "values": [
+     15166.33,
+     14694.34,
+     13951.03,
+     57525.19
+    ],
+    "metric": "total_expenditure"
+   },
+   {
+    "label": "Operating Profit (3-6) (Profit before Provisions and Contingencies)",
+    "serial": 7,
+    "is_total": true,
+    "y": 288,
+    "values": [
+     5557.29,
+     5285.73,
+     4770.28,
+     19916.1
+    ],
+    "metric": "pre_provision_operating_profit"
+   },
+   {
+    "label": "Provisions (other than tax) and Contingencies",
+    "serial": 8,
+    "y": 305,
+    "values": [
+     1195.72,
+     1225.76,
+     691.0,
+     3512.38
+    ],
+    "metric": "provisions_and_contingencies"
+   },
+   {
+    "label": "of which provisions for Non-Performing Assets",
+    "y": 322,
+    "values": [
+     375.62,
+     747.69,
+     387.24,
+     1832.61
+    ],
+    "metric": "provisions_for_npa"
+   },
+   {
+    "label": "Exceptional items",
+    "serial": 9,
+    "y": 338,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "Profit from ordinary activities before tax (7-8-9)",
+    "serial": 10,
+    "is_total": true,
+    "y": 355,
+    "values": [
+     4361.57,
+     4059.97,
+     4079.28,
+     16403.72
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Provision for Taxes (Tax expenses/ (reversal))",
+    "serial": 11,
+    "y": 373,
+    "values": [
+     1088.48,
+     956.84,
+     1106.46,
+     4248.07
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Net Profit from Ordinary Activities after tax (10-11)",
+    "serial": 12,
+    "is_total": true,
+    "y": 391,
+    "values": [
+     3273.09,
+     3103.13,
+     2972.82,
+     12155.65
+    ],
+    "metric": "pat_ordinary_activities"
+   },
+   {
+    "label": "Extraordinary items (net of tax expense)",
+    "serial": 13,
+    "y": 425,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "metric": "extraordinary_items"
+   },
+   {
+    "label": "Net Profit for the period (12-13)",
+    "serial": 14,
+    "is_total": true,
+    "y": 441,
+    "values": [
+     3273.09,
+     3103.13,
+     2972.82,
+     12155.65
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Paid-up equity share capital (Face Value of each share - Rs.10/-)",
+    "serial": 15,
+    "stock": true,
+    "y": 458,
+    "values": [
+     1346.96,
+     1346.96,
+     1346.96,
+     1346.96
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "(i) Percentage of shares held by Government of India",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "stock": true,
+    "y": 510,
+    "values": [
+     73.84,
+     73.84,
+     73.84,
+     73.84
+    ],
+    "metric": "govt_shareholding_pct"
+   },
+   {
+    "label": "(ii) Capital Adequacy Ratio (Basel III)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "stock": true,
+    "y": 530,
+    "values": [
+     17.58,
+     17.93,
+     17.8,
+     17.93
+    ],
+    "metric": "capital_adequacy_ratio"
+   },
+   {
+    "label": "(a) Common Equity Tier (CET) 1 Ratio",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "stock": true,
+    "y": 548,
+    "values": [
+     16.51,
+     16.4,
+     15.26,
+     16.4
+    ],
+    "metric": "cet1_ratio"
+   },
+   {
+    "label": "(b) Additional Tier 1 Ratio",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "stock": true,
+    "y": 565,
+    "values": [
+     0.0,
+     0.0,
+     0.48,
+     0.0
+    ],
+    "metric": "at1_ratio"
+   },
+   {
+    "label": "(a) Basic and diluted EPS before Extraordinary items (net of tax expenses) for the period, for the year to date and for the previous year",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 610,
+    "values": [
+     24.3,
+     23.04,
+     22.07,
+     90.24
+    ],
+    "metric": "eps",
+    "metric_alt": [
+     "diluted_eps"
+    ]
+   }
+  ],
+  "identities": [
+   {
+    "target": "Interest earned (a)+(b)+(c)+(d)",
+    "plus": [
+     "(a) Interest/ discount on advances/ bills",
+     "(b) Income on investments",
+     "(c) Interest on balances with Reserve Bank of India and other inter bank funds",
+     "(d) Others"
+    ]
+   },
+   {
+    "target": "Total Income (1+2)",
+    "plus": [
+     "Interest earned (a)+(b)+(c)+(d)",
+     "Other Income"
+    ]
+   },
+   {
+    "target": "Operating Expenses (a) + (b)",
+    "plus": [
+     "(a) Employees cost",
+     "(b) Other Operating expenses"
+    ]
+   },
+   {
+    "target": "Total Expenditure (4+5) (excluding provisions and contingencies)",
+    "plus": [
+     "Interest Expended",
+     "Operating Expenses (a) + (b)"
+    ]
+   },
+   {
+    "target": "Operating Profit (3-6) (Profit before Provisions and Contingencies)",
+    "plus": [
+     "Total Income (1+2)"
+    ],
+    "minus": [
+     "Total Expenditure (4+5) (excluding provisions and contingencies)"
+    ]
+   },
+   {
+    "target": "Profit from ordinary activities before tax (7-8-9)",
+    "plus": [
+     "Operating Profit (3-6) (Profit before Provisions and Contingencies)"
+    ],
+    "minus": [
+     "Provisions (other than tax) and Contingencies",
+     "Exceptional items"
+    ]
+   },
+   {
+    "target": "Net Profit from Ordinary Activities after tax (10-11)",
+    "plus": [
+     "Profit from ordinary activities before tax (7-8-9)"
+    ],
+    "minus": [
+     "Provision for Taxes (Tax expenses/ (reversal))"
+    ]
+   },
+   {
+    "target": "Net Profit for the period (12-13)",
+    "plus": [
+     "Net Profit from Ordinary Activities after tax (10-11)"
+    ],
+    "minus": [
+     "Extraordinary items (net of tax expense)"
+    ]
+   }
+  ],
+  "page_height_pt": 842.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "'18 090.16' split into two figures (18 and 090.16) or read as 18.0",
+   "any fact on this page attributed to the consolidated entity",
+   "a percentage carrying crore",
+   "the Q4 FY26 column and the FY26 column resolving to the same period"
+  ]
+ }
+}

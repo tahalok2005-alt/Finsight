@@ -1,0 +1,699 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output",
+  "and NOT from the filer's OCR layer (crops airtel_p1_a/b/c.png).",
+  "INR MILLIONS ('₹ in Millions; except per share data'), where most Indian",
+  "filers use crore. Three SUBTOTALS ARE UNLABELLED: total income, total",
+  "expenses and total tax each sit on their own ruled line directly under the",
+  "last component, with no row name. A reader that attaches them to the line",
+  "above reports 'Other income = 594,457', which is a wrong fact. They are",
+  "golden rows here under descriptive names in brackets. The share of",
+  "associates is printed '(1,082)' inside the expense block (a negative",
+  "expense, i.e. a profit) and is recorded as printed. Repeated totals in the",
+  "attribution block are not duplicated here.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "AIRTEL",
+ "document": "src/AIRTEL_Q1FY27_published_results.pdf",
+ "issuer": "Bharti Airtel Limited",
+ "page": 1,
+ "transcription": {
+  "method": "read by eye from 2.0x crops of the scanned page",
+  "verified_against": "airtel_p1_b.png, airtel_p1_c.png; identities",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Statement of Audited Consolidated Financial Results for the quarter ended June 30, 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "statement title",
+  "unit_declaration": {
+   "text": "(₹ in Millions; except per share data)",
+   "unit": "million",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right, above the header"
+  },
+  "bbox_pt": [
+   50,
+   160,
+   545,
+   760
+  ],
+  "bbox_rel": [
+   0.084,
+   0.19,
+   0.9153,
+   0.9026
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter ended",
+    "header_lines": [
+     "June",
+     "30, 2026",
+     "Audited"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter ended",
+    "header_lines": [
+     "March",
+     "31, 2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter ended",
+    "header_lines": [
+     "June",
+     "30, 2025",
+     "Audited"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c4",
+    "group": "Previous year ended",
+    "header_lines": [
+     "March",
+     "31, 2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Revenue from operations",
+    "y": 226,
+    "values": [
+     585391,
+     553832,
+     494626,
+     2109728
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "Other income",
+    "y": 233,
+    "values": [
+     9066,
+     8785,
+     5088,
+     28173
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "[Total income -- unlabelled subtotal]",
+    "is_total": true,
+    "unlabelled": true,
+    "y": 240,
+    "values": [
+     594457,
+     562617,
+     499714,
+     2137901
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Network operating expenses",
+    "y": 254,
+    "values": [
+     108097,
+     102080,
+     95456,
+     397500
+    ],
+    "metric": "network_operating_expenses"
+   },
+   {
+    "label": "Access charges",
+    "y": 261,
+    "values": [
+     15887,
+     14939,
+     12571,
+     55416
+    ],
+    "metric": "access_charges"
+   },
+   {
+    "label": "License fee / Spectrum charges",
+    "y": 268,
+    "values": [
+     41720,
+     39818,
+     37200,
+     153729
+    ],
+    "metric": "licence_fee_spectrum_charges"
+   },
+   {
+    "label": "Employee benefits expense",
+    "y": 275,
+    "values": [
+     21776,
+     20281,
+     17380,
+     75813
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "Sales and marketing expenses",
+    "y": 282,
+    "values": [
+     36929,
+     35321,
+     29659,
+     131073
+    ],
+    "metric": "sales_and_marketing"
+   },
+   {
+    "label": "Other expenses",
+    "y": 289,
+    "values": [
+     27954,
+     26477,
+     23973,
+     99452
+    ],
+    "metric": "other_expenses"
+   },
+   {
+    "label": "[Total expenses -- unlabelled subtotal]",
+    "is_total": true,
+    "unlabelled": true,
+    "y": 296,
+    "values": [
+     252363,
+     238916,
+     216239,
+     912983
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "Profit before depreciation, amortisation, finance costs, share of profit / (loss) of associates and joint ventures, exceptional items and tax",
+    "is_total": true,
+    "y": 305,
+    "values": [
+     342094,
+     323701,
+     283475,
+     1224918
+    ],
+    "metric": "ebitda"
+   },
+   {
+    "label": "Depreciation and amortisation expenses",
+    "y": 326,
+    "values": [
+     142350,
+     136435,
+     124651,
+     527108
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "Finance costs",
+    "y": 333,
+    "values": [
+     59564,
+     56056,
+     54608,
+     215553
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Share of profit of associates and joint ventures (net)",
+    "y": 340,
+    "values": [
+     -1082,
+     -844,
+     -828,
+     -3645
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Profit before exceptional items and tax",
+    "is_total": true,
+    "y": 347,
+    "values": [
+     141262,
+     132054,
+     105044,
+     485902
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "Exceptional items (net)",
+    "y": 363,
+    "values": [
+     3534,
+     31607,
+     "nil",
+     34175
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "Profit before tax",
+    "is_total": true,
+    "y": 370,
+    "values": [
+     137728,
+     100447,
+     105044,
+     451727
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Current tax",
+    "y": 392,
+    "values": [
+     25409,
+     21488,
+     18657,
+     78812
+    ],
+    "metric": "current_tax"
+   },
+   {
+    "label": "Deferred tax",
+    "y": 399,
+    "values": [
+     12203,
+     -13515,
+     12169,
+     34687
+    ],
+    "metric": "deferred_tax"
+   },
+   {
+    "label": "[Total tax expense -- unlabelled subtotal]",
+    "is_total": true,
+    "unlabelled": true,
+    "y": 406,
+    "values": [
+     37612,
+     7973,
+     30826,
+     113499
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Profit for the quarter / year",
+    "is_total": true,
+    "y": 424,
+    "values": [
+     100116,
+     92474,
+     74218,
+     338228
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "OCI: Net (loss) / gain due to foreign currency translation differences",
+    "y": 478,
+    "values": [
+     -835,
+     24209,
+     3158,
+     51798
+    ],
+    "metric": "foreign_currency_translation_reserve"
+   },
+   {
+    "label": "OCI: Net gain / (loss) on net investment hedge",
+    "y": 485,
+    "values": [
+     53,
+     -289,
+     357,
+     47
+    ],
+    "metric": null
+   },
+   {
+    "label": "OCI: Tax (charge) / credit on above (items to be reclassified)",
+    "y": 492,
+    "values": [
+     -13,
+     73,
+     -105,
+     -27
+    ],
+    "metric": "oci_tax_reclassified"
+   },
+   {
+    "label": "OCI: Gain on investments at fair value through OCI",
+    "y": 506,
+    "values": [
+     3609,
+     466,
+     1256,
+     4763
+    ],
+    "metric": "oci_fair_value_investments"
+   },
+   {
+    "label": "OCI: Re-measurement (loss) / gain on defined benefit plans",
+    "y": 513,
+    "values": [
+     -967,
+     206,
+     -385,
+     81
+    ],
+    "metric": "oci_remeasurement_benefit_plans"
+   },
+   {
+    "label": "OCI: Tax charge on above (items not to be reclassified)",
+    "y": 520,
+    "values": [
+     -318,
+     -116,
+     -297,
+     -893
+    ],
+    "metric": "oci_tax_not_reclassified"
+   },
+   {
+    "label": "OCI: Share of other comprehensive (loss) / income of associates and joint ventures (net)",
+    "y": 527,
+    "values": [
+     -22,
+     -4,
+     1,
+     -21
+    ],
+    "metric": null
+   },
+   {
+    "label": "Other comprehensive income for the quarter / year",
+    "is_total": true,
+    "y": 546,
+    "values": [
+     1507,
+     24545,
+     3985,
+     55748
+    ],
+    "metric": "other_comprehensive_income"
+   },
+   {
+    "label": "Total comprehensive income for the quarter / year",
+    "is_total": true,
+    "y": 566,
+    "values": [
+     101623,
+     117019,
+     78203,
+     393976
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "Profit attributable to: Owners of the Parent",
+    "y": 596,
+    "values": [
+     81674,
+     73251,
+     59479,
+     266952
+    ],
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "Profit attributable to: Non-controlling interests",
+    "y": 603,
+    "values": [
+     18442,
+     19223,
+     14739,
+     71276
+    ],
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "OCI attributable to: Owners of the Parent",
+    "y": 627,
+    "values": [
+     2088,
+     12934,
+     2758,
+     29236
+    ],
+    "metric": "oci_attributable_to_owners"
+   },
+   {
+    "label": "OCI attributable to: Non-controlling interests",
+    "y": 634,
+    "values": [
+     -581,
+     11611,
+     1227,
+     26512
+    ],
+    "metric": "oci_attributable_to_nci"
+   },
+   {
+    "label": "Total comprehensive income attributable to: Owners of the Parent",
+    "y": 657,
+    "values": [
+     83762,
+     86185,
+     62237,
+     296188
+    ],
+    "metric": "tci_attributable_to_owners"
+   },
+   {
+    "label": "Total comprehensive income attributable to: Non-controlling interests",
+    "y": 664,
+    "values": [
+     17861,
+     30834,
+     15966,
+     97788
+    ],
+    "metric": "tci_attributable_to_nci"
+   },
+   {
+    "label": "Earnings per share (Face value: ₹ 5 each) Basic",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 700,
+    "values": [
+     13.38,
+     12.53,
+     10.26,
+     45.96
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "Earnings per share (Face value: ₹ 5 each) Diluted",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 707,
+    "values": [
+     13.37,
+     12.15,
+     9.9,
+     44.37
+    ],
+    "metric": "diluted_eps"
+   },
+   {
+    "label": "Paid-up equity share capital (Face value: ₹ 5 each)",
+    "stock": true,
+    "y": 730,
+    "values": [
+     31202,
+     30468,
+     29001,
+     30468
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Other equity",
+    "stock": true,
+    "y": 737,
+    "values": [
+     1586949,
+     1460098,
+     1168235,
+     1460098
+    ],
+    "metric": "other_equity"
+   }
+  ],
+  "identities": [
+   {
+    "target": "[Total income -- unlabelled subtotal]",
+    "plus": [
+     "Revenue from operations",
+     "Other income"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "[Total expenses -- unlabelled subtotal]",
+    "plus": [
+     "Network operating expenses",
+     "Access charges",
+     "License fee / Spectrum charges",
+     "Employee benefits expense",
+     "Sales and marketing expenses",
+     "Other expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before depreciation, amortisation, finance costs, share of profit / (loss) of associates and joint ventures, exceptional items and tax",
+    "plus": [
+     "[Total income -- unlabelled subtotal]"
+    ],
+    "minus": [
+     "[Total expenses -- unlabelled subtotal]"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before exceptional items and tax",
+    "plus": [
+     "Profit before depreciation, amortisation, finance costs, share of profit / (loss) of associates and joint ventures, exceptional items and tax"
+    ],
+    "minus": [
+     "Depreciation and amortisation expenses",
+     "Finance costs",
+     "Share of profit of associates and joint ventures (net)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before tax",
+    "plus": [
+     "Profit before exceptional items and tax"
+    ],
+    "minus": [
+     "Exceptional items (net)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "[Total tax expense -- unlabelled subtotal]",
+    "plus": [
+     "Current tax",
+     "Deferred tax"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit for the quarter / year",
+    "plus": [
+     "Profit before tax"
+    ],
+    "minus": [
+     "[Total tax expense -- unlabelled subtotal]"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Other comprehensive income for the quarter / year",
+    "plus": [
+     "OCI: Net (loss) / gain due to foreign currency translation differences",
+     "OCI: Net gain / (loss) on net investment hedge",
+     "OCI: Tax (charge) / credit on above (items to be reclassified)",
+     "OCI: Gain on investments at fair value through OCI",
+     "OCI: Re-measurement (loss) / gain on defined benefit plans",
+     "OCI: Tax charge on above (items not to be reclassified)",
+     "OCI: Share of other comprehensive (loss) / income of associates and joint ventures (net)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total comprehensive income for the quarter / year",
+    "plus": [
+     "Profit for the quarter / year",
+     "Other comprehensive income for the quarter / year"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit for the quarter / year",
+    "plus": [
+     "Profit attributable to: Owners of the Parent",
+     "Profit attributable to: Non-controlling interests"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Other comprehensive income for the quarter / year",
+    "plus": [
+     "OCI attributable to: Owners of the Parent",
+     "OCI attributable to: Non-controlling interests"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total comprehensive income for the quarter / year",
+    "plus": [
+     "Total comprehensive income attributable to: Owners of the Parent",
+     "Total comprehensive income attributable to: Non-controlling interests"
+    ],
+    "tolerance": 1.0
+   }
+  ],
+  "page_height_pt": 842.04,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "'Other income' reported as 594,457 (the unlabelled total beneath it)",
+   "'Other expenses' reported as 252,363 (the unlabelled total beneath it)",
+   "'Deferred tax' reported as 37,612 (the unlabelled total beneath it)",
+   "INR crore anywhere on this page (the page is in millions)",
+   "EPS carrying millions"
+  ]
+ }
+}

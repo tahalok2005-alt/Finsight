@@ -1,0 +1,814 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "STANDALONE cash flow statement, INR crore, two years. A scan with an OCR layer",
+  "('/3,078)', '/147)', '(17,253''); every figure read from the render and every",
+  "section re-added. The adjustments' subtotal is unlabelled. Income taxes are paid in",
+  "two sections (operating 2,261; investing 147; note 1: total 2,408). Dividends from",
+  "subsidiaries appear as an adjustment (removed) and as an investing receipt.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "HCLTECH_FY26",
+ "document": "src/HCLTECH_FY26_audited_results.pdf",
+ "issuer": "HCL Technologies Limited",
+ "page": 8,
+ "transcription": {
+  "method": "OCR text layer for positions; every figure read from the render",
+  "verified_against": "page render at 170 dpi",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Standalone Statement of Cash Flows of HCL Technologies Limited as per Ind AS",
+  "statement": "cash_flow",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "table title 'Standalone Statement of Cash Flows'",
+  "unit_declaration": {
+   "text": "(₹ in crores)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   62,
+   138,
+   572,
+   685
+  ],
+  "bbox_rel": [
+   0.1013,
+   0.1742,
+   0.9346,
+   0.8649
+  ],
+  "page_height_pt": 792,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Year ended",
+    "header_lines": [
+     "31 March 2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": "Year ended",
+    "header_lines": [
+     "31 March 2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Profit before tax",
+    "y": 182.0,
+    "printed": [
+     "10,024",
+     "16,474"
+    ],
+    "values": [
+     10024.0,
+     16474.0
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Adjustment: Depreciation and amortization expense",
+    "y": 200.5,
+    "printed": [
+     "2,316",
+     "2,320"
+    ],
+    "values": [
+     2316.0,
+     2320.0
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "Adjustment: Interest income",
+    "y": 209.7,
+    "printed": [
+     "(861)",
+     "(867)"
+    ],
+    "values": [
+     -861.0,
+     -867.0
+    ],
+    "metric": "interest_earned",
+    "metric_alt": [
+     "finance_income"
+    ]
+   },
+   {
+    "label": "Adjustment: Dividend income from subsidiaries",
+    "y": 218.8,
+    "printed": [
+     "(1,077)",
+     "(109)"
+    ],
+    "values": [
+     -1077.0,
+     -109.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Provision for doubtful debts / bad debts written off (net)",
+    "y": 228.1,
+    "printed": [
+     "(56)",
+     "(31)"
+    ],
+    "values": [
+     -56.0,
+     -31.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Income on investments carried at fair value through profit and loss",
+    "y": 237.3,
+    "printed": [
+     "(161)",
+     "(183)"
+    ],
+    "values": [
+     -161.0,
+     -183.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Profit on sale of debt securities",
+    "y": 246.4,
+    "printed": [
+     "(2)",
+     "-"
+    ],
+    "values": [
+     -2.0,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Interest expense",
+    "y": 255.7,
+    "printed": [
+     "124",
+     "138"
+    ],
+    "values": [
+     124.0,
+     138.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Adjustment: Profit on sale of property, plant and equipment (net)",
+    "y": 264.6,
+    "printed": [
+     "(9)",
+     "(9)"
+    ],
+    "values": [
+     -9.0,
+     -9.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Share based payments to employees",
+    "y": 274.0,
+    "printed": [
+     "113",
+     "62"
+    ],
+    "values": [
+     113.0,
+     62.0
+    ],
+    "metric": "share_based_payment_expense"
+   },
+   {
+    "label": "Adjustment: Other non-cash charges (net)",
+    "y": 282.9,
+    "printed": [
+     "(1)",
+     "(15)"
+    ],
+    "values": [
+     -1.0,
+     -15.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "[Operating profit before working capital changes -- unlabelled subtotal]",
+    "is_total": true,
+    "unlabelled": true,
+    "y": 292.6,
+    "printed": [
+     "10,410",
+     "17,780"
+    ],
+    "values": [
+     10410.0,
+     17780.0
+    ],
+    "metric": "operating_profit_before_wc_changes"
+   },
+   {
+    "label": "Net change in: Trade receivables",
+    "y": 310.5,
+    "printed": [
+     "1,707",
+     "(2,599)"
+    ],
+    "values": [
+     1707.0,
+     -2599.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net change in: Inventories",
+    "y": 319.8,
+    "printed": [
+     "-",
+     "17"
+    ],
+    "values": [
+     "nil",
+     17.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net change in: Other financial assets and other assets",
+    "y": 328.9,
+    "printed": [
+     "189",
+     "362"
+    ],
+    "values": [
+     189.0,
+     362.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net change in: Trade payables",
+    "y": 338.1,
+    "printed": [
+     "5,162",
+     "1,507"
+    ],
+    "values": [
+     5162.0,
+     1507.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net change in: Other financial liabilities, contract liabilities, provisions and other liabilities",
+    "y": 347.2,
+    "printed": [
+     "(3,078)",
+     "1,629"
+    ],
+    "values": [
+     -3078.0,
+     1629.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cash generated from operations",
+    "is_total": true,
+    "y": 356.9,
+    "printed": [
+     "14,390",
+     "18,696"
+    ],
+    "values": [
+     14390.0,
+     18696.0
+    ],
+    "metric": "cash_generated_from_operations"
+   },
+   {
+    "label": "Income taxes paid (net of refunds)",
+    "y": 365.4,
+    "printed": [
+     "(2,261)",
+     "(2,705)"
+    ],
+    "values": [
+     -2261.0,
+     -2705.0
+    ],
+    "metric": "income_taxes_paid"
+   },
+   {
+    "label": "Net cash flow from operating activities (A)",
+    "is_total": true,
+    "y": 375.1,
+    "printed": [
+     "12,129",
+     "15,991"
+    ],
+    "values": [
+     12129.0,
+     15991.0
+    ],
+    "metric": "operating_cash_flow"
+   },
+   {
+    "label": "Purchase of property, plant and equipment and intangibles",
+    "y": 402.4,
+    "printed": [
+     "(735)",
+     "(461)"
+    ],
+    "values": [
+     -735.0,
+     -461.0
+    ],
+    "metric": "capex"
+   },
+   {
+    "label": "Proceeds from sale of property, plant and equipment",
+    "y": 411.5,
+    "printed": [
+     "20",
+     "22"
+    ],
+    "values": [
+     20.0,
+     22.0
+    ],
+    "metric": "proceeds_from_sale_of_ppe"
+   },
+   {
+    "label": "Payments for business acquisitions, net of cash acquired",
+    "y": 420.6,
+    "printed": [
+     "-",
+     "(1,358)"
+    ],
+    "values": [
+     "nil",
+     -1358.0
+    ],
+    "metric": "business_acquisitions"
+   },
+   {
+    "label": "Investments in bank deposits",
+    "y": 429.7,
+    "printed": [
+     "(2,742)",
+     "(4,464)"
+    ],
+    "values": [
+     -2742.0,
+     -4464.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Proceeds from bank deposits",
+    "y": 438.9,
+    "printed": [
+     "3,847",
+     "6,959"
+    ],
+    "values": [
+     3847.0,
+     6959.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Deposits placed with body corporates",
+    "y": 448.2,
+    "printed": [
+     "(90)",
+     "(1,251)"
+    ],
+    "values": [
+     -90.0,
+     -1251.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Proceeds from deposits placed with body corporates",
+    "y": 457.3,
+    "printed": [
+     "714",
+     "1,030"
+    ],
+    "values": [
+     714.0,
+     1030.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Purchase of investments in securities",
+    "y": 466.5,
+    "printed": [
+     "(47,701)",
+     "(43,059)"
+    ],
+    "values": [
+     -47701.0,
+     -43059.0
+    ],
+    "metric": "purchase_of_investments"
+   },
+   {
+    "label": "Proceeds from sale/maturity of investments in securities",
+    "y": 475.6,
+    "printed": [
+     "48,669",
+     "42,765"
+    ],
+    "values": [
+     48669.0,
+     42765.0
+    ],
+    "metric": "proceeds_from_sale_of_investments"
+   },
+   {
+    "label": "Excess of cost over fair value reimbursed for treasury shares by direct and indirect subsidiaries",
+    "y": 484.9,
+    "printed": [
+     "33",
+     "85"
+    ],
+    "values": [
+     33.0,
+     85.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Investment in equity instruments",
+    "y": 494.1,
+    "printed": [
+     "(8)",
+     "(5)"
+    ],
+    "values": [
+     -8.0,
+     -5.0
+    ],
+    "metric": "purchase_of_investments"
+   },
+   {
+    "label": "Investment in subsidiaries",
+    "y": 503.2,
+    "printed": [
+     "(80)",
+     "-"
+    ],
+    "values": [
+     -80.0,
+     "nil"
+    ],
+    "metric": "purchase_of_investments"
+   },
+   {
+    "label": "Dividend received from subsidiaries",
+    "y": 512.3,
+    "printed": [
+     "1,077",
+     "109"
+    ],
+    "values": [
+     1077.0,
+     109.0
+    ],
+    "metric": "dividends_received"
+   },
+   {
+    "label": "Interest received",
+    "y": 522.9,
+    "printed": [
+     "663",
+     "801"
+    ],
+    "values": [
+     663.0,
+     801.0
+    ],
+    "metric": "interest_received"
+   },
+   {
+    "label": "Investing: Income taxes paid",
+    "y": 532.2,
+    "printed": [
+     "(147)",
+     "(180)"
+    ],
+    "values": [
+     -147.0,
+     -180.0
+    ],
+    "metric": "income_taxes_paid"
+   },
+   {
+    "label": "Net cash flow from investing activities (B)",
+    "is_total": true,
+    "y": 541.4,
+    "printed": [
+     "3,520",
+     "993"
+    ],
+    "values": [
+     3520.0,
+     993.0
+    ],
+    "metric": "investing_cash_flow"
+   },
+   {
+    "label": "Repayment of long term borrowings",
+    "y": 568.9,
+    "printed": [
+     "(13)",
+     "(30)"
+    ],
+    "values": [
+     -13.0,
+     -30.0
+    ],
+    "metric": "repayment_of_borrowings"
+   },
+   {
+    "label": "Proceeds from short term borrowings",
+    "y": 578.0,
+    "printed": [
+     "318",
+     "377"
+    ],
+    "values": [
+     318.0,
+     377.0
+    ],
+    "metric": "proceeds_from_borrowings"
+   },
+   {
+    "label": "Repayment of short term borrowings",
+    "y": 587.2,
+    "printed": [
+     "(321)",
+     "(374)"
+    ],
+    "values": [
+     -321.0,
+     -374.0
+    ],
+    "metric": "repayment_of_borrowings"
+   },
+   {
+    "label": "Acquisition of treasury shares",
+    "y": 596.5,
+    "printed": [
+     "(711)",
+     "(676)"
+    ],
+    "values": [
+     -711.0,
+     -676.0
+    ],
+    "metric": "purchase_of_treasury_shares"
+   },
+   {
+    "label": "Dividend paid",
+    "y": 605.7,
+    "printed": [
+     "(14,618)",
+     "(16,250)"
+    ],
+    "values": [
+     -14618.0,
+     -16250.0
+    ],
+    "metric": "dividends_paid"
+   },
+   {
+    "label": "Interest paid",
+    "y": 614.8,
+    "printed": [
+     "(2)",
+     "(3)"
+    ],
+    "values": [
+     -2.0,
+     -3.0
+    ],
+    "metric": "interest_paid"
+   },
+   {
+    "label": "Payment of lease liabilities including interest",
+    "y": 623.9,
+    "printed": [
+     "(334)",
+     "(297)"
+    ],
+    "values": [
+     -334.0,
+     -297.0
+    ],
+    "metric": "lease_payments"
+   },
+   {
+    "label": "Net cash flow used in financing activities (C)",
+    "is_total": true,
+    "y": 633.4,
+    "printed": [
+     "(15,681)",
+     "(17,253)"
+    ],
+    "values": [
+     -15681.0,
+     -17253.0
+    ],
+    "metric": "financing_cash_flow"
+   },
+   {
+    "label": "Net decrease in cash and cash equivalents (A+B+C)",
+    "is_total": true,
+    "y": 651.8,
+    "printed": [
+     "(32)",
+     "(269)"
+    ],
+    "values": [
+     -32.0,
+     -269.0
+    ],
+    "metric": "net_change_in_cash"
+   },
+   {
+    "label": "Effect of exchange differences on cash and cash equivalents held in foreign currency",
+    "y": 660.6,
+    "printed": [
+     "41",
+     "24"
+    ],
+    "values": [
+     41.0,
+     24.0
+    ],
+    "metric": "fx_effect_on_cash"
+   },
+   {
+    "label": "Cash and cash equivalents at the beginning of the year",
+    "stock": true,
+    "y": 669.5,
+    "printed": [
+     "592",
+     "837"
+    ],
+    "values": [
+     592.0,
+     837.0
+    ],
+    "metric": "cash_at_beginning"
+   },
+   {
+    "label": "Cash and cash equivalents at the end of the year",
+    "stock": true,
+    "is_total": true,
+    "y": 679.1,
+    "printed": [
+     "601",
+     "592"
+    ],
+    "values": [
+     601.0,
+     592.0
+    ],
+    "metric": "cash_at_end"
+   }
+  ],
+  "identities": [
+   {
+    "target": "[Operating profit before working capital changes -- unlabelled subtotal]",
+    "plus": [
+     "Profit before tax",
+     "Adjustment: Depreciation and amortization expense",
+     "Adjustment: Interest income",
+     "Adjustment: Dividend income from subsidiaries",
+     "Adjustment: Provision for doubtful debts / bad debts written off (net)",
+     "Adjustment: Income on investments carried at fair value through profit and loss",
+     "Adjustment: Profit on sale of debt securities",
+     "Adjustment: Interest expense",
+     "Adjustment: Profit on sale of property, plant and equipment (net)",
+     "Adjustment: Share based payments to employees",
+     "Adjustment: Other non-cash charges (net)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Cash generated from operations",
+    "plus": [
+     "[Operating profit before working capital changes -- unlabelled subtotal]",
+     "Net change in: Trade receivables",
+     "Net change in: Inventories",
+     "Net change in: Other financial assets and other assets",
+     "Net change in: Trade payables",
+     "Net change in: Other financial liabilities, contract liabilities, provisions and other liabilities"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net cash flow from operating activities (A)",
+    "plus": [
+     "Cash generated from operations",
+     "Income taxes paid (net of refunds)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net cash flow from investing activities (B)",
+    "plus": [
+     "Purchase of property, plant and equipment and intangibles",
+     "Proceeds from sale of property, plant and equipment",
+     "Payments for business acquisitions, net of cash acquired",
+     "Investments in bank deposits",
+     "Proceeds from bank deposits",
+     "Deposits placed with body corporates",
+     "Proceeds from deposits placed with body corporates",
+     "Purchase of investments in securities",
+     "Proceeds from sale/maturity of investments in securities",
+     "Excess of cost over fair value reimbursed for treasury shares by direct and indirect subsidiaries",
+     "Investment in equity instruments",
+     "Investment in subsidiaries",
+     "Dividend received from subsidiaries",
+     "Interest received",
+     "Investing: Income taxes paid"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net cash flow used in financing activities (C)",
+    "plus": [
+     "Repayment of long term borrowings",
+     "Proceeds from short term borrowings",
+     "Repayment of short term borrowings",
+     "Acquisition of treasury shares",
+     "Dividend paid",
+     "Interest paid",
+     "Payment of lease liabilities including interest"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net decrease in cash and cash equivalents (A+B+C)",
+    "plus": [
+     "Net cash flow from operating activities (A)",
+     "Net cash flow from investing activities (B)",
+     "Net cash flow used in financing activities (C)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Cash and cash equivalents at the end of the year",
+    "plus": [
+     "Net decrease in cash and cash equivalents (A+B+C)",
+     "Effect of exchange differences on cash and cash equivalents held in foreign currency",
+     "Cash and cash equivalents at the beginning of the year"
+    ],
+    "tolerance": 1.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a working-capital movement reported as a balance",
+   "the investing section's income taxes paid reported as the year's total",
+   "standalone cash flows attributed to the group",
+   "the FY25 column's figure reported for FY26"
+  ]
+ }
+}

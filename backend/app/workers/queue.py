@@ -20,6 +20,7 @@ from app.config.settings import settings
 from app.core.logging import get_logger
 from app.database import repository as repo
 from app.database.session import session_scope
+from app.core.control import ProcessingCancelled, registry
 from app.models.enums import DocumentStatus, JobState
 
 log = get_logger("workers.queue")
@@ -85,6 +86,14 @@ class JobQueue:
                 raise ValueError(f"Unknown job type {job_type!r}")
             with session_scope() as session:
                 repo.finish_job(session, job_id, state=JobState.SUCCEEDED.value)
+        except ProcessingCancelled:
+            # Not a failure: the user asked for this.  The document's status
+            # and note were already set where the run unwound, so the job row
+            # simply records that it stopped rather than broke.
+            log.info("queue.job_cancelled", job_id=job_id,
+                     document_id=document_id)
+            with session_scope() as session:
+                repo.finish_job(session, job_id, state=JobState.CANCELLED.value)
         except Exception as exc:  # noqa: BLE001 - recorded, never swallowed
             log.exception("queue.job_failed", job_id=job_id,
                           document_id=document_id, error=str(exc))
@@ -98,6 +107,37 @@ class JobQueue:
         finally:
             with self._lock:
                 self._futures.pop(job_id, None)
+
+    # --------------------------------------------------------------- control
+    @staticmethod
+    def request_pause(document_id: str) -> bool:
+        """Ask a running document to come to rest.  False if it is not running."""
+        ctl = registry.get(document_id)
+        if ctl is None:
+            return False
+        ctl.request_pause()
+        return True
+
+    @staticmethod
+    def request_resume(document_id: str) -> bool:
+        ctl = registry.get(document_id)
+        if ctl is None:
+            return False
+        ctl.request_resume()
+        return True
+
+    @staticmethod
+    def request_cancel(document_id: str) -> bool:
+        ctl = registry.get(document_id)
+        if ctl is None:
+            return False
+        ctl.request_cancel()
+        return True
+
+    @staticmethod
+    def is_controllable(document_id: str) -> bool:
+        """Whether a live run exists that pause/cancel could act on."""
+        return registry.get(document_id) is not None
 
     # ----------------------------------------------------------------- state
     def is_running(self, job_id: str) -> bool:

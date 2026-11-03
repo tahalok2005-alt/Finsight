@@ -1,0 +1,478 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "IFRS condensed interim statements in MILLIONS OF CHF. Figures use a SPACE as the",
+  "thousands separator ('43 109', '(23 118)'): one figure, not two. A 'Notes' column of",
+  "note numbers (2, 3, 5, 6, 8) sits between the labels and the figures and is NOT a",
+  "figure; beside 'Assets held for sale' it reads '2' next to '5 451', which run together",
+  "would be 25 451.",
+  "Half-years to June 30, 2026 and 2025. 'Sales' is the top line (other revenue is",
+  "separate). 'Trading operating profit' is Nestle's own measure before other operating",
+  "items (metric null); 'Operating profit' is EBIT. The two margin rows are percentages",
+  "of sales; EPS is in CHF per share. 'Other operating income' is a GROSS line",
+  "(its expenses are printed below it), not the net other-operating key.",
+  "(Corrected 2026-09-13: 'Other operating expenses' was first given no key.)",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NESTLE",
+ "document": "src/NESTLE_HY2026_half_year_report.pdf",
+ "issuer": "Nestlé S.A.",
+ "page": 12,
+ "transcription": {
+  "method": "native text layer at recorded y; layout checked on the render",
+  "verified_against": "page text and the statements' own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Consolidated income statement for the six months ended June 30, 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "title 'Consolidated income statement'",
+  "unit_declaration": {
+   "text": "In millions of CHF",
+   "unit": "million",
+   "currency": "CHF",
+   "scope": "table",
+   "placement": "top-left, above the labels"
+  },
+  "bbox_pt": [
+   26,
+   90,
+   570,
+   500
+  ],
+  "bbox_rel": [
+   0.0437,
+   0.1221,
+   0.9575,
+   0.6784
+  ],
+  "page_height_pt": 737.008,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "January–June",
+     "2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-01-01",
+    "period_type": "half_year",
+    "fiscal_label": "H1 2026"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "January–June",
+     "2025"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-01-01",
+    "period_type": "half_year",
+    "fiscal_label": "H1 2025"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Sales",
+    "y": 121.2,
+    "printed": [
+     "43 109",
+     "44 228"
+    ],
+    "values": [
+     43109.0,
+     44228.0
+    ],
+    "metric": "sales",
+    "metric_alt": [
+     "revenue"
+    ]
+   },
+   {
+    "label": "Other revenue",
+    "y": 145.3,
+    "printed": [
+     "191",
+     "182"
+    ],
+    "values": [
+     191.0,
+     182.0
+    ],
+    "metric": "other_operating_revenue"
+   },
+   {
+    "label": "Cost of goods sold",
+    "y": 157.3,
+    "printed": [
+     "(23 118)",
+     "(23 609)"
+    ],
+    "values": [
+     -23118.0,
+     -23609.0
+    ],
+    "metric": "cost_of_revenue",
+    "metric_alt": [
+     "raw_material_cost"
+    ]
+   },
+   {
+    "label": "Distribution expenses",
+    "y": 169.3,
+    "printed": [
+     "(3 628)",
+     "(3 685)"
+    ],
+    "values": [
+     -3628.0,
+     -3685.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Marketing and administration expenses",
+    "y": 181.3,
+    "printed": [
+     "(8 700)",
+     "(9 043)"
+    ],
+    "values": [
+     -8700.0,
+     -9043.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Research and development costs",
+    "y": 193.3,
+    "printed": [
+     "(773)",
+     "(786)"
+    ],
+    "values": [
+     -773.0,
+     -786.0
+    ],
+    "metric": "research_and_development"
+   },
+   {
+    "label": "Other trading income",
+    "y": 205.3,
+    "printed": [
+     "16",
+     "73"
+    ],
+    "values": [
+     16.0,
+     73.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Other trading expenses",
+    "y": 217.3,
+    "printed": [
+     "(850)",
+     "(475)"
+    ],
+    "values": [
+     -850.0,
+     -475.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Trading operating profit",
+    "is_total": true,
+    "y": 229.2,
+    "printed": [
+     "6 247",
+     "6 885"
+    ],
+    "values": [
+     6247.0,
+     6885.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Other operating income",
+    "y": 253.3,
+    "printed": [
+     "292",
+     "183"
+    ],
+    "values": [
+     292.0,
+     183.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Other operating expenses",
+    "y": 265.3,
+    "printed": [
+     "(1 520)",
+     "(244)"
+    ],
+    "values": [
+     -1520.0,
+     -244.0
+    ],
+    "metric": "other_operating_expenses"
+   },
+   {
+    "label": "Operating profit",
+    "is_total": true,
+    "y": 277.2,
+    "printed": [
+     "5 019",
+     "6 824"
+    ],
+    "values": [
+     5019.0,
+     6824.0
+    ],
+    "metric": "ebit"
+   },
+   {
+    "label": "Financial income",
+    "y": 301.3,
+    "printed": [
+     "174",
+     "170"
+    ],
+    "values": [
+     174.0,
+     170.0
+    ],
+    "metric": "finance_income"
+   },
+   {
+    "label": "Financial expense",
+    "y": 313.3,
+    "printed": [
+     "(862)",
+     "(929)"
+    ],
+    "values": [
+     -862.0,
+     -929.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Profit before taxes, associates and joint ventures",
+    "is_total": true,
+    "y": 325.2,
+    "printed": [
+     "4 331",
+     "6 065"
+    ],
+    "values": [
+     4331.0,
+     6065.0
+    ],
+    "metric": "pbt_before_associates"
+   },
+   {
+    "label": "Taxes",
+    "y": 349.3,
+    "printed": [
+     "(1 242)",
+     "(1 602)"
+    ],
+    "values": [
+     -1242.0,
+     -1602.0
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Income from associates and joint ventures",
+    "y": 361.3,
+    "printed": [
+     "507",
+     "704"
+    ],
+    "values": [
+     507.0,
+     704.0
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Profit for the period",
+    "is_total": true,
+    "y": 373.2,
+    "printed": [
+     "3 596",
+     "5 167"
+    ],
+    "values": [
+     3596.0,
+     5167.0
+    ],
+    "metric": "pat",
+    "metric_alt": [
+     "pat_after_associates"
+    ]
+   },
+   {
+    "label": "of which attributable to non-controlling interests",
+    "y": 385.3,
+    "printed": [
+     "124",
+     "102"
+    ],
+    "values": [
+     124.0,
+     102.0
+    ],
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "of which attributable to shareholders of the parent (Net profit)",
+    "y": 397.3,
+    "printed": [
+     "3 472",
+     "5 065"
+    ],
+    "values": [
+     3472.0,
+     5065.0
+    ],
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "As percentages of sales: Trading operating profit",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 433.3,
+    "printed": [
+     "14.5",
+     "15.6"
+    ],
+    "values": [
+     14.5,
+     15.6
+    ],
+    "metric": null
+   },
+   {
+    "label": "As percentages of sales: Profit for the period attributable to shareholders of the parent (Net profit)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 445.3,
+    "printed": [
+     "8.1",
+     "11.5"
+    ],
+    "values": [
+     8.1,
+     11.5
+    ],
+    "metric": "net_margin"
+   },
+   {
+    "label": "Basic earnings per share (in CHF)",
+    "unit": "per_share",
+    "currency": "CHF",
+    "value_type": "per_share",
+    "y": 481.3,
+    "printed": [
+     "1.35",
+     "1.97"
+    ],
+    "values": [
+     1.35,
+     1.97
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "Diluted earnings per share (in CHF)",
+    "unit": "per_share",
+    "currency": "CHF",
+    "value_type": "per_share",
+    "y": 493.3,
+    "printed": [
+     "1.35",
+     "1.97"
+    ],
+    "values": [
+     1.35,
+     1.97
+    ],
+    "metric": "diluted_eps"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Trading operating profit",
+    "plus": [
+     "Sales",
+     "Other revenue",
+     "Cost of goods sold",
+     "Distribution expenses",
+     "Marketing and administration expenses",
+     "Research and development costs",
+     "Other trading income",
+     "Other trading expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Operating profit",
+    "plus": [
+     "Trading operating profit",
+     "Other operating income",
+     "Other operating expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before taxes, associates and joint ventures",
+    "plus": [
+     "Operating profit",
+     "Financial income",
+     "Financial expense"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit for the period",
+    "plus": [
+     "Profit before taxes, associates and joint ventures",
+     "Taxes",
+     "Income from associates and joint ventures"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit for the period",
+    "plus": [
+     "of which attributable to non-controlling interests",
+     "of which attributable to shareholders of the parent (Net profit)"
+    ],
+    "tolerance": 1.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a space-grouped figure ('43 109') read as two numbers or truncated",
+   "a note number read as a figure",
+   "CHF reported as another currency",
+   "a half-year typed as a quarter or a year"
+  ]
+ }
+}

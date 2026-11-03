@@ -1,0 +1,316 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document by eye, against the rendered",
+  "page image -- NOT from FinSight output.",
+  "",
+  "Verified 2026-09-10 against crops of the 200dpi render of page 1:",
+  "  scratch/p19/hdfc_p1_header.png -- title, unit declaration, column heads",
+  "  scratch/p19/hdfc_p1_rows.png   -- the first eleven line items",
+  "",
+  "This document is in the corpus because it differs from Groww in every way",
+  "that matters to period resolution:",
+  "  * dates are numeric and dotted (30.06.2026), not written out",
+  "  * the basis is declared in the TITLE, not in a separate caption",
+  "  * the unit declaration is a bracketed corner note, not a full-width banner",
+  "  * a serial-number column precedes the label column",
+  "  * one column carries a note reference on its own header line",
+  "A rule that works on Groww and fails here is a rule fitted to one filer.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "HDFC",
+ "document": "HDFC results.pdf",
+ "issuer": "HDFC Bank Limited",
+ "page": 1,
+ "table": {
+  "title": "UNAUDITED STANDALONE FINANCIAL RESULTS FOR THE QUARTER ENDED JUNE 30, 2026",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "declared in the statement title above the table",
+  "unit_declaration": {
+   "text": "(₹ in crore)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "bracketed note at the top-right corner, above the header block"
+  },
+  "columns": [
+   {
+    "id": "c1",
+    "index": 2,
+    "group": "Quarter ended",
+    "header_lines": [
+     "30.06.2026",
+     "Unaudited"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited",
+    "note_ref": null
+   },
+   {
+    "id": "c2",
+    "index": 3,
+    "group": "Quarter ended",
+    "header_lines": [
+     "31.03.2026",
+     "Audited",
+     "(Refer note 5)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited",
+    "note_ref": "Refer note 5"
+   },
+   {
+    "id": "c3",
+    "index": 4,
+    "group": "Quarter ended",
+    "header_lines": [
+     "30.06.2025",
+     "Unaudited"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited",
+    "note_ref": null
+   },
+   {
+    "id": "c4",
+    "index": 5,
+    "group": "Year ended",
+    "header_lines": [
+     "31.03.2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited",
+    "note_ref": null
+   }
+  ],
+  "$rows_comment": "values align to c1..c4. serial is the printed row number.",
+  "rows": [
+   {
+    "serial": 1,
+    "label": "Interest earned (a)+(b)+(c)+(d)",
+    "is_total": true,
+    "values": [
+     79362.78,
+     76610.02,
+     77470.2,
+     307522.08
+    ],
+    "metric": "interest_earned"
+   },
+   {
+    "label": "a) Interest / discount on advances / bills",
+    "values": [
+     61953.87,
+     60351.21,
+     60192.64,
+     239762.46
+    ],
+    "metric": "interest_on_advances"
+   },
+   {
+    "label": "b) Income on investments",
+    "values": [
+     14272.21,
+     13923.99,
+     15070.08,
+     58945.38
+    ],
+    "metric": "investment_income"
+   },
+   {
+    "label": "c) Interest on balances with Reserve Bank of India and other inter-bank funds",
+    "values": [
+     1365.28,
+     879.41,
+     670.17,
+     2674.7
+    ],
+    "metric": "interest_on_rbi_balances"
+   },
+   {
+    "label": "Interest earned: d) Others",
+    "values": [
+     1771.42,
+     1455.41,
+     1537.31,
+     6139.54
+    ],
+    "printed": "d) Others",
+    "metric": "other_interest_income"
+   },
+   {
+    "serial": 2,
+    "label": "Other Income (Refer note 12)",
+    "values": [
+     12821.6,
+     13198.88,
+     21729.83,
+     62532.57
+    ],
+    "metric": "other_income"
+   },
+   {
+    "serial": 3,
+    "label": "Total Income (1)+(2)",
+    "is_total": true,
+    "values": [
+     92184.38,
+     89808.9,
+     99200.03,
+     370054.65
+    ],
+    "metric": "total_income"
+   },
+   {
+    "serial": 4,
+    "label": "Interest expended",
+    "values": [
+     45828.83,
+     43528.45,
+     46032.23,
+     178836.04
+    ],
+    "metric": "interest_expended"
+   },
+   {
+    "serial": 5,
+    "label": "Operating expenses (i)+(ii)",
+    "is_total": true,
+    "values": [
+     18187.49,
+     18477.53,
+     17433.84,
+     72660.33
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "i) Employees cost",
+    "values": [
+     6414.83,
+     6227.72,
+     6157.97,
+     26050.15
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "ii) Other operating expenses",
+    "values": [
+     11772.66,
+     12249.81,
+     11275.87,
+     46610.18
+    ],
+    "metric": "other_operating_expenses"
+   },
+   {
+    "serial": 6,
+    "label": "Total Expenditure (4)+(5) (excluding provisions and contingencies)",
+    "is_total": true,
+    "values": [
+     64016.32,
+     62005.98,
+     63466.07,
+     251496.37
+    ],
+    "metric": "total_expenditure"
+   },
+   {
+    "serial": 7,
+    "label": "Operating Profit before provisions and contingencies (3)-(6)",
+    "values": [
+     28168.06,
+     27802.92,
+     35733.96,
+     118558.28
+    ],
+    "metric": "pre_provision_operating_profit"
+   }
+  ],
+  "$arithmetic_comment": [
+   "Relationships the source itself asserts through its row labels. They are",
+   "recorded so a reader can confirm the transcription above is internally",
+   "consistent, and so the cross-footing check has something to verify.",
+   "  Total Income (3) = Interest earned (1) + Other Income (2)",
+   "    c1: 79362.78 + 12821.60 = 92184.38",
+   "    c4: 307522.08 + 62532.57 = 370054.65",
+   "  Total Expenditure (6) = Interest expended (4) + Operating expenses (5)",
+   "    c1: 45828.83 + 18187.49 = 64016.32",
+   "  Operating Profit (7) = Total Income (3) - Total Expenditure (6)",
+   "    c1: 92184.38 - 64016.32 = 28168.06"
+  ],
+  "page_height_pt": 842.4
+ },
+ "acceptance": {
+  "must_produce": [
+   {
+    "row": "Total Income (1)+(2)",
+    "column": "c1",
+    "value": 92184.38,
+    "period_end": "2026-06-30",
+    "period_type": "quarter",
+    "unit": "crore",
+    "currency": "INR",
+    "entity": "Standalone"
+   },
+   {
+    "row": "Total Income (1)+(2)",
+    "column": "c2",
+    "value": 89808.9,
+    "period_end": "2026-03-31",
+    "period_type": "quarter",
+    "unit": "crore",
+    "currency": "INR",
+    "entity": "Standalone"
+   },
+   {
+    "row": "Total Income (1)+(2)",
+    "column": "c3",
+    "value": 99200.03,
+    "period_end": "2025-06-30",
+    "period_type": "quarter",
+    "unit": "crore",
+    "currency": "INR",
+    "entity": "Standalone"
+   },
+   {
+    "row": "Total Income (1)+(2)",
+    "column": "c4",
+    "value": 370054.65,
+    "period_end": "2026-03-31",
+    "period_type": "fiscal_year",
+    "unit": "crore",
+    "currency": "INR",
+    "entity": "Standalone"
+   },
+   {
+    "row": "Interest earned (a)+(b)+(c)+(d)",
+    "column": "c1",
+    "value": 79362.78,
+    "period_end": "2026-06-30",
+    "period_type": "quarter"
+   }
+  ],
+  "must_never": [
+   "any fact from this page attributed to the consolidated entity -- the title says standalone",
+   "any fact from this table with period_basis = not_applicable",
+   "any fact from this table with no period and HIGH confidence",
+   "a period outside 2025-04-01 .. 2026-06-30",
+   "the quarter column and the year column resolving to the same period, though they share an end date"
+  ]
+ }
+}

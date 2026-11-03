@@ -1,0 +1,1875 @@
+{
+ "$comment": [
+  "PHASE 21 CORPUS. Every file here was downloaded from the issuer's own",
+  "investor-relations site (or the issuer's official link to its filing) on",
+  "2026-09-11. None was produced, edited or re-saved by FinSight. The sha256",
+  "is of the file as downloaded; if it ever differs, the golden facts built",
+  "against it no longer apply.",
+  "",
+  "The shape matrix below was written from the documents themselves -- page",
+  "census, the PDF's own text, and rendered page images -- before FinSight was",
+  "run on any of them. It records what the documents ARE, so that coverage",
+  "can later be broken down by what they contain rather than by what FinSight",
+  "happened to find.",
+  "",
+  "pdf_type values:",
+  "  native        -- text drawn as text; the text layer is the typeset content",
+  "  ocr_layer     -- a scan with an OCR text layer added by the filer; the",
+  "                   layer is someone else's recognition and carries errors",
+  "  image_only    -- statements present only as pixels",
+  "  mixed         -- some pages native, some image, in the same file",
+  "  presentation  -- slide deck: KPI tiles, charts and tables arranged, not",
+  "                   ruled"
+ ],
+ "retrieved": "2026-09-11",
+ "documents": [
+  {
+   "key": "ICICI",
+   "company": "ICICI Bank Limited",
+   "sector": "private bank",
+   "file": "src/ICICI_Q1FY27_results.pdf",
+   "source_url": "https://www.icici.bank.in/content/dam/icicibank/india/managed-assets/docs/about-us/2027/financial-results-q1-2027.pdf",
+   "bytes": 344867,
+   "sha256": "b95bef731a963323ad256416cf2cc473c3c2554f6c09e4a83744ee1a6a094e2a",
+   "pages": 13,
+   "doc_type": "quarterly results",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "segment reporting",
+    "notes",
+    "KPI tables"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "vertically dense"
+   ],
+   "period_formats": [
+    "Month d, yyyy",
+    "three months ended",
+    "year ended",
+    "as at"
+   ],
+   "unit_formats": [
+    "INR crore (₹ in crore)",
+    "percent",
+    "per-share"
+   ],
+   "adversarial": [
+    "standalone and consolidated statements in the same file with identical row labels",
+    "bank income statement (interest earned, not revenue)"
+   ]
+  },
+  {
+   "key": "WIPRO",
+   "company": "Wipro Limited",
+   "sector": "technology",
+   "file": "src/WIPRO_Q1FY27_press.pdf",
+   "source_url": "https://www.wipro.com/content/dam/nexus/en/investor/quarterly-results/2026-2027/q1fy27/press-release-q1fy27.pdf",
+   "bytes": 377434,
+   "sha256": "d14f2adab999ccbc742accc636e5d5167290370145937ddb3e0bf0f720645771",
+   "pages": 12,
+   "doc_type": "earnings release",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "segment reporting",
+    "narrative"
+   ],
+   "bases": [
+    "consolidated",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header"
+   ],
+   "period_formats": [
+    "Month d, yyyy",
+    "three months ended",
+    "as of",
+    "Qn'yy"
+   ],
+   "unit_formats": [
+    "INR million (₹ in millions)",
+    "USD million",
+    "per-share",
+    "percent"
+   ],
+   "adversarial": [
+    "IFRS statement of financial position (not 'balance sheet')",
+    "INR million alongside a USD convenience translation"
+   ]
+  },
+  {
+   "key": "AIRTEL",
+   "company": "Bharti Airtel Limited",
+   "sector": "telecom",
+   "file": "src/AIRTEL_Q1FY27_published_results.pdf",
+   "source_url": "https://assets.airtel.in/static-assets/cms/investor/docs/quarterly_results/2026-27/Q1/Published-Results.pdf",
+   "bytes": 5662738,
+   "sha256": "5a835dd34e31be6b1139180fbf0f45199bf4c16b9b1d67c86e3eea05dd32f8ca",
+   "pages": 15,
+   "doc_type": "quarterly results",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "horizontally dense"
+   ],
+   "period_formats": [
+    "Month d, yyyy",
+    "quarter ended",
+    "year ended"
+   ],
+   "unit_formats": [
+    "INR million (Rs. Million)",
+    "per-share"
+   ],
+   "adversarial": [
+    "scanned with a filer-added OCR layer",
+    "INR million where most Indian filers use crore"
+   ]
+  },
+  {
+   "key": "TATASTEEL",
+   "company": "Tata Steel Limited",
+   "sector": "manufacturing (steel)",
+   "file": "src/TATASTEEL_Q1FY27_sebi_results.pdf",
+   "source_url": "https://www.tatasteel.com/media/26230/sebi-results.pdf",
+   "bytes": 9953380,
+   "sha256": "398e8ec640b34e1e1d6d51f4cf3065b2f1abfdacbf4abc36c24d43ffb641d2a0",
+   "pages": 7,
+   "doc_type": "quarterly results",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "KPI tables",
+    "notes"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated",
+    "segment"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "horizontally dense",
+    "vertically dense"
+   ],
+   "period_formats": [
+    "dd.mm.yyyy",
+    "quarter ended",
+    "year ended"
+   ],
+   "unit_formats": [
+    "INR crore (₹ Crore, OCR'd as '?Crore', '«Crore', 'zCrore')",
+    "per-share",
+    "ratios (Reg 52(4) disclosures)"
+   ],
+   "adversarial": [
+    "rupee symbol destroyed by the filer's OCR",
+    "standalone and consolidated statements with the same shape on consecutive pages",
+    "ratio disclosures in the same grid as monetary rows"
+   ]
+  },
+  {
+   "key": "TATASTEEL_PR",
+   "company": "Tata Steel Limited",
+   "sector": "manufacturing (steel)",
+   "file": "src/TATASTEEL_Q1FY27_press_release.pdf",
+   "source_url": "https://www.tatasteel.com/media/26234/1qfy2027-press-release.pdf",
+   "bytes": 296207,
+   "sha256": "1bba64c454c2d31c7880edbb6e0bb9b4b21a5dbc7464626070f55b73303b78ac",
+   "pages": 3,
+   "doc_type": "earnings release",
+   "statements": [
+    "KPI tables",
+    "narrative"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "KPI grid",
+    "standard row-oriented"
+   ],
+   "period_formats": [
+    "FYyy",
+    "quarter ended"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "million tonnes",
+    "GBP/EUR million (European operations)"
+   ],
+   "adversarial": [
+    "cross-source: the same results as TATASTEEL, restated as an earnings release"
+   ]
+  },
+  {
+   "key": "TATASTEEL_PPT",
+   "company": "Tata Steel Limited",
+   "sector": "manufacturing (steel)",
+   "file": "src/TATASTEEL_Q1FY27_presentation.pdf",
+   "source_url": "https://www.tatasteel.com/media/26233/1qfy27-results-presentation.pdf",
+   "bytes": 5969725,
+   "sha256": "c6a260f9938dac6a70a6af7bb75836b5422f52b34d0608e1351c87e6e1752949",
+   "pages": 34,
+   "doc_type": "investor presentation",
+   "statements": [
+    "KPI tables",
+    "segment reporting",
+    "narrative"
+   ],
+   "bases": [
+    "consolidated",
+    "segment"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "KPI grid",
+    "transposed",
+    "irregular table"
+   ],
+   "period_formats": [
+    "Mon-yy",
+    "Mon'yy",
+    "FYyy",
+    "Qn FYyy"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "million tonnes",
+    "USD/tonne",
+    "GBP million",
+    "EUR million"
+   ],
+   "adversarial": [
+    "cross-source with TATASTEEL and TATASTEEL_PR",
+    "charts next to tables",
+    "several currencies on one deck"
+   ]
+  },
+  {
+   "key": "HUL",
+   "company": "Hindustan Unilever Limited",
+   "sector": "consumer (FMCG)",
+   "file": "src/HUL_JQ26_results.pdf",
+   "source_url": "https://www.hul.co.in/files/hul-jq-26-results.pdf",
+   "bytes": 6154352,
+   "sha256": "707e215f1d49f4bdffff7f5cedcd1f17280d9d3d71210e7544867f12dad06d17",
+   "pages": 30,
+   "doc_type": "quarterly results",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "notes",
+    "KPI tables",
+    "narrative"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "mixed",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "horizontally dense",
+    "KPI grid"
+   ],
+   "period_formats": [
+    "dth Month yyyy (30th June 2026)",
+    "quarter ended",
+    "year ended",
+    "JQ'yy / MQ'yy"
+   ],
+   "unit_formats": [
+    "INR crore (Rs in crores)",
+    "percent",
+    "bps",
+    "per-share"
+   ],
+   "adversarial": [
+    "results filing followed by an image-heavy presentation in one file",
+    "quarter named by month ('JQ'26' = June quarter 2026)"
+   ]
+  },
+  {
+   "key": "SAP",
+   "company": "SAP SE",
+   "sector": "technology (Europe)",
+   "file": "src/SAP_Q2_2026_statement.pdf",
+   "source_url": "https://www.sap.com/docs/download/investors/2026/sap-2026-q2-statement.pdf",
+   "bytes": 642544,
+   "sha256": "2697cd715ec50c2d559c6d9c450a39b680875a194698c0eaf1873d3ca3342167",
+   "pages": 23,
+   "doc_type": "quarterly statement",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow",
+    "segment reporting",
+    "KPI tables",
+    "narrative"
+   ],
+   "bases": [
+    "group",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "horizontally dense"
+   ],
+   "period_formats": [
+    "Qn yyyy",
+    "six months / H1",
+    "Month d, yyyy",
+    "as at"
+   ],
+   "unit_formats": [
+    "EUR million (€ millions)",
+    "EUR billion",
+    "percent",
+    "per-share"
+   ],
+   "adversarial": [
+    "calendar fiscal year",
+    "Q2 and H1 columns share an end date and differ only in duration",
+    "IFRS and non-IFRS columns side by side"
+   ]
+  },
+  {
+   "key": "ETERNAL",
+   "company": "Eternal Limited (formerly Zomato)",
+   "sector": "consumer internet / quick commerce",
+   "file": "src/ETERNAL_Q1FY27_results.pdf",
+   "source_url": "https://drive.google.com/uc?export=download&id=1jb9KWd4Ap4RTKHFHxzEOO7jgQqVZEGcd",
+   "source_note": "the download link published on https://www.eternal.com/blog/q1fy27/ ('Click here to download Q1FY27 results')",
+   "bytes": 12863367,
+   "sha256": "c5af56ad458512a5a68bf065c0e5ff8343134c56ba03f69f5a4dc29b107d4ff4",
+   "pages": 31,
+   "doc_type": "shareholders' letter + quarterly results",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow",
+    "KPI tables",
+    "segment reporting",
+    "narrative",
+    "notes"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "mixed",
+   "table_shapes": [
+    "KPI grid",
+    "standard row-oriented",
+    "multi-level header",
+    "irregular table"
+   ],
+   "period_formats": [
+    "Qn FYyy (Q1FY27, no space)",
+    "Month d, yyyy",
+    "quarter ended",
+    "year ended"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "percent",
+    "per-share"
+   ],
+   "adversarial": [
+    "statements (annexures D, E, F) present only as images",
+    "statutory results scanned with a garbled OCR layer",
+    "adjusted (non-GAAP) and reported figures in one letter"
+   ]
+  },
+  {
+   "key": "SBI",
+   "company": "State Bank of India",
+   "sector": "PSU bank",
+   "file": "src/SBI_Q1FY27_results.pdf",
+   "source_url": "https://sbi.bank.in/documents/17826/24401/07082026_SBI+Jun+2026_Q1FY27.pdf/23529750-6f15-8696-9f1d-7d74b47207a8?t=1786093352404",
+   "bytes": 11974297,
+   "sha256": "1975be80866763c52086345a4e8f0542cd04f753356484753d24d56d2b4c200a",
+   "pages": 12,
+   "doc_type": "quarterly results",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "vertically dense"
+   ],
+   "period_formats": [
+    "dd.mm.yyyy",
+    "dth Month yyyy",
+    "quarter ended",
+    "year ended",
+    "as at"
+   ],
+   "unit_formats": [
+    "INR crore (₹ in Crore, OCR'd as '{ Crore')",
+    "percent",
+    "per-share"
+   ],
+   "adversarial": [
+    "PSU-bank scan with a badly recognised OCR layer ('UTTAUDITEO SEGI'ENIWISE REVET{UE')"
+   ]
+  },
+  {
+   "key": "SBI_PPT",
+   "company": "State Bank of India",
+   "sector": "PSU bank",
+   "file": "src/SBI_Q1FY27_analyst_presentation.pdf",
+   "source_url": "https://sbi.bank.in/documents/17836/1275616/07082026_SBI+Analyst+Presentation+Q1FY27.pdf/6e4ca530-1666-574e-22fb-f9e19d553ef5?t=1786091443352",
+   "bytes": 2345050,
+   "sha256": "ff976a31be05a774f502c841c475a3c647737554953bb8d0b75854a464716d4c",
+   "pages": 47,
+   "doc_type": "investor presentation",
+   "statements": [
+    "KPI tables",
+    "income statement",
+    "balance sheet",
+    "segment reporting"
+   ],
+   "bases": [
+    "standalone",
+    "group"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "KPI grid",
+    "standard row-oriented",
+    "transposed",
+    "irregular table"
+   ],
+   "period_formats": [
+    "Qn FYyy (Q1FY27, no space)",
+    "FYyy",
+    "Mon yy (Jun 25)",
+    "dd.mm.yyyy"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "INR lakh crore",
+    "percent",
+    "bps"
+   ],
+   "adversarial": [
+    "cross-source with SBI",
+    "banking KPIs: NIM, CASA, GNPA, NNPA, PCR, CET1, CAR"
+   ]
+  },
+  {
+   "key": "INDIANBANK",
+   "company": "Indian Bank",
+   "sector": "PSU bank",
+   "file": "src/INDIANBANK_Q1FY27_results.pdf",
+   "source_url": "https://indianbank.bank.in/documents/d/guest/unaudited-financial-results-of-the-bank-for-first-quarter-of-fy-2026-27-ended-on-30th-june-2026-1",
+   "bytes": 7304920,
+   "sha256": "902e922f113239da292f40559597878083f78f1efd0dbd6188ccaa8cacbf1cd1",
+   "pages": 21,
+   "doc_type": "quarterly results",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated",
+    "segment"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "split table",
+    "page-continuation"
+   ],
+   "period_formats": [
+    "dd.mm.yyyy",
+    "dd,mm.yyyy (a comma where the first dot should be)",
+    "30\" June 2026 (superscript recognised as a quote)",
+    "quarter ended",
+    "year ended"
+   ],
+   "unit_formats": [
+    "INR crore (Rs. in crores)",
+    "percent",
+    "per-share"
+   ],
+   "adversarial": [
+    "standalone results continue from page 1 to page 2",
+    "bilingual (Hindi) letterhead recognised as garbage",
+    "consolidated results continue from page 5 to page 6"
+   ]
+  },
+  {
+   "key": "KOTAK",
+   "company": "Kotak Mahindra Bank Limited",
+   "sector": "private bank",
+   "file": "src/KOTAK_Q3FY26_board_outcome_results.pdf",
+   "source_url": "https://www.kotak.bank.in/content/dam/Kotak/investor-relation/governance/governance-sebi-tab/2026/q3-fy26/outcome-board-meeting-q3-nine-months-results-dec-2025.pdf",
+   "bytes": 2364565,
+   "sha256": "0e4b4b12e3ef24d7088fe1d728d23d749ab436269b622eea5cda6ee9c4b5b348",
+   "pages": 17,
+   "doc_type": "nine-month report (quarterly results)",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "horizontally dense"
+   ],
+   "period_formats": [
+    "dd-Mon-yy (31-Dec-25)",
+    "quarter ended",
+    "nine months ended",
+    "year ended"
+   ],
+   "unit_formats": [
+    "INR crore (₹ crore, OCR'd as 'f crore')",
+    "percent",
+    "per-share"
+   ],
+   "adversarial": [
+    "six period columns of three durations (quarter, nine months, year)",
+    "scanned signed copy with a garbled OCR layer ('Quarter en~', '31r. Oecember')"
+   ]
+  },
+  {
+   "key": "KOTAK_PT",
+   "company": "Kotak Mahindra Bank Limited",
+   "sector": "private bank",
+   "file": "src/KOTAK_Q3FY26_press_table.pdf",
+   "source_url": "https://www.kotak.bank.in/content/dam/Kotak/investor-relation/Financial-Result/QuarterlyReport/FY-2026/q3/press-table/Q3FY26_Press-Table.pdf",
+   "bytes": 627930,
+   "sha256": "5bc6ef7ca5d699abb3d38417443ced3380be3dd6fd519a58997a594cb91c3cc1",
+   "pages": 10,
+   "doc_type": "nine-month report (press table)",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "horizontally dense"
+   ],
+   "period_formats": [
+    "dd-Mon-yy (31-Dec-25)",
+    "quarter ended",
+    "nine months ended",
+    "year ended"
+   ],
+   "unit_formats": [
+    "INR crore (₹ crore)",
+    "percent",
+    "per-share"
+   ],
+   "adversarial": [
+    "cross-source: the SAME statements as KOTAK, typeset instead of scanned"
+   ]
+  },
+  {
+   "key": "KOTAK_PR",
+   "company": "Kotak Mahindra Bank Limited",
+   "sector": "private bank",
+   "file": "src/KOTAK_Q3FY26_press_release.pdf",
+   "source_url": "https://www.kotak.bank.in/content/dam/Kotak/investor-relation/Financial-Result/QuarterlyReport/FY-2026/q3/PressRelease/Q3FY26_Press-Release.pdf",
+   "bytes": 325787,
+   "sha256": "ab7ecc79f6a6649623d87a658d9c3c2f4d69b3f99d30dd26247849bd8024198f",
+   "pages": 5,
+   "doc_type": "earnings release",
+   "statements": [
+    "KPI tables",
+    "narrative"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "KPI grid"
+   ],
+   "period_formats": [
+    "Qn FYyy (Q3FY26)",
+    "Month d, yyyy",
+    "as at"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "percent"
+   ],
+   "adversarial": [
+    "cross-source with KOTAK and KOTAK_PT",
+    "narrative figures that restate table figures"
+   ]
+  },
+  {
+   "key": "MAPMYINDIA",
+   "company": "C.E. Info Systems Limited (MapmyIndia)",
+   "sector": "technology (small cap)",
+   "file": "src/MAPMYINDIA_Q1FY27_newspaper_results.pdf",
+   "source_url": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/2195460d-fb16-46b3-88e5-4292300463e1.pdf",
+   "bytes": 1367311,
+   "sha256": "8908e4c7d380f8477f848f1f7c1219b5613e88186494f70fa5e478a017a9caf7",
+   "pages": 3,
+   "doc_type": "quarterly results (newspaper publication)",
+   "statements": [
+    "income statement"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "irregular table"
+   ],
+   "period_formats": [
+    "dd.mm.yyyy",
+    "quarter ended"
+   ],
+   "unit_formats": [
+    "INR lakh (Rs. in Lakhs)",
+    "per-share"
+   ],
+   "adversarial": [
+    "newspaper page: the results share the page with other advertisers' notices",
+    "English and Hindi editions",
+    "text layer is unmapped glyphs"
+   ]
+  },
+  {
+   "key": "BAJFIN_PPT",
+   "company": "Bajaj Finance Limited",
+   "sector": "NBFC",
+   "file": "src/BAJFIN_Q1FY27_investor_presentation.pdf",
+   "source_url": "https://cms-assets.bajajfinserv.in/is/content/bajajfinance/bajaj-finance-q1-fy27-investor-presentation?scl=1&fmt=pdf",
+   "bytes": 1483416,
+   "sha256": "45b664db8fd9858654fa6cdd7cf1b696898a4869152cc3831d16e1a21610bb20",
+   "pages": 70,
+   "doc_type": "investor presentation",
+   "statements": [
+    "KPI tables",
+    "income statement",
+    "balance sheet",
+    "segment reporting",
+    "narrative"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "subsidiary",
+    "segment"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "KPI grid",
+    "transposed",
+    "horizontally dense",
+    "irregular table"
+   ],
+   "period_formats": [
+    "Qn FYyy",
+    "FYyy",
+    "dd-Mon-yy (30-Jun-23)",
+    "Mon'yy (Mar'19)",
+    "dth Month yyyy"
+   ],
+   "unit_formats": [
+    "INR crore (₹ in crore)",
+    "percent",
+    "bps",
+    "customers (count)"
+   ],
+   "adversarial": [
+    "19-year transposed snapshot tables",
+    "parent, subsidiaries (BHFL, BFSL) and consolidated on consecutive slides",
+    "restated series ('before' and 'after presentation changes')"
+   ]
+  },
+  {
+   "key": "GROWW",
+   "company": "Billionbrains Garage Ventures Limited (Groww)",
+   "sector": "fintech (broker)",
+   "file": "C:/Users/Taha/OneDrive/Desktop/groww Results.pdf",
+   "source_url": "provided by the user (Phase 18)",
+   "bytes": 1349139,
+   "sha256": "2cd23692a09d46a80edf259ae964d4f2078be6fdd3c337c58333a93c06e1a1ac",
+   "pages": 14,
+   "doc_type": "quarterly results (limited review)",
+   "statements": [
+    "income statement",
+    "notes"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header"
+   ],
+   "period_formats": [
+    "d Month yyyy split across lines",
+    "Quarterended (no space)",
+    "Yearended"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "per-share"
+   ],
+   "adversarial": [
+    "carried forward from Phase 19/20 golden corpus"
+   ]
+  },
+  {
+   "key": "HDFC",
+   "company": "HDFC Bank Limited",
+   "sector": "private bank",
+   "file": "C:/Users/Taha/OneDrive/Desktop/HDFC results.pdf",
+   "source_url": "provided by the user (Phase 18)",
+   "bytes": 864157,
+   "sha256": "37e6f967dbddf87d0ea4f7b57ee1616b6516c910c44376c6fcf50aaf716da8c4",
+   "pages": 16,
+   "doc_type": "quarterly results",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header"
+   ],
+   "period_formats": [
+    "dd.mm.yyyy"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "carried forward from Phase 19/20 golden corpus"
+   ]
+  },
+  {
+   "key": "PAYTM",
+   "company": "One 97 Communications Limited (Paytm)",
+   "sector": "fintech",
+   "file": "C:/Users/Taha/OneDrive/Desktop/Paytm results.pdf",
+   "source_url": "provided by the user (Phase 18)",
+   "bytes": 2150113,
+   "sha256": "5b04e99fce2dbdb15b99e874db766795a846e7ccee533d00d3d69010fb92e08a",
+   "pages": 18,
+   "doc_type": "earnings release",
+   "statements": [
+    "KPI tables",
+    "narrative"
+   ],
+   "bases": [
+    "consolidated"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "KPI grid"
+   ],
+   "period_formats": [
+    "Qn FYyy",
+    "Mon'yy"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "INR million"
+   ],
+   "adversarial": [
+    "carried forward; no golden table"
+   ]
+  },
+  {
+   "key": "HCLTECH",
+   "company": "HCL Technologies Limited",
+   "sector": "technology (IT services)",
+   "file": "src/HCLTECH_Q1FY27_results.pdf",
+   "source_url": "https://www.hcltech.com/sites/default/files/documents/investor-reports/Un-audited-Financial-Results-for-the-quarter-ended-June-30-2026.pdf",
+   "bytes": 5325815,
+   "sha256": "ebd29de8acc56b98e6b1c91cfd43b57f310b31d084e5a226d9d19e72a7188be2",
+   "pages": 20,
+   "doc_type": "quarterly results",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header"
+   ],
+   "period_formats": [
+    "quarter ended",
+    "year ended",
+    "Month dd, yyyy"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "the statements repeated in an annexure after the auditors' report"
+   ]
+  },
+  {
+   "key": "HCLTECH_FY26",
+   "company": "HCL Technologies Limited",
+   "sector": "technology (IT services)",
+   "file": "src/HCLTECH_FY26_audited_results.pdf",
+   "source_url": "https://www.hcltech.com/sites/default/files/documents/investor-reports/audited-financial-results-for-the-quarter-ended-march-31-2026.pdf",
+   "bytes": 2990105,
+   "sha256": "b4faeba22e9b6c6d99b141db92c5ad9085456b6f753fc0c6f82aa9f78eacacdd",
+   "pages": 29,
+   "doc_type": "annual results",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow",
+    "segment reporting"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone"
+   ],
+   "pdf_type": "mixed",
+   "table_shapes": [
+    "standard row-oriented",
+    "balance sheet two dates",
+    "cash flow two years"
+   ],
+   "period_formats": [
+    "quarter ended",
+    "year ended",
+    "as at"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "balance sheet and cash flow on consecutive pages for both bases"
+   ]
+  },
+  {
+   "key": "MARUTI",
+   "company": "Maruti Suzuki India Limited",
+   "sector": "manufacturing (automobiles)",
+   "file": "src/MARUTI_Q1FY27_bse.pdf",
+   "source_url": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/f940c992-b7af-4b96-82cd-07efd0cf4234.pdf",
+   "bytes": 11287012,
+   "sha256": "4359c5f50c203e835686eeb1063a2f8256332cd5f33077fde27b401ef24dfb61",
+   "pages": 10,
+   "doc_type": "quarterly results (exchange filing)",
+   "statements": [
+    "income statement",
+    "notes"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header"
+   ],
+   "period_formats": [
+    "quarter ended",
+    "year ended",
+    "dd.mm.yyyy"
+   ],
+   "unit_formats": [
+    "INR million",
+    "per-share"
+   ],
+   "adversarial": [
+    "a scanned filing with the filer's OCR layer ('Plot No.l')",
+    "INR million, not crore"
+   ]
+  },
+  {
+   "key": "LT",
+   "company": "Larsen & Toubro Limited",
+   "sector": "engineering and construction",
+   "file": "src/LT_Q1FY27_results.pdf",
+   "source_url": "https://2025prodstorageaccount-eqdyc8g8hpccdfez.a02.azurefd.net/ltprod/media/rzalbe52/2026-07-28-financial-results-for-the-quarter-ended-june-30-2026.pdf",
+   "bytes": 646491,
+   "sha256": "b00e0c0a35cb01254ca7da89c28ca3bfbfb7cbdfd2ace8328e82d370046eb7df",
+   "pages": 12,
+   "doc_type": "earnings release + results",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "KPI tables",
+    "ratios"
+   ],
+   "bases": [
+    "consolidated",
+    "standalone",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "segment table"
+   ],
+   "period_formats": [
+    "Month dd, yyyy",
+    "[Reviewed]/[Audited] under the date",
+    "Q1 FY'27"
+   ],
+   "unit_formats": [
+    "INR crore (rupee glyph rendered as a backtick)"
+   ],
+   "adversarial": [
+    "audit status printed inside the column head",
+    "ratio disclosures in their own grid"
+   ]
+  },
+  {
+   "key": "AXIS_PR",
+   "company": "Axis Bank Limited",
+   "sector": "banking (private)",
+   "file": "src/AXIS_Q1FY27_results.pdf",
+   "source_url": "https://www.axis.bank.in/docs/default-source/shareholders/financial-results-and-other-information/quarterly-result/2026-2027/axis-bank-announces-financial-results-for-the-quarter-ended-30th-june-2026.pdf?sfvrsn=e3aa4225_5",
+   "bytes": 356868,
+   "sha256": "8f19899d401aff3595e5dac2649ddd8b208d505bfab5c3ede4dfeecdd639dcc9",
+   "pages": 9,
+   "doc_type": "earnings release",
+   "statements": [
+    "KPI tables",
+    "balance sheet summary",
+    "narrative"
+   ],
+   "bases": [
+    "standalone"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "two-period comparison with % growth column"
+   ],
+   "period_formats": [
+    "Q1FY27",
+    "As on 30th June'26"
+   ],
+   "unit_formats": [
+    "INR crore (backtick glyph)"
+   ],
+   "adversarial": [
+    "growth column beside two periods",
+    "Indian grouping 13,72,9xx"
+   ]
+  },
+  {
+   "key": "CHOLA_PR",
+   "company": "Cholamandalam Investment and Finance Company Limited",
+   "sector": "NBFC",
+   "file": "src/CHOLA_Q1FY27_press_release.pdf",
+   "source_url": "https://files.cholamandalam.com/Press_Release_FY_27_Q1_260728_740b41f485.pdf",
+   "bytes": 366278,
+   "sha256": "ce832a81c1ad45ed776e1a8708c3b30b50740afce7fabf90882bebb2d27f2b49",
+   "pages": 5,
+   "doc_type": "earnings release",
+   "statements": [
+    "KPI tables",
+    "narrative"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "two-period comparison with growth column"
+   ],
+   "period_formats": [
+    "Q1 FY 27",
+    "Q1 FY 26"
+   ],
+   "unit_formats": [
+    "Rs in Cr"
+   ],
+   "adversarial": [
+    "NBFC vocabulary (disbursements, AUM, stage-wise ECL)"
+   ]
+  },
+  {
+   "key": "NTPC_PPT",
+   "company": "NTPC Limited",
+   "sector": "energy (power utility)",
+   "file": "src/NTPC_Q1FY27_OFS.pdf",
+   "source_url": "https://ntpc.co.in/sites/default/files/conference_call/2026/OFS_Q1_FY27.pdf",
+   "bytes": 913721,
+   "sha256": "a7c934775481726f522335cb3a28748aa2faa58a585af15cf574f0fc2e2533fd",
+   "pages": 22,
+   "doc_type": "investor presentation",
+   "statements": [
+    "KPI tables",
+    "operational metrics"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "slide KPI grids",
+    "charts"
+   ],
+   "period_formats": [
+    "Q1 FY27",
+    "Q1 FY26"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "MW",
+    "BU",
+    "%"
+   ],
+   "adversarial": [
+    "image-heavy slides",
+    "operational units beside money"
+   ]
+  },
+  {
+   "key": "NTPC_FY26",
+   "company": "NTPC Limited",
+   "sector": "energy (power utility)",
+   "file": "src/NTPC_FY26_annual_results.pdf",
+   "source_url": "https://ntpc.co.in/sites/default/files/financial_results/2026/NTPCAFR26.pdf",
+   "bytes": 11247186,
+   "sha256": "fd3fb90b6af232aba31564e98278411175ca3b050b52f0c096301b53ebac2736",
+   "pages": 40,
+   "doc_type": "annual results (exchange filing)",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow",
+    "segment reporting"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "balance sheet two dates",
+    "cash flow two years"
+   ],
+   "period_formats": [
+    "dd.mm.yyyy",
+    "quarter ended",
+    "year ended",
+    "as at"
+   ],
+   "unit_formats": [
+    "INR crore (rupee glyph OCR'd as '~')"
+   ],
+   "adversarial": [
+    "scanned statements",
+    "security cover certificates after the results"
+   ]
+  },
+  {
+   "key": "ITC_PR",
+   "company": "ITC Limited",
+   "sector": "consumer (FMCG conglomerate)",
+   "file": "src/ITC_Q1FY27_press_release.pdf",
+   "source_url": "https://itcportal.com/content/dam/itc-corporate/pdfs/financial-result/quarterly-results-2026-2027/june-2026/ITC-Press-Release-Q1-FY2027.pdf",
+   "bytes": 464394,
+   "sha256": "4b501d6aaf49f6f8babf94b7b7cd07664a42b8cb46fd63567d42848a790adb0f",
+   "pages": 6,
+   "doc_type": "earnings release",
+   "statements": [
+    "narrative",
+    "segment commentary"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "prose"
+   ],
+   "period_formats": [
+    "Q1 FY27"
+   ],
+   "unit_formats": [
+    "Rs. crore"
+   ],
+   "adversarial": [
+    "figures in prose, few tables"
+   ]
+  },
+  {
+   "key": "TOYOTA",
+   "company": "Toyota Motor Corporation",
+   "sector": "manufacturing (automobiles, Japan)",
+   "file": "src/TOYOTA_FY2027_1Q_financial_summary.pdf",
+   "source_url": "https://global.toyota/pages/global_toyota/ir/financial-results/2027_1q_summary_en.pdf",
+   "bytes": 1364674,
+   "sha256": "a28b4e5a37b626a24ad7028e2e9245f90297a6b4089556638862e379cd4446ed",
+   "pages": 21,
+   "doc_type": "quarterly financial summary (IFRS, English translation)",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow",
+    "segment reporting"
+   ],
+   "bases": [
+    "consolidated"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "two dates side by side",
+    "two quarters side by side",
+    "tanshin summary grid"
+   ],
+   "period_formats": [
+    "FY2027 First Quarter",
+    "April 1, 2026 through June 30, 2026",
+    "March 31, 2026 / June 30, 2026"
+   ],
+   "unit_formats": [
+    "Yen in millions",
+    "billion yen in prose",
+    "per-share in yen"
+   ],
+   "adversarial": [
+    "JPY millions",
+    "a Japanese fiscal year (FY2027 = year to March 2027)",
+    "negative figures with a minus sign"
+   ]
+  },
+  {
+   "key": "TOYOTA_PPT",
+   "company": "Toyota Motor Corporation",
+   "sector": "manufacturing (automobiles, Japan)",
+   "file": "src/TOYOTA_FY2027_1Q_presentation.pdf",
+   "source_url": "https://global.toyota/pages/global_toyota/ir/financial-results/2027_1q_presentation_2_en.pdf",
+   "bytes": 870690,
+   "sha256": "1eebdf4bc69b5ef443c6aa7ecc7f9b0e58fb3d2bdfde35f4a431df459f1d802e",
+   "pages": 21,
+   "doc_type": "investor presentation",
+   "statements": [
+    "KPI tables",
+    "charts"
+   ],
+   "bases": [
+    "consolidated"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "slide KPI grids",
+    "waterfall charts"
+   ],
+   "period_formats": [
+    "FY2027 1Q",
+    "FY2026 1Q"
+   ],
+   "unit_formats": [
+    "billions of yen",
+    "thousand units"
+   ],
+   "adversarial": [
+    "billions of yen on slides vs millions in the summary",
+    "operating-income waterfalls"
+   ]
+  },
+  {
+   "key": "NESTLE",
+   "company": "Nestlé S.A.",
+   "sector": "consumer (food, Switzerland)",
+   "file": "src/NESTLE_HY2026_half_year_report.pdf",
+   "source_url": "https://www.nestle.com/sites/default/files/2026-07/half-year-report-2026-en.pdf",
+   "bytes": 572747,
+   "sha256": "c010eccf406574ef1cd4d47d9b60795ab4634165d9bcd83cf86c07628e0ca777",
+   "pages": 36,
+   "doc_type": "half-year report (IFRS condensed interim statements)",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow",
+    "changes in equity",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "consolidated",
+    "segment"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "two dates side by side",
+    "two half-years side by side",
+    "notes column"
+   ],
+   "period_formats": [
+    "January-June 2026",
+    "June 30, 2026 / December 31, 2025",
+    "six months ended"
+   ],
+   "unit_formats": [
+    "In millions of CHF",
+    "SPACE as the thousands separator ('3 551')"
+   ],
+   "adversarial": [
+    "space-grouped figures that look like two numbers",
+    "a 'Notes' column of note numbers beside the figures",
+    "a balance-sheet comparative at the previous YEAR end, not the same date a year earlier"
+   ]
+  },
+  {
+   "key": "NESTLE_PPT",
+   "company": "Nestlé S.A.",
+   "sector": "consumer (food, Switzerland)",
+   "file": "src/NESTLE_HY2026_investor_presentation.pdf",
+   "source_url": "https://www.nestle.com/sites/default/files/2026-07/half-year-results-investor-presentation-2026.pdf",
+   "bytes": 3150385,
+   "sha256": "62d4ee90c4cdf13bc02aafea8e01cbc376a1e09e748327ca254b1de2beb4badf",
+   "pages": 50,
+   "doc_type": "investor presentation",
+   "statements": [
+    "KPI tables",
+    "charts"
+   ],
+   "bases": [
+    "consolidated",
+    "segment"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "slide KPI grids",
+    "charts"
+   ],
+   "period_formats": [
+    "H1 2026",
+    "H1 2025"
+   ],
+   "unit_formats": [
+    "CHF billion",
+    "%",
+    "bps"
+   ],
+   "adversarial": [
+    "organic growth / RIG / pricing percentages beside CHF amounts"
+   ]
+  },
+  {
+   "key": "HDFCLIFE",
+   "company": "HDFC Life Insurance Company Limited",
+   "sector": "insurance (life)",
+   "file": "src/HDFCLIFE_Q1FY27_press_release.pdf",
+   "source_url": "https://nsearchives.nseindia.com/corporate/HDFCLIFE2_15072026155622_Press_Release__1_.pdf",
+   "bytes": 4555553,
+   "sha256": "107582c6da20be677da1d739c9a54269cfcf7d1f4c94888b48ae7554079a74cf",
+   "pages": 48,
+   "doc_type": "press release + investor presentation (exchange filing)",
+   "statements": [
+    "KPI tables",
+    "narrative",
+    "embedded value"
+   ],
+   "bases": [
+    "standalone"
+   ],
+   "pdf_type": "mixed",
+   "table_shapes": [
+    "two-period comparison with growth column",
+    "slide KPI grids"
+   ],
+   "period_formats": [
+    "Q1 FY27",
+    "Q1 FY26"
+   ],
+   "unit_formats": [
+    "Rs crore",
+    "Rs bn",
+    "%"
+   ],
+   "adversarial": [
+    "insurance vocabulary (APE, VNB, embedded value, solvency)",
+    "Rs bn on slides vs Rs crore in the release"
+   ]
+  },
+  {
+   "key": "ASIANPAINT",
+   "company": "Asian Paints Limited",
+   "sector": "manufacturing (paints)",
+   "file": "src/ASIANPAINT_Q1FY27_results.pdf",
+   "source_url": "https://nsearchives.nseindia.com/corporate/ASIANPAINT_29072026140039_SEintimationJune26.pdf",
+   "bytes": 5816754,
+   "sha256": "75da14ffc4008d0d5eec5a5ab917f6e4f97d00457193b0f7105ef11dea73b5d2",
+   "pages": 13,
+   "doc_type": "quarterly results (exchange filing)",
+   "statements": [
+    "income statement",
+    "notes",
+    "press release"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header"
+   ],
+   "period_formats": [
+    "quarter ended",
+    "year ended",
+    "dd.mm.yyyy"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "scanned statements with the filer's OCR layer ('Regl■tered', 'Sh11Dtinagar')"
+   ]
+  },
+  {
+   "key": "SUNPHARMA",
+   "company": "Sun Pharmaceutical Industries Limited",
+   "sector": "pharmaceuticals",
+   "file": "src/SUNPHARMA_Q1FY27_board_outcome_results.pdf",
+   "source_url": "https://sunpharma.com/wp-content/uploads/2026/07/BMOutcomewithannexures31072026.pdf",
+   "bytes": 7107057,
+   "sha256": "5e673b23a3c7d7979066d021421e70323752a076a029721a7a11b0ddca4d443e",
+   "pages": 28,
+   "doc_type": "quarterly results (board outcome with annexures)",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header"
+   ],
+   "period_formats": [
+    "quarter ended",
+    "year ended",
+    "dd.mm.yyyy"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "auditors' review reports between the statements",
+    "scanned pages"
+   ]
+  },
+  {
+   "key": "SUNPHARMA_PR",
+   "company": "Sun Pharmaceutical Industries Limited",
+   "sector": "pharmaceuticals",
+   "file": "src/SUNPHARMA_Q1FY27_press_release.pdf",
+   "source_url": "https://sunpharma.com/wp-content/uploads/2026/07/Press-Release-Sun-Pharma-Q1FY27-Financial-Result.pdf",
+   "bytes": 345137,
+   "sha256": "2b9b4d98e84238bc9cdc0cbeaa5e035d726b0ffa498ce2ffea849b04e6d847f4",
+   "pages": 4,
+   "doc_type": "earnings release",
+   "statements": [
+    "narrative",
+    "KPI tables"
+   ],
+   "bases": [
+    "consolidated"
+   ],
+   "pdf_type": "native",
+   "table_shapes": [
+    "prose",
+    "small KPI table"
+   ],
+   "period_formats": [
+    "Q1FY27",
+    "Q1FY26"
+   ],
+   "unit_formats": [
+    "Rs million",
+    "US$ million"
+   ],
+   "adversarial": [
+    "INR million and USD million in one release",
+    "adjusted vs reported net profit"
+   ]
+  },
+  {
+   "key": "DRREDDY_PPT",
+   "company": "Dr. Reddy's Laboratories Limited",
+   "sector": "pharmaceuticals",
+   "file": "src/DRREDDY_Q1FY27_bse_filing.pdf",
+   "source_url": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/d701ba41-32c6-4fe6-989d-94e734ec10a7.pdf",
+   "bytes": 3702954,
+   "sha256": "bd5feb47e5569bb97fe6c542920aa960b0dfe8ed2e238787e465b224498e1f64",
+   "pages": 16,
+   "doc_type": "investor presentation (exchange filing)",
+   "statements": [
+    "KPI tables",
+    "charts"
+   ],
+   "bases": [
+    "consolidated"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "slide KPI grids",
+    "charts"
+   ],
+   "period_formats": [
+    "Q1FY27",
+    "Q1FY26",
+    "Q4FY26"
+   ],
+   "unit_formats": [
+    "Rs crore",
+    "US$ million (convenience translation)"
+   ],
+   "adversarial": [
+    "IFRS figures with a USD convenience translation",
+    "a stale cover ('Investor Presentation September 2025')"
+   ]
+  },
+  {
+   "key": "BAJAJAUTO_2023",
+   "company": "Bajaj Auto Limited",
+   "sector": "manufacturing (automobiles)",
+   "file": "src/BAJAJAUTO_Q1FY24_bse_filing.pdf",
+   "source_url": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/0be1f729-f3fd-4bd5-8af3-a5b0d4731356.pdf",
+   "bytes": 4074061,
+   "sha256": "3ccc8c2f99d0882ce7c1c9f7a3501f45ecb4a724504f59f585e182fc593dc6e4",
+   "pages": 11,
+   "doc_type": "quarterly results (exchange filing, quarter ended 30 June 2023)",
+   "statements": [
+    "income statement",
+    "segment reporting",
+    "notes"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "ocr_layer",
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header"
+   ],
+   "period_formats": [
+    "quarter ended",
+    "year ended",
+    "dd.mm.yyyy"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "a 2023 filing: periods three years before the rest of the corpus",
+    "scanned pages with the filer's OCR layer"
+   ]
+  },
+  {
+   "key": "HDFC_PPT",
+   "company": "HDFC Bank Limited",
+   "sector": "banking (private)",
+   "file": "src/HDFC_Q1FY27_earnings_presentation.pdf",
+   "source_url": "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/pdf/about-us/financial-results/2026-2027/quarter-1/q1fy27-earnings-presentation.pdf",
+   "bytes": 766354,
+   "sha256": "5bece3e8d330c0f75ee4ab36d82a5af90b456d389fa881c30a6573d4fbc91e5e",
+   "pages": 36,
+   "doc_type": "investor presentation",
+   "statements": [
+    "KPI tables",
+    "charts",
+    "narrative"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "pdf_type": "presentation",
+   "table_shapes": [
+    "slide KPI grids",
+    "charts"
+   ],
+   "period_formats": [
+    "Q1 FY27",
+    "Q1FY27",
+    "Jun-26"
+   ],
+   "unit_formats": [
+    "Rs tn",
+    "Rs bn",
+    "Rs crore",
+    "%",
+    "bps"
+   ],
+   "adversarial": [
+    "trillions and billions of rupees on slides",
+    "a bank deck beside the bank's statutory results"
+   ]
+  },
+  {
+   "key": "TITAN",
+   "company": "Titan Company Limited",
+   "sector": "consumer (jewellery and watches)",
+   "file": "src/TITAN_Q1FY27.pdf",
+   "source_url": "https://www.titancompany.in/sites/default/files/2026-08/Q1FY27%20-%20Results.pdf",
+   "doc_type": "quarterly results (company website)",
+   "pdf_type": "native",
+   "statements": [
+    "income statement",
+    "segment"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated",
+    "segment"
+   ],
+   "table_shapes": [
+    "standard row-oriented",
+    "multi-level header",
+    "segment table"
+   ],
+   "period_formats": [
+    "quarter ended / year ended with dates"
+   ],
+   "unit_formats": [
+    "INR lakh"
+   ],
+   "adversarial": [
+    "a results statement published as a long company-site PDF",
+    "segment tables for jewellery, watches and eyecare"
+   ],
+   "bytes": 21978206,
+   "sha256": "6644d1b4400fb02be6176fc0b5283657a73d662f616297f5675f641d9177f01c",
+   "pages": 20
+  },
+  {
+   "key": "HEROMOTO",
+   "company": "Hero MotoCorp Limited",
+   "sector": "manufacturing (two-wheelers)",
+   "file": "src/HEROMOTO_Q1FY26.pdf",
+   "source_url": "https://nsearchives.nseindia.com/corporate/HEROMOTO_06082025180444_OutcomeBM06082025PR.pdf",
+   "doc_type": "board outcome with press release",
+   "pdf_type": "native",
+   "statements": [
+    "income statement"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "table_shapes": [
+    "standard row-oriented"
+   ],
+   "period_formats": [
+    "quarter ended"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "an outcome letter and a press release in one file",
+    "figures repeated between the letter and the release"
+   ],
+   "bytes": 565129,
+   "sha256": "7faba94e18b852e9f5e97a224f938e73af6e6df0b025f3df6f0065ceaa820ff8",
+   "pages": 4
+  },
+  {
+   "key": "BRITANNIA",
+   "company": "Britannia Industries Limited",
+   "sector": "consumer (FMCG, foods)",
+   "file": "src/BRITANNIA_FY26.pdf",
+   "source_url": "https://nsearchives.nseindia.com/corporate/BRITANNIA1_07052026204613_Outcome.pdf",
+   "doc_type": "annual results (board outcome)",
+   "pdf_type": "native",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "table_shapes": [
+    "standard row-oriented",
+    "balance sheet two dates",
+    "cash flow two years"
+   ],
+   "period_formats": [
+    "quarter ended / year ended"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "audited year figures beside unaudited quarter figures",
+    "the fourth quarter derived as a balancing figure"
+   ],
+   "bytes": 2882026,
+   "sha256": "09fac77f22888c966d3b92a6e19d3b51e07082d69b7c536b54dac91084cde8bb",
+   "pages": 19
+  },
+  {
+   "key": "BANKBARODA_PPT",
+   "company": "Bank of Baroda",
+   "sector": "banking (PSU)",
+   "file": "src/BANKBARODA_PPT.pdf",
+   "source_url": "https://nsearchives.nseindia.com/corporate/BANKBARODA_06052025142846_presentation.pdf",
+   "doc_type": "investor presentation",
+   "pdf_type": "presentation",
+   "statements": [
+    "kpi",
+    "income statement"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "table_shapes": [
+    "slide KPI grids",
+    "charts"
+   ],
+   "period_formats": [
+    "Q4FY25",
+    "FY25"
+   ],
+   "unit_formats": [
+    "INR crore",
+    "percent"
+   ],
+   "adversarial": [
+    "bank vocabulary (NIM, CASA, GNPA, PCR, RWA)",
+    "slides that mix amounts, ratios and basis-point changes"
+   ],
+   "bytes": 2171195,
+   "sha256": "e7da899dedfd23983ac7375b5dfa20ccb581a0868244956fc7394d2ff4fc8e4f",
+   "pages": 45
+  },
+  {
+   "key": "HAVELLS",
+   "company": "Havells India Limited",
+   "sector": "manufacturing (electricals)",
+   "file": "src/HAVELLS_Q4FY26.pdf",
+   "source_url": "https://nsearchives.nseindia.com/corporate/HAVELLS1_22042026143254_Results_plus_Outcome_BM_22042026.pdf",
+   "doc_type": "annual results with outcome letter",
+   "pdf_type": "native",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow",
+    "segment"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated",
+    "segment"
+   ],
+   "table_shapes": [
+    "standard row-oriented",
+    "segment table",
+    "balance sheet two dates"
+   ],
+   "period_formats": [
+    "quarter ended / year ended"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "segment results, assets and liabilities in one block",
+    "a quarter column beside the full year it belongs to"
+   ],
+   "bytes": 11455190,
+   "sha256": "cf34b23d78f591784cf5578fbe7bf77b533e6b07a7c8bd4f6d22d25a0116efe7",
+   "pages": 23
+  },
+  {
+   "key": "TRENT",
+   "company": "Trent Limited",
+   "sector": "consumer (retail)",
+   "file": "src/TRENT_Q4FY26.pdf",
+   "source_url": "https://nsearchives.nseindia.com/corporate/TRENT_22042026163223_OutcomeofBMFINAL.pdf",
+   "doc_type": "annual results (board outcome)",
+   "pdf_type": "native",
+   "statements": [
+    "income statement",
+    "balance sheet",
+    "cash flow"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "table_shapes": [
+    "standard row-oriented",
+    "balance sheet two dates",
+    "cash flow two years"
+   ],
+   "period_formats": [
+    "quarter ended / year ended"
+   ],
+   "unit_formats": [
+    "INR crore"
+   ],
+   "adversarial": [
+    "a retailer's own line items (store operating costs)",
+    "associates and joint ventures inside the income statement"
+   ],
+   "bytes": 1954399,
+   "sha256": "b4bb4582865d8eb895b9423a8788c281723b9c33eceea242184e86f177c038d4",
+   "pages": 32
+  },
+  {
+   "key": "METROBRANDS",
+   "company": "Metro Brands Limited",
+   "sector": "consumer (footwear retail)",
+   "file": "src/METROBRANDS_Q1FY27.pdf",
+   "source_url": "https://nsearchives.nseindia.com/corporate/METROBRAND_04082026185504_Reg_30_Outcome_of_BM_04082026_signed.pdf",
+   "doc_type": "quarterly results (board outcome)",
+   "pdf_type": "native",
+   "statements": [
+    "income statement",
+    "segment"
+   ],
+   "bases": [
+    "standalone",
+    "consolidated"
+   ],
+   "table_shapes": [
+    "standard row-oriented",
+    "segment table"
+   ],
+   "period_formats": [
+    "quarter ended"
+   ],
+   "unit_formats": [
+    "INR million"
+   ],
+   "adversarial": [
+    "INR million where most Indian filers use crore",
+    "a signed scan page inside an otherwise native file"
+   ],
+   "bytes": 630775,
+   "sha256": "4777b89c44f183ee0deca36fa2e7075dc447b420af80eb570eeaeef0e345379b",
+   "pages": 15
+  }
+ ],
+ "carried_forward": [
+  {
+   "key": "RIL",
+   "company": "Reliance Industries Limited",
+   "sector": "conglomerate / energy"
+  },
+  {
+   "key": "IDFC",
+   "company": "IDFC FIRST Bank",
+   "sector": "private bank"
+  },
+  {
+   "key": "APPLE",
+   "company": "Apple Inc.",
+   "sector": "technology (US)"
+  },
+  {
+   "key": "STANCHART",
+   "company": "Standard Chartered PLC",
+   "sector": "international bank"
+  }
+ ],
+ "retrieved_phase22": "2026-09-12",
+ "retrieved_phase22b": "2026-09-12"
+}

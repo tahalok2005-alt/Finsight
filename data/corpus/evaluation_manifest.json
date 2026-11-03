@@ -1,0 +1,394 @@
+{
+ "tag": "p22f",
+ "run_id": "20260914T073827Z-59b321d2",
+ "parser_version": "90aba8815ecf48d8",
+ "code": {
+  "fingerprint": "90aba8815ecf48d8",
+  "app_sha256": "39f429727ff9f2d32ba268bd1bd126b518d21b9d6c7b418219b36918aa627356",
+  "scripts_sha256": "d232cc36167c24548a9a2de7a9a0e5ed679a1b203d08bb83b18185e6cbac2b65",
+  "files": 116,
+  "engines": {
+   "rapidocr-onnxruntime": "1.2.3",
+   "onnxruntime": "1.29.0",
+   "pymupdf": "1.28.2",
+   "numpy": "2.5.2",
+   "opencv-python": "5.0.0.93"
+  },
+  "python": "3.13.7"
+ },
+ "configuration": {
+  "hash": "1337c6a847644871",
+  "settings": {
+   "confidence_high": 0.85,
+   "confidence_medium": 0.65,
+   "growth_tolerance_pct": 0.6,
+   "layout_column_gap_ratio": 0.035,
+   "layout_engine": "heuristic",
+   "layout_line_merge_ratio": 0.6,
+   "llm_base_url": "http://127.0.0.1:11434",
+   "llm_enabled": false,
+   "llm_model": "qwen3:4b",
+   "llm_provider": "none",
+   "llm_timeout_s": 120,
+   "margin_tolerance_pct": 0.35,
+   "max_pages": 500,
+   "metric_match_threshold": 0.82,
+   "numeric_cell_ratio_for_data_row": 0.3,
+   "ocr_det_limit_side_len": 1600,
+   "ocr_engine": "rapidocr",
+   "ocr_min_confidence": 0.3,
+   "ocr_rec_batch_num": 16,
+   "ocr_text_score": 0.35,
+   "ocr_use_angle_cls": false,
+   "ratio_tolerance_rel": 0.06,
+   "render_dpi": 200,
+   "render_format": "png",
+   "render_max_pixels": 40000000,
+   "review_threshold": 0.65,
+   "second_read_dpi": 400,
+   "second_read_enabled": true,
+   "second_read_pad_x": 24,
+   "second_read_pad_y": 8,
+   "second_read_strategy": "page",
+   "table_column_tolerance_ratio": 0.012,
+   "table_min_cols": 2,
+   "table_min_rows": 2,
+   "table_ruling_min_len_ratio": 0.1,
+   "total_tolerance_rel": 0.02
+  },
+  "runtime": {
+   "min_page_workers": 2,
+   "ocr_intra_threads": 2,
+   "page_worker_memory_mb": 400,
+   "page_workers": 0,
+   "worker_threads": 3
+  }
+ },
+ "git": {
+  "head": "64647a464021",
+  "dirty_files": 119
+ },
+ "corpus_manifest_sha256": "bb041d2c69153e1f583a664c62c43b21cef4e7bb487e3341e17c0df4de00ddb3",
+ "corpus_manifest_sha256_now": "bb041d2c69153e1f583a664c62c43b21cef4e7bb487e3341e17c0df4de00ddb3",
+ "expected_facts_version": "f123baf32664fb63",
+ "scorer_version": "1cbe97f1e443efb1",
+ "run_started_at": "2026-09-14T07:38:27+00:00",
+ "run_finished_at": "2026-09-14T08:09:49+00:00",
+ "scored_at": "2026-09-14T08:10:05+00:00",
+ "provenance_problems": [],
+ "documents": [
+  {
+   "key": "ICICI",
+   "file": "ICICI_Q1FY27_results.pdf",
+   "sha256": "b95bef731a963323ad256416cf2cc473c3c2554f6c09e4a83744ee1a6a094e2a",
+   "record_sha256": "a1f5eb664d10dfcfb427399640427e03a79dde1e5910b6634246a99796c728bf",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "WIPRO",
+   "file": "WIPRO_Q1FY27_press.pdf",
+   "sha256": "d14f2adab999ccbc742accc636e5d5167290370145937ddb3e0bf0f720645771",
+   "record_sha256": "38718408fbd4f8fe66cf7638c736b978ba64743cf597ccd1bb0307a9301f3d04",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "AIRTEL",
+   "file": "AIRTEL_Q1FY27_published_results.pdf",
+   "sha256": "5a835dd34e31be6b1139180fbf0f45199bf4c16b9b1d67c86e3eea05dd32f8ca",
+   "record_sha256": "5817d7d00ed31493dd7163c4d98fe62a8b9b406b84a9fc90cf151401a28dd9fa",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "TATASTEEL",
+   "file": "TATASTEEL_Q1FY27_sebi_results.pdf",
+   "sha256": "398e8ec640b34e1e1d6d51f4cf3065b2f1abfdacbf4abc36c24d43ffb641d2a0",
+   "record_sha256": "fdbf9916067677a18661ba354d8d695136a4a360ebbad303d3c4bbaf832df436",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "TATASTEEL_PR",
+   "file": "TATASTEEL_Q1FY27_press_release.pdf",
+   "sha256": "1bba64c454c2d31c7880edbb6e0bb9b4b21a5dbc7464626070f55b73303b78ac",
+   "record_sha256": "0154891c934a91eafff87da024f3901069848018a102394d8b538fd1a3d95b7d",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "TATASTEEL_PPT",
+   "file": "TATASTEEL_Q1FY27_presentation.pdf",
+   "sha256": "c6a260f9938dac6a70a6af7bb75836b5422f52b34d0608e1351c87e6e1752949",
+   "record_sha256": "188a29cf6b35bd501a7fd43b34b78a5880cb6acff981da6e3f1b37af71da2793",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "HUL",
+   "file": "HUL_JQ26_results.pdf",
+   "sha256": "707e215f1d49f4bdffff7f5cedcd1f17280d9d3d71210e7544867f12dad06d17",
+   "record_sha256": "983c3002e23ff32b66de6480b37f67703697f4532342d5cdedc2fa9c1c333062",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "SAP",
+   "file": "SAP_Q2_2026_statement.pdf",
+   "sha256": "2697cd715ec50c2d559c6d9c450a39b680875a194698c0eaf1873d3ca3342167",
+   "record_sha256": "6cc86ec0fa651596e61ddf0eec1a9de0ae502b98c579a1134bac9a72c7cc75a4",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "ETERNAL",
+   "file": "ETERNAL_Q1FY27_results.pdf",
+   "sha256": "c5af56ad458512a5a68bf065c0e5ff8343134c56ba03f69f5a4dc29b107d4ff4",
+   "record_sha256": "9c5272a8bf79688d1b9083418e821db799a88a41a132a8a699c6b6768a59070c",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "SBI",
+   "file": "SBI_Q1FY27_results.pdf",
+   "sha256": "1975be80866763c52086345a4e8f0542cd04f753356484753d24d56d2b4c200a",
+   "record_sha256": "9fd6b3d992e16817e7d1fdb84d074d27229f66016808889aac40d5661644e2cc",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "SBI_PPT",
+   "file": "SBI_Q1FY27_analyst_presentation.pdf",
+   "sha256": "ff976a31be05a774f502c841c475a3c647737554953bb8d0b75854a464716d4c",
+   "record_sha256": "d6e389c129a8f4581e5878e856a96f167a65d1c12f51dd5a4757f947db4a9eed",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "INDIANBANK",
+   "file": "INDIANBANK_Q1FY27_results.pdf",
+   "sha256": "902e922f113239da292f40559597878083f78f1efd0dbd6188ccaa8cacbf1cd1",
+   "record_sha256": "5bfcf677ffbc75bcf3bdced59d4bde823573fbe3b17044144d0aadd33a155179",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "KOTAK",
+   "file": "KOTAK_Q3FY26_board_outcome_results.pdf",
+   "sha256": "0e4b4b12e3ef24d7088fe1d728d23d749ab436269b622eea5cda6ee9c4b5b348",
+   "record_sha256": "14a00bbd19d585d3a56c677e7764a36917e1ca74c2cf5402f5962f4fc4f722a3",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "KOTAK_PT",
+   "file": "KOTAK_Q3FY26_press_table.pdf",
+   "sha256": "5bc6ef7ca5d699abb3d38417443ced3380be3dd6fd519a58997a594cb91c3cc1",
+   "record_sha256": "5562df70f4e2b0ff54171146b74586df2faaa2cebfcb64c2966f76a2ffb979b9",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "KOTAK_PR",
+   "file": "KOTAK_Q3FY26_press_release.pdf",
+   "sha256": "ab7ecc79f6a6649623d87a658d9c3c2f4d69b3f99d30dd26247849bd8024198f",
+   "record_sha256": "21a97a4aaec6788a5e3cd4e4e25a8e8a830a84f59013cd5d80012b5905b390b0",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "MAPMYINDIA",
+   "file": "MAPMYINDIA_Q1FY27_newspaper_results.pdf",
+   "sha256": "8908e4c7d380f8477f848f1f7c1219b5613e88186494f70fa5e478a017a9caf7",
+   "record_sha256": "b7ae8eaeeaa6c1f4b804b11c0ce49607bae72679a4199f0c46392c8341bae947",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "BAJFIN_PPT",
+   "file": "BAJFIN_Q1FY27_investor_presentation.pdf",
+   "sha256": "45b664db8fd9858654fa6cdd7cf1b696898a4869152cc3831d16e1a21610bb20",
+   "record_sha256": "8348e671660a09e136a99ac06f1a98bbc91ea9dee20d43b53145c2771a885c16",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "GROWW",
+   "file": "groww Results.pdf",
+   "sha256": "2cd23692a09d46a80edf259ae964d4f2078be6fdd3c337c58333a93c06e1a1ac",
+   "record_sha256": "070681e07e9e666333c5e1d659fb411e92faa6cf324fc4b72df72fa3e80d1522",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "HDFC",
+   "file": "HDFC results.pdf",
+   "sha256": "37e6f967dbddf87d0ea4f7b57ee1616b6516c910c44376c6fcf50aaf716da8c4",
+   "record_sha256": "406adfdcad1c6d41dce8a7b4423745e3e5aff2ed4483d34ee9b4230144792454",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "PAYTM",
+   "file": "Paytm results.pdf",
+   "sha256": "5b04e99fce2dbdb15b99e874db766795a846e7ccee533d00d3d69010fb92e08a",
+   "record_sha256": "cd085c2af5abd7ecae9a8016e3cbeae153406d91b5a62f2ebfd54288000aa184",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "HCLTECH",
+   "file": "HCLTECH_Q1FY27_results.pdf",
+   "sha256": "ebd29de8acc56b98e6b1c91cfd43b57f310b31d084e5a226d9d19e72a7188be2",
+   "record_sha256": "2eac13bf22de68f68cb92e8d18158ca27a52785f21cbca77eedccf28e4814e35",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "HCLTECH_FY26",
+   "file": "HCLTECH_FY26_audited_results.pdf",
+   "sha256": "b4faeba22e9b6c6d99b141db92c5ad9085456b6f753fc0c6f82aa9f78eacacdd",
+   "record_sha256": "87e3003d338fdd29818116efd97c788082cccd503b98d75253578dca8d42b43b",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "MARUTI",
+   "file": "MARUTI_Q1FY27_bse.pdf",
+   "sha256": "4359c5f50c203e835686eeb1063a2f8256332cd5f33077fde27b401ef24dfb61",
+   "record_sha256": "66c1f032ac68ee7e1254d904ae57fde5ac95051b58b2435619c96b53fbce605e",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "LT",
+   "file": "LT_Q1FY27_results.pdf",
+   "sha256": "b00e0c0a35cb01254ca7da89c28ca3bfbfb7cbdfd2ace8328e82d370046eb7df",
+   "record_sha256": "72121a73e59dcbf911cf4fcb93ab79ed17490550500b925c2ee98bead940777e",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "AXIS_PR",
+   "file": "AXIS_Q1FY27_results.pdf",
+   "sha256": "8f19899d401aff3595e5dac2649ddd8b208d505bfab5c3ede4dfeecdd639dcc9",
+   "record_sha256": "c3a4c95874dca1ca6a31dfdff8636b2f1f6e961352635a05f20d08e15a8da0a9",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "CHOLA_PR",
+   "file": "CHOLA_Q1FY27_press_release.pdf",
+   "sha256": "ce832a81c1ad45ed776e1a8708c3b30b50740afce7fabf90882bebb2d27f2b49",
+   "record_sha256": "acfa22011a92c1299574718a9c245b6c3fc2e5c9437c37143e870ec231b84526",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "NTPC_PPT",
+   "file": "NTPC_Q1FY27_OFS.pdf",
+   "sha256": "a7c934775481726f522335cb3a28748aa2faa58a585af15cf574f0fc2e2533fd",
+   "record_sha256": "1ce05e191d7b360b315cebfafe4cc21c6fd9cdcedffd8602a0c2951277f115a2",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "NTPC_FY26",
+   "file": "NTPC_FY26_annual_results.pdf",
+   "sha256": "fd3fb90b6af232aba31564e98278411175ca3b050b52f0c096301b53ebac2736",
+   "record_sha256": "58786f5fa83c825d4ab6e20963fce84f29f1ac5c83dbef0db57b22a49589328b",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "ITC_PR",
+   "file": "ITC_Q1FY27_press_release.pdf",
+   "sha256": "4b501d6aaf49f6f8babf94b7b7cd07664a42b8cb46fd63567d42848a790adb0f",
+   "record_sha256": "ec43243b52eab5ed3ec71d555cd7f519c2dd2744d21875468f035d207c4f7a99",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "TOYOTA",
+   "file": "TOYOTA_FY2027_1Q_financial_summary.pdf",
+   "sha256": "a28b4e5a37b626a24ad7028e2e9245f90297a6b4089556638862e379cd4446ed",
+   "record_sha256": "237959d25d6ac8584da67fcef6309ad6182bf19f8fd6543286b937ef4053b37e",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "TOYOTA_PPT",
+   "file": "TOYOTA_FY2027_1Q_presentation.pdf",
+   "sha256": "1eebdf4bc69b5ef443c6aa7ecc7f9b0e58fb3d2bdfde35f4a431df459f1d802e",
+   "record_sha256": "d7ca68b58e33193704d93c2f8c4dae0ab9a0eb1b848d1ef9897837cf8df4e556",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "NESTLE",
+   "file": "NESTLE_HY2026_half_year_report.pdf",
+   "sha256": "c010eccf406574ef1cd4d47d9b60795ab4634165d9bcd83cf86c07628e0ca777",
+   "record_sha256": "8a9d21832b7ceb424dbb3c938687292fa994b90978ac379942f79ba8e4880f04",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "NESTLE_PPT",
+   "file": "NESTLE_HY2026_investor_presentation.pdf",
+   "sha256": "62d4ee90c4cdf13bc02aafea8e01cbc376a1e09e748327ca254b1de2beb4badf",
+   "record_sha256": "35f841a97505eb075eb4cc7a91f5575ae6e7f086f69bcdbe736c2b1305013a8c",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "HDFCLIFE",
+   "file": "HDFCLIFE_Q1FY27_press_release.pdf",
+   "sha256": "107582c6da20be677da1d739c9a54269cfcf7d1f4c94888b48ae7554079a74cf",
+   "record_sha256": "c383f5c22756c0ce4aef528bf9fad48fdb2320ad37e632e4cd717532aee2eb7e",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "ASIANPAINT",
+   "file": "ASIANPAINT_Q1FY27_results.pdf",
+   "sha256": "75da14ffc4008d0d5eec5a5ab917f6e4f97d00457193b0f7105ef11dea73b5d2",
+   "record_sha256": "21e9fe9f656638ea648e771877eecae07cac78c0d7177da1bda31eb60609df4e",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "SUNPHARMA",
+   "file": "SUNPHARMA_Q1FY27_board_outcome_results.pdf",
+   "sha256": "5e673b23a3c7d7979066d021421e70323752a076a029721a7a11b0ddca4d443e",
+   "record_sha256": "ce5633b1c4be75614c674853242be8872a2230bfc3205c1b0644604cf4268bf5",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "SUNPHARMA_PR",
+   "file": "SUNPHARMA_Q1FY27_press_release.pdf",
+   "sha256": "2b9b4d98e84238bc9cdc0cbeaa5e035d726b0ffa498ce2ffea849b04e6d847f4",
+   "record_sha256": "2c1ed0935dbcf8a00f470528b1afa1ffce0b6c1d3959efe48bd7c707b75ddc6f",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "DRREDDY_PPT",
+   "file": "DRREDDY_Q1FY27_bse_filing.pdf",
+   "sha256": "bd5feb47e5569bb97fe6c542920aa960b0dfe8ed2e238787e465b224498e1f64",
+   "record_sha256": "d62838f9843cf9320579d736a1d7f24b21ccb51ae542ce032d3c0ffc0e623e6c",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "BAJAJAUTO_2023",
+   "file": "BAJAJAUTO_Q1FY24_bse_filing.pdf",
+   "sha256": "3ccc8c2f99d0882ce7c1c9f7a3501f45ecb4a724504f59f585e182fc593dc6e4",
+   "record_sha256": "a446508d952d4874fc91c7446c6c9fdda5de0e4ebcf43f06c74127369c980163",
+   "run_id": "20260914T073827Z-59b321d2"
+  },
+  {
+   "key": "HDFC_PPT",
+   "file": "HDFC_Q1FY27_earnings_presentation.pdf",
+   "sha256": "5bece3e8d330c0f75ee4ab36d82a5af90b456d389fa881c30a6573d4fbc91e5e",
+   "record_sha256": "4e0221a31ba05b33078325828d6dd7971d019f14e5c6e115eba18d553c1b5800",
+   "run_id": "20260914T073827Z-59b321d2"
+  }
+ ],
+ "results": {
+  "golden": 5554,
+  "found": 3167,
+  "correct": 1671,
+  "incomplete": 1473,
+  "wrong_facts": 23,
+  "wrong_facts_unflagged": 0,
+  "missing": 2387,
+  "status_detail": {
+   "CORRECT": 1671,
+   "AMBIGUOUS": 1473,
+   "MISSING": 2387,
+   "WRONG_VALUE": 14,
+   "WRONG_METRIC": 8,
+   "WRONG_PERIOD": 0,
+   "WRONG_DURATION": 0,
+   "WRONG_BASIS": 0,
+   "WRONG_ENTITY": 0,
+   "WRONG_UNIT": 1,
+   "WRONG_CURRENCY": 0
+  },
+  "unflagged_wrong_by_dim": {
+   "metric": 0,
+   "value": 0,
+   "period": 0,
+   "duration": 0,
+   "basis": 0,
+   "entity": 0,
+   "unit": 0,
+   "currency": 0
+  },
+  "gate_failed": []
+ }
+}

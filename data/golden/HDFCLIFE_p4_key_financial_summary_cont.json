@@ -1,0 +1,124 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A LIFE INSURER's release: APE, new business and renewal premium, embedded value,",
+  "value of new business, new business margin, solvency -- measures the taxonomy has",
+  "no keys for (metric null), so any key a fact claims for them is wrong. The 'YoY'",
+  "column is a comparison and is excluded.",
+  "The page-4 continuation of 'Key Financial Summary' (no head repeated on this page;",
+  "its columns are page 3's). Footnote markers run into two labels ('Profit After",
+  "Tax1', 'Value of new business2'): footnote 1 -- PAT growth EXCLUDING the GST impact",
+  "is 17% -- qualifies the growth, not the printed profit.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "HDFCLIFE",
+ "document": "src/HDFCLIFE_Q1FY27_press_release.pdf",
+ "issuer": "HDFC Life Insurance Company Limited",
+ "page": 4,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-13"
+ },
+ "table": {
+  "title": "Key Financial Summary (continued)",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": null,
+  "basis_evidence": "not stated on the table",
+  "unit_declaration": {
+   "text": "₹ Crore (page 3)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "on page 3"
+  },
+  "bbox_pt": [
+   72,
+   98,
+   530,
+   152
+  ],
+  "bbox_rel": [
+   0.1209,
+   0.1164,
+   0.8903,
+   0.1805
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Q1 FY27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Q1 FY26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Profit After Tax (footnote 1)",
+    "y": 107.7,
+    "printed": [
+     "611",
+     "546"
+    ],
+    "values": [
+     611.0,
+     546.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Indian Embedded Value",
+    "stock": true,
+    "y": 126.3,
+    "printed": [
+     "65,860",
+     "58,355"
+    ],
+    "values": [
+     65860.0,
+     58355.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Value of new business (footnote 2)",
+    "y": 144.9,
+    "printed": [
+     "879",
+     "809"
+    ],
+    "values": [
+     879.0,
+     809.0
+    ],
+    "metric": null
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "a footnote marker run into a label read as a digit of the figure ('Tax1 611' as 1611)",
+   "the continuation's figures given no period because the head is on the page before"
+  ]
+ }
+}

@@ -1,0 +1,524 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "An NBFC KPI grid: two quarter columns and two year columns, each pair",
+  "followed by a 'Y-o-Y' growth column (excluded: comparisons). AUM and AUF are",
+  "balances as at the period end; the ratio rows are annualised. Digit",
+  "grouping here is INTERNATIONAL (546,944); the standalone slide 38 uses",
+  "INDIAN grouping (4,00,388) for the same kind of figure. Figures from the",
+  "slide's text layer; layout confirmed on the render.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "BAJFIN_PPT",
+ "document": "src/BAJFIN_Q1FY27_investor_presentation.pdf",
+ "issuer": "Bajaj Finance Limited",
+ "page": 37,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "slide text and render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Financial summary – Consolidated",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": "Consolidated",
+  "basis_evidence": "slide title 'Financial summary – Consolidated'",
+  "unit_declaration": {
+   "text": "₹ in Crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   8,
+   40,
+   910,
+   515
+  ],
+  "bbox_rel": [
+   0.0083,
+   0.0741,
+   0.9479,
+   0.9537
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Financials snapshot",
+    "header_lines": [
+     "Q1 FY27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   },
+   {
+    "id": "c2",
+    "group": "Financials snapshot",
+    "header_lines": [
+     "Q1 FY26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   },
+   {
+    "id": "c3",
+    "group": "Financials snapshot",
+    "header_lines": [
+     "FY26"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26"
+   },
+   {
+    "id": "c4",
+    "group": "Financials snapshot",
+    "header_lines": [
+     "FY25"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Assets under management",
+    "stock": true,
+    "y": 84.8,
+    "printed": [
+     "546,944",
+     "441,450",
+     "509,975",
+     "416,661"
+    ],
+    "values": [
+     546944.0,
+     441450.0,
+     509975.0,
+     416661.0
+    ],
+    "metric": "aum"
+   },
+   {
+    "label": "Assets under finance",
+    "stock": true,
+    "y": 105.4,
+    "printed": [
+     "536,138",
+     "432,458",
+     "498,944",
+     "407,844"
+    ],
+    "values": [
+     536138.0,
+     432458.0,
+     498944.0,
+     407844.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Interest income",
+    "y": 125.9,
+    "printed": [
+     "20,513",
+     "17,145",
+     "72,776",
+     "61,164"
+    ],
+    "values": [
+     20513.0,
+     17145.0,
+     72776.0,
+     61164.0
+    ],
+    "metric": "interest_earned"
+   },
+   {
+    "label": "Interest expenses",
+    "y": 146.5,
+    "printed": [
+     "7,942",
+     "6,917",
+     "28,666",
+     "24,770"
+    ],
+    "values": [
+     7942.0,
+     6917.0,
+     28666.0,
+     24770.0
+    ],
+    "metric": "finance_costs",
+    "metric_alt": [
+     "interest_expended"
+    ]
+   },
+   {
+    "label": "Net interest income",
+    "is_total": true,
+    "y": 167.1,
+    "printed": [
+     "12,571",
+     "10,228",
+     "44,110",
+     "36,394"
+    ],
+    "values": [
+     12571.0,
+     10228.0,
+     44110.0,
+     36394.0
+    ],
+    "metric": "net_interest_income"
+   },
+   {
+    "label": "Non-interest income",
+    "y": 187.7,
+    "printed": [
+     "2,653",
+     "2,232",
+     "9,214",
+     "7,683"
+    ],
+    "values": [
+     2653.0,
+     2232.0,
+     9214.0,
+     7683.0
+    ],
+    "metric": "non_interest_income"
+   },
+   {
+    "label": "Net total income (NTI)",
+    "is_total": true,
+    "y": 208.2,
+    "printed": [
+     "15,224",
+     "12,460",
+     "53,324",
+     "44,077"
+    ],
+    "values": [
+     15224.0,
+     12460.0,
+     53324.0,
+     44077.0
+    ],
+    "metric": "net_total_income"
+   },
+   {
+    "label": "Operating expenses",
+    "y": 228.8,
+    "printed": [
+     "5,087",
+     "4,124",
+     "17,776",
+     "14,927"
+    ],
+    "values": [
+     5087.0,
+     4124.0,
+     17776.0,
+     14927.0
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "Pre-provisioning operating profit",
+    "is_total": true,
+    "y": 249.4,
+    "printed": [
+     "10,137",
+     "8,336",
+     "35,548",
+     "29,150"
+    ],
+    "values": [
+     10137.0,
+     8336.0,
+     35548.0,
+     29150.0
+    ],
+    "metric": "pre_provision_operating_profit"
+   },
+   {
+    "label": "Loan losses and provisions",
+    "y": 269.9,
+    "printed": [
+     "1,993",
+     "1,969",
+     "9,482",
+     "7,088"
+    ],
+    "values": [
+     1993.0,
+     1969.0,
+     9482.0,
+     7088.0
+    ],
+    "metric": "impairment_on_financial_instruments"
+   },
+   {
+    "label": "Share of profit of associates",
+    "y": 290.5,
+    "printed": [
+     "5",
+     "1",
+     "16",
+     "18"
+    ],
+    "values": [
+     5.0,
+     1.0,
+     16.0,
+     18.0
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Profit before exception items and tax",
+    "is_total": true,
+    "y": 311.1,
+    "printed": [
+     "8,149",
+     "6,368",
+     "26,082",
+     "22,080"
+    ],
+    "values": [
+     8149.0,
+     6368.0,
+     26082.0,
+     22080.0
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "Exceptional items",
+    "y": 331.7,
+    "printed": [
+     "-",
+     "-",
+     "265",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     265.0,
+     "nil"
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "Profit before tax",
+    "is_total": true,
+    "y": 352.2,
+    "printed": [
+     "8,149",
+     "6,368",
+     "25,817",
+     "22,080"
+    ],
+    "values": [
+     8149.0,
+     6368.0,
+     25817.0,
+     22080.0
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Profit after tax",
+    "is_total": true,
+    "y": 372.8,
+    "printed": [
+     "6,081",
+     "4,765",
+     "19,332",
+     "16,779"
+    ],
+    "values": [
+     6081.0,
+     4765.0,
+     19332.0,
+     16779.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Operating expenses to NTI",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 415.5,
+    "printed": [
+     "33.4%",
+     "33.1%",
+     "33.3%",
+     "33.9%"
+    ],
+    "values": [
+     33.4,
+     33.1,
+     33.3,
+     33.9
+    ],
+    "metric": "cost_to_income_ratio"
+   },
+   {
+    "label": "Annualised Loan Loss to Average AUF",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 437.1,
+    "printed": [
+     "1.54%",
+     "1.87%",
+     "2.09%",
+     "1.93%"
+    ],
+    "values": [
+     1.54,
+     1.87,
+     2.09,
+     1.93
+    ],
+    "metric": "credit_cost"
+   },
+   {
+    "label": "Annualised Return on Average AUF",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 458.7,
+    "printed": [
+     "4.7%",
+     "4.5%",
+     "4.3%",
+     "4.6%"
+    ],
+    "values": [
+     4.7,
+     4.5,
+     4.3,
+     4.6
+    ],
+    "metric": null,
+    "metric_alt": [
+     "roa"
+    ]
+   },
+   {
+    "label": "Annualised Return on Average Equity",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 480.3,
+    "printed": [
+     "20.4%",
+     "19.0%",
+     "18.1%",
+     "19.2%"
+    ],
+    "values": [
+     20.4,
+     19.0,
+     18.1,
+     19.2
+    ],
+    "metric": "roe"
+   },
+   {
+    "label": "Earning per share - Basic (₹) for the period",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 501.9,
+    "printed": [
+     "9.62",
+     "7.57",
+     "30.60",
+     "26.89"
+    ],
+    "values": [
+     9.62,
+     7.57,
+     30.6,
+     26.89
+    ],
+    "metric": "eps"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Net interest income",
+    "plus": [
+     "Interest income"
+    ],
+    "minus": [
+     "Interest expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net total income (NTI)",
+    "plus": [
+     "Net interest income",
+     "Non-interest income"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Pre-provisioning operating profit",
+    "plus": [
+     "Net total income (NTI)"
+    ],
+    "minus": [
+     "Operating expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before exception items and tax",
+    "plus": [
+     "Pre-provisioning operating profit",
+     "Share of profit of associates"
+    ],
+    "minus": [
+     "Loan losses and provisions"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before tax",
+    "plus": [
+     "Profit before exception items and tax"
+    ],
+    "minus": [
+     "Exceptional items"
+    ],
+    "tolerance": 1.0
+   }
+  ],
+  "page_height_pt": 540.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a Y-o-Y growth percentage extracted as a crore amount",
+   "a ratio carrying crore",
+   "any fact on this slide attributed to the standalone entity"
+  ]
+ }
+}

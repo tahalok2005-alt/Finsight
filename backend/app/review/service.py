@@ -53,7 +53,60 @@ def queue(session: Session, document_id: str, *, limit: int = 100,
         stmt.order_by(severity, FinancialFactRow.confidence)
         .limit(limit).offset(offset)))
 
-    return {"total": total, "items": [_fact_summary(f) for f in rows]}
+    items = [_fact_summary(f) for f in rows]
+    _attach_review_reasons(session, document_id, items)
+    return {"total": total, "items": items,
+            "reasons": _reason_counts(items)}
+
+
+def _attach_review_reasons(session: Session, document_id: str,
+                           items: list[dict[str, Any]]) -> None:
+    """Say *why* each queued fact needs a human, in the reviewer's terms.
+
+    A queue that only shows low confidence makes a reviewer guess at the
+    problem.  Where the intelligence layer knows the reason -- a contradicting
+    duplicate, a ratio that does not reproduce, an unusual move -- it is
+    attached, along with the anomaly's own explanation.
+    """
+    from app.database.models_intelligence import AnomalyRow
+
+    if not items:
+        return
+    ids = {i["fact_id"] for i in items}
+    by_fact: dict[str, list[dict[str, Any]]] = {}
+    for a in session.scalars(select(AnomalyRow).where(
+            AnomalyRow.document_id == document_id)):
+        for fid in (a.fact_ids or []):
+            if fid in ids:
+                by_fact.setdefault(fid, []).append({
+                    "anomaly_id": a.id, "type": a.anomaly_type,
+                    "severity": a.severity, "message": a.message,
+                    "reason": a.reason,
+                })
+    for item in items:
+        found = by_fact.get(item["fact_id"], [])
+        item["anomalies"] = found
+        if found:
+            item["review_reason"] = found[0]["message"]
+        elif item.get("validation_status") in ("FAILED", "WARNING"):
+            item["review_reason"] = (
+                f"An arithmetic check returned {item['validation_status']}.")
+        else:
+            item["review_reason"] = (
+                f"Confidence {item['confidence']:.0%} is below the review "
+                f"threshold.")
+
+
+def _reason_counts(items: list[dict[str, Any]]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for item in items:
+        for a in item.get("anomalies") or []:
+            counts[a["type"]] = counts.get(a["type"], 0) + 1
+        if not item.get("anomalies"):
+            key = ("validation" if item.get("validation_status")
+                   in ("FAILED", "WARNING") else "low_confidence")
+            counts[key] = counts.get(key, 0) + 1
+    return dict(sorted(counts.items(), key=lambda kv: -kv[1]))
 
 
 def _fact_summary(f: FinancialFactRow) -> dict[str, Any]:
@@ -62,7 +115,14 @@ def _fact_summary(f: FinancialFactRow) -> dict[str, Any]:
         "canonical_metric": f.canonical_metric, "entity": f.entity,
         "value": f.value, "corrected_value": f.corrected_value,
         "raw_value": f.raw_value, "unit": f.unit, "currency": f.currency,
-        "period": f.period, "confidence": f.confidence,
+        # A reviewer confirming a figure has to know which period it belongs
+        # to; the label alone does not say whether it is a quarter or a
+        # balance-sheet instant, nor on what day it closed.
+        "period": f.period, "period_type": f.period_type,
+        "period_start": f.period_start, "period_end": f.period_end,
+        "period_confidence": f.period_confidence,
+        "period_basis": f.period_basis,
+        "confidence": f.confidence,
         "confidence_band": f.confidence_band,
         "confidence_breakdown": f.confidence_breakdown,
         "validation_status": f.validation_status,

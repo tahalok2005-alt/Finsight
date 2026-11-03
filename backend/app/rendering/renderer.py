@@ -67,6 +67,39 @@ def _paths(document_id: str, page_number: int, signature: str) -> tuple[Path, Pa
     return d / f"{base}.{ext}", d / f"{base}-thumb.{ext}"
 
 
+def _shared_paths(content_hash: str, page_number: int, signature: str) -> tuple[Path, Path]:
+    """Where a page's render is kept for EVERY document with these bytes.
+
+    Renders were kept per document id, so a second document with the same
+    bytes -- a re-upload, or the same filing evaluated under a new tag --
+    rendered every page again although its OCR was cached by content hash
+    (Phase 22). The MuPDF version is part of the key: a different renderer may
+    draw different pixels, and a cached render must be the render this build
+    would have made."""
+    ext = settings.render_format
+    base = f"page-{page_number:04d}-{signature}"
+    d = settings.render_dir.resolve() / "_by_content" / content_hash / f"mupdf{pymupdf.VersionBind}"
+    return d / f"{base}.{ext}", d / f"{base}-thumb.{ext}"
+
+
+def _link_or_copy(src: Path, dst: Path) -> bool:
+    """Make ``dst`` the same bytes as ``src``: a hard link where the volume
+    allows one, a copy otherwise. Never raises; False when neither worked."""
+    import os
+    import shutil
+    try:
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if dst.exists():
+            dst.unlink()
+        try:
+            os.link(src, dst)
+        except OSError:
+            shutil.copyfile(src, dst)
+        return True
+    except OSError:
+        return False
+
+
 def _effective_dpi(rect: pymupdf.Rect, requested_dpi: int) -> int:
     """Clamp DPI so an unusually large page cannot blow up memory."""
     w_in, h_in = rect.width / 72.0, rect.height / 72.0
@@ -91,11 +124,14 @@ class PageRenderer:
     """
 
     def __init__(self, document_id: str, pdf_path: str | Path,
-                 dpi: int | None = None):
+                 dpi: int | None = None, content_hash: str | None = None):
         self.document_id = document_id
         self.pdf_path = Path(pdf_path)
         self.dpi = dpi or settings.render_dpi
         self.signature = f"dpi{self.dpi}-{settings.render_format}"
+        #: The PDF's sha256, when known: renders are then shared by every
+        #: document with these bytes (see `_shared_paths`).
+        self.content_hash = content_hash
         self._doc: pymupdf.Document | None = None
 
     # ------------------------------------------------------------- lifecycle
@@ -153,6 +189,24 @@ class PageRenderer:
                 log.warning("render.cache_unreadable", page=page_number,
                             path=str(img_path))
 
+        shared_img = shared_thumb = None
+        if self.content_hash and not force:
+            shared_img, shared_thumb = _shared_paths(self.content_hash, page_number, signature)
+            if (shared_img.exists() and shared_img.stat().st_size > 0
+                    and _link_or_copy(shared_img, img_path)):
+                thumb = (thumb_path if shared_thumb.exists()
+                         and _link_or_copy(shared_thumb, thumb_path) else None)
+                try:
+                    w, h = image_dimensions(img_path)
+                    return RenderedPage(
+                        page_number=page_number, image_path=img_path,
+                        thumbnail_path=thumb, width=int(w), height=int(h), dpi=dpi,
+                        pdf_width=float(rect.width), pdf_height=float(rect.height),
+                        rotation=int(page.rotation or 0), scale=dpi / 72.0,
+                        from_cache=True)
+                except Exception:  # noqa: BLE001 - unreadable copy: render afresh
+                    log.warning("render.shared_cache_unreadable", page=page_number)
+
         img_path.parent.mkdir(parents=True, exist_ok=True)
         try:
             pix = page.get_pixmap(dpi=dpi, alpha=False)
@@ -172,6 +226,12 @@ class PageRenderer:
                 "rendering", f"Failed to render page {page_number}: {exc}",
                 detail={"page": page_number}) from exc
 
+        if self.content_hash:
+            shared_img, shared_thumb = _shared_paths(self.content_hash, page_number, signature)
+            if not shared_img.exists():
+                _link_or_copy(img_path, shared_img)
+            if thumb is not None and not shared_thumb.exists():
+                _link_or_copy(thumb, shared_thumb)
         return RenderedPage(
             page_number=page_number, image_path=img_path, thumbnail_path=thumb,
             width=width, height=height, dpi=dpi,

@@ -92,6 +92,126 @@ def _in_columns(line: TextLine, ctx: LayoutContext) -> int:
     return 0
 
 
+
+# ------------------------------------------------------- side-by-side prose
+#: The blank strip between two printed columns is narrow -- a press release
+#: measured 25px on a 1700px page, a single character width. Width alone
+#: therefore cannot tell a gutter from wide word spacing, and the test that
+#: does is alignment: in two columns the right-hand side starts at the same x
+#: on line after line, where in a paragraph a wide space falls wherever the
+#: words happen to break.
+_GUTTER_MIN_RATIO = 0.007
+#: Most of the block's lines must reach across it. A single wide line in a
+#: paragraph is not a second column.
+_GUTTER_MIN_CROSSING = 0.55
+#: How far the second column's left edge may wander, as a share of the page,
+#: before the lines are prose with gaps in them rather than a column.
+_GUTTER_ALIGN_RATIO = 0.05
+
+
+def _prose_side(elements: list[OCRElement]) -> bool:
+    """Whether a side of a candidate gutter reads as prose rather than cells.
+
+    This is the guard that keeps statement tables out of the column splitter.
+    A table row also has a wide gap in it -- the space between the labels and
+    the figures -- and splitting those rows would take every statement apart.
+    A column of prose carries words; a column of figures does not.
+    """
+    words = [e.text for e in elements if e.text and not looks_numeric(e.text)]
+    letters = sum(1 for w in words if any(c.isalpha() for c in w))
+    return letters >= 2
+
+
+def _block_gutter(rows: list[TextLine], page_width: int) -> float | None:
+    """The x of a blank vertical strip running down a block of lines, if any.
+
+    A press release prints its highlights as two bulleted columns side by
+    side. The page as a whole has no gutter -- the headline above and the
+    paragraphs below run the full width -- so a page-wide projection sees
+    nothing, and the lines of the two columns, which share a y band, were
+    grouped into single lines reading "EBITDA (Earnings before Interest, Tax,
+    Revenue from operations - Rs. 9,579 Depreciation, & Amortization)". Every
+    figure in that block then belonged to whichever column the reader guessed.
+    So the gutter is looked for in the block itself.
+    """
+    if len(rows) < 3:
+        return None
+    boxes = [e.bbox for ln in rows for e in ln.elements]
+    if not boxes:
+        return None
+    left = min(b.x for b in boxes)
+    right = max(b.x + b.width for b in boxes)
+    if right - left < page_width * 0.5:
+        return None
+    occupied = [False] * (page_width + 2)
+    for b in boxes:
+        x0 = max(0, int(b.x))
+        x1 = min(page_width, int(b.x + b.width) + 1)
+        for x in range(x0, x1):
+            occupied[x] = True
+
+    min_gap = max(8, int(page_width * _GUTTER_MIN_RATIO))
+    best: tuple[int, float] | None = None
+    run_start = None
+    for x in range(int(left), int(right) + 1):
+        if not occupied[x]:
+            if run_start is None:
+                run_start = x
+        else:
+            if run_start is not None and x - run_start >= min_gap:
+                mid = (run_start + x) / 2.0
+                # a gutter splits the block near its middle, not at a margin
+                if left + (right - left) * 0.25 <= mid <= left + (right - left) * 0.75:
+                    width = x - run_start
+                    if best is None or width > best[0]:
+                        best = (width, mid)
+            run_start = None
+    if best is None:
+        return None
+
+    mid = best[1]
+    crossing = 0
+    right_starts: list[float] = []
+    for ln in rows:
+        l_side = [e for e in ln.elements if e.bbox.x + e.bbox.width <= mid]
+        r_side = [e for e in ln.elements if e.bbox.x >= mid]
+        if l_side and r_side:
+            crossing += 1
+            right_starts.append(min(e.bbox.x for e in r_side))
+    if crossing < len(rows) * _GUTTER_MIN_CROSSING or len(right_starts) < 3:
+        return None
+    # the second column begins at the same place on every line; a paragraph's
+    # wide spaces do not line up down the page
+    if max(right_starts) - min(right_starts) > page_width * _GUTTER_ALIGN_RATIO:
+        return None
+
+    # both sides must read as prose, or this is a table row and not a column
+    left_els = [e for ln in rows for e in ln.elements if e.bbox.x + e.bbox.width <= mid]
+    right_els = [e for ln in rows for e in ln.elements if e.bbox.x >= mid]
+    if not (_prose_side(left_els) and _prose_side(right_els)):
+        return None
+    return mid
+
+
+def _side_rows(rows: list[TextLine], mid: float, left: bool) -> list[TextLine]:
+    """The block's lines, cut back to one side of the gutter."""
+    out: list[TextLine] = []
+    for ln in rows:
+        if left:
+            els = [e for e in ln.elements if e.bbox.x + e.bbox.width <= mid]
+        else:
+            els = [e for e in ln.elements if e.bbox.x >= mid]
+        if not els:
+            continue
+        box = BBox.union_all(BBox(x=e.bbox.x, y=e.bbox.y, width=e.bbox.width,
+                                  height=e.bbox.height) for e in els)
+        if box is None:
+            continue
+        out.append(TextLine(id=f"{ln.id}:{'l' if left else 'r'}",
+                            page_number=ln.page_number, elements=els, bbox=box))
+    return out
+
+
 # --------------------------------------------------------------- table bands
 @dataclass(slots=True)
 class TableBand:
@@ -384,27 +504,53 @@ class HeuristicLayoutDetector:
         buffer: list[tuple[int, TextLine]] = []
         counter = 0
 
+        def emit(rows: list[TextLine], column: int | None = None) -> None:
+            nonlocal counter
+            box = BBox.union_all(ln.bbox for ln in rows)
+            if box is None:
+                return
+            text = " ".join(ln.text for ln in rows).strip()
+            rtype = RegionType.LIST if any(
+                BULLET_RE.match(ln.text) for ln in rows) else RegionType.PARAGRAPH
+            out.append(Region(
+                id=stable_id("region", document_id, page_number, "txt", counter),
+                document_id=document_id, page_number=page_number, type=rtype,
+                bbox=BBoxModel(**box.as_dict()),
+                confidence=round(min(0.95, 0.6 + 0.35 * (
+                    sum(ln.confidence for ln in rows) / len(rows))), 3),
+                reading_order=0,
+                column_index=_in_columns(rows[0], ctx) if column is None else column,
+                text=text,
+                element_ids=[e for ln in rows for e in ln.element_ids()],
+                detector=self.name,
+                meta={"n_lines": len(rows)}
+                | ({"side_by_side_column": column} if column is not None else {})))
+            counter += 1
+
         def flush() -> None:
-            nonlocal buffer, counter
+            nonlocal buffer
             if not buffer:
                 return
             rows = [ln for _, ln in buffer]
-            box = BBox.union_all(ln.bbox for ln in rows)
-            if box is not None:
-                text = " ".join(ln.text for ln in rows).strip()
-                rtype = RegionType.LIST if any(
-                    BULLET_RE.match(ln.text) for ln in rows) else RegionType.PARAGRAPH
-                out.append(Region(
-                    id=stable_id("region", document_id, page_number, "txt", counter),
-                    document_id=document_id, page_number=page_number, type=rtype,
-                    bbox=BBoxModel(**box.as_dict()),
-                    confidence=round(min(0.95, 0.6 + 0.35 * (
-                        sum(ln.confidence for ln in rows) / len(rows))), 3),
-                    reading_order=0, column_index=_in_columns(rows[0], ctx),
-                    text=text,
-                    element_ids=[e for ln in rows for e in ln.element_ids()],
-                    detector=self.name, meta={"n_lines": len(rows)}))
-                counter += 1
+            # Two bulleted columns printed side by side share their y bands, so
+            # line grouping put one line of each into a single line. Read as one
+            # block, the two columns' sentences interleave and every figure in
+            # them belongs to whichever column the reader guesses. Where the
+            # block has a blank strip down its middle with prose on both sides,
+            # it is read as two columns.
+            mid = _block_gutter(rows, ctx.page_width)
+            if mid is not None:
+                left_rows = _side_rows(rows, mid, left=True)
+                right_rows = _side_rows(rows, mid, left=False)
+                if len(left_rows) >= 2 and len(right_rows) >= 2:
+                    log.info("layout.side_by_side_columns",
+                             page_number=page_number, lines=len(rows),
+                             gutter_x=round(mid, 1))
+                    emit(left_rows, column=0)
+                    emit(right_rows, column=1)
+                    buffer = []
+                    return
+            emit(rows)
             buffer = []
 
         for idx, line in enumerate(lines):

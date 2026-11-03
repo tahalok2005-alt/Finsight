@@ -1,0 +1,471 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "IFRS statement of income in INR MILLIONS (not crore). Columns run OLDEST",
+  "FIRST (2025, then 2026). The third column is the same quarter as the second,",
+  "restated in U.S. DOLLAR millions at Rs 94.66 -- a COLUMN-level unit override",
+  "under a table declared '(₹ in millions ...)'. '^' marks 'value is less than",
+  "0.5' and is neither zero nor a figure. Share counts are counts in every",
+  "column, including the dollar one. Figures from the native text layer.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "WIPRO",
+ "document": "src/WIPRO_Q1FY27_press.pdf",
+ "issuer": "Wipro Limited",
+ "page": 9,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "page text and render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "INTERIM CONDENSED CONSOLIDATED STATEMENTS OF INCOME",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "title 'WIPRO LIMITED AND SUBSIDIARIES ... CONSOLIDATED STATEMENTS OF INCOME'",
+  "unit_declaration": {
+   "text": "(₹ in millions, except share and per share data, unless otherwise stated)",
+   "unit": "million",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "centred under the title"
+  },
+  "bbox_pt": [
+   15,
+   85,
+   580,
+   505
+  ],
+  "bbox_rel": [
+   0.0252,
+   0.101,
+   0.9743,
+   0.5998
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Three months ended June 30,",
+    "header_lines": [
+     "2025"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "unit": "million",
+    "currency": "INR"
+   },
+   {
+    "id": "c2",
+    "group": "Three months ended June 30,",
+    "header_lines": [
+     "2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "unit": "million",
+    "currency": "INR"
+   },
+   {
+    "id": "c3",
+    "group": "Three months ended June 30,",
+    "header_lines": [
+     "2026",
+     "Convenience translation into U.S. Dollar in millions (unaudited) at the rate of ₹ 94.66"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "unit": "million",
+    "currency": "USD",
+    "translation": true
+   }
+  ],
+  "rows": [
+   {
+    "label": "Revenues",
+    "y": 183.6,
+    "printed": [
+     "221,346",
+     "244,786",
+     "2,586"
+    ],
+    "values": [
+     221346.0,
+     244786.0,
+     2586.0
+    ],
+    "metric": "revenue"
+   },
+   {
+    "label": "Cost of revenues",
+    "y": 193.9,
+    "printed": [
+     "(157,247)",
+     "(174,900)",
+     "(1,848)"
+    ],
+    "values": [
+     -157247.0,
+     -174900.0,
+     -1848.0
+    ],
+    "metric": "cost_of_revenue"
+   },
+   {
+    "label": "Gross profit",
+    "is_total": true,
+    "y": 205.0,
+    "printed": [
+     "64,099",
+     "69,886",
+     "738"
+    ],
+    "values": [
+     64099.0,
+     69886.0,
+     738.0
+    ],
+    "metric": "gross_profit"
+   },
+   {
+    "label": "Selling and marketing expenses",
+    "y": 225.7,
+    "printed": [
+     "(15,285)",
+     "(16,496)",
+     "(174)"
+    ],
+    "values": [
+     -15285.0,
+     -16496.0,
+     -174.0
+    ],
+    "metric": "sales_and_marketing"
+   },
+   {
+    "label": "General and administrative expenses",
+    "y": 236.1,
+    "printed": [
+     "(13,272)",
+     "(14,963)",
+     "(158)"
+    ],
+    "values": [
+     -13272.0,
+     -14963.0,
+     -158.0
+    ],
+    "metric": "general_and_administrative"
+   },
+   {
+    "label": "Foreign exchange gains/(losses), net",
+    "y": 246.4,
+    "printed": [
+     "182",
+     "779",
+     "8"
+    ],
+    "values": [
+     182.0,
+     779.0,
+     8.0
+    ],
+    "metric": "fx_gains_losses"
+   },
+   {
+    "label": "Results from operating activities",
+    "is_total": true,
+    "y": 257.5,
+    "printed": [
+     "35,724",
+     "39,206",
+     "414"
+    ],
+    "values": [
+     35724.0,
+     39206.0,
+     414.0
+    ],
+    "metric": "ebit"
+   },
+   {
+    "label": "Finance expenses",
+    "y": 278.2,
+    "printed": [
+     "(3,608)",
+     "(4,728)",
+     "(50)"
+    ],
+    "values": [
+     -3608.0,
+     -4728.0,
+     -50.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Finance and other income",
+    "y": 288.6,
+    "printed": [
+     "10,417",
+     "8,872",
+     "94"
+    ],
+    "values": [
+     10417.0,
+     8872.0,
+     94.0
+    ],
+    "metric": "finance_and_other_income"
+   },
+   {
+    "label": "Share of net profit/ (loss) of associate and joint venture accounted for using the equity method",
+    "y": 304.1,
+    "printed": [
+     "50",
+     "(5)",
+     "^"
+    ],
+    "values": [
+     50.0,
+     -5.0,
+     "lt_half"
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Profit before tax",
+    "is_total": true,
+    "y": 320.4,
+    "printed": [
+     "42,583",
+     "43,345",
+     "458"
+    ],
+    "values": [
+     42583.0,
+     43345.0,
+     458.0
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Income tax expense",
+    "y": 330.8,
+    "printed": [
+     "(9,218)",
+     "(9,782)",
+     "(103)"
+    ],
+    "values": [
+     -9218.0,
+     -9782.0,
+     -103.0
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Profit for the period",
+    "is_total": true,
+    "y": 341.8,
+    "printed": [
+     "33,365",
+     "33,563",
+     "355"
+    ],
+    "values": [
+     33365.0,
+     33563.0,
+     355.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Profit attributable to: Equity holders of the Company",
+    "y": 373.6,
+    "printed": [
+     "33,304",
+     "33,520",
+     "355"
+    ],
+    "values": [
+     33304.0,
+     33520.0,
+     355.0
+    ],
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "Profit attributable to: Non-controlling interests",
+    "y": 384.0,
+    "printed": [
+     "61",
+     "43",
+     "^"
+    ],
+    "values": [
+     61.0,
+     43.0,
+     "lt_half"
+    ],
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "Profit for the period (total of the attribution)",
+    "is_total": true,
+    "y": 395.1,
+    "printed": [
+     "33,365",
+     "33,563",
+     "355"
+    ],
+    "values": [
+     33365.0,
+     33563.0,
+     355.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Earnings per equity share attributable to equity holders of the Company: Basic",
+    "unit": "per_share",
+    "value_type": "per_share",
+    "y": 437.2,
+    "printed": [
+     "3.18",
+     "3.20",
+     "0.03"
+    ],
+    "values": [
+     3.18,
+     3.2,
+     0.03
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "Earnings per equity share attributable to equity holders of the Company: Diluted",
+    "unit": "per_share",
+    "value_type": "per_share",
+    "y": 447.7,
+    "printed": [
+     "3.17",
+     "3.20",
+     "0.03"
+    ],
+    "values": [
+     3.17,
+     3.2,
+     0.03
+    ],
+    "metric": "diluted_eps"
+   },
+   {
+    "label": "Weighted average number of equity shares used in computing earnings per equity share: Basic",
+    "unit": "count",
+    "currency": null,
+    "value_type": "count",
+    "y": 489.1,
+    "printed": [
+     "10,472,085,808",
+     "10,459,341,744",
+     "10,459,341,744"
+    ],
+    "values": [
+     10472085808.0,
+     10459341744.0,
+     10459341744.0
+    ],
+    "metric": "weighted_average_shares_basic"
+   },
+   {
+    "label": "Weighted average number of equity shares used in computing earnings per equity share: Diluted",
+    "unit": "count",
+    "currency": null,
+    "value_type": "count",
+    "y": 499.4,
+    "printed": [
+     "10,492,102,015",
+     "10,475,511,031",
+     "10,475,511,031"
+    ],
+    "values": [
+     10492102015.0,
+     10475511031.0,
+     10475511031.0
+    ],
+    "metric": "weighted_average_shares_diluted"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Gross profit",
+    "plus": [
+     "Revenues",
+     "Cost of revenues"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Results from operating activities",
+    "plus": [
+     "Gross profit",
+     "Selling and marketing expenses",
+     "General and administrative expenses",
+     "Foreign exchange gains/(losses), net"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before tax",
+    "plus": [
+     "Results from operating activities",
+     "Finance expenses",
+     "Finance and other income",
+     "Share of net profit/ (loss) of associate and joint venture accounted for using the equity method"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit for the period",
+    "plus": [
+     "Profit before tax",
+     "Income tax expense"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit for the period (total of the attribution)",
+    "plus": [
+     "Profit attributable to: Equity holders of the Company",
+     "Profit attributable to: Non-controlling interests"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit for the period (total of the attribution)",
+    "plus": [
+     "Profit for the period"
+    ],
+    "tolerance": 0.01
+   }
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a figure from the dollar column carrying INR",
+   "a figure from the rupee columns carrying USD",
+   "INR crore anywhere on this page",
+   "a '^' cell extracted as 0",
+   "a share count carrying a currency"
+  ]
+ }
+}

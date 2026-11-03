@@ -1,0 +1,537 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "IFRS condensed quarterly statements of a JAPANESE filer, in YEN MILLIONS, each line rounded on its own (subtotals may differ from the sum of printed lines by a few million; identity tolerance 3). Toyota fiscal",
+  "year ends March 31: 'FY2027 First Quarter' is April 1 - June 30, 2026. A nil is printed",
+  "as a FULLWIDTH dash ('－'), not '-'. Native page; figures from the text layer.",
+  "Liabilities and shareholders' equity at March 31, 2026 and June 30, 2026 (oldest first).",
+  "Two nils print as the fullwidth dash. 'Subtotal' precedes held-for-sale liabilities.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "TOYOTA",
+ "document": "src/TOYOTA_FY2027_1Q_financial_summary.pdf",
+ "issuer": "Toyota Motor Corporation",
+ "page": 9,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text and the statements' own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Unaudited Condensed Quarterly Consolidated Statement of Financial Position (liabilities and equity)",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": "Consolidated",
+  "basis_evidence": "continuation of the statement of financial position",
+  "unit_declaration": {
+   "text": "Yen in millions",
+   "unit": "million",
+   "currency": "JPY",
+   "scope": "table",
+   "placement": "top-right, above the columns"
+  },
+  "bbox_pt": [
+   50,
+   104,
+   560,
+   634
+  ],
+  "bbox_rel": [
+   0.084,
+   0.1235,
+   0.9407,
+   0.753
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "March 31, 2026"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Mar 2026"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "June 30, 2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Current liabilities: Trade accounts and other payables",
+    "y": 168.3,
+    "printed": [
+     "5,856,945",
+     "5,683,767"
+    ],
+    "values": [
+     5856945.0,
+     5683767.0
+    ],
+    "metric": "payables"
+   },
+   {
+    "label": "Current liabilities: Short-term and current portion of long-term debt",
+    "y": 183.3,
+    "printed": [
+     "17,581,104",
+     "17,868,651"
+    ],
+    "values": [
+     17581104.0,
+     17868651.0
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Current liabilities: Accrued expenses",
+    "y": 198.3,
+    "printed": [
+     "2,112,571",
+     "2,173,335"
+    ],
+    "values": [
+     2112571.0,
+     2173335.0
+    ],
+    "metric": "accrued_expenses"
+   },
+   {
+    "label": "Current liabilities: Other financial liabilities",
+    "y": 213.3,
+    "printed": [
+     "2,384,008",
+     "2,490,327"
+    ],
+    "values": [
+     2384008.0,
+     2490327.0
+    ],
+    "metric": "other_financial_liabilities"
+   },
+   {
+    "label": "Current liabilities: Income taxes payable",
+    "y": 228.3,
+    "printed": [
+     "711,675",
+     "509,014"
+    ],
+    "values": [
+     711675.0,
+     509014.0
+    ],
+    "metric": "current_tax_liabilities"
+   },
+   {
+    "label": "Current liabilities: Liabilities for quality assurance",
+    "y": 243.3,
+    "printed": [
+     "2,097,943",
+     "2,141,815"
+    ],
+    "values": [
+     2097943.0,
+     2141815.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current liabilities: Provisions",
+    "y": 258.3,
+    "printed": [
+     "431,191",
+     "572,113"
+    ],
+    "values": [
+     431191.0,
+     572113.0
+    ],
+    "metric": "provisions"
+   },
+   {
+    "label": "Current liabilities: Other current liabilities",
+    "y": 273.3,
+    "printed": [
+     "1,735,034",
+     "1,799,672"
+    ],
+    "values": [
+     1735034.0,
+     1799672.0
+    ],
+    "metric": "other_current_liabilities"
+   },
+   {
+    "label": "Current liabilities: Subtotal",
+    "is_total": true,
+    "y": 288.8,
+    "printed": [
+     "32,910,472",
+     "33,238,696"
+    ],
+    "values": [
+     32910472.0,
+     33238696.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current liabilities: Liabilities directly associated with assets held for sale",
+    "y": 304.3,
+    "printed": [
+     "694,547",
+     "－"
+    ],
+    "values": [
+     694547.0,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total current liabilities",
+    "is_total": true,
+    "y": 319.8,
+    "printed": [
+     "33,605,019",
+     "33,238,696"
+    ],
+    "values": [
+     33605019.0,
+     33238696.0
+    ],
+    "metric": "current_liabilities"
+   },
+   {
+    "label": "Non-current liabilities: Long-term debt",
+    "y": 350.2,
+    "printed": [
+     "25,624,365",
+     "26,084,517"
+    ],
+    "values": [
+     25624365.0,
+     26084517.0
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Non-current liabilities: Other financial liabilities",
+    "y": 365.2,
+    "printed": [
+     "1,157,413",
+     "1,182,869"
+    ],
+    "values": [
+     1157413.0,
+     1182869.0
+    ],
+    "metric": "other_financial_liabilities"
+   },
+   {
+    "label": "Non-current liabilities: Retirement benefit liabilities",
+    "y": 380.2,
+    "printed": [
+     "1,022,483",
+     "1,000,738"
+    ],
+    "values": [
+     1022483.0,
+     1000738.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Non-current liabilities: Deferred tax liabilities",
+    "y": 395.2,
+    "printed": [
+     "1,584,505",
+     "1,313,465"
+    ],
+    "values": [
+     1584505.0,
+     1313465.0
+    ],
+    "metric": "deferred_tax_liabilities"
+   },
+   {
+    "label": "Non-current liabilities: Provisions",
+    "y": 410.2,
+    "printed": [
+     "498,463",
+     "544,665"
+    ],
+    "values": [
+     498463.0,
+     544665.0
+    ],
+    "metric": "provisions"
+   },
+   {
+    "label": "Non-current liabilities: Other non-current liabilities",
+    "y": 425.2,
+    "printed": [
+     "1,010,015",
+     "1,041,234"
+    ],
+    "values": [
+     1010015.0,
+     1041234.0
+    ],
+    "metric": "other_non_current_liabilities"
+   },
+   {
+    "label": "Total non-current liabilities",
+    "is_total": true,
+    "y": 440.8,
+    "printed": [
+     "30,897,244",
+     "31,167,489"
+    ],
+    "values": [
+     30897244.0,
+     31167489.0
+    ],
+    "metric": "non_current_liabilities"
+   },
+   {
+    "label": "Total liabilities",
+    "is_total": true,
+    "y": 456.3,
+    "printed": [
+     "64,502,263",
+     "64,406,184"
+    ],
+    "values": [
+     64502263.0,
+     64406184.0
+    ],
+    "metric": "total_liabilities"
+   },
+   {
+    "label": "Common stock",
+    "y": 485.2,
+    "printed": [
+     "397,050",
+     "397,050"
+    ],
+    "values": [
+     397050.0,
+     397050.0
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Additional paid-in capital",
+    "y": 498.8,
+    "printed": [
+     "456,742",
+     "366,736"
+    ],
+    "values": [
+     456742.0,
+     366736.0
+    ],
+    "metric": "share_premium"
+   },
+   {
+    "label": "Retained earnings",
+    "y": 513.8,
+    "printed": [
+     "38,709,858",
+     "37,623,983"
+    ],
+    "values": [
+     38709858.0,
+     37623983.0
+    ],
+    "metric": "retained_earnings"
+   },
+   {
+    "label": "Other components of equity",
+    "y": 528.8,
+    "printed": [
+     "4,544,019",
+     "4,568,158"
+    ],
+    "values": [
+     4544019.0,
+     4568158.0
+    ],
+    "metric": "other_components_of_equity"
+   },
+   {
+    "label": "Other comprehensive income associated with assets held for sale",
+    "y": 547.3,
+    "printed": [
+     "266,596",
+     "－"
+    ],
+    "values": [
+     266596.0,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "Treasury stock",
+    "y": 565.8,
+    "printed": [
+     "(4,455,410)",
+     "(5,647,099)"
+    ],
+    "values": [
+     -4455410.0,
+     -5647099.0
+    ],
+    "metric": "treasury_shares"
+   },
+   {
+    "label": "Total Toyota Motor Corporation shareholders' equity",
+    "is_total": true,
+    "y": 581.2,
+    "printed": [
+     "39,918,854",
+     "37,308,828"
+    ],
+    "values": [
+     39918854.0,
+     37308828.0
+    ],
+    "metric": "equity_attributable_to_owners"
+   },
+   {
+    "label": "Non-controlling interests",
+    "y": 596.8,
+    "printed": [
+     "1,101,214",
+     "920,104"
+    ],
+    "values": [
+     1101214.0,
+     920104.0
+    ],
+    "metric": "non_controlling_interests"
+   },
+   {
+    "label": "Total shareholders' equity",
+    "is_total": true,
+    "y": 612.3,
+    "printed": [
+     "41,020,068",
+     "38,228,932"
+    ],
+    "values": [
+     41020068.0,
+     38228932.0
+    ],
+    "metric": "net_worth"
+   },
+   {
+    "label": "Total liabilities and shareholders' equity",
+    "is_total": true,
+    "y": 627.8,
+    "printed": [
+     "105,522,331",
+     "102,635,116"
+    ],
+    "values": [
+     105522331.0,
+     102635116.0
+    ],
+    "metric": "total_equity_and_liabilities"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Current liabilities: Subtotal",
+    "plus": [
+     "Current liabilities: Trade accounts and other payables",
+     "Current liabilities: Short-term and current portion of long-term debt",
+     "Current liabilities: Accrued expenses",
+     "Current liabilities: Other financial liabilities",
+     "Current liabilities: Income taxes payable",
+     "Current liabilities: Liabilities for quality assurance",
+     "Current liabilities: Provisions",
+     "Current liabilities: Other current liabilities"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total current liabilities",
+    "plus": [
+     "Current liabilities: Subtotal",
+     "Current liabilities: Liabilities directly associated with assets held for sale"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total non-current liabilities",
+    "plus": [
+     "Non-current liabilities: Long-term debt",
+     "Non-current liabilities: Other financial liabilities",
+     "Non-current liabilities: Retirement benefit liabilities",
+     "Non-current liabilities: Deferred tax liabilities",
+     "Non-current liabilities: Provisions",
+     "Non-current liabilities: Other non-current liabilities"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total liabilities",
+    "plus": [
+     "Total current liabilities",
+     "Total non-current liabilities"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total Toyota Motor Corporation shareholders' equity",
+    "plus": [
+     "Common stock",
+     "Additional paid-in capital",
+     "Retained earnings",
+     "Other components of equity",
+     "Other comprehensive income associated with assets held for sale",
+     "Treasury stock"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total shareholders' equity",
+    "plus": [
+     "Total Toyota Motor Corporation shareholders' equity",
+     "Non-controlling interests"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total liabilities and shareholders' equity",
+    "plus": [
+     "Total liabilities",
+     "Total shareholders' equity"
+    ],
+    "tolerance": 3.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a fullwidth dash read as a figure or as zero",
+   "current and long-term debt merged",
+   "the March 31, 2026 column reported as June 30, 2026"
+  ]
+ }
+}

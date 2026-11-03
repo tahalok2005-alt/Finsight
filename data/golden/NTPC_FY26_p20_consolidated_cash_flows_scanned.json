@@ -1,0 +1,923 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A SCANNED filing: consolidated cash flow statement, INR crore, unseparated figures.",
+  "THE FILER'S OCR LAYER READS OPENING BRACKETS AS '1': '(2873.08)' is '12873.08',",
+  "'(37578.38)' is '137578.381', '(8759.26)' is '18759.26', '(3584.22)' is",
+  "'13584.22\\'. A figure taken from that layer would be positive and ten times too",
+  "large. Every figure here was read from the render and every section re-added.",
+  "One cell prints a thousands comma ('9,026.00') in an otherwise unseparated column.",
+  "The adjustments' subtotal is unlabelled; working-capital lines are movements.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NTPC_FY26",
+ "document": "src/NTPC_FY26_annual_results.pdf",
+ "issuer": "NTPC Limited",
+ "page": 20,
+ "transcription": {
+  "method": "read by eye from the render; positions from the filer's OCR layer",
+  "verified_against": "page render at 220 dpi and the statement's own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "CONSOLIDATED STATEMENT OF CASH FLOWS",
+  "statement": "cash_flow",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "title 'CONSOLIDATED STATEMENT OF CASH FLOWS'",
+  "unit_declaration": {
+   "text": "₹ crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   102,
+   110,
+   510,
+   700
+  ],
+  "bbox_rel": [
+   0.1714,
+   0.1307,
+   0.857,
+   0.8317
+  ],
+  "page_height_pt": 841.68,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Year",
+     "ended",
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Year",
+     "ended",
+     "31.03.2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Profit before tax and regulatory deferral account balances",
+    "y": 173.2,
+    "printed": [
+     "27133.56",
+     "28496.41"
+    ],
+    "values": [
+     27133.56,
+     28496.41
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Add: Net movement in regulatory deferral account balances (net of tax)",
+    "y": 180.7,
+    "printed": [
+     "(2464.22)",
+     "3701.92"
+    ],
+    "values": [
+     -2464.22,
+     3701.92
+    ],
+    "metric": null
+   },
+   {
+    "label": "Add: Tax on net movement in regulatory deferral account balances",
+    "y": 189.0,
+    "printed": [
+     "(540.97)",
+     "792.67"
+    ],
+    "values": [
+     -540.97,
+     792.67
+    ],
+    "metric": null
+   },
+   {
+    "label": "Profit before tax including movements in regulatory deferral account balances",
+    "is_total": true,
+    "y": 197.3,
+    "printed": [
+     "24128.37",
+     "32991.00"
+    ],
+    "values": [
+     24128.37,
+     32991.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Depreciation, amortisation and impairment expense",
+    "y": 222.1,
+    "printed": [
+     "19629.33",
+     "17401.19"
+    ],
+    "values": [
+     19629.33,
+     17401.19
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "Adjustment: Provisions",
+    "y": 230.1,
+    "printed": [
+     "1106.84",
+     "581.79"
+    ],
+    "values": [
+     1106.84,
+     581.79
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Share of net profits of joint ventures accounted for using equity method",
+    "y": 238.7,
+    "printed": [
+     "(2864.10)",
+     "(2213.71)"
+    ],
+    "values": [
+     -2864.1,
+     -2213.71
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Adjustment: On account of government grants",
+    "y": 246.6,
+    "printed": [
+     "(147.83)",
+     "(122.69)"
+    ],
+    "values": [
+     -147.83,
+     -122.69
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Deferred foreign currency fluctuation asset",
+    "y": 254.5,
+    "printed": [
+     "610.90",
+     "576.02"
+    ],
+    "values": [
+     610.9,
+     576.02
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Deferred income from foreign currency fluctuation",
+    "y": 262.5,
+    "printed": [
+     "259.66",
+     "173.77"
+    ],
+    "values": [
+     259.66,
+     173.77
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Regulatory deferral account debit balances",
+    "y": 270.7,
+    "printed": [
+     "3005.19",
+     "(4494.59)"
+    ],
+    "values": [
+     3005.19,
+     -4494.59
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Fly ash utilisation reserve fund",
+    "y": 279.0,
+    "printed": [
+     "(764.15)",
+     "304.61"
+    ],
+    "values": [
+     -764.15,
+     304.61
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Finance costs",
+    "y": 286.9,
+    "printed": [
+     "13652.75",
+     "13047.74"
+    ],
+    "values": [
+     13652.75,
+     13047.74
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Adjustment: Unwinding of discount on vendor liabilities",
+    "y": 295.2,
+    "printed": [
+     "148.14",
+     "120.33"
+    ],
+    "values": [
+     148.14,
+     120.33
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Loss on fair valuation of non-current trade receivables at amortized cost",
+    "y": 303.1,
+    "printed": [
+     "89.90",
+     "-"
+    ],
+    "values": [
+     89.9,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Interest income/Late payment Surcharge/Gain on sale of investments",
+    "y": 311.4,
+    "printed": [
+     "(1071.62)",
+     "(958.54)"
+    ],
+    "values": [
+     -1071.62,
+     -958.54
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Dividend income",
+    "y": 319.7,
+    "printed": [
+     "(18.14)",
+     "(9.80)"
+    ],
+    "values": [
+     -18.14,
+     -9.8
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Provisions written back",
+    "y": 328.0,
+    "printed": [
+     "(208.00)",
+     "(619.07)"
+    ],
+    "values": [
+     -208.0,
+     -619.07
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Gain on option contract/hedging",
+    "y": 335.9,
+    "printed": [
+     "(11.05)",
+     "(1.35)"
+    ],
+    "values": [
+     -11.05,
+     -1.35
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Other non cash miscellaneous income",
+    "y": 343.8,
+    "printed": [
+     "(33.18)",
+     "(187.97)"
+    ],
+    "values": [
+     -33.18,
+     -187.97
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Profit on de-recognition of property, plant and equipment",
+    "y": 351.7,
+    "printed": [
+     "(5.19)",
+     "(36.48)"
+    ],
+    "values": [
+     -5.19,
+     -36.48
+    ],
+    "metric": null
+   },
+   {
+    "label": "Adjustment: Loss on de-recognition of property, plant and equipment",
+    "y": 360.0,
+    "printed": [
+     "256.18",
+     "219.53"
+    ],
+    "values": [
+     256.18,
+     219.53
+    ],
+    "metric": null
+   },
+   {
+    "label": "[Total adjustments -- unlabelled subtotal]",
+    "is_total": true,
+    "unlabelled": true,
+    "y": 367.6,
+    "printed": [
+     "33635.63",
+     "23780.78"
+    ],
+    "values": [
+     33635.63,
+     23780.78
+    ],
+    "metric": null
+   },
+   {
+    "label": "Operating profit before working capital changes",
+    "is_total": true,
+    "y": 378.4,
+    "printed": [
+     "57764.00",
+     "56771.78"
+    ],
+    "values": [
+     57764.0,
+     56771.78
+    ],
+    "metric": "operating_profit_before_wc_changes"
+   },
+   {
+    "label": "Working capital adjustment: Trade receivables",
+    "y": 402.9,
+    "printed": [
+     "(2369.30)",
+     "(1976.89)"
+    ],
+    "values": [
+     -2369.3,
+     -1976.89
+    ],
+    "metric": null
+   },
+   {
+    "label": "Working capital adjustment: Inventories",
+    "y": 411.1,
+    "printed": [
+     "1482.10",
+     "676.88"
+    ],
+    "values": [
+     1482.1,
+     676.88
+    ],
+    "metric": null
+   },
+   {
+    "label": "Working capital adjustment: Trade payables, provisions, other financial liabilities and other liabilities",
+    "y": 419.1,
+    "printed": [
+     "482.31",
+     "2440.05"
+    ],
+    "values": [
+     482.31,
+     2440.05
+    ],
+    "metric": null
+   },
+   {
+    "label": "Working capital adjustment: Loans, other financial assets and other assets",
+    "y": 427.3,
+    "printed": [
+     "(2873.08)",
+     "(3109.76)"
+    ],
+    "values": [
+     -2873.08,
+     -3109.76
+    ],
+    "metric": null
+   },
+   {
+    "label": "[Working capital adjustments -- unlabelled subtotal]",
+    "is_total": true,
+    "unlabelled": true,
+    "y": 434.6,
+    "printed": [
+     "(3277.97)",
+     "(1969.72)"
+    ],
+    "values": [
+     -3277.97,
+     -1969.72
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cash generated from operations",
+    "is_total": true,
+    "y": 451.8,
+    "printed": [
+     "54486.03",
+     "54802.06"
+    ],
+    "values": [
+     54486.03,
+     54802.06
+    ],
+    "metric": "cash_generated_from_operations"
+   },
+   {
+    "label": "Income taxes (paid) / refunded",
+    "y": 459.7,
+    "printed": [
+     "(3584.22)",
+     "(4314.22)"
+    ],
+    "values": [
+     -3584.22,
+     -4314.22
+    ],
+    "metric": "income_taxes_paid"
+   },
+   {
+    "label": "Net cash from/(used in) operating activities - A",
+    "is_total": true,
+    "y": 468.0,
+    "printed": [
+     "50901.81",
+     "50487.84"
+    ],
+    "values": [
+     50901.81,
+     50487.84
+    ],
+    "metric": "operating_cash_flow"
+   },
+   {
+    "label": "Purchase of property, plant and equipment & intangible assets",
+    "y": 492.1,
+    "printed": [
+     "(44049.78)",
+     "(41335.25)"
+    ],
+    "values": [
+     -44049.78,
+     -41335.25
+    ],
+    "metric": "capex"
+   },
+   {
+    "label": "Proceeds of property, plant and equipment & intangible assets",
+    "y": 500.1,
+    "printed": [
+     "42.91",
+     "278.32"
+    ],
+    "values": [
+     42.91,
+     278.32
+    ],
+    "metric": "proceeds_from_sale_of_ppe"
+   },
+   {
+    "label": "Redemption of non-convertible debentures",
+    "y": 508.3,
+    "printed": [
+     "50.00",
+     "50.00"
+    ],
+    "values": [
+     50.0,
+     50.0
+    ],
+    "metric": "proceeds_from_sale_of_investments"
+   },
+   {
+    "label": "Investment in joint venture companies (Net)",
+    "y": 516.6,
+    "printed": [
+     "295.38",
+     "(1789.89)"
+    ],
+    "values": [
+     295.38,
+     -1789.89
+    ],
+    "metric": null
+   },
+   {
+    "label": "Investing: Interest income/Late payment Surcharge/Gain on sale of investments",
+    "y": 524.5,
+    "printed": [
+     "932.51",
+     "767.70"
+    ],
+    "values": [
+     932.51,
+     767.7
+    ],
+    "metric": null
+   },
+   {
+    "label": "Government grant received",
+    "y": 532.5,
+    "printed": [
+     "295.94",
+     "599.10"
+    ],
+    "values": [
+     295.94,
+     599.1
+    ],
+    "metric": null
+   },
+   {
+    "label": "Dividend received from other investments",
+    "y": 540.4,
+    "printed": [
+     "18.14",
+     "9.80"
+    ],
+    "values": [
+     18.14,
+     9.8
+    ],
+    "metric": "dividends_received"
+   },
+   {
+    "label": "Income tax paid on income from investing activities",
+    "y": 548.7,
+    "printed": [
+     "(499.82)",
+     "(465.95)"
+    ],
+    "values": [
+     -499.82,
+     -465.95
+    ],
+    "metric": "income_taxes_paid"
+   },
+   {
+    "label": "Bank balances other than cash and cash equivalents",
+    "y": 556.9,
+    "printed": [
+     "5336.34",
+     "(3965.45)"
+    ],
+    "values": [
+     5336.34,
+     -3965.45
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net cash from/(used in) investing activities - B",
+    "is_total": true,
+    "y": 564.9,
+    "printed": [
+     "(37578.38)",
+     "(45851.62)"
+    ],
+    "values": [
+     -37578.38,
+     -45851.62
+    ],
+    "metric": "investing_cash_flow"
+   },
+   {
+    "label": "Proceeds from non-current borrowings",
+    "y": 589.3,
+    "printed": [
+     "42132.61",
+     "35467.07"
+    ],
+    "values": [
+     42132.61,
+     35467.07
+    ],
+    "metric": "proceeds_from_borrowings"
+   },
+   {
+    "label": "Repayment of non-current borrowings",
+    "y": 597.3,
+    "printed": [
+     "(35582.51)",
+     "(29113.42)"
+    ],
+    "values": [
+     -35582.51,
+     -29113.42
+    ],
+    "metric": "repayment_of_borrowings"
+   },
+   {
+    "label": "Proceeds from Securities premium (Net of expense)",
+    "y": 605.5,
+    "printed": [
+     "-",
+     "9,026.00"
+    ],
+    "values": [
+     "nil",
+     9026.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Proceeds / repayment of current borrowings (Net)",
+    "y": 613.8,
+    "printed": [
+     "8617.20",
+     "6764.76"
+    ],
+    "values": [
+     8617.2,
+     6764.76
+    ],
+    "metric": null
+   },
+   {
+    "label": "Payment of lease liabilities",
+    "y": 622.1,
+    "printed": [
+     "(209.72)",
+     "(138.68)"
+    ],
+    "values": [
+     -209.72,
+     -138.68
+    ],
+    "metric": "lease_payments"
+   },
+   {
+    "label": "Financing: Gain on option contract / hedging",
+    "y": 630.4,
+    "printed": [
+     "11.05",
+     "1.35"
+    ],
+    "values": [
+     11.05,
+     1.35
+    ],
+    "metric": null
+   },
+   {
+    "label": "Interest paid",
+    "y": 638.3,
+    "printed": [
+     "(17537.73)",
+     "(17873.54)"
+    ],
+    "values": [
+     -17537.73,
+     -17873.54
+    ],
+    "metric": "interest_paid"
+   },
+   {
+    "label": "Dividend paid",
+    "y": 646.2,
+    "printed": [
+     "(8759.26)",
+     "(8206.54)"
+    ],
+    "values": [
+     -8759.26,
+     -8206.54
+    ],
+    "metric": "dividends_paid"
+   },
+   {
+    "label": "Net cash from/(used in) financing activities - C",
+    "is_total": true,
+    "y": 654.2,
+    "printed": [
+     "(11328.36)",
+     "(4073.00)"
+    ],
+    "values": [
+     -11328.36,
+     -4073.0
+    ],
+    "metric": "financing_cash_flow"
+   },
+   {
+    "label": "Net increase/(decrease) in cash and cash equivalents (A+B+C)",
+    "is_total": true,
+    "y": 678.7,
+    "printed": [
+     "1995.07",
+     "563.22"
+    ],
+    "values": [
+     1995.07,
+     563.22
+    ],
+    "metric": "net_change_in_cash"
+   },
+   {
+    "label": "Cash and cash equivalents at the beginning of the year",
+    "stock": true,
+    "y": 686.6,
+    "printed": [
+     "1426.56",
+     "863.34"
+    ],
+    "values": [
+     1426.56,
+     863.34
+    ],
+    "metric": "cash_at_beginning"
+   },
+   {
+    "label": "Cash and cash equivalents at the end of the year",
+    "stock": true,
+    "is_total": true,
+    "y": 694.5,
+    "printed": [
+     "3421.63",
+     "1426.56"
+    ],
+    "values": [
+     3421.63,
+     1426.56
+    ],
+    "metric": "cash_at_end"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Profit before tax including movements in regulatory deferral account balances",
+    "plus": [
+     "Profit before tax and regulatory deferral account balances",
+     "Add: Net movement in regulatory deferral account balances (net of tax)",
+     "Add: Tax on net movement in regulatory deferral account balances"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "[Total adjustments -- unlabelled subtotal]",
+    "plus": [
+     "Adjustment: Depreciation, amortisation and impairment expense",
+     "Adjustment: Provisions",
+     "Adjustment: Share of net profits of joint ventures accounted for using equity method",
+     "Adjustment: On account of government grants",
+     "Adjustment: Deferred foreign currency fluctuation asset",
+     "Adjustment: Deferred income from foreign currency fluctuation",
+     "Adjustment: Regulatory deferral account debit balances",
+     "Adjustment: Fly ash utilisation reserve fund",
+     "Adjustment: Finance costs",
+     "Adjustment: Unwinding of discount on vendor liabilities",
+     "Adjustment: Loss on fair valuation of non-current trade receivables at amortized cost",
+     "Adjustment: Interest income/Late payment Surcharge/Gain on sale of investments",
+     "Adjustment: Dividend income",
+     "Adjustment: Provisions written back",
+     "Adjustment: Gain on option contract/hedging",
+     "Adjustment: Other non cash miscellaneous income",
+     "Adjustment: Profit on de-recognition of property, plant and equipment",
+     "Adjustment: Loss on de-recognition of property, plant and equipment"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Operating profit before working capital changes",
+    "plus": [
+     "Profit before tax including movements in regulatory deferral account balances",
+     "[Total adjustments -- unlabelled subtotal]"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "[Working capital adjustments -- unlabelled subtotal]",
+    "plus": [
+     "Working capital adjustment: Trade receivables",
+     "Working capital adjustment: Inventories",
+     "Working capital adjustment: Trade payables, provisions, other financial liabilities and other liabilities",
+     "Working capital adjustment: Loans, other financial assets and other assets"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Cash generated from operations",
+    "plus": [
+     "Operating profit before working capital changes",
+     "[Working capital adjustments -- unlabelled subtotal]"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Net cash from/(used in) operating activities - A",
+    "plus": [
+     "Cash generated from operations",
+     "Income taxes (paid) / refunded"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Net cash from/(used in) investing activities - B",
+    "plus": [
+     "Purchase of property, plant and equipment & intangible assets",
+     "Proceeds of property, plant and equipment & intangible assets",
+     "Redemption of non-convertible debentures",
+     "Investment in joint venture companies (Net)",
+     "Investing: Interest income/Late payment Surcharge/Gain on sale of investments",
+     "Government grant received",
+     "Dividend received from other investments",
+     "Income tax paid on income from investing activities",
+     "Bank balances other than cash and cash equivalents"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Net cash from/(used in) financing activities - C",
+    "plus": [
+     "Proceeds from non-current borrowings",
+     "Repayment of non-current borrowings",
+     "Proceeds from Securities premium (Net of expense)",
+     "Proceeds / repayment of current borrowings (Net)",
+     "Payment of lease liabilities",
+     "Financing: Gain on option contract / hedging",
+     "Interest paid",
+     "Dividend paid"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Net increase/(decrease) in cash and cash equivalents (A+B+C)",
+    "plus": [
+     "Net cash from/(used in) operating activities - A",
+     "Net cash from/(used in) investing activities - B",
+     "Net cash from/(used in) financing activities - C"
+    ],
+    "tolerance": 0.05
+   },
+   {
+    "target": "Cash and cash equivalents at the end of the year",
+    "plus": [
+     "Cash and cash equivalents at the beginning of the year",
+     "Net increase/(decrease) in cash and cash equivalents (A+B+C)"
+    ],
+    "tolerance": 0.05
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a bracket read as '1' ('(2873.08)' reported as 12873.08)",
+   "profit before tax including regulatory deferral movements reported as profit before tax",
+   "a working-capital movement reported as a balance",
+   "the FY25 column's figure reported for FY26"
+  ]
+ }
+}

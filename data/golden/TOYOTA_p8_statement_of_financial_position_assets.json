@@ -1,0 +1,503 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "IFRS condensed quarterly statements of a JAPANESE filer, in YEN MILLIONS, each line rounded on its own (subtotals may differ from the sum of printed lines by a few million; identity tolerance 3). Toyota fiscal",
+  "year ends March 31: 'FY2027 First Quarter' is April 1 - June 30, 2026. A nil is printed",
+  "as a FULLWIDTH dash ('－'), not '-'. Native page; figures from the text layer.",
+  "Balances at March 31, 2026 (the previous year end) and June 30, 2026, OLDEST",
+  "FIRST. A 'Subtotal' line precedes assets held for sale (metric null). Property,",
+  "plant and equipment is printed at cost by class, less accumulated depreciation.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "TOYOTA",
+ "document": "src/TOYOTA_FY2027_1Q_financial_summary.pdf",
+ "issuer": "Toyota Motor Corporation",
+ "page": 8,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text and the statements' own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Unaudited Condensed Quarterly Consolidated Statement of Financial Position (assets)",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": "Consolidated",
+  "basis_evidence": "title '... Consolidated Statement of Financial Position'",
+  "unit_declaration": {
+   "text": "Yen in millions",
+   "unit": "million",
+   "currency": "JPY",
+   "scope": "table",
+   "placement": "top-right, above the columns"
+  },
+  "bbox_pt": [
+   50,
+   135,
+   560,
+   632
+  ],
+  "bbox_rel": [
+   0.084,
+   0.1603,
+   0.9407,
+   0.7507
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "March 31, 2026"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Mar 2026"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "June 30, 2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Current assets: Cash and cash equivalents",
+    "y": 200.2,
+    "printed": [
+     "12,659,622",
+     "10,343,085"
+    ],
+    "values": [
+     12659622.0,
+     10343085.0
+    ],
+    "metric": "cash_and_equivalents"
+   },
+   {
+    "label": "Current assets: Trade accounts and other receivables",
+    "y": 215.2,
+    "printed": [
+     "3,795,986",
+     "4,019,645"
+    ],
+    "values": [
+     3795986.0,
+     4019645.0
+    ],
+    "metric": "receivables"
+   },
+   {
+    "label": "Current assets: Receivables related to financial services",
+    "y": 230.2,
+    "printed": [
+     "13,478,474",
+     "14,086,337"
+    ],
+    "values": [
+     13478474.0,
+     14086337.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current assets: Other financial assets",
+    "y": 245.4,
+    "printed": [
+     "3,982,445",
+     "3,007,476"
+    ],
+    "values": [
+     3982445.0,
+     3007476.0
+    ],
+    "metric": "other_financial_assets"
+   },
+   {
+    "label": "Current assets: Inventories",
+    "y": 260.2,
+    "printed": [
+     "5,134,996",
+     "5,469,806"
+    ],
+    "values": [
+     5134996.0,
+     5469806.0
+    ],
+    "metric": "inventory"
+   },
+   {
+    "label": "Current assets: Income tax receivable",
+    "y": 275.2,
+    "printed": [
+     "235,425",
+     "235,285"
+    ],
+    "values": [
+     235425.0,
+     235285.0
+    ],
+    "metric": "current_tax_assets"
+   },
+   {
+    "label": "Current assets: Other current assets",
+    "y": 290.2,
+    "printed": [
+     "1,520,330",
+     "1,560,257"
+    ],
+    "values": [
+     1520330.0,
+     1560257.0
+    ],
+    "metric": "other_current_assets"
+   },
+   {
+    "label": "Current assets: Subtotal",
+    "is_total": true,
+    "y": 305.8,
+    "printed": [
+     "40,807,277",
+     "38,721,891"
+    ],
+    "values": [
+     40807277.0,
+     38721891.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current assets: Assets held for sale",
+    "y": 321.3,
+    "printed": [
+     "2,016,804",
+     "130,922"
+    ],
+    "values": [
+     2016804.0,
+     130922.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total current assets",
+    "is_total": true,
+    "y": 336.8,
+    "printed": [
+     "42,824,081",
+     "38,852,813"
+    ],
+    "values": [
+     42824081.0,
+     38852813.0
+    ],
+    "metric": "current_assets"
+   },
+   {
+    "label": "Non-current assets: Investments accounted for using the equity method",
+    "y": 367.3,
+    "printed": [
+     "5,342,548",
+     "5,539,499"
+    ],
+    "values": [
+     5342548.0,
+     5539499.0
+    ],
+    "metric": "investments_equity_method"
+   },
+   {
+    "label": "Non-current assets: Receivables related to financial services",
+    "y": 382.3,
+    "printed": [
+     "25,488,182",
+     "26,205,839"
+    ],
+    "values": [
+     25488182.0,
+     26205839.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Non-current assets: Other financial assets",
+    "y": 397.3,
+    "printed": [
+     "11,135,799",
+     "11,050,857"
+    ],
+    "values": [
+     11135799.0,
+     11050857.0
+    ],
+    "metric": "other_financial_assets"
+   },
+   {
+    "label": "PPE: Land",
+    "y": 427.3,
+    "printed": [
+     "1,351,625",
+     "1,363,545"
+    ],
+    "values": [
+     1351625.0,
+     1363545.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "PPE: Buildings",
+    "y": 442.3,
+    "printed": [
+     "6,284,907",
+     "6,637,925"
+    ],
+    "values": [
+     6284907.0,
+     6637925.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "PPE: Machinery and equipment",
+    "y": 457.3,
+    "printed": [
+     "17,509,377",
+     "17,683,383"
+    ],
+    "values": [
+     17509377.0,
+     17683383.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "PPE: Vehicles and equipment on operating leases",
+    "y": 472.3,
+    "printed": [
+     "9,705,647",
+     "9,997,684"
+    ],
+    "values": [
+     9705647.0,
+     9997684.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "PPE: Construction in progress",
+    "y": 487.3,
+    "printed": [
+     "1,719,808",
+     "1,530,026"
+    ],
+    "values": [
+     1719808.0,
+     1530026.0
+    ],
+    "metric": "capital_work_in_progress"
+   },
+   {
+    "label": "Total property, plant and equipment, at cost",
+    "is_total": true,
+    "y": 502.8,
+    "printed": [
+     "36,571,364",
+     "37,212,563"
+    ],
+    "values": [
+     36571364.0,
+     37212563.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Less - Accumulated depreciation and impairment losses",
+    "y": 518.2,
+    "printed": [
+     "(19,504,000)",
+     "(19,856,144)"
+    ],
+    "values": [
+     -19504000.0,
+     -19856144.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total property, plant and equipment, net",
+    "is_total": true,
+    "y": 533.8,
+    "printed": [
+     "17,067,365",
+     "17,356,419"
+    ],
+    "values": [
+     17067365.0,
+     17356419.0
+    ],
+    "metric": "ppe"
+   },
+   {
+    "label": "Right of use assets",
+    "y": 549.3,
+    "printed": [
+     "901,232",
+     "881,373"
+    ],
+    "values": [
+     901232.0,
+     881373.0
+    ],
+    "metric": "right_of_use_assets"
+   },
+   {
+    "label": "Intangible assets",
+    "y": 564.3,
+    "printed": [
+     "1,392,755",
+     "1,367,455"
+    ],
+    "values": [
+     1392755.0,
+     1367455.0
+    ],
+    "metric": "intangible_assets"
+   },
+   {
+    "label": "Deferred tax assets",
+    "y": 579.3,
+    "printed": [
+     "555,596",
+     "588,659"
+    ],
+    "values": [
+     555596.0,
+     588659.0
+    ],
+    "metric": "deferred_tax_assets"
+   },
+   {
+    "label": "Other non-current assets",
+    "y": 594.3,
+    "printed": [
+     "814,773",
+     "792,202"
+    ],
+    "values": [
+     814773.0,
+     792202.0
+    ],
+    "metric": "other_non_current_assets"
+   },
+   {
+    "label": "Total non-current assets",
+    "is_total": true,
+    "y": 609.8,
+    "printed": [
+     "62,698,250",
+     "63,782,303"
+    ],
+    "values": [
+     62698250.0,
+     63782303.0
+    ],
+    "metric": "non_current_assets"
+   },
+   {
+    "label": "Total assets",
+    "is_total": true,
+    "y": 625.3,
+    "printed": [
+     "105,522,331",
+     "102,635,116"
+    ],
+    "values": [
+     105522331.0,
+     102635116.0
+    ],
+    "metric": "total_assets"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Current assets: Subtotal",
+    "plus": [
+     "Current assets: Cash and cash equivalents",
+     "Current assets: Trade accounts and other receivables",
+     "Current assets: Receivables related to financial services",
+     "Current assets: Other financial assets",
+     "Current assets: Inventories",
+     "Current assets: Income tax receivable",
+     "Current assets: Other current assets"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total current assets",
+    "plus": [
+     "Current assets: Subtotal",
+     "Current assets: Assets held for sale"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total property, plant and equipment, at cost",
+    "plus": [
+     "PPE: Land",
+     "PPE: Buildings",
+     "PPE: Machinery and equipment",
+     "PPE: Vehicles and equipment on operating leases",
+     "PPE: Construction in progress"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total property, plant and equipment, net",
+    "plus": [
+     "Total property, plant and equipment, at cost",
+     "Less - Accumulated depreciation and impairment losses"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total non-current assets",
+    "plus": [
+     "Non-current assets: Investments accounted for using the equity method",
+     "Non-current assets: Receivables related to financial services",
+     "Non-current assets: Other financial assets",
+     "Total property, plant and equipment, net",
+     "Right of use assets",
+     "Intangible assets",
+     "Deferred tax assets",
+     "Other non-current assets"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total assets",
+    "plus": [
+     "Total current assets",
+     "Total non-current assets"
+    ],
+    "tolerance": 3.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "yen millions reported as another currency or magnitude",
+   "the gross cost of PPE reported as PPE",
+   "the March 31, 2026 column (printed first) reported as June 30, 2026"
+  ]
+ }
+}

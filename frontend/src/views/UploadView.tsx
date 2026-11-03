@@ -197,12 +197,26 @@ export function UploadView() {
                               ))}
                             </ul>
                           )}
-                          <button
-                            className="btn-primary btn-sm mt-2"
-                            onClick={() => navigate(`/documents/${job.documentId}`)}
-                          >
-                            Track processing
-                          </button>
+                          <div className="flex items-center gap-2 mt-2">
+                            <button
+                              className="btn-primary"
+                              onClick={() => navigate(`/documents/${job.documentId}`)}
+                            >
+                              View progress
+                            </button>
+                            <button
+                              className="btn-ghost"
+                              onClick={() => navigate("/documents")}
+                            >
+                              All documents
+                            </button>
+                          </div>
+                          <p className="text-2xs text-ink-400 mt-2 leading-relaxed">
+                            Processing continues in the background. You can leave
+                            this page — the document is in{" "}
+                            <span className="text-ink-200">Documents</span> and
+                            keeps its progress.
+                          </p>
                         </div>
                       )}
                       {job.phase === "error" && (
@@ -210,7 +224,7 @@ export function UploadView() {
                           <p className="text-2xs text-fail-400">{job.error}</p>
                           {typeof job.detail?.document_id === "string" && (
                             <button
-                              className="btn-ghost btn-sm mt-2"
+                              className="btn-ghost mt-2"
                               onClick={() =>
                                 navigate(`/documents/${job.detail!.document_id}`)
                               }

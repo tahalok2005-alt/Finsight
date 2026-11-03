@@ -118,7 +118,10 @@ export function ValidationTab({
         </div>
 
         {data.items.length === 0 ? (
-          <Empty title="No validation results match these filters" />
+          <Empty
+            title="No checks match these filters"
+            hint="Clear a filter above to see the rest of this document's validation results."
+          />
         ) : (
           <div className="space-y-2">
             {data.items.map((v) => (

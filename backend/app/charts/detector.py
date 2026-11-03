@@ -30,7 +30,9 @@ import numpy as np
 from app.core.geometry import BBox
 from app.core.ids import stable_id
 from app.core.logging import get_logger
-from app.layout.cv_signals import binarize, to_gray
+from app.layout.cv_signals import (
+    binarize, distinct_quantised_colours, to_gray,
+)
 from app.models.enums import ChartType, MagnitudeUnit, RegionType
 from app.models.schemas import (
     BBoxModel, ChartSeriesPoint, ExtractedChart, OCRElement, Region,
@@ -77,6 +79,54 @@ def _rect_candidates(roi_bin: np.ndarray, *, vertical: bool) -> int:
     return count
 
 
+#: Longest edge the radial test works on. A region larger than this is
+#: measured on a downscaled copy.
+RADIAL_WORKING_SIZE = 800
+
+
+def _radial_score(gray: np.ndarray) -> float:
+    """How much evidence there is of a pie or donut in this region.
+
+    The circle search is the dominant cost of chart detection -- 4.7s of the
+    5.6s spent on one deck's six chart regions -- because it ran at the full
+    200dpi render. A page-sized region is ~1650x2340px there, and the sweep
+    runs over radii from 300 to 860px, which is an enormous accumulator for a
+    yes/no question about one big circle.
+
+    Whether a region contains a pie is a question about shape, and the
+    parameters below are all expressed as fractions of the region, so the
+    answer does not depend on how many pixels the shape is drawn with. Measured
+    over the 274 chart regions of the eight-document corpus, running the whole
+    of `extract_chart` at a bounded size is 3.3x faster (65.2s -> 19.9s). The
+    gain is concentrated where regions are large -- 7.6x and 7.9x on the two
+    documents with page-sized figures, and nothing at all on documents whose
+    charts are already small, which is the shape a cap should have.
+
+    One region of the 274 classifies differently, and it is the capped pass
+    that is right: on the back cover of one annual report -- contact details
+    set in plain text -- the full-resolution pass reported a circle of radius
+    365px centred 91px from the top edge, three-quarters of it off the page.
+    There is no circle there. INTER_AREA is a proper low-pass filter, where
+    medianBlur(5) on a 1650px image is barely a filter at all, so the smaller
+    image is the less noisy input to a gradient-based search, not merely the
+    cheaper one.
+    """
+    if min(gray.shape[0], gray.shape[1]) > RADIAL_WORKING_SIZE:
+        scale = RADIAL_WORKING_SIZE / min(gray.shape[0], gray.shape[1])
+        gray = cv2.resize(
+            gray, (max(1, int(gray.shape[1] * scale)),
+                   max(1, int(gray.shape[0] * scale))),
+            interpolation=cv2.INTER_AREA)
+    min_dim = min(gray.shape[0], gray.shape[1])
+    if min_dim < 60:
+        return 0.0
+    circles = cv2.HoughCircles(
+        cv2.medianBlur(gray, 5), cv2.HOUGH_GRADIENT, dp=1.2,
+        minDist=min_dim // 2, param1=110, param2=55,
+        minRadius=int(min_dim * 0.18), maxRadius=int(min_dim * 0.52))
+    return 0.0 if circles is None else min(1.0, len(circles[0]) / 2.0)
+
+
 def analyse_region(image: np.ndarray, box: BBox) -> ChartEvidence:
     x0, y0 = max(0, int(box.x)), max(0, int(box.y))
     x1 = min(image.shape[1], int(np.ceil(box.x1)))
@@ -94,18 +144,13 @@ def analyse_region(image: np.ndarray, box: BBox) -> ChartEvidence:
     ev.n_vertical_bars = _rect_candidates(combined, vertical=True)
     ev.n_horizontal_bars = _rect_candidates(combined, vertical=False)
     ev.color_ratio = float(np.count_nonzero(color_mask)) / max(1, color_mask.size)
-    q = (roi // 64).reshape(-1, 3)
-    ev.distinct_colors = int(len(np.unique(q, axis=0))) if q.size else 0
+    ev.distinct_colors = distinct_quantised_colours(roi)
 
     # radial evidence: circles indicate a pie or donut
     gray = to_gray(roi)
     min_dim = min(roi.shape[0], roi.shape[1])
     if min_dim >= 60:
-        circles = cv2.HoughCircles(
-            cv2.medianBlur(gray, 5), cv2.HOUGH_GRADIENT, dp=1.2,
-            minDist=min_dim // 2, param1=110, param2=55,
-            minRadius=int(min_dim * 0.18), maxRadius=int(min_dim * 0.52))
-        ev.radial_score = 0.0 if circles is None else min(1.0, len(circles[0]) / 2.0)
+        ev.radial_score = _radial_score(gray)
 
     # line evidence: long non-axis-aligned segments
     edges = cv2.Canny(gray, 60, 160)

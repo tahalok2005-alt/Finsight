@@ -1,0 +1,411 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A native earnings-release table (rupee sign rendered as a backtick). Indian grouping (13,72,936). The '% Growth' column compares the two periods and is not a fact about either; it is excluded. The release's note: amounts 'may not add-up due to rounding off'.",
+  "Balances at two dates. CASA 'on a Quarterly Daily Average Basis (QAB)' is an AVERAGE,",
+  "a differently measured figure from the period-end CASA (metric null for both QAB rows).",
+  "Corporate / SME / Retail are segments of net advances (metric null).",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "AXIS_PR",
+ "document": "src/AXIS_Q1FY27_results.pdf",
+ "issuer": "Axis Bank Limited",
+ "page": 8,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Business Performance",
+  "statement": "kpi",
+  "nature": "point_in_time",
+  "basis": null,
+  "basis_evidence": "not stated on the table",
+  "unit_declaration": {
+   "text": "₹ crores",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   36,
+   96,
+   560,
+   560
+  ],
+  "bbox_rel": [
+   0.0588,
+   0.1212,
+   0.915,
+   0.7071
+  ],
+  "page_height_pt": 792,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "As on",
+    "header_lines": [
+     "30th June’26"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026"
+   },
+   {
+    "id": "c2",
+    "group": "As on",
+    "header_lines": [
+     "30th June’25"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2025"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Total Deposits (i)+(ii)",
+    "is_total": true,
+    "y": 149.0,
+    "printed": [
+     "13,72,936",
+     "11,61,615"
+    ],
+    "values": [
+     1372936.0,
+     1161615.0
+    ],
+    "metric": "total_deposits"
+   },
+   {
+    "label": "(i) CASA Deposits",
+    "y": 176.4,
+    "printed": [
+     "5,21,698",
+     "4,68,166"
+    ],
+    "values": [
+     521698.0,
+     468166.0
+    ],
+    "metric": "casa_deposits"
+   },
+   {
+    "label": "CASA: Savings Bank Deposits",
+    "y": 190.1,
+    "printed": [
+     "3,48,312",
+     "3,05,133"
+    ],
+    "values": [
+     348312.0,
+     305133.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "CASA: Current Account Deposits",
+    "y": 203.9,
+    "printed": [
+     "1,73,386",
+     "1,63,033"
+    ],
+    "values": [
+     173386.0,
+     163033.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "CASA Deposits as % of Total Deposits",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 217.6,
+    "printed": [
+     "38",
+     "40"
+    ],
+    "values": [
+     38.0,
+     40.0
+    ],
+    "metric": "casa_ratio"
+   },
+   {
+    "label": "(ii) Term Deposits",
+    "y": 245.2,
+    "printed": [
+     "8,51,238",
+     "6,93,449"
+    ],
+    "values": [
+     851238.0,
+     693449.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "CASA Deposits on a Quarterly Daily Average Basis (QAB)",
+    "y": 272.7,
+    "printed": [
+     "4,81,452",
+     "4,24,272"
+    ],
+    "values": [
+     481452.0,
+     424272.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "CASA Deposits as % of Total Deposits (QAB)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 286.4,
+    "printed": [
+     "37",
+     "38"
+    ],
+    "values": [
+     37.0,
+     38.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net Advances (a)+(b)+(c)",
+    "is_total": true,
+    "y": 314.0,
+    "printed": [
+     "12,61,557",
+     "10,59,724"
+    ],
+    "values": [
+     1261557.0,
+     1059724.0
+    ],
+    "metric": "advances"
+   },
+   {
+    "label": "Net Advances (a) Corporate",
+    "y": 327.7,
+    "printed": [
+     "4,34,392",
+     "3,15,892"
+    ],
+    "values": [
+     434392.0,
+     315892.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net Advances (b) SME",
+    "y": 341.5,
+    "printed": [
+     "1,51,619",
+     "1,20,872"
+    ],
+    "values": [
+     151619.0,
+     120872.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net Advances (c) Retail",
+    "y": 355.1,
+    "printed": [
+     "6,75,546",
+     "6,22,960"
+    ],
+    "values": [
+     675546.0,
+     622960.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Investments",
+    "y": 382.6,
+    "printed": [
+     "4,38,955",
+     "3,60,641"
+    ],
+    "values": [
+     438955.0,
+     360641.0
+    ],
+    "metric": "investments"
+   },
+   {
+    "label": "Balance Sheet Size",
+    "y": 410.2,
+    "printed": [
+     "19,21,966",
+     "16,03,308"
+    ],
+    "values": [
+     1921966.0,
+     1603308.0
+    ],
+    "metric": "total_assets"
+   },
+   {
+    "label": "Gross NPA as % of Gross Customer Assets",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 437.7,
+    "printed": [
+     "1.28",
+     "1.57"
+    ],
+    "values": [
+     1.28,
+     1.57
+    ],
+    "metric": "gross_npa_ratio"
+   },
+   {
+    "label": "Net NPA as % of Net Customer Assets",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 451.4,
+    "printed": [
+     "0.39",
+     "0.45"
+    ],
+    "values": [
+     0.39,
+     0.45
+    ],
+    "metric": "net_npa_ratio"
+   },
+   {
+    "label": "Equity Capital",
+    "y": 479.0,
+    "printed": [
+     "622",
+     "620"
+    ],
+    "values": [
+     622.0,
+     620.0
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Shareholders’ Funds",
+    "y": 492.7,
+    "printed": [
+     "2,11,693",
+     "1,84,795"
+    ],
+    "values": [
+     211693.0,
+     184795.0
+    ],
+    "metric": "net_worth"
+   },
+   {
+    "label": "Capital Adequacy Ratio (Basel III)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 520.2,
+    "printed": [
+     "16.67",
+     "16.85"
+    ],
+    "values": [
+     16.67,
+     16.85
+    ],
+    "metric": "capital_adequacy_ratio"
+   },
+   {
+    "label": "Capital Adequacy Ratio: Tier I",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 534.0,
+    "printed": [
+     "15.35",
+     "15.10"
+    ],
+    "values": [
+     15.35,
+     15.1
+    ],
+    "metric": "tier_1_ratio"
+   },
+   {
+    "label": "Capital Adequacy Ratio: Tier II",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 547.6,
+    "printed": [
+     "1.32",
+     "1.75"
+    ],
+    "values": [
+     1.32,
+     1.75
+    ],
+    "metric": "tier_2_ratio"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total Deposits (i)+(ii)",
+    "plus": [
+     "(i) CASA Deposits",
+     "(ii) Term Deposits"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "(i) CASA Deposits",
+    "plus": [
+     "CASA: Savings Bank Deposits",
+     "CASA: Current Account Deposits"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "Net Advances (a)+(b)+(c)",
+    "plus": [
+     "Net Advances (a) Corporate",
+     "Net Advances (b) SME",
+     "Net Advances (c) Retail"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "Capital Adequacy Ratio (Basel III)",
+    "plus": [
+     "Capital Adequacy Ratio: Tier I",
+     "Capital Adequacy Ratio: Tier II"
+    ],
+    "tolerance": 0.011
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a '% Growth' figure reported as a balance",
+   "the QAB average CASA reported as period-end CASA",
+   "a segment's advances reported as net advances"
+  ]
+ }
+}

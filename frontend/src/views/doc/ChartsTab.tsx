@@ -33,7 +33,7 @@ export function ChartsTab({
   if (!data?.items.length)
     return (
       <Empty
-        title="No charts or figures were detected"
+        title="No charts were detected"
         hint="Text-and-table releases legitimately contain none; a graphical block is only recorded when its ink and colour profile distinguish it from prose."
       />
     );
@@ -76,7 +76,7 @@ export function ChartsTab({
               <img
                 src={c.crop_url}
                 alt={c.title || "Detected chart"}
-                className="w-full bg-white border-b border-ink-800"
+                className="w-full bg-ink-900 border-b border-ink-800"
               />
             )}
 

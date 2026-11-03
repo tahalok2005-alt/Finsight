@@ -171,6 +171,14 @@ def compare(session: Session, *, left_document_id: str, right_document_id: str,
                   and "UNKNOWN" not in (lf.currency, rf.currency)):
                 c.change_basis = "not_comparable"
                 c.note = f"currencies differ ({lf.currency} vs {rf.currency})"
+            elif (lf.period_type and rf.period_type
+                  and lf.period_type != rf.period_type):
+                # A full year against a single quarter is not a change, it is a
+                # different measurement.  Refuse rather than subtract.
+                c.change_basis = "not_comparable"
+                c.note = (f"period types differ ({lf.period} is a "
+                          f"{lf.period_type}, {rf.period} is a "
+                          f"{rf.period_type})")
             else:
                 left_v, right_v = c.left_value, c.right_value
                 if lf.unit != rf.unit:
@@ -185,6 +193,15 @@ def compare(session: Session, *, left_document_id: str, right_document_id: str,
                         c.note = (f"right side converted from {rf.unit} to "
                                   f"{lf.unit} for comparison")
                 if c.change_basis != "not_comparable":
+                    # Same measure, same kind of period: say whether the two
+                    # sides are the *same* period (a like-for-like check
+                    # between documents) or successive ones (a real movement).
+                    if lf.period and rf.period and lf.period != rf.period:
+                        c.change_basis = "period_over_period"
+                        c.note = ((c.note or "") +
+                                  f" comparing {lf.period} with {rf.period}").strip()
+                    elif lf.period and lf.period == rf.period:
+                        c.change_basis = "like_for_like"
                     c.change = round(right_v - left_v, 6)
                     if lf.value_type in ("percentage", "ratio", "bps"):
                         c.change_pct = None

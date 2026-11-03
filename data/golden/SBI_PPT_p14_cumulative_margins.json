@@ -1,0 +1,236 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output.",
+  "Four line charts under one title, 'Margins, Yield & Cost (Cumulative)'. The",
+  "x-axis says 'Jun 25 ... Jun 26' but the title makes each point FISCAL-YEAR-",
+  "TO-DATE: 'Sep 25' is H1 FY26 (six months), 'Dec 25' is nine months, 'Mar 26'",
+  "is all of FY26. The quarterly figures on slide 19 differ for the same end",
+  "dates (domestic NIM: 2.93 for Q4 FY26 there, 3.03 for FY26 here) -- which is",
+  "a DURATION difference and must never be reported as a conflict.",
+  "Values read from the render; each label sits beside its own marker.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "SBI_PPT",
+ "document": "src/SBI_Q1FY27_analyst_presentation.pdf",
+ "issuer": "State Bank of India",
+ "page": 14,
+ "transcription": {
+  "method": "chart data labels read by eye from the slide render",
+  "verified_against": "sbi_ppt_p14.png",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Margins, Yield & Cost (Cumulative)",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": null,
+  "basis_evidence": "not stated on the slide",
+  "unit_declaration": {
+   "text": "(%) on each chart title",
+   "unit": "percent",
+   "currency": null,
+   "scope": "table",
+   "placement": "each chart title"
+  },
+  "bbox_pt": [
+   40,
+   80,
+   910,
+   470
+  ],
+  "bbox_rel": [
+   0.0417,
+   0.1481,
+   0.9479,
+   0.8704
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Cumulative",
+    "header_lines": [
+     "Jun 25"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26 (FYTD)"
+   },
+   {
+    "id": "c2",
+    "group": "Cumulative",
+    "header_lines": [
+     "Sep 25"
+    ],
+    "period_end": "2025-09-30",
+    "period_start": "2025-04-01",
+    "period_type": "half_year",
+    "fiscal_label": "H1 FY26 (FYTD)"
+   },
+   {
+    "id": "c3",
+    "group": "Cumulative",
+    "header_lines": [
+     "Dec 25"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": "2025-04-01",
+    "period_type": "nine_month",
+    "fiscal_label": "9M FY26 (FYTD)"
+   },
+   {
+    "id": "c4",
+    "group": "Cumulative",
+    "header_lines": [
+     "Mar 26"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26"
+   },
+   {
+    "id": "c5",
+    "group": "Cumulative",
+    "header_lines": [
+     "Jun 26"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27 (FYTD)"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Net Interest Margins (%) Domestic",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 143.9,
+    "values": [
+     3.01,
+     3.04,
+     3.06,
+     3.03,
+     3.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Net Interest Margins (%) Whole Bank",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 176.0,
+    "values": [
+     2.89,
+     2.92,
+     2.94,
+     2.91,
+     2.86
+    ],
+    "metric": "net_interest_margin"
+   },
+   {
+    "label": "Net Interest Margins (%) Foreign Offices",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 211.5,
+    "values": [
+     1.93,
+     1.99,
+     1.97,
+     1.93,
+     1.74
+    ],
+    "metric": null
+   },
+   {
+    "label": "Yield on Investments (%) Domestic",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 162.7,
+    "values": [
+     7.13,
+     7.08,
+     7.04,
+     7.01,
+     6.93
+    ],
+    "metric": null
+   },
+   {
+    "label": "Yield on Advances (%) Domestic",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 339.0,
+    "values": [
+     8.78,
+     8.68,
+     8.61,
+     8.5,
+     8.2
+    ],
+    "metric": null
+   },
+   {
+    "label": "Yield on Advances (%) Foreign Offices",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 406.0,
+    "values": [
+     5.09,
+     5.06,
+     4.98,
+     4.82,
+     4.46
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cost of Deposits (%) Domestic",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 332.8,
+    "values": [
+     5.21,
+     5.13,
+     5.07,
+     5.04,
+     4.85
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cost of Deposits (%) Foreign Offices",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 398.1,
+    "values": [
+     3.87,
+     3.85,
+     3.84,
+     3.78,
+     3.52
+    ],
+    "metric": null
+   }
+  ],
+  "page_height_pt": 540.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "'Sep 25', 'Dec 25' or 'Mar 26' typed as a quarter",
+   "a conflict raised between this slide's Mar 26 NIM (3.03) and slide 19's Q4 FY26 NIM (2.93)",
+   "a percentage carrying crore"
+  ]
+ }
+}

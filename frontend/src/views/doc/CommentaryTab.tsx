@@ -34,7 +34,10 @@ export function CommentaryTab({
       </div>
     );
   if (!data?.items.length && !topic)
-    return <Empty title="No management commentary was extracted" />;
+    return <Empty
+        title="No management commentary found"
+        hint="Commentary is pulled from narrative paragraphs that discuss a figure. This document's text either had none, or none that named a metric."
+      />;
 
   return (
     <div className="h-full overflow-y-auto">
@@ -60,7 +63,10 @@ export function CommentaryTab({
       </div>
 
       {!data?.items.length ? (
-        <Empty title="No commentary for this topic" />
+        <Empty
+              title="No commentary on this topic"
+              hint="Choose another topic above, or clear the filter to see everything extracted."
+            />
       ) : (
         <ul className="divide-y divide-ink-850">
           {data.items.map((c) => (

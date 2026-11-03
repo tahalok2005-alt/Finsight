@@ -1,0 +1,480 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "IFRS condensed interim statements in MILLIONS OF CHF. Figures use a SPACE as the",
+  "thousands separator ('43 109', '(23 118)'): one figure, not two. A 'Notes' column of",
+  "note numbers (2, 3, 5, 6, 8) sits between the labels and the figures and is NOT a",
+  "figure; beside 'Assets held for sale' it reads '2' next to '5 451', which run together",
+  "would be 25 451.",
+  "Liabilities and equity at June 30, 2026 and December 31, 2025 (continuation of",
+  "page 14). 'Translation reserve' is an equity balance, not the period's OCI",
+  "translation difference (metric null).",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NESTLE",
+ "document": "src/NESTLE_HY2026_half_year_report.pdf",
+ "issuer": "Nestlé S.A.",
+ "page": 15,
+ "transcription": {
+  "method": "native text layer at recorded y; layout checked on the render",
+  "verified_against": "page text and the statements' own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Consolidated balance sheet as at June 30, 2026 (liabilities and equity)",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": "Consolidated",
+  "basis_evidence": "title 'Consolidated balance sheet'",
+  "unit_declaration": {
+   "text": "In millions of CHF",
+   "unit": "million",
+   "currency": "CHF",
+   "scope": "table",
+   "placement": "top-left, above the labels"
+  },
+  "bbox_pt": [
+   48,
+   90,
+   590,
+   522
+  ],
+  "bbox_rel": [
+   0.0806,
+   0.1221,
+   0.9911,
+   0.7083
+  ],
+  "page_height_pt": 737.008,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "June 30,",
+     "2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "December 31,",
+     "2025"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Dec 2025"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Current liabilities: Financial debt",
+    "y": 157.3,
+    "printed": [
+     "16 345",
+     "11 606"
+    ],
+    "values": [
+     16345.0,
+     11606.0
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Current liabilities: Derivative liabilities",
+    "y": 169.3,
+    "printed": [
+     "168",
+     "202"
+    ],
+    "values": [
+     168.0,
+     202.0
+    ],
+    "metric": "derivative_liabilities"
+   },
+   {
+    "label": "Current liabilities: Trade and other payables",
+    "y": 181.3,
+    "printed": [
+     "18 591",
+     "20 023"
+    ],
+    "values": [
+     18591.0,
+     20023.0
+    ],
+    "metric": "payables"
+   },
+   {
+    "label": "Current liabilities: Accruals",
+    "y": 193.3,
+    "printed": [
+     "5 226",
+     "5 575"
+    ],
+    "values": [
+     5226.0,
+     5575.0
+    ],
+    "metric": "accrued_expenses"
+   },
+   {
+    "label": "Current liabilities: Provisions",
+    "y": 205.3,
+    "printed": [
+     "778",
+     "850"
+    ],
+    "values": [
+     778.0,
+     850.0
+    ],
+    "metric": "provisions"
+   },
+   {
+    "label": "Current liabilities: Current income tax liabilities",
+    "y": 217.3,
+    "printed": [
+     "2 482",
+     "2 338"
+    ],
+    "values": [
+     2482.0,
+     2338.0
+    ],
+    "metric": "current_tax_liabilities"
+   },
+   {
+    "label": "Current liabilities: Liabilities directly associated with assets held for sale",
+    "y": 229.3,
+    "printed": [
+     "1 700",
+     "100"
+    ],
+    "values": [
+     1700.0,
+     100.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total current liabilities",
+    "is_total": true,
+    "y": 241.2,
+    "printed": [
+     "45 290",
+     "40 694"
+    ],
+    "values": [
+     45290.0,
+     40694.0
+    ],
+    "metric": "current_liabilities"
+   },
+   {
+    "label": "Non-current liabilities: Financial debt",
+    "y": 277.3,
+    "printed": [
+     "46 500",
+     "46 246"
+    ],
+    "values": [
+     46500.0,
+     46246.0
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Non-current liabilities: Derivative liabilities",
+    "y": 289.3,
+    "printed": [
+     "187",
+     "144"
+    ],
+    "values": [
+     187.0,
+     144.0
+    ],
+    "metric": "derivative_liabilities"
+   },
+   {
+    "label": "Non-current liabilities: Employee benefits liabilities",
+    "y": 301.3,
+    "printed": [
+     "2 128",
+     "2 299"
+    ],
+    "values": [
+     2128.0,
+     2299.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Non-current liabilities: Provisions",
+    "y": 313.3,
+    "printed": [
+     "1 124",
+     "980"
+    ],
+    "values": [
+     1124.0,
+     980.0
+    ],
+    "metric": "provisions"
+   },
+   {
+    "label": "Non-current liabilities: Deferred tax liabilities",
+    "y": 325.3,
+    "printed": [
+     "3 604",
+     "3 554"
+    ],
+    "values": [
+     3604.0,
+     3554.0
+    ],
+    "metric": "deferred_tax_liabilities"
+   },
+   {
+    "label": "Non-current liabilities: Other payables",
+    "y": 337.3,
+    "printed": [
+     "47",
+     "176"
+    ],
+    "values": [
+     47.0,
+     176.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total non-current liabilities",
+    "is_total": true,
+    "y": 349.2,
+    "printed": [
+     "53 590",
+     "53 399"
+    ],
+    "values": [
+     53590.0,
+     53399.0
+    ],
+    "metric": "non_current_liabilities"
+   },
+   {
+    "label": "Total liabilities",
+    "is_total": true,
+    "y": 373.2,
+    "printed": [
+     "98 880",
+     "94 093"
+    ],
+    "values": [
+     98880.0,
+     94093.0
+    ],
+    "metric": "total_liabilities"
+   },
+   {
+    "label": "Equity: Share capital",
+    "y": 409.3,
+    "printed": [
+     "258",
+     "258"
+    ],
+    "values": [
+     258.0,
+     258.0
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Equity: Treasury shares",
+    "y": 421.3,
+    "printed": [
+     "(319)",
+     "(388)"
+    ],
+    "values": [
+     -319.0,
+     -388.0
+    ],
+    "metric": "treasury_shares"
+   },
+   {
+    "label": "Equity: Translation reserve",
+    "y": 433.3,
+    "printed": [
+     "(29 204)",
+     "(29 944)"
+    ],
+    "values": [
+     -29204.0,
+     -29944.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Equity: Other reserves",
+    "y": 445.3,
+    "printed": [
+     "(320)",
+     "(667)"
+    ],
+    "values": [
+     -320.0,
+     -667.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Equity: Retained earnings",
+    "y": 457.3,
+    "printed": [
+     "58 815",
+     "63 551"
+    ],
+    "values": [
+     58815.0,
+     63551.0
+    ],
+    "metric": "retained_earnings"
+   },
+   {
+    "label": "Total equity attributable to shareholders of the parent",
+    "is_total": true,
+    "y": 469.2,
+    "printed": [
+     "29 230",
+     "32 810"
+    ],
+    "values": [
+     29230.0,
+     32810.0
+    ],
+    "metric": "equity_attributable_to_owners"
+   },
+   {
+    "label": "Non-controlling interests",
+    "y": 481.3,
+    "printed": [
+     "274",
+     "248"
+    ],
+    "values": [
+     274.0,
+     248.0
+    ],
+    "metric": "non_controlling_interests"
+   },
+   {
+    "label": "Total equity",
+    "is_total": true,
+    "y": 493.2,
+    "printed": [
+     "29 504",
+     "33 058"
+    ],
+    "values": [
+     29504.0,
+     33058.0
+    ],
+    "metric": "net_worth"
+   },
+   {
+    "label": "Total liabilities and equity",
+    "is_total": true,
+    "y": 517.2,
+    "printed": [
+     "128 384",
+     "127 151"
+    ],
+    "values": [
+     128384.0,
+     127151.0
+    ],
+    "metric": "total_equity_and_liabilities"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total current liabilities",
+    "plus": [
+     "Current liabilities: Financial debt",
+     "Current liabilities: Derivative liabilities",
+     "Current liabilities: Trade and other payables",
+     "Current liabilities: Accruals",
+     "Current liabilities: Provisions",
+     "Current liabilities: Current income tax liabilities",
+     "Current liabilities: Liabilities directly associated with assets held for sale"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total non-current liabilities",
+    "plus": [
+     "Non-current liabilities: Financial debt",
+     "Non-current liabilities: Derivative liabilities",
+     "Non-current liabilities: Employee benefits liabilities",
+     "Non-current liabilities: Provisions",
+     "Non-current liabilities: Deferred tax liabilities",
+     "Non-current liabilities: Other payables"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total liabilities",
+    "plus": [
+     "Total current liabilities",
+     "Total non-current liabilities"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total equity attributable to shareholders of the parent",
+    "plus": [
+     "Equity: Share capital",
+     "Equity: Treasury shares",
+     "Equity: Translation reserve",
+     "Equity: Other reserves",
+     "Equity: Retained earnings"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total equity",
+    "plus": [
+     "Total equity attributable to shareholders of the parent",
+     "Non-controlling interests"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total liabilities and equity",
+    "plus": [
+     "Total liabilities",
+     "Total equity"
+    ],
+    "tolerance": 1.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "the note number '8' run into '258'",
+   "current and non-current financial debt merged",
+   "the translation reserve (a balance) reported as a translation difference for the period",
+   "the December 31, 2025 comparative reported as June 30, 2025"
+  ]
+ }
+}

@@ -1,0 +1,674 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output",
+  "and NOT from the filer's OCR layer ('UTTAUDITEO', '{ Crore') -- crops",
+  "sbi_p1_sa1/sa2 and sbi_p1_co1/co2 at 2.3-2.6x.",
+  "STANDALONE AND CONSOLIDATED IN ONE TABLE: eight value columns under two",
+  "group heads, 'Standalone' over the first four and 'Consolidated' over the",
+  "last four, with identical date heads under each. The basis of every fact",
+  "is decided by its COLUMN, so the basis is recorded per column here. Rows",
+  "the standalone bank does not have (insurance opex, associates, minority",
+  "interest) are shaded in its columns and are blanks, not zeros.",
+  "Rows 1-19 are transcribed; the analytical-ratio block below is not.",
+  "Cross-source: the standalone quarter figures agree with the analyst",
+  "presentation slide 19 (SBI_PPT), which prints them rounded to the crore.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "SBI",
+ "document": "src/SBI_Q1FY27_results.pdf",
+ "issuer": "State Bank of India",
+ "page": 1,
+ "transcription": {
+  "method": "read by eye from 2.3-2.6x crops of the scanned page",
+  "verified_against": "sbi_p1_*.png; identities",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "UNAUDITED FINANCIAL RESULTS FOR THE QUARTER ENDED JUNE 30, 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": null,
+  "basis_evidence": "group heads 'Standalone' (c1-c4) and 'Consolidated' (c5-c8)",
+  "unit_declaration": {
+   "text": "(₹ in Crore)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right; the filer's OCR reads it as '(in { Crore)'"
+  },
+  "bbox_pt": [
+   60,
+   55,
+   846,
+   345
+  ],
+  "bbox_rel": [
+   0.0709,
+   0.0915,
+   0.9996,
+   0.5739
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "basis": "Standalone",
+    "group": "Standalone / Quarter ended",
+    "header_lines": [
+     "30.06.2026",
+     "(Unaudited)"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "basis": "Standalone",
+    "group": "Standalone / Quarter ended",
+    "header_lines": [
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "basis": "Standalone",
+    "group": "Standalone / Quarter ended",
+    "header_lines": [
+     "30.06.2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c4",
+    "basis": "Standalone",
+    "group": "Standalone / Year ended",
+    "header_lines": [
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c5",
+    "basis": "Consolidated",
+    "group": "Consolidated / Quarter ended",
+    "header_lines": [
+     "30.06.2026",
+     "(Unaudited)"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c6",
+    "basis": "Consolidated",
+    "group": "Consolidated / Quarter ended",
+    "header_lines": [
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c7",
+    "basis": "Consolidated",
+    "group": "Consolidated / Quarter ended",
+    "header_lines": [
+     "30.06.2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c8",
+    "basis": "Consolidated",
+    "group": "Consolidated / Year ended",
+    "header_lines": [
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Interest earned (a)+(b)+(c)+(d)",
+    "serial": 1,
+    "is_total": true,
+    "y": 102,
+    "values": [
+     127896.46,
+     123097.67,
+     117830.28,
+     482797.17,
+     136240.49,
+     131080.12,
+     125563.08,
+     514932.59
+    ],
+    "metric": "interest_earned"
+   },
+   {
+    "label": "(a) Interest/ discount on advances/ bills",
+    "y": 110,
+    "values": [
+     94011.38,
+     89369.91,
+     85437.92,
+     350004.36,
+     96826.98,
+     92043.47,
+     88146.02,
+     361064.0
+    ],
+    "metric": "interest_on_advances"
+   },
+   {
+    "label": "(b) Income on investments",
+    "y": 118,
+    "values": [
+     29510.19,
+     28579.05,
+     27749.2,
+     113034.49,
+     34531.1,
+     33399.33,
+     32225.54,
+     131954.32
+    ],
+    "metric": "investment_income"
+   },
+   {
+    "label": "(c) Interest on balances with Reserve Bank of India and other inter-bank funds",
+    "y": 126,
+    "values": [
+     1411.66,
+     1265.52,
+     1848.33,
+     6086.38,
+     1847.42,
+     1690.15,
+     2359.89,
+     7998.97
+    ],
+    "metric": "interest_on_rbi_balances"
+   },
+   {
+    "label": "Interest earned: (d) Others",
+    "y": 134,
+    "values": [
+     2963.23,
+     3883.19,
+     2794.83,
+     13671.94,
+     3034.99,
+     3947.17,
+     2831.63,
+     13915.3
+    ],
+    "printed": "(d) Others",
+    "metric": "other_interest_income"
+   },
+   {
+    "label": "Other income",
+    "serial": 2,
+    "y": 142,
+    "values": [
+     15922.69,
+     17314.1,
+     17511.28,
+     68850.28,
+     43821.37,
+     49998.9,
+     41428.74,
+     194684.37
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "TOTAL INCOME (1)+(2)",
+    "serial": 3,
+    "is_total": true,
+    "y": 150,
+    "values": [
+     143819.15,
+     140411.77,
+     135341.56,
+     551647.45,
+     180061.86,
+     181079.02,
+     166991.82,
+     709616.96
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Interest expended",
+    "serial": 4,
+    "y": 158,
+    "values": [
+     80904.02,
+     78717.67,
+     76923.39,
+     309676.69,
+     82247.57,
+     79953.43,
+     78266.46,
+     315004.81
+    ],
+    "metric": "interest_expended"
+   },
+   {
+    "label": "Operating expenses (a)+(b)+(c)",
+    "serial": 5,
+    "is_total": true,
+    "y": 166,
+    "values": [
+     29385.95,
+     33989.92,
+     27873.7,
+     123548.8,
+     59182.61,
+     71388.69,
+     54232.7,
+     262650.45
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "(a) Employee cost",
+    "y": 174,
+    "values": [
+     17423.8,
+     16215.25,
+     16899.52,
+     65723.78,
+     19218.66,
+     17907.14,
+     18490.57,
+     72768.24
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "(b) Operating expenses relating to Insurance Business",
+    "y": 182,
+    "values": [
+     null,
+     null,
+     null,
+     null,
+     25959.18,
+     33167.73,
+     22479.23,
+     121464.05
+    ],
+    "metric": "insurance_operating_expenses"
+   },
+   {
+    "label": "(c) Other operating expenses",
+    "y": 190,
+    "values": [
+     11962.15,
+     17774.67,
+     10974.18,
+     57825.02,
+     14004.77,
+     20313.82,
+     13262.9,
+     68418.16
+    ],
+    "metric": "other_operating_expenses"
+   },
+   {
+    "label": "TOTAL EXPENDITURE (excluding provisions and contingencies) (4)+(5)",
+    "serial": 6,
+    "is_total": true,
+    "y": 198,
+    "values": [
+     110289.97,
+     112707.59,
+     104797.09,
+     433225.49,
+     141430.18,
+     151342.12,
+     132499.16,
+     577655.26
+    ],
+    "metric": "total_expenditure"
+   },
+   {
+    "label": "OPERATING PROFIT (before provisions and contingencies) (3)-(6)",
+    "serial": 7,
+    "is_total": true,
+    "y": 206,
+    "values": [
+     33529.18,
+     27704.18,
+     30544.47,
+     118421.96,
+     38631.68,
+     29736.9,
+     34492.66,
+     131961.7
+    ],
+    "metric": "pre_provision_operating_profit"
+   },
+   {
+    "label": "Provisions (other than tax) and contingencies (net of write back)",
+    "serial": 8,
+    "y": 214,
+    "values": [
+     5046.77,
+     2872.16,
+     4759.2,
+     17538.4,
+     5747.88,
+     3661.39,
+     5263.54,
+     20960.29
+    ],
+    "metric": "provisions_and_contingencies"
+   },
+   {
+    "label": "---of which provisions for non-performing assets",
+    "y": 222,
+    "values": [
+     3359.01,
+     3140.46,
+     4934.04,
+     15422.5,
+     4024.08,
+     3943.71,
+     5991.42,
+     19350.08
+    ],
+    "metric": "provisions_for_npa"
+   },
+   {
+    "label": "Exceptional items",
+    "serial": 9,
+    "y": 230,
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     4593.22,
+     "nil",
+     "nil",
+     "nil",
+     3026.57
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "PROFIT/ (LOSS) FROM ORDINARY ACTIVITIES BEFORE TAX (7)-(8)+(9)",
+    "serial": 10,
+    "is_total": true,
+    "y": 238,
+    "values": [
+     28482.41,
+     24832.02,
+     25785.27,
+     105476.78,
+     32883.8,
+     26075.51,
+     29229.12,
+     114027.98
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Tax expense/ (credit)",
+    "serial": 11,
+    "y": 246,
+    "values": [
+     7361.19,
+     5148.27,
+     6624.83,
+     25444.77,
+     8304.76,
+     5914.21,
+     7602.48,
+     28859.51
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "NET PROFIT/ (LOSS) FROM ORDINARY ACTIVITIES AFTER TAX (10)-(11)",
+    "serial": 12,
+    "is_total": true,
+    "y": 254,
+    "values": [
+     21121.22,
+     19683.75,
+     19160.44,
+     80032.01,
+     24579.04,
+     20161.3,
+     21626.64,
+     85168.47
+    ],
+    "metric": "pat_ordinary_activities"
+   },
+   {
+    "label": "Extraordinary items (net of tax expense)",
+    "serial": 13,
+    "y": 262,
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": "extraordinary_items"
+   },
+   {
+    "label": "NET PROFIT/ (LOSS) FOR THE PERIOD (12)+(13)",
+    "serial": 14,
+    "is_total": true,
+    "y": 270,
+    "values": [
+     21121.22,
+     19683.75,
+     19160.44,
+     80032.01,
+     24579.04,
+     20161.3,
+     21626.64,
+     85168.47
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Share in profit of associates",
+    "serial": 15,
+    "y": 278,
+    "values": [
+     null,
+     null,
+     null,
+     null,
+     541.85,
+     346.68,
+     494.74,
+     1497.2
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Minority Interest",
+    "serial": 16,
+    "y": 286,
+    "values": [
+     null,
+     null,
+     null,
+     null,
+     1007.89,
+     865.11,
+     919.91,
+     3366.89
+    ],
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "NET PROFIT/ (LOSS) AFTER MINORITY INTEREST (14)+(15)-(16)",
+    "serial": 17,
+    "is_total": true,
+    "y": 294,
+    "values": [
+     21121.22,
+     19683.75,
+     19160.44,
+     80032.01,
+     24113.0,
+     19642.87,
+     21201.47,
+     83298.78
+    ],
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "Paid-up equity share capital (face value of ₹1/- each)",
+    "serial": 18,
+    "stock": true,
+    "y": 302,
+    "values": [
+     923.06,
+     923.06,
+     892.46,
+     923.06,
+     923.06,
+     923.06,
+     892.46,
+     923.06
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Reserves excluding revaluation reserves",
+    "serial": 19,
+    "stock": true,
+    "y": 310,
+    "values": [
+     null,
+     null,
+     null,
+     509114.0,
+     null,
+     null,
+     null,
+     560786.78
+    ],
+    "metric": "other_equity"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Interest earned (a)+(b)+(c)+(d)",
+    "plus": [
+     "(a) Interest/ discount on advances/ bills",
+     "(b) Income on investments",
+     "(c) Interest on balances with Reserve Bank of India and other inter-bank funds",
+     "(d) Others"
+    ]
+   },
+   {
+    "target": "TOTAL INCOME (1)+(2)",
+    "plus": [
+     "Interest earned (a)+(b)+(c)+(d)",
+     "Other income"
+    ]
+   },
+   {
+    "target": "TOTAL EXPENDITURE (excluding provisions and contingencies) (4)+(5)",
+    "plus": [
+     "Interest expended",
+     "Operating expenses (a)+(b)+(c)"
+    ]
+   },
+   {
+    "target": "OPERATING PROFIT (before provisions and contingencies) (3)-(6)",
+    "plus": [
+     "TOTAL INCOME (1)+(2)"
+    ],
+    "minus": [
+     "TOTAL EXPENDITURE (excluding provisions and contingencies) (4)+(5)"
+    ]
+   },
+   {
+    "target": "PROFIT/ (LOSS) FROM ORDINARY ACTIVITIES BEFORE TAX (7)-(8)+(9)",
+    "plus": [
+     "OPERATING PROFIT (before provisions and contingencies) (3)-(6)",
+     "Exceptional items"
+    ],
+    "minus": [
+     "Provisions (other than tax) and contingencies (net of write back)"
+    ]
+   },
+   {
+    "target": "NET PROFIT/ (LOSS) FROM ORDINARY ACTIVITIES AFTER TAX (10)-(11)",
+    "plus": [
+     "PROFIT/ (LOSS) FROM ORDINARY ACTIVITIES BEFORE TAX (7)-(8)+(9)"
+    ],
+    "minus": [
+     "Tax expense/ (credit)"
+    ]
+   },
+   {
+    "target": "NET PROFIT/ (LOSS) FOR THE PERIOD (12)+(13)",
+    "plus": [
+     "NET PROFIT/ (LOSS) FROM ORDINARY ACTIVITIES AFTER TAX (10)-(11)",
+     "Extraordinary items (net of tax expense)"
+    ]
+   }
+  ],
+  "page_height_pt": 601.2,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a figure from columns 5-8 attributed to the standalone entity, or from columns 1-4 to the consolidated",
+   "a conflict raised between a standalone figure and the consolidated figure for the same row and date",
+   "a shaded (blank) standalone cell extracted as 0",
+   "the Q4 FY26 and FY26 columns resolving to the same period"
+  ]
+ }
+}

@@ -40,7 +40,10 @@ from app.core.logging import get_logger
 from app.core.modes import NativeTextScope, guard_native_text
 from app.extraction.taxonomy import match_metric
 from app.normalization.numbers import looks_numeric, normalize_number, parse_number
-from app.normalization.periods import DEFAULT_CALENDAR, find_all_periods, parse_period
+from app.normalization.periods import (
+    DEFAULT_CALENDAR, FiscalCalendar, find_all_periods, infer_calendar,
+    parse_period,
+)
 
 log = get_logger("evaluation.baseline")
 
@@ -66,6 +69,23 @@ class BaselineResult:
     @property
     def with_unit(self) -> int:
         return sum(1 for f in self.facts if f.get("unit") not in (None, "none"))
+
+
+
+def _calendar_from_pdf(pdf_path) -> FiscalCalendar:
+    """The fiscal calendar this document states, read from its text layer.
+
+    The visual pipeline infers the year end from what it reads; so should the
+    baseline, from what *it* reads. Where the document states nothing, both
+    fall back to the same unknown calendar and both decline to invent a
+    fiscal year.
+    """
+    try:
+        with pymupdf.open(pdf_path) as doc:
+            texts = [doc[i].get_text("text") or "" for i in range(doc.page_count)]
+    except Exception:  # noqa: BLE001
+        return DEFAULT_CALENDAR
+    return infer_calendar(texts)
 
 
 def _page_lines_naive(page) -> list[str]:
@@ -110,6 +130,12 @@ def run_baseline(pdf_path: str | Path, *, mode: str = "line_reconstructed",
     result.mode = mode
     seen: set[tuple] = set()
 
+    # Give the baseline the same fiscal calendar the visual pipeline gets.
+    # Both establish it from the document; withholding it here would be a
+    # comparison the baseline loses on a technicality rather than on merit,
+    # and would silently flatter every number below it.
+    calendar = _calendar_from_pdf(pdf_path)
+
     with pymupdf.open(pdf_path) as doc:
         result.pages = doc.page_count
         for i in range(doc.page_count):
@@ -126,7 +152,7 @@ def run_baseline(pdf_path: str | Path, *, mode: str = "line_reconstructed",
                 continue
             result.chars += len(text)
 
-            page_periods = find_all_periods(text, calendar=DEFAULT_CALENDAR)
+            page_periods = find_all_periods(text, calendar=calendar)
             default_period = page_periods[0].label if page_periods else None
 
             for line in lines:
@@ -146,7 +172,7 @@ def run_baseline(pdf_path: str | Path, *, mode: str = "line_reconstructed",
                 if m is None:
                     continue
 
-                period = parse_period(line, calendar=DEFAULT_CALENDAR)
+                period = parse_period(line, calendar=calendar)
                 period_label = period.label if period else default_period
 
                 # Without column geometry there is no way to know which period

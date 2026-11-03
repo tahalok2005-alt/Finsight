@@ -1,4 +1,15 @@
-alembic==1.19.1
+# Runtime and test dependencies, pinned.
+#
+# Deliberately absent:
+#   alembic  - the schema is created from the ORM metadata and evolved by
+#              app/database/migrations.py, which is additive and safe on
+#              both SQLite and PostgreSQL.  Adopting Alembic would mean
+#              hand-writing a baseline revision for databases that already
+#              exist, so it was not taken on.
+#   opencv-python - opencv-python and opencv-python-headless install the
+#              same 'cv2' module and overwrite each other.  Only the
+#              headless build is kept: the server draws nothing on screen.
+
 annotated-doc==0.0.5
 annotated-types==0.8.0
 anyio==4.14.2
@@ -16,13 +27,11 @@ httptools==0.8.0
 httpx==0.28.1
 idna==3.19
 iniconfig==2.3.0
-Mako==1.4.1
 markdown-it-py==4.2.0
 MarkupSafe==3.0.3
 mdurl==0.1.2
 numpy==2.5.2
 onnxruntime==1.29.0
-opencv-python==5.0.0.93
 opencv-python-headless==5.0.0.93
 openpyxl==3.1.5
 packaging==26.3

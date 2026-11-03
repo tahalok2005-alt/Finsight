@@ -1,0 +1,560 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output.",
+  "Annexure F: a QUARTERLY cash-flow statement (rare for an Indian filer),",
+  "present only as an image. Read from crops eternal_p19_a..d, _op and _fin.",
+  "The structural rows are transcribed -- operating subtotals, every",
+  "working-capital, investing and financing line, the section totals and the",
+  "cash walk. The ~20 non-cash adjustment lines between 'Profit before tax'",
+  "and 'Operating profit before working capital changes' are NOT transcribed",
+  "(see excluded_rows); facts extracted from them are reviewed as extras.",
+  "Two first readings of mine failed the identities (806 for 906; (387) for",
+  "(367)) and were corrected from 3-4x crops before this file was written.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "ETERNAL",
+ "document": "src/ETERNAL_Q1FY27_results.pdf",
+ "issuer": "Eternal Limited",
+ "page": 19,
+ "transcription": {
+  "method": "read by eye from 2.2-4.0x crops of an image-only page",
+  "verified_against": "eternal_p19_*.png; identities",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Annexure F - Statement of consolidated cash flows",
+  "statement": "cash_flow",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "annexure title",
+  "unit_declaration": {
+   "text": "(INR crore)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   15,
+   40,
+   585,
+   710
+  ],
+  "bbox_rel": [
+   0.0252,
+   0.0475,
+   0.9815,
+   0.8432
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter ended",
+    "header_lines": [
+     "June 30,",
+     "2026",
+     "Unaudited"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter ended",
+    "header_lines": [
+     "March 31,",
+     "2026",
+     "Unaudited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter ended",
+    "header_lines": [
+     "June 30,",
+     "2025",
+     "Unaudited"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c4",
+    "group": "Year ended",
+    "header_lines": [
+     "March 31,",
+     "2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Profit before tax",
+    "y": 110,
+    "values": [
+     272,
+     228,
+     88,
+     615
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Operating profit / (loss) before working capital changes",
+    "is_total": true,
+    "y": 326,
+    "values": [
+     906,
+     707,
+     357,
+     2226
+    ],
+    "metric": "operating_profit_before_wc_changes"
+   },
+   {
+    "label": "Movements in working capital: Trade receivables",
+    "y": 347,
+    "values": [
+     -126,
+     -142,
+     -272,
+     117
+    ],
+    "metric": null
+   },
+   {
+    "label": "Movements in working capital: Other financial assets",
+    "y": 356,
+    "values": [
+     -622,
+     -79,
+     96,
+     -552
+    ],
+    "metric": null
+   },
+   {
+    "label": "Movements in working capital: Other assets",
+    "y": 365,
+    "values": [
+     -264,
+     -48,
+     1,
+     -807
+    ],
+    "metric": null
+   },
+   {
+    "label": "Movements in working capital: Inventory",
+    "y": 375,
+    "values": [
+     -888,
+     -371,
+     -273,
+     -2042
+    ],
+    "metric": null
+   },
+   {
+    "label": "Movements in working capital: Other financial liabilities and other liabilities",
+    "y": 384,
+    "values": [
+     56,
+     477,
+     74,
+     540
+    ],
+    "metric": null
+   },
+   {
+    "label": "Movements in working capital: Provisions",
+    "y": 394,
+    "values": [
+     24,
+     11,
+     10,
+     38
+    ],
+    "metric": null
+   },
+   {
+    "label": "Movements in working capital: Trade payables",
+    "y": 403,
+    "values": [
+     1650,
+     207,
+     253,
+     1478
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cash generated from / (used in) operations",
+    "is_total": true,
+    "y": 413,
+    "values": [
+     736,
+     762,
+     246,
+     998
+    ],
+    "metric": "cash_generated_from_operations"
+   },
+   {
+    "label": "Income taxes refund / (paid) (net)",
+    "y": 422,
+    "values": [
+     169,
+     -108,
+     -80,
+     -366
+    ],
+    "metric": "income_taxes_paid"
+   },
+   {
+    "label": "Net cash generated from / (used in) operating activities (A)",
+    "is_total": true,
+    "y": 432,
+    "values": [
+     905,
+     654,
+     166,
+     632
+    ],
+    "metric": "operating_cash_flow"
+   },
+   {
+    "label": "Purchase of property, plant and equipment and other intangible assets (including capital work-in-progress, capital advances and capital creditors)",
+    "y": 464,
+    "values": [
+     -711,
+     -494,
+     -370,
+     -1751
+    ],
+    "metric": "capex"
+   },
+   {
+    "label": "Proceeds from sale of property, plant and equipment",
+    "y": 481,
+    "values": [
+     0,
+     0,
+     0,
+     5
+    ],
+    "metric": "proceeds_from_sale_of_ppe"
+   },
+   {
+    "label": "Investment in bank and other deposits (having original maturity of more than 3 months)",
+    "y": 490,
+    "values": [
+     -307,
+     -570,
+     -619,
+     -2321
+    ],
+    "metric": null
+   },
+   {
+    "label": "Proceeds from redemption / maturity of bank and other deposits (having original maturity of more than 3 months)",
+    "y": 500,
+    "values": [
+     877,
+     1581,
+     1149,
+     5668
+    ],
+    "metric": null
+   },
+   {
+    "label": "Investment in mutual fund units",
+    "y": 509,
+    "values": [
+     -12282,
+     -13164,
+     -9843,
+     -45895
+    ],
+    "metric": "purchase_of_investments"
+   },
+   {
+    "label": "Proceeds from redemption of mutual fund units",
+    "y": 519,
+    "values": [
+     13017,
+     12567,
+     9298,
+     44981
+    ],
+    "metric": "proceeds_from_sale_of_investments"
+   },
+   {
+    "label": "Investment in government securities",
+    "y": 528,
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     -151
+    ],
+    "metric": "purchase_of_investments"
+   },
+   {
+    "label": "Proceeds from sale / maturity of government securities",
+    "y": 538,
+    "values": [
+     "nil",
+     210,
+     "nil",
+     520
+    ],
+    "metric": "proceeds_from_sale_of_investments"
+   },
+   {
+    "label": "Investment in debentures or bonds",
+    "y": 548,
+    "values": [
+     -2483,
+     -484,
+     -284,
+     -1839
+    ],
+    "metric": "purchase_of_investments"
+   },
+   {
+    "label": "Proceeds from redemption of debentures or bonds",
+    "y": 557,
+    "values": [
+     410,
+     140,
+     185,
+     366
+    ],
+    "metric": "proceeds_from_sale_of_investments"
+   },
+   {
+    "label": "Interest received",
+    "y": 567,
+    "values": [
+     311,
+     319,
+     235,
+     953
+    ],
+    "metric": "interest_received"
+   },
+   {
+    "label": "Net cash generated from / (used in) investing activities (B)",
+    "is_total": true,
+    "y": 576,
+    "values": [
+     -1168,
+     105,
+     -249,
+     536
+    ],
+    "metric": "investing_cash_flow"
+   },
+   {
+    "label": "Amount collected by ESOP trust on exercise of employee stock options",
+    "y": 612,
+    "values": [
+     1,
+     9,
+     0,
+     12
+    ],
+    "metric": null
+   },
+   {
+    "label": "Payment of principal portion of lease liabilities",
+    "y": 621,
+    "values": [
+     -161,
+     -147,
+     -89,
+     -471
+    ],
+    "metric": "lease_principal_payments"
+   },
+   {
+    "label": "Payment of interest portion of lease liabilities",
+    "y": 631,
+    "values": [
+     -133,
+     -118,
+     -64,
+     -367
+    ],
+    "metric": "lease_interest_payments"
+   },
+   {
+    "label": "Other interest paid",
+    "y": 640,
+    "values": [
+     -15,
+     -8,
+     -2,
+     -16
+    ],
+    "metric": "interest_paid"
+   },
+   {
+    "label": "Net cash generated from / (used in) financing activities (C)",
+    "is_total": true,
+    "y": 650,
+    "values": [
+     -308,
+     -264,
+     -155,
+     -842
+    ],
+    "metric": "financing_cash_flow"
+   },
+   {
+    "label": "Net increase / (decrease) in cash and cash equivalents (A+B+C)",
+    "is_total": true,
+    "y": 668,
+    "values": [
+     -571,
+     495,
+     -238,
+     326
+    ],
+    "metric": "net_change_in_cash"
+   },
+   {
+    "label": "Net foreign exchange difference",
+    "y": 678,
+    "values": [
+     1,
+     -1,
+     1,
+     4
+    ],
+    "metric": "fx_effect_on_cash"
+   },
+   {
+    "label": "Cash and cash equivalents as at the beginning of the period / year",
+    "stock": true,
+    "y": 687,
+    "values": [
+     996,
+     502,
+     666,
+     666
+    ],
+    "metric": "cash_at_beginning"
+   },
+   {
+    "label": "Cash and cash equivalents as at the end of the period / year",
+    "is_total": true,
+    "stock": true,
+    "y": 697,
+    "values": [
+     426,
+     996,
+     429,
+     996
+    ],
+    "metric": "cash_at_end"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Cash generated from / (used in) operations",
+    "plus": [
+     "Operating profit / (loss) before working capital changes",
+     "Movements in working capital: Trade receivables",
+     "Movements in working capital: Other financial assets",
+     "Movements in working capital: Other assets",
+     "Movements in working capital: Inventory",
+     "Movements in working capital: Other financial liabilities and other liabilities",
+     "Movements in working capital: Provisions",
+     "Movements in working capital: Trade payables"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net cash generated from / (used in) operating activities (A)",
+    "plus": [
+     "Cash generated from / (used in) operations",
+     "Income taxes refund / (paid) (net)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net cash generated from / (used in) investing activities (B)",
+    "plus": [
+     "Purchase of property, plant and equipment and other intangible assets (including capital work-in-progress, capital advances and capital creditors)",
+     "Proceeds from sale of property, plant and equipment",
+     "Investment in bank and other deposits (having original maturity of more than 3 months)",
+     "Proceeds from redemption / maturity of bank and other deposits (having original maturity of more than 3 months)",
+     "Investment in mutual fund units",
+     "Proceeds from redemption of mutual fund units",
+     "Investment in government securities",
+     "Proceeds from sale / maturity of government securities",
+     "Investment in debentures or bonds",
+     "Proceeds from redemption of debentures or bonds",
+     "Interest received"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net cash generated from / (used in) financing activities (C)",
+    "plus": [
+     "Amount collected by ESOP trust on exercise of employee stock options",
+     "Payment of principal portion of lease liabilities",
+     "Payment of interest portion of lease liabilities",
+     "Other interest paid"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Net increase / (decrease) in cash and cash equivalents (A+B+C)",
+    "plus": [
+     "Net cash generated from / (used in) operating activities (A)",
+     "Net cash generated from / (used in) investing activities (B)",
+     "Net cash generated from / (used in) financing activities (C)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Cash and cash equivalents as at the end of the period / year",
+    "plus": [
+     "Cash and cash equivalents as at the beginning of the period / year",
+     "Net increase / (decrease) in cash and cash equivalents (A+B+C)",
+     "Net foreign exchange difference"
+    ],
+    "tolerance": 1.0
+   }
+  ],
+  "page_height_pt": 842.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a quarterly cash flow typed as a year",
+   "a '-' extracted as 0",
+   "Q1 FY27 opening cash (996) and Q4 FY26 closing cash (996) raised as a conflict"
+  ]
+ }
+}

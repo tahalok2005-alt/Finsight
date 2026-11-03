@@ -13,12 +13,16 @@ from __future__ import annotations
 
 import re
 import shutil
+import time
 import unicodedata
 from pathlib import Path
 from typing import BinaryIO
 
 from app.config.settings import settings
+from app.core.logging import get_logger
 from app.core.errors import FileTooLarge, UnsupportedFileType, ValidationFailure
+
+log = get_logger("ingestion.storage")
 
 _SAFE_CHARS = re.compile(r"[^A-Za-z0-9._-]+")
 _MULTI_DOT = re.compile(r"\.{2,}")
@@ -123,7 +127,28 @@ def store_local_file(document_id: str, source: str | Path) -> tuple[Path, int]:
         return store_stream(document_id, src.name, fh)
 
 
-def delete_document_files(document_id: str) -> None:
+def delete_document_files(document_id: str, *, attempts: int = 5) -> bool:
+    """Remove a document's directory: the PDF, the renders, the thumbnails.
+
+    ``ignore_errors`` alone is not enough on Windows, where a file handle just
+    released by a reader can keep the directory locked for a moment.  The
+    contents would go and the empty directory would stay, silently, leaving an
+    orphan the caller had been told did not exist.  So this retries briefly and
+    then reports what actually happened rather than assuming.
+
+    Returns True when the directory is gone.
+    """
     d = document_dir(document_id)
-    if d.exists():
+    for attempt in range(attempts):
+        if not d.exists():
+            return True
         shutil.rmtree(d, ignore_errors=True)
+        if not d.exists():
+            return True
+        # a handle that is about to close; give it a moment rather than
+        # declaring victory over a directory that is still there
+        time.sleep(0.1 * (attempt + 1))
+    remaining = list(d.rglob("*")) if d.exists() else []
+    log.warning("storage.delete_incomplete", document_id=document_id,
+                path=str(d), files_left=len(remaining))
+    return not d.exists()

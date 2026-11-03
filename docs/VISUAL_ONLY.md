@@ -8,10 +8,10 @@ The short answer to the question the audit exists to settle:
 
 > **Can the system process a PDF with no text layer? — YES.**
 > A 7-page PDF containing only rasterised page images (0 extractable characters,
-> 0 words, 0 embedded fonts) yields 846 OCR elements, 9 reconstructed tables,
-> 607 table cells and 251 financial facts, every one with a bounding box on the
-> rendered image, scoring **precision 1.00 / recall 1.00 / F1 1.00** against a
-> hand-built key. Both native-text baselines extract **zero** from the same
+> 0 words, 0 embedded fonts) yields 9 reconstructed tables, 607 table cells and
+> **255 financial facts**, every one carrying a bounding box on the rendered
+> image, scoring **precision 0.988 / recall 0.988 / F1 0.988** (80 of 81) against
+> a hand-built key. Both native-text baselines extract **zero** from the same
 > file. Evidence is below and reproducible with two commands.
 
 ---
@@ -130,14 +130,14 @@ The pipeline correctly classifies it as **scanned** on ingestion.
 | Tables | 9 |
 | Table cells | 607 (461 numeric, 100% parse rate) |
 | Charts | 0 |
-| Financial facts | 251 |
-| Validation checks | 104 — 0 failures |
+| Financial facts | 255 |
+| Validation checks | 114 — 0 failures |
 | Provenance | **100%** with a bounding box |
-| Review items | 16 (6%) |
-| **Precision / Recall / F1** | **1.00 / 1.00 / 1.00** (81/81) |
+| Review items | 25 (10%) |
+| **Precision / Recall / F1** | **0.988 / 0.988 / 0.988** (80 / 81) |
 | Unit accuracy | 1.00 |
-| Period resolved | 100% |
-| Processing time | 28.9 s (4.1 s/page) |
+| Period resolved | 100% (255 / 255) |
+| Processing time | 41.5 s (5.9 s/page) |
 | **Native text used for extraction** | **False** |
 
 ### Three modes, image-only PDF
@@ -148,10 +148,10 @@ The pipeline correctly classifies it as **scanned** on ingestion.
 | OCR elements | 0 | 0 | **846** |
 | Tables | 0 | 0 | **9** |
 | Table cells | 0 | 0 | **607** |
-| Financial facts | 0 | 0 | **251** |
-| Facts with bounding box | 0 | 0 | **251** |
-| Validation checks | 0 | 0 | **104** |
-| **F1** | **0** | **0** | **1.00** |
+| Financial facts | 0 | 0 | **255** |
+| Facts with bounding box | 0 | 0 | **255** |
+| Validation checks | 0 | 0 | **114** |
+| **F1 vs. key (81 facts)** | **0** | **0** | **0.988** |
 | Extraction used PDF text | true | true | **false** |
 
 Both text baselines return literally nothing, because there is nothing to read.
@@ -165,20 +165,21 @@ Both text baselines return literally nothing, because there is nothing to read.
 | Layout regions | 0 | 0 | 336 | 344 |
 | Tables | 0 | 0 | 30 | 30 |
 | Table cells | 0 | 0 | 1,663 | 1,663 |
-| Financial facts | 1 | 78 | 395 | 397 |
-| Numeric facts | 1 | 78 | 392 | 393 |
-| Facts with period | 1 | 78 | 366 | 368 |
-| Facts with unit | 1 | 4 | 368 | 369 |
-| Facts with currency | 0 | 0 | 308 | 309 |
-| Facts with growth | 0 | 0 | 94 | 96 |
-| Facts with bounding box | 0 | 0 | 395 | 397 |
-| Facts with provenance | 0 | 0 | 395 | 397 |
-| Validation checks | 0 | 0 | 118 | 119 |
-| Ground-truth matched | 0 | 4 / 85 | **85 / 85** | **85 / 85** |
-| Precision | 0 | 0.114 | **1.00** | **1.00** |
-| Recall | 0 | 0.047 | **1.00** | **1.00** |
-| **F1** | **0** | **0.067** | **1.00** | **1.00** |
-| Processing time | 4.8 s | 2.6 s | 125 s | 131 s |
+| Financial facts | 1 | 87 | 431 | 432 |
+| Numeric facts | 1 | 87 | 428 | 428 |
+| Facts with period | 1 | 87 | 405 | 406 |
+| Facts with unit | 1 | 4 | 372 | 372 |
+| Facts with currency | 0 | 0 | 312 | 312 |
+| Facts with growth | 0 | 0 | 77 | 78 |
+| Facts with bounding box | 0 | 0 | 431 | 432 |
+| Facts with provenance | 0 | 0 | 431 | 432 |
+| Validation checks | 0 | 0 | 138 | 139 |
+| Numbers seen but discarded | 0 | **453** | 0 | 0 |
+| Ground-truth matched | 0 / 85 | 4 / 85 | **84 / 85** | **84 / 85** |
+| Precision | 0 | 0.114 | **0.988** | **0.988** |
+| Recall | 0 | 0.047 | **0.988** | **0.988** |
+| **F1** | **0** | **0.067** | **0.988** | **0.988** |
+| Processing time | 0.2 s | 0.3 s | 269 s | 385 s |
 | Extraction used PDF text | true | true | **false** | true |
 
 The strong text baseline pairs labels with figures correctly but still scores
@@ -224,7 +225,7 @@ inference is:
 - flagged as `currency_inferred = true`, distinct from a symbol that was read;
 - penalised slightly in confidence.
 
-Result: 200 of 251 facts on the image-only PDF carry `INR`. The remainder are
+Result: 204 of 255 facts on the image-only PDF carry `INR`. The remainder are
 percentages, ratios and counts, which correctly have no currency.
 
 **Honest limitation:** a scanned document that uses `₹` and never writes "crore",
@@ -333,7 +334,7 @@ spurious failure.
   headline figure
 - visual-only does not claim to have found a text layer
 
-Full suite: **226 passed, 1 skipped**.
+Full suite: **389 passed, 1 skipped** in 11 min 45 s.
 
 ## 10. Reproducing
 
@@ -372,3 +373,76 @@ python -m pytest tests/test_visual_only.py -v
 - **The ground-truth keys are spot checks** — 85 facts for the full document, 81
   for the image-only fixture — chosen to span entities, periods, value types and
   table shapes. They are not exhaustive coverage of all 395 extracted facts.
+
+---
+
+## 11. Re-validated at the generalization stage
+
+The boundary was re-measured after the semantic layer and the cross-company
+work, on four documents in both modes. It holds unchanged.
+
+| Document | Mode | Native-text accesses | Blocked | Feeds extraction |
+|---|---|---|---|---|
+| RIL media release (34 pp) | HYBRID | 35 (1 ingestion + 34 corroboration) | 0 | yes |
+| RIL media release | **VISUAL_ONLY** | **1** (ingestion probe only) | 0 | **no** |
+| RIL image-only (7 pp) | **VISUAL_ONLY** | **1** | 0 | **no** |
+| Apple statements (3 pp) | **VISUAL_ONLY** | **1** | 0 | **no** |
+| RIL scanner-degraded (7 pp) | **VISUAL_ONLY** | **1** | 0 | **no** |
+
+The single permitted access in visual-only is the ingestion probe that decides
+whether a PDF is scanned. Its scope is `INGESTION_VALIDATION`, which by
+construction is excluded from `EXTRACTION_FEEDING_SCOPES` and therefore cannot
+reach a fact.
+
+### The semantic layer does not weaken it
+
+Everything Milestone 2 added — entity resolution, table semantics, derived
+metrics, the relationship graph, duplicate and conflict handling, risks,
+insights, anomalies and explanations — consumes *facts*, never the PDF. In
+visual-only mode the whole stack is built on pixel-derived evidence:
+
+| | HYBRID | VISUAL_ONLY |
+|---|---|---|
+| Facts | 432 | 431 |
+| Derived metrics | 47 | 47 |
+| Relations | 900 | 903 |
+| Risks / insights / anomalies | 15 / 40 / 19 | 15 / 40 / 19 |
+| F1 vs. key (85 facts) | 0.988 | 0.988 |
+
+### A scanned document, degraded on purpose
+
+`RIL_Q1_FY27_SCANNED_DEGRADED.pdf` takes the same real pages and applies what a
+flatbed scanner does — 150 dpi capture, 0.6° skew, sensor noise, JPEG
+compression, uneven illumination. It has **0 extractable characters**, so the
+text layer offers nothing to fall back to even if the boundary allowed it.
+
+| | clean rasterisation | scanner-degraded |
+|---|---|---|
+| Facts | 255 | 251 |
+| Tables / cells | 9 / 607 | 8 / 613 |
+| Facts with a period | 255 | 251 |
+| Percentage facts | 19 | 20 |
+| Bounding boxes | 255 (100%) | 251 (100%) |
+| Mean OCR confidence | 0.783 | 0.773 |
+| **F1 vs. key (81 facts)** | **0.988** | **0.695** |
+| Flagged for review | 25 | **45** |
+| Validation warnings | 6 | **24** |
+| Pages measured as degraded | **0 / 7** | **7 / 7** |
+
+Accuracy falls a long way. The honest reading is that the structural machinery
+survives degradation — tables are still found, columns still resolve to periods,
+every figure still carries a box — but **character-level recognition does not**,
+and roughly a third of the spot-checked figures come back wrong.
+
+What matters is that the system *knows*, in two ways. Review flags nearly
+double and validation warnings quadruple, so the degradation surfaces as
+declared uncertainty rather than as confident wrong answers. And each page's
+capture quality is measured from the pixels — every degraded page is identified, with the defects it actually has,
+while not one of the 44 clean pages across the other three documents is flagged.
+
+Where the degradation destroys a column's fiscal text, that column falls back
+to a truthful date label rather than a guessed fiscal one: the degraded
+document's period list reads `Q1 FY27, Q4 FY26, Q1 FY26, FY26,
+3M ended 2026-06-30, 3M ended 2026-03-31, …`, mixing the two exactly where OCR
+lost the label. Repairing the images does not recover the accuracy —
+see [EVALUATION.md](EVALUATION.md#does-preprocessing-help).

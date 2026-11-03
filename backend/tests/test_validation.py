@@ -4,6 +4,7 @@ from __future__ import annotations
 import pytest
 
 from app.models.enums import (
+    EntityType,
     Currency, MagnitudeUnit, StatementNature, ValidationStatus, ValueType,
 )
 from app.models.schemas import FinancialFact
@@ -13,11 +14,12 @@ from app.validation.engine import validate
 def fact(fid, canonical, value, period, *, metric=None, unit=MagnitudeUnit.CRORE,
          vtype=ValueType.MONETARY, currency=Currency.INR, growth=None,
          growth_reported=False, cmp_period=None, cmp_value=None,
-         entity="Consolidated", page=1) -> FinancialFact:
+         entity="Consolidated", page=1, entity_type=None) -> FinancialFact:
     return FinancialFact(
         fact_id=fid, document_id="d1", metric=metric or canonical,
         canonical_metric=canonical, metric_display=metric or canonical,
         entity=entity, value=value, period=period, unit=unit, value_type=vtype,
+        **({"entity_type": entity_type} if entity_type else {}),
         currency=currency, growth=growth, growth_reported=growth_reported,
         comparison_period=cmp_period, comparison_value=cmp_value,
         source_page=page, confidence=0.9, nature=StatementNature.ACTUAL)
@@ -169,22 +171,40 @@ class TestSanityChecks:
 
 class TestAggregation:
     def test_segments_below_total_is_acceptable(self):
-        facts = [fact("s1", "segment_revenue", 400, "Q1 FY27", entity="A"),
-                 fact("s2", "segment_revenue", 500, "Q1 FY27", entity="B"),
+        facts = [fact("s1", "segment_revenue", 400, "Q1 FY27", entity="A",
+                      entity_type=EntityType.SEGMENT),
+                 fact("s2", "segment_revenue", 500, "Q1 FY27", entity="B",
+                      entity_type=EntityType.SEGMENT),
                  fact("t", "segment_revenue", 950, "Q1 FY27",
                       entity="Consolidated")]
         r = validate("d1", facts)
         agg = [x for x in r.results if x.rule_family == "aggregation"]
         assert agg and agg[0].status == ValidationStatus.PASSED
 
-    def test_segments_exceeding_total_warns(self):
-        facts = [fact("s1", "segment_revenue", 800, "Q1 FY27", entity="A"),
-                 fact("s2", "segment_revenue", 900, "Q1 FY27", entity="B"),
+    def test_segments_exceeding_total_are_not_judged(self):
+        # Segment revenue is often gross of inter-segment sales; without the
+        # eliminations line an excess proves nothing about any figure.
+        facts = [fact("s1", "segment_revenue", 800, "Q1 FY27", entity="A",
+                      entity_type=EntityType.SEGMENT),
+                 fact("s2", "segment_revenue", 900, "Q1 FY27", entity="B",
+                      entity_type=EntityType.SEGMENT),
                  fact("t", "segment_revenue", 950, "Q1 FY27",
                       entity="Consolidated")]
         r = validate("d1", facts)
         agg = [x for x in r.results if x.rule_family == "aggregation"]
-        assert agg and agg[0].status == ValidationStatus.WARNING
+        assert agg and agg[0].status == ValidationStatus.NOT_CHECKED
+        assert r.fact_status["s1"] == ValidationStatus.NOT_CHECKED
+
+    def test_subsidiaries_are_not_summed_to_the_group(self):
+        # A conglomerate's listed subsidiaries sum to more than its
+        # consolidated profit, by minority interests and eliminations.
+        facts = [fact("s1", "pat", 7764, "Q1 FY27", entity="JPL",
+                      entity_type=EntityType.SUBSIDIARY),
+                 fact("s2", "pat", 17000, "Q1 FY27", entity="RRVL",
+                      entity_type=EntityType.SUBSIDIARY),
+                 fact("t", "pat", 23001, "Q1 FY27", entity="Consolidated")]
+        r = validate("d1", facts)
+        assert not [x for x in r.results if x.rule_family == "aggregation"]
 
 
 class TestRollup:

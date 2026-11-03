@@ -1,0 +1,275 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A native earnings-release table (rupee sign rendered as a backtick). Indian grouping (13,72,936). The '% Growth' column compares the two periods and is not a fact about either; it is excluded. The release's note: amounts 'may not add-up due to rounding off'.",
+  "A bank's summarised balance sheet at two dates. 'Cash and Balances with RBI and",
+  "Banks and Money at Call and Short Notice' combines two schedule lines (metric null);",
+  "its figure sits on the middle line of a two-line label.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "AXIS_PR",
+ "document": "src/AXIS_Q1FY27_results.pdf",
+ "issuer": "Axis Bank Limited",
+ "page": 7,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Balance Sheet",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": null,
+  "basis_evidence": "not stated on the table",
+  "unit_declaration": {
+   "text": "₹ crores",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   36,
+   405,
+   560,
+   665
+  ],
+  "bbox_rel": [
+   0.0588,
+   0.5114,
+   0.915,
+   0.8396
+  ],
+  "page_height_pt": 792,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "As on",
+    "header_lines": [
+     "30th June’26"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026"
+   },
+   {
+    "id": "c2",
+    "group": "As on",
+    "header_lines": [
+     "30th June’25"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2025"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Capital",
+    "y": 466.8,
+    "printed": [
+     "622",
+     "620"
+    ],
+    "values": [
+     622.0,
+     620.0
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Reserves & Surplus",
+    "y": 480.8,
+    "printed": [
+     "2,11,071",
+     "1,84,175"
+    ],
+    "values": [
+     211071.0,
+     184175.0
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "Employee Stock Options Outstanding",
+    "y": 494.8,
+    "printed": [
+     "1,346",
+     "1,124"
+    ],
+    "values": [
+     1346.0,
+     1124.0
+    ],
+    "metric": "esop_outstanding"
+   },
+   {
+    "label": "Deposits",
+    "y": 508.8,
+    "printed": [
+     "13,72,936",
+     "11,61,615"
+    ],
+    "values": [
+     1372936.0,
+     1161615.0
+    ],
+    "metric": "total_deposits"
+   },
+   {
+    "label": "Borrowings",
+    "y": 522.8,
+    "printed": [
+     "2,37,317",
+     "1,80,971"
+    ],
+    "values": [
+     237317.0,
+     180971.0
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Other Liabilities and Provisions",
+    "y": 536.8,
+    "printed": [
+     "98,674",
+     "74,803"
+    ],
+    "values": [
+     98674.0,
+     74803.0
+    ],
+    "metric": "other_liabilities_and_provisions"
+   },
+   {
+    "label": "Total (capital and liabilities)",
+    "is_total": true,
+    "y": 550.8,
+    "printed": [
+     "19,21,966",
+     "16,03,308"
+    ],
+    "values": [
+     1921966.0,
+     1603308.0
+    ],
+    "metric": "total_equity_and_liabilities"
+   },
+   {
+    "label": "Cash and Balances with RBI and Banks and Money at Call and Short Notice",
+    "y": 583.5,
+    "printed": [
+     "1,30,816",
+     "99,322"
+    ],
+    "values": [
+     130816.0,
+     99322.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Investments",
+    "y": 602.4,
+    "printed": [
+     "4,38,955",
+     "3,60,641"
+    ],
+    "values": [
+     438955.0,
+     360641.0
+    ],
+    "metric": "investments"
+   },
+   {
+    "label": "Advances",
+    "y": 616.3,
+    "printed": [
+     "12,61,557",
+     "10,59,724"
+    ],
+    "values": [
+     1261557.0,
+     1059724.0
+    ],
+    "metric": "advances"
+   },
+   {
+    "label": "Fixed Assets",
+    "y": 630.4,
+    "printed": [
+     "6,603",
+     "6,373"
+    ],
+    "values": [
+     6603.0,
+     6373.0
+    ],
+    "metric": "fixed_assets"
+   },
+   {
+    "label": "Other Assets",
+    "y": 644.4,
+    "printed": [
+     "84,035",
+     "77,248"
+    ],
+    "values": [
+     84035.0,
+     77248.0
+    ],
+    "metric": "other_assets"
+   },
+   {
+    "label": "Total (assets)",
+    "is_total": true,
+    "y": 658.3,
+    "printed": [
+     "19,21,966",
+     "16,03,308"
+    ],
+    "values": [
+     1921966.0,
+     1603308.0
+    ],
+    "metric": "total_assets"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total (capital and liabilities)",
+    "plus": [
+     "Capital",
+     "Reserves & Surplus",
+     "Employee Stock Options Outstanding",
+     "Deposits",
+     "Borrowings",
+     "Other Liabilities and Provisions"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "Total (assets)",
+    "plus": [
+     "Cash and Balances with RBI and Banks and Money at Call and Short Notice",
+     "Investments",
+     "Advances",
+     "Fixed Assets",
+     "Other Assets"
+    ],
+    "tolerance": 1.5
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a balance reported as a quarter's flow",
+   "the two 'Total' rows given each other's meaning"
+  ]
+ }
+}

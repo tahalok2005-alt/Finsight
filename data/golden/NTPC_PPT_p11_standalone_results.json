@@ -1,0 +1,174 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "An image-heavy slide: arrows for row labels, a highlighted 'Q1 FY 27' column and",
+  "three columns under a group head 'FY 26': 'Q1', 'Q4', 'FY'. The group head",
+  "supplies the fiscal year to the bare 'Q1' / 'Q4' / 'FY'. Q4 FY26 and FY26 share",
+  "an end date. Subtitle 'NTPC STANDALONE' gives the basis. Unseparated figures",
+  "('165494'). 'Adjusted PAT' is a qualified profit (metric null). The Q4/FY figures",
+  "agree with the audited FY26 results (43110.74 -> 43111). Figures from the slide's",
+  "text layer, layout confirmed on the render.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NTPC_PPT",
+ "document": "src/NTPC_Q1FY27_OFS.pdf",
+ "issuer": "NTPC Limited",
+ "page": 11,
+ "transcription": {
+  "method": "slide text layer at recorded y; render checked",
+  "verified_against": "render at 90 dpi",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "FINANCIAL RESULTS Q1 FY 27 (₹ Crore) — NTPC STANDALONE",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": "Standalone",
+  "basis_evidence": "slide subtitle 'NTPC STANDALONE'",
+  "unit_declaration": {
+   "text": "(₹ Crore)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "slide title"
+  },
+  "bbox_pt": [
+   170,
+   110,
+   830,
+   420
+  ],
+  "bbox_rel": [
+   0.1771,
+   0.2037,
+   0.8646,
+   0.7778
+  ],
+  "page_height_pt": 540,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Q1 FY 27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   },
+   {
+    "id": "c2",
+    "group": "FY 26",
+    "header_lines": [
+     "Q1"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   },
+   {
+    "id": "c3",
+    "group": "FY 26",
+    "header_lines": [
+     "Q4"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26"
+   },
+   {
+    "id": "c4",
+    "group": "FY 26",
+    "header_lines": [
+     "FY"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Revenue-Operations",
+    "y": 213.7,
+    "printed": [
+     "43832",
+     "42573",
+     "43111",
+     "165494"
+    ],
+    "values": [
+     43832.0,
+     42573.0,
+     43111.0,
+     165494.0
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "Other Income",
+    "y": 272.7,
+    "printed": [
+     "681",
+     "760",
+     "919",
+     "4231"
+    ],
+    "values": [
+     681.0,
+     760.0,
+     919.0,
+     4231.0
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "PAT",
+    "y": 332.3,
+    "printed": [
+     "5342",
+     "4775",
+     "8747",
+     "23162"
+    ],
+    "values": [
+     5342.0,
+     4775.0,
+     8747.0,
+     23162.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Adjusted PAT",
+    "y": 391.8,
+    "printed": [
+     "5128",
+     "4413",
+     "5289",
+     "19530"
+    ],
+    "values": [
+     5128.0,
+     4413.0,
+     5289.0,
+     19530.0
+    ],
+    "metric": null
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "'Adjusted PAT' reported as PAT",
+   "Q4 FY26 and FY26 resolving to one period",
+   "a bare 'Q1' under 'FY 26' read as Q1 FY27"
+  ]
+ }
+}

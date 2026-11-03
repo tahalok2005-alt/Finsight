@@ -18,8 +18,8 @@ API key and no model download step. The OCR models ship inside the
 ## Install
 
 ```bash
-git clone <repository>
-cd finsight
+git clone https://github.com/tahalok2005-alt/Finsight.git
+cd Finsight
 
 python -m venv .venv
 ```
@@ -153,26 +153,13 @@ export FINSIGHT_DATABASE_URL="postgresql+psycopg://user:pass@localhost:5432/fins
 cd backend && python cli.py init-db
 ```
 
-### Optional local LLM
-
-Commentary summarisation can use a local model through
-[Ollama](https://ollama.com). It is **off by default**, and the pipeline
-extracts, normalises and validates every figure without it. A model can only
-summarise narrative text — it can never introduce a fact.
-
-```bash
-ollama pull qwen3:4b
-export FINSIGHT_LLM_ENABLED=true
-export FINSIGHT_LLM_MODEL=qwen3:4b
-```
-
 ## Testing
 
 ```bash
 cd backend && python -m pytest
 ```
 
-226 tests, about 3.5 minutes (the pipeline tests run real OCR). To skip those:
+About 1,320 tests, roughly 14 minutes (the pipeline tests run real OCR). To skip those:
 
 ```bash
 python -m pytest -m "not slow"

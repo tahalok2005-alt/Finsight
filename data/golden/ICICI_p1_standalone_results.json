@@ -1,0 +1,824 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "Figures: the PDF's own typeset glyphs at the recorded row heights (this is a",
+  "native PDF; its text layer is the typeset content). Columns, periods, basis",
+  "and unit: read by eye from the rendered header (crop icici_p1_top.png, 2.2x).",
+  "Every subtotal the statement prints is an identity below and closes on every",
+  "column.",
+  "Why this table: a bank income statement (interest earned, not revenue) whose",
+  "columns carry the filer's own fiscal labels (Q1-2027, FY2026) beneath the",
+  "dates, a quarter and a year sharing the end date March 31, 2026, and stock",
+  "rows (share capital, NPAs) inside a flow-headed table.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "ICICI",
+ "document": "src/ICICI_Q1FY27_results.pdf",
+ "issuer": "ICICI Bank Limited",
+ "page": 1,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "render of header and first 12 rows",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "STANDALONE FINANCIAL RESULTS",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "statement title 'STANDALONE FINANCIAL RESULTS'",
+  "unit_declaration": {
+   "text": "(₹ in crore)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right, above the header block"
+  },
+  "bbox_pt": [
+   15,
+   165,
+   590,
+   742
+  ],
+  "bbox_rel": [
+   0.0252,
+   0.196,
+   0.9911,
+   0.8813
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Three months ended",
+    "header_lines": [
+     "June 30,",
+     "2026",
+     "(Q1-2027)",
+     "(Unaudited)"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "group": "Three months ended",
+    "header_lines": [
+     "March 31,",
+     "2026",
+     "(Q4-2026)",
+     "(Audited)12"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "Three months ended",
+    "header_lines": [
+     "June 30,",
+     "2025",
+     "(Q1-2026)",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c4",
+    "group": "Year ended",
+    "header_lines": [
+     "March 31,",
+     "2026",
+     "(FY2026)",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Interest earned (a)+(b)+(c)+(d)",
+    "serial": 1,
+    "is_total": true,
+    "y": 229.1,
+    "printed": [
+     "45,670.78",
+     "43,275.39",
+     "42,946.91",
+     "169,946.09"
+    ],
+    "values": [
+     45670.78,
+     43275.39,
+     42946.91,
+     169946.09
+    ],
+    "metric": "interest_earned"
+   },
+   {
+    "label": "a) Interest/discount on advances/bills",
+    "y": 240.6,
+    "printed": [
+     "35,213.58",
+     "33,358.87",
+     "32,542.92",
+     "130,605.55"
+    ],
+    "values": [
+     35213.58,
+     33358.87,
+     32542.92,
+     130605.55
+    ],
+    "metric": "interest_on_advances"
+   },
+   {
+    "label": "b) Income on investments",
+    "y": 252.1,
+    "printed": [
+     "8,376.24",
+     "8,203.45",
+     "8,712.84",
+     "33,592.73"
+    ],
+    "values": [
+     8376.24,
+     8203.45,
+     8712.84,
+     33592.73
+    ],
+    "metric": "investment_income"
+   },
+   {
+    "label": "c) Interest on balances with Reserve Bank of India and other inter-bank funds",
+    "y": 274.9,
+    "printed": [
+     "901.25",
+     "775.82",
+     "767.40",
+     "2,862.93"
+    ],
+    "values": [
+     901.25,
+     775.82,
+     767.4,
+     2862.93
+    ],
+    "metric": "interest_on_rbi_balances"
+   },
+   {
+    "label": "Interest earned: d) Others",
+    "y": 286.6,
+    "printed": [
+     "1,179.71",
+     "937.25",
+     "923.75",
+     "2,884.88"
+    ],
+    "values": [
+     1179.71,
+     937.25,
+     923.75,
+     2884.88
+    ],
+    "metric": "other_interest_income"
+   },
+   {
+    "label": "Other income",
+    "serial": 2,
+    "y": 298.1,
+    "printed": [
+     "8,576.06",
+     "7,308.99",
+     "8,504.90",
+     "30,757.59"
+    ],
+    "values": [
+     8576.06,
+     7308.99,
+     8504.9,
+     30757.59
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "TOTAL INCOME (1)+(2)",
+    "serial": 3,
+    "is_total": true,
+    "y": 309.6,
+    "printed": [
+     "54,246.84",
+     "50,584.38",
+     "51,451.81",
+     "200,703.68"
+    ],
+    "values": [
+     54246.84,
+     50584.38,
+     51451.81,
+     200703.68
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Interest expended",
+    "serial": 4,
+    "y": 321.1,
+    "printed": [
+     "21,286.43",
+     "20,296.32",
+     "21,312.45",
+     "81,870.86"
+    ],
+    "values": [
+     21286.43,
+     20296.32,
+     21312.45,
+     81870.86
+    ],
+    "metric": "interest_expended"
+   },
+   {
+    "label": "Operating expenses (e)+(f)",
+    "serial": 5,
+    "is_total": true,
+    "y": 332.7,
+    "printed": [
+     "12,574.34",
+     "12,088.95",
+     "11,393.52",
+     "47,233.95"
+    ],
+    "values": [
+     12574.34,
+     12088.95,
+     11393.52,
+     47233.95
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "e) Employee cost",
+    "y": 344.3,
+    "printed": [
+     "5,004.64",
+     "4,468.17",
+     "4,743.08",
+     "17,974.89"
+    ],
+    "values": [
+     5004.64,
+     4468.17,
+     4743.08,
+     17974.89
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "f) Other operating expenses",
+    "y": 355.8,
+    "printed": [
+     "7,569.70",
+     "7,620.78",
+     "6,650.44",
+     "29,259.06"
+    ],
+    "values": [
+     7569.7,
+     7620.78,
+     6650.44,
+     29259.06
+    ],
+    "metric": "other_operating_expenses"
+   },
+   {
+    "label": "TOTAL EXPENDITURE EXCLUDING PROVISIONS AND CONTINGENCIES (4)+(5)",
+    "serial": 6,
+    "is_total": true,
+    "y": 378.6,
+    "printed": [
+     "33,860.77",
+     "32,385.27",
+     "32,705.97",
+     "129,104.81"
+    ],
+    "values": [
+     33860.77,
+     32385.27,
+     32705.97,
+     129104.81
+    ],
+    "metric": "total_expenditure"
+   },
+   {
+    "label": "OPERATING PROFIT BEFORE PROVISIONS AND CONTINGENCIES (3)-(6)",
+    "serial": 7,
+    "is_total": true,
+    "y": 401.4,
+    "printed": [
+     "20,386.07",
+     "18,199.11",
+     "18,745.84",
+     "71,598.87"
+    ],
+    "values": [
+     20386.07,
+     18199.11,
+     18745.84,
+     71598.87
+    ],
+    "metric": "pre_provision_operating_profit"
+   },
+   {
+    "label": "Provisions (other than tax) and contingencies",
+    "serial": 8,
+    "y": 413.1,
+    "printed": [
+     "1,260.45",
+     "96.16",
+     "1,814.57",
+     "5,380.42"
+    ],
+    "values": [
+     1260.45,
+     96.16,
+     1814.57,
+     5380.42
+    ],
+    "metric": "provisions_and_contingencies"
+   },
+   {
+    "label": "PROFIT FROM ORDINARY ACTIVITIES BEFORE EXCEPTIONAL ITEMS AND TAX (7)-(8)",
+    "serial": 9,
+    "is_total": true,
+    "y": 435.9,
+    "printed": [
+     "19,125.62",
+     "18,102.95",
+     "16,931.27",
+     "66,218.45"
+    ],
+    "values": [
+     19125.62,
+     18102.95,
+     16931.27,
+     66218.45
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "Exceptional items",
+    "serial": 10,
+    "y": 447.4,
+    "printed": [
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "PROFIT FROM ORDINARY ACTIVITIES BEFORE TAX (9)-(10)",
+    "serial": 11,
+    "is_total": true,
+    "y": 458.9,
+    "printed": [
+     "19,125.62",
+     "18,102.95",
+     "16,931.27",
+     "66,218.45"
+    ],
+    "values": [
+     19125.62,
+     18102.95,
+     16931.27,
+     66218.45
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Tax expense (g)+(h)",
+    "serial": 12,
+    "is_total": true,
+    "y": 470.6,
+    "printed": [
+     "4,321.12",
+     "4,401.27",
+     "4,163.06",
+     "16,071.81"
+    ],
+    "values": [
+     4321.12,
+     4401.27,
+     4163.06,
+     16071.81
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "g) Current tax",
+    "y": 482.1,
+    "printed": [
+     "4,233.18",
+     "4,258.31",
+     "3,933.85",
+     "15,451.22"
+    ],
+    "values": [
+     4233.18,
+     4258.31,
+     3933.85,
+     15451.22
+    ],
+    "metric": "current_tax"
+   },
+   {
+    "label": "h) Deferred tax",
+    "y": 493.6,
+    "printed": [
+     "87.94",
+     "142.96",
+     "229.21",
+     "620.59"
+    ],
+    "values": [
+     87.94,
+     142.96,
+     229.21,
+     620.59
+    ],
+    "metric": "deferred_tax"
+   },
+   {
+    "label": "NET PROFIT FROM ORDINARY ACTIVITIES AFTER TAX (11)-(12)",
+    "serial": 13,
+    "is_total": true,
+    "y": 516.4,
+    "printed": [
+     "14,804.50",
+     "13,701.68",
+     "12,768.21",
+     "50,146.64"
+    ],
+    "values": [
+     14804.5,
+     13701.68,
+     12768.21,
+     50146.64
+    ],
+    "metric": "pat_ordinary_activities"
+   },
+   {
+    "label": "Extraordinary items (net of tax expense)",
+    "serial": 14,
+    "y": 528.0,
+    "printed": [
+     "..",
+     "..",
+     "..",
+     ".."
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": "extraordinary_items"
+   },
+   {
+    "label": "NET PROFIT FOR THE PERIOD (13)-(14)",
+    "serial": 15,
+    "is_total": true,
+    "y": 539.6,
+    "printed": [
+     "14,804.50",
+     "13,701.68",
+     "12,768.21",
+     "50,146.64"
+    ],
+    "values": [
+     14804.5,
+     13701.68,
+     12768.21,
+     50146.64
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Paid-up equity share capital (face value ₹ 2 each)",
+    "serial": 16,
+    "stock": true,
+    "y": 551.1,
+    "printed": [
+     "1,434.94",
+     "1,432.23",
+     "1,427.32",
+     "1,432.23"
+    ],
+    "values": [
+     1434.94,
+     1432.23,
+     1427.32,
+     1432.23
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Reserves excluding revaluation reserves",
+    "serial": 17,
+    "stock": true,
+    "y": 562.6,
+    "printed": [
+     "",
+     "",
+     "",
+     "329,372.57"
+    ],
+    "values": [
+     null,
+     null,
+     null,
+     329372.57
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "i) Percentage of shares held by Government of India",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "stock": true,
+    "y": 585.8,
+    "printed": [
+     "0.22%",
+     "0.22%",
+     "0.22%",
+     "0.22%"
+    ],
+    "values": [
+     0.22,
+     0.22,
+     0.22,
+     0.22
+    ],
+    "metric": "govt_shareholding_pct"
+   },
+   {
+    "label": "ii) Capital adequacy ratio (Basel III)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "stock": true,
+    "y": 597.3,
+    "printed": [
+     "16.84%",
+     "17.18%",
+     "16.31%",
+     "17.18%"
+    ],
+    "values": [
+     16.84,
+     17.18,
+     16.31,
+     17.18
+    ],
+    "metric": "capital_adequacy_ratio"
+   },
+   {
+    "label": "a) Basic EPS before and after extraordinary items, net of tax expense (not annualised) (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "unit_evidence": "(in ₹) on the row label",
+    "y": 631.6,
+    "printed": [
+     "20.65",
+     "19.15",
+     "17.91",
+     "70.21"
+    ],
+    "values": [
+     20.65,
+     19.15,
+     17.91,
+     70.21
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "b) Diluted EPS before and after extraordinary items, net of tax expense (not annualised) (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "unit_evidence": "(in ₹) on the row label",
+    "y": 654.5,
+    "printed": [
+     "20.42",
+     "18.90",
+     "17.63",
+     "69.20"
+    ],
+    "values": [
+     20.42,
+     18.9,
+     17.63,
+     69.2
+    ],
+    "metric": "diluted_eps"
+   },
+   {
+    "label": "i) Gross non-performing customer assets (net of write-off)",
+    "stock": true,
+    "y": 677.6,
+    "printed": [
+     "23,846.59",
+     "23,051.93",
+     "24,732.65",
+     "23,051.93"
+    ],
+    "values": [
+     23846.59,
+     23051.93,
+     24732.65,
+     23051.93
+    ],
+    "metric": "gross_npa_amount"
+   },
+   {
+    "label": "ii) Net non-performing customer assets",
+    "stock": true,
+    "y": 689.1,
+    "printed": [
+     "5,908.27",
+     "5,459.46",
+     "5,971.09",
+     "5,459.46"
+    ],
+    "values": [
+     5908.27,
+     5459.46,
+     5971.09,
+     5459.46
+    ],
+    "metric": "net_npa_amount"
+   },
+   {
+    "label": "iii) % of gross non-performing customer assets (net of write-off) to gross customer assets",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "stock": true,
+    "y": 712.0,
+    "printed": [
+     "1.38%",
+     "1.40%",
+     "1.67%",
+     "1.40%"
+    ],
+    "values": [
+     1.38,
+     1.4,
+     1.67,
+     1.4
+    ],
+    "metric": "gross_npa_ratio"
+   },
+   {
+    "label": "iv) % of net non-performing customer assets to net customer assets",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "stock": true,
+    "y": 734.8,
+    "printed": [
+     "0.35%",
+     "0.33%",
+     "0.41%",
+     "0.33%"
+    ],
+    "values": [
+     0.35,
+     0.33,
+     0.41,
+     0.33
+    ],
+    "metric": "net_npa_ratio"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Interest earned (a)+(b)+(c)+(d)",
+    "plus": [
+     "a) Interest/discount on advances/bills",
+     "b) Income on investments",
+     "c) Interest on balances with Reserve Bank of India and other inter-bank funds",
+     "d) Others"
+    ]
+   },
+   {
+    "target": "TOTAL INCOME (1)+(2)",
+    "plus": [
+     "Interest earned (a)+(b)+(c)+(d)",
+     "Other income"
+    ]
+   },
+   {
+    "target": "Operating expenses (e)+(f)",
+    "plus": [
+     "e) Employee cost",
+     "f) Other operating expenses"
+    ]
+   },
+   {
+    "target": "TOTAL EXPENDITURE EXCLUDING PROVISIONS AND CONTINGENCIES (4)+(5)",
+    "plus": [
+     "Interest expended",
+     "Operating expenses (e)+(f)"
+    ]
+   },
+   {
+    "target": "OPERATING PROFIT BEFORE PROVISIONS AND CONTINGENCIES (3)-(6)",
+    "plus": [
+     "TOTAL INCOME (1)+(2)"
+    ],
+    "minus": [
+     "TOTAL EXPENDITURE EXCLUDING PROVISIONS AND CONTINGENCIES (4)+(5)"
+    ]
+   },
+   {
+    "target": "PROFIT FROM ORDINARY ACTIVITIES BEFORE EXCEPTIONAL ITEMS AND TAX (7)-(8)",
+    "plus": [
+     "OPERATING PROFIT BEFORE PROVISIONS AND CONTINGENCIES (3)-(6)"
+    ],
+    "minus": [
+     "Provisions (other than tax) and contingencies"
+    ]
+   },
+   {
+    "target": "PROFIT FROM ORDINARY ACTIVITIES BEFORE TAX (9)-(10)",
+    "plus": [
+     "PROFIT FROM ORDINARY ACTIVITIES BEFORE EXCEPTIONAL ITEMS AND TAX (7)-(8)"
+    ],
+    "minus": [
+     "Exceptional items"
+    ]
+   },
+   {
+    "target": "Tax expense (g)+(h)",
+    "plus": [
+     "g) Current tax",
+     "h) Deferred tax"
+    ]
+   },
+   {
+    "target": "NET PROFIT FROM ORDINARY ACTIVITIES AFTER TAX (11)-(12)",
+    "plus": [
+     "PROFIT FROM ORDINARY ACTIVITIES BEFORE TAX (9)-(10)"
+    ],
+    "minus": [
+     "Tax expense (g)+(h)"
+    ]
+   },
+   {
+    "target": "NET PROFIT FOR THE PERIOD (13)-(14)",
+    "plus": [
+     "NET PROFIT FROM ORDINARY ACTIVITIES AFTER TAX (11)-(12)"
+    ],
+    "minus": [
+     "Extraordinary items (net of tax expense)"
+    ]
+   }
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "any fact from this page attributed to the consolidated entity",
+   "the Q4 FY26 column and the FY26 column resolving to the same period, though both end March 31, 2026",
+   "EPS carrying the table's crore scale",
+   "a percentage row carrying crore"
+  ]
+ }
+}

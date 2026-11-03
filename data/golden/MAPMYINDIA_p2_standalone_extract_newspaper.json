@@ -1,0 +1,155 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output.",
+  "The standalone key numbers printed directly under the consolidated extract",
+  "on the same newspaper page. Its unit is not restated: it inherits 'Rs. in",
+  "Lakhs' from the block above it, which is the only declaration on the page",
+  "for this issuer. Standalone profit before tax (7,307) EXCEEDS consolidated",
+  "(6,644) -- a real feature of this filer, not an extraction error, and not",
+  "a conflict.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "MAPMYINDIA",
+ "document": "src/MAPMYINDIA_Q1FY27_newspaper_results.pdf",
+ "issuer": "C.E. Info Systems Limited (MapmyIndia)",
+ "page": 2,
+ "transcription": {
+  "method": "read by eye from 1.5-1.6x crops of the scanned newspaper page",
+  "verified_against": "mmi_p2_b/c/d.png",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Extract of Key numbers of unaudited standalone financial results for the quarter ended June 30, 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "sub-table title",
+  "unit_declaration": {
+   "text": "(Rs. in Lakhs unless othewise stated) -- declared once, above the consolidated extract",
+   "unit": "lakh",
+   "currency": "INR",
+   "scope": "block",
+   "placement": "above the preceding table"
+  },
+  "bbox_pt": [
+   10,
+   640,
+   780,
+   815
+  ],
+  "bbox_rel": [
+   0.0067,
+   0.2685,
+   0.52,
+   0.3419
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter ended",
+    "header_lines": [
+     "30.06.2026",
+     "Unaudited"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter ended",
+    "header_lines": [
+     "31.03.2026",
+     "Audited (refer note 3)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter ended",
+    "header_lines": [
+     "30.06.2025",
+     "Unaudited"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c4",
+    "group": "For the year ended",
+    "header_lines": [
+     "31.03.2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Total income from operations (net)",
+    "y": 750,
+    "values": [
+     12448,
+     12758,
+     10265,
+     40074
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "Net Profit / (Loss) for the period before tax",
+    "y": 762,
+    "values": [
+     7307,
+     6697,
+     6578,
+     19132
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Net Profit / (Loss) for the period after tax",
+    "y": 774,
+    "values": [
+     5542,
+     4660,
+     5035,
+     13793
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Total Comprehensive Income for the period [Comprising Profit / (Loss) for the period (after tax) and Other Comprehensive Income (after tax)]",
+    "y": 790,
+    "values": [
+     5534,
+     4738,
+     5043,
+     13958
+    ],
+    "metric": "total_comprehensive_income"
+   }
+  ],
+  "page_height_pt": 2383.68,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "any fact from this block attributed to the consolidated entity",
+   "a conflict raised between standalone and consolidated profit before tax"
+  ]
+ }
+}

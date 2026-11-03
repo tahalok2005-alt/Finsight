@@ -275,6 +275,19 @@ class TestModesRemainDistinct:
             values = {(f.canonical_metric, f.period): f.value for f in result.facts}
             assert values.get(("gross_revenue", "Q1 FY27")) == pytest.approx(12450.0)
 
+        # ...and describe it identically.  Unit and value type are decided from
+        # the pixels in both modes, so a difference here would mean the text
+        # layer had reached a decision it must not reach.
+        def described(result):
+            return {(f.canonical_metric, f.period):
+                    (str(f.unit), str(f.currency), str(f.value_type))
+                    for f in result.facts}
+
+        shared = set(described(hybrid)) & set(described(visual))
+        assert shared, "the two modes produced no comparable facts"
+        for key in shared:
+            assert described(hybrid)[key] == described(visual)[key], key
+
     def test_visual_only_does_not_claim_a_text_layer(self, synthetic_pdf):
         from app.ocr.registry import get_engine
         from app.services.pipeline import Pipeline
@@ -284,3 +297,104 @@ class TestModesRemainDistinct:
         # it deliberately does not look, so it must not report having found one
         assert all(p.has_text_layer is False for p in visual.pages)
         assert all(p.text_layer_chars == 0 for p in visual.pages)
+
+# --------------------------------------------------------- §8 capture quality
+class TestImageQuality:
+    """What the page image says about how it was captured.
+
+    Every signal is a statistic over the pixels, so each test builds the defect
+    it is about and checks that the measurement finds it -- and, just as
+    importantly, that a clean page is left alone.  No model file is involved
+    anywhere, which is what makes these assertions stable.
+    """
+
+    @staticmethod
+    def _page(text_rows: int = 24, height: int = 22) -> "np.ndarray":
+        """A synthetic page of real glyphs on white paper.
+
+        Drawn with actual text rather than solid bars: a bar has no edges in
+        its interior, so it measures as blurred however crisp it is, and a
+        fixture that misrepresents the thing being measured proves nothing.
+        """
+        import cv2
+        import numpy as np
+        img = np.full((1400, 1000, 3), 255, dtype=np.uint8)
+        scale = height / 22.0
+        for r in range(text_rows):
+            y = 60 + int(r * height * 2.2) + height
+            if y > 1360:
+                break
+            cv2.putText(img, "Revenue 12,450 EBITDA 2,490 Margin 20.0",
+                        (80, y), cv2.FONT_HERSHEY_SIMPLEX, 0.62 * scale,
+                        (20, 20, 20), max(1, round(scale)), cv2.LINE_AA)
+        return img
+
+    def test_a_clean_page_has_no_defects(self):
+        from app.rendering.quality import measure
+        q = measure(self._page(height=34))
+        assert q.defects == []
+        assert q.is_degraded is False
+        assert q.contrast > 0.9 and abs(q.skew_degrees) < 0.25
+
+    def test_skew_is_measured_and_signed(self):
+        import cv2
+        from app.rendering.quality import measure
+        page = self._page(height=34)
+        h, w = page.shape[:2]
+        m = cv2.getRotationMatrix2D((w / 2, h / 2), 1.5, 1.0)
+        turned = cv2.warpAffine(page, m, (w, h), borderValue=(255, 255, 255))
+        q = measure(turned)
+        assert "skew" in q.defects
+        # the value is the correction: applying it levels the rows again
+        assert q.skew_degrees == pytest.approx(-1.5, abs=0.4)
+
+    def test_a_blurred_page_is_recognised_as_blurred(self):
+        import cv2
+        from app.rendering.quality import measure
+        blurred = cv2.GaussianBlur(self._page(height=34), (0, 0), 2.5)
+        assert "blur" in measure(blurred).defects
+
+    def test_small_text_is_measured_in_pixels_not_dpi(self):
+        """Nominal dpi says nothing: what matters is how many pixels a row of
+        type actually occupies, which is what the recogniser sees."""
+        from app.rendering.quality import measure
+        big = measure(self._page(height=34))
+        small = measure(self._page(text_rows=60, height=9))
+        assert big.text_height_px > small.text_height_px
+        assert "small_text" in small.defects
+        assert "small_text" not in big.defects
+
+    def test_a_washed_out_page_is_low_contrast(self):
+        import numpy as np
+        from app.rendering.quality import measure
+        faint = self._page(height=34).astype(np.float32)
+        faint = (faint * 0.35 + 150).clip(0, 255).astype(np.uint8)
+        assert "low_contrast" in measure(faint).defects
+
+    def test_uneven_illumination_is_observed_but_not_acted_on(self):
+        """It is measured honestly and deliberately not made actionable: on
+        the benchmark it cannot separate a lighting gradient from a printed
+        colour block, and a signal that cannot tell a defect from a design
+        must not drive a transformation."""
+        import numpy as np
+        from app.rendering.quality import measure
+        page = self._page(height=34).astype(np.float32)
+        ramp = np.linspace(1.0, 0.55, page.shape[1])[None, :, None]
+        lit = (page * ramp).clip(0, 255).astype(np.uint8)
+        q = measure(lit)
+        assert "uneven_illumination" in q.observations
+        assert "uneven_illumination" not in q.defects
+
+    def test_the_measurement_is_reported_per_page(self):
+        """A reader who sees a bad result should be able to see why."""
+        from app.models.schemas import PageInfo
+        assert "image_quality" in PageInfo.model_fields
+        assert PageInfo.model_fields["ocr_image"].default == "original"
+
+    def test_extraction_only_ever_reads_the_rendered_page(self):
+        """No enhanced or intermediate image feeds extraction, so every
+        bounding box addresses pixels the reader can actually be shown."""
+        import app.services.pipeline as pipeline_module
+        source = Path(pipeline_module.__file__).read_text(encoding="utf-8")
+        assert "build_candidate" not in source
+        assert "info.ocr_image" not in source

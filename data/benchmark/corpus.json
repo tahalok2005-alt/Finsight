@@ -1,0 +1,76 @@
+{
+  "_comment": [
+    "The documents FinSight is measured on. Source files are read where they",
+    "live and are never copied or modified; a path outside the repository is",
+    "expected and fine. Documents carrying a `truth` file are the regression",
+    "gate. The rest measure behaviour on shapes the keyed set does not cover,",
+    "and their fact counts are evidence about the pipeline, not about accuracy."
+  ],
+  "documents": [
+    {
+      "key": "RIL",
+      "path": "Media_Release_RIL_Q1_FY2026-27_Financial_and_Operational_Performance.pdf",
+      "truth": "Media_Release_RIL_Q1_FY2026-27_Financial_and_Operational_Performance.truth.json",
+      "kind": "quarterly media release, digital text",
+      "structures": ["financial statements", "segment information", "narrative", "tables"]
+    },
+    {
+      "key": "RIL_IMAGE_ONLY",
+      "path": "RIL_Q1_FY27_IMAGE_ONLY.pdf",
+      "truth": "RIL_Q1_FY27_IMAGE_ONLY.truth.json",
+      "kind": "the same release with its text layer removed",
+      "structures": ["financial statements", "segment information", "tables"],
+      "notes": "Proves the visual-only path reaches the same answers as the text one."
+    },
+    {
+      "key": "RIL_DEGRADED",
+      "path": "RIL_Q1_FY27_SCANNED_DEGRADED.pdf",
+      "truth": "RIL_Q1_FY27_SCANNED_DEGRADED.truth.json",
+      "kind": "the same release, scanner-degraded",
+      "structures": ["financial statements", "tables"],
+      "notes": "The floor: skew, noise and contrast loss on top of the image-only case."
+    },
+    {
+      "key": "APPLE",
+      "path": "AAPL_FY25_Q3_Consolidated_Financial_Statements.pdf",
+      "kind": "consolidated statements, US filer",
+      "structures": ["financial statements", "tables"],
+      "notes": "A 52/53-week fiscal calendar, which is why period dates are persisted rather than recomputed."
+    },
+    {
+      "key": "IDFC",
+      "path": "C:/Users/Taha/OneDrive/Desktop/IDFC Q12027.pdf",
+      "kind": "investor presentation, 75 pages",
+      "structures": ["KPI tiles", "charts", "transposed tables", "narrative", "segment information"],
+      "notes": "The visual-layout case: figures arranged rather than tabulated."
+    },
+    {
+      "key": "STANCHART",
+      "path": "C:/Users/Taha/OneDrive/Desktop/Interim-Report-as-of-June-30-2026.pdf",
+      "kind": "half-yearly interim report, 165 pages",
+      "structures": ["financial statements", "notes", "narrative", "tables", "segment information"],
+      "notes": "The size case. Slow enough that it is measured once per phase, not per change."
+    },
+    {
+      "key": "HDFC",
+      "path": "C:/Users/Taha/OneDrive/Desktop/HDFC results.pdf",
+      "kind": "statutory quarterly results, bank, 16 pages",
+      "structures": ["financial statements", "segment information", "notes", "tables"],
+      "notes": "Its own text layer is OCR output and carries errors ('We undersland your world'), so the visual path is not merely an alternative here."
+    },
+    {
+      "key": "PAYTM",
+      "path": "C:/Users/Taha/OneDrive/Desktop/Paytm results.pdf",
+      "kind": "earnings release, 18 pages",
+      "structures": ["KPI tiles", "narrative", "tables", "charts"],
+      "notes": "States its own unit conversion on the page: 'Rs 1 Cr = Rs 10 million'."
+    },
+    {
+      "key": "GROWW",
+      "path": "C:/Users/Taha/OneDrive/Desktop/groww Results.pdf",
+      "kind": "limited-review results filing, 14 pages",
+      "structures": ["financial statements", "notes", "tables", "auditor report"],
+      "notes": "Filed under the legal name 'Billionbrains Garage Ventures Limited', which no metric taxonomy would recognise as Groww."
+    }
+  ]
+}

@@ -73,7 +73,7 @@ export function CompareView() {
         {ready.length === 0 && !docs.isLoading && (
           <Empty
             title="Nothing to compare yet"
-            hint="Process at least one document with extracted facts."
+            hint="Process at least one document with extracted figures."
           />
         )}
 
@@ -273,7 +273,7 @@ function Side({
       >
         {documents.map((d) => (
           <option key={d.id} value={d.id}>
-            {d.company_name ?? d.original_filename}
+            {d.company_name || d.original_filename}
             {d.report_period ? ` — ${d.report_period}` : ""}
           </option>
         ))}

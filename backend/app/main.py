@@ -9,12 +9,17 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from app.api import routes_data, routes_documents, routes_system
+from app.api import (
+    routes_data, routes_documents, routes_intelligence, routes_system,
+)
 from app.config.settings import settings
 from app.core.errors import FinSightError
 from app.core.logging import configure_logging, get_logger
 from app.database.session import init_db
 from app.ocr.registry import probe_engines
+from app.services.reconcile import (
+    reconcile_interrupted_runs, sweep_orphaned_files,
+)
 from app.workers.queue import queue
 
 configure_logging()
@@ -38,6 +43,12 @@ No paid LLM API is involved at any point.
 async def lifespan(app: FastAPI):
     settings.ensure_dirs()
     init_db()
+    reclaimed = reconcile_interrupted_runs()
+    if reclaimed:
+        log.info("api.reconciled_interrupted", documents=reclaimed)
+    swept = sweep_orphaned_files()
+    if swept:
+        log.info("api.swept_orphan_files", directories=swept)
     queue.start()
     engines = probe_engines()
     usable = [n for n, i in engines.items() if i.get("available")]
@@ -116,6 +127,7 @@ api = settings.api_prefix
 app.include_router(routes_system.router, prefix=api)
 app.include_router(routes_documents.router, prefix=api)
 app.include_router(routes_data.router, prefix=api)
+app.include_router(routes_intelligence.router, prefix=api)
 app.include_router(routes_data.compare_router, prefix=api)
 app.include_router(routes_data.search_router, prefix=api)
 app.include_router(routes_data.meta_router, prefix=api)

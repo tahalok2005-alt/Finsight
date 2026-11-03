@@ -1,0 +1,341 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A point-in-time statement: every column is a date ('At'), not a span. The",
+  "same three dates as the income statement's quarter columns, which is exactly",
+  "why a resolver that reduces periods to end dates would conflate them.",
+  "Figures from the native text layer; header read from the render.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "ICICI",
+ "document": "src/ICICI_Q1FY27_results.pdf",
+ "issuer": "ICICI Bank Limited",
+ "page": 3,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "page render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "SUMMARISED STANDALONE BALANCE SHEET",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": "Standalone",
+  "basis_evidence": "statement title",
+  "unit_declaration": {
+   "text": "(₹ in crore)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   15,
+   70,
+   590,
+   326
+  ],
+  "bbox_rel": [
+   0.0252,
+   0.0831,
+   0.9911,
+   0.3872
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "At",
+    "header_lines": [
+     "June 30,",
+     "2026",
+     "(Unaudited)"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "group": "At",
+    "header_lines": [
+     "March 31,",
+     "2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Mar 2026",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "At",
+    "header_lines": [
+     "June 30,",
+     "2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2025",
+    "audit_status": "unaudited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Capital",
+    "y": 148.1,
+    "printed": [
+     "1,434.94",
+     "1,432.23",
+     "1,427.32"
+    ],
+    "values": [
+     1434.94,
+     1432.23,
+     1427.32
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Employees stock options/units outstanding",
+    "y": 159.6,
+    "printed": [
+     "2,712.72",
+     "2,682.07",
+     "2,142.54"
+    ],
+    "values": [
+     2712.72,
+     2682.07,
+     2142.54
+    ],
+    "metric": "esop_outstanding"
+   },
+   {
+    "label": "Reserves and surplus",
+    "y": 171.1,
+    "printed": [
+     "349,343.57",
+     "333,257.12",
+     "302,750.67"
+    ],
+    "values": [
+     349343.57,
+     333257.12,
+     302750.67
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "Deposits",
+    "y": 182.6,
+    "printed": [
+     "1,833,585.79",
+     "1,794,624.98",
+     "1,608,517.32"
+    ],
+    "values": [
+     1833585.79,
+     1794624.98,
+     1608517.32
+    ],
+    "metric": "total_deposits"
+   },
+   {
+    "label": "Borrowings (includes subordinated debt)",
+    "y": 194.3,
+    "printed": [
+     "126,291.55",
+     "124,994.11",
+     "117,095.27"
+    ],
+    "values": [
+     126291.55,
+     124994.11,
+     117095.27
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Other liabilities and provisions",
+    "y": 205.8,
+    "printed": [
+     "119,057.47",
+     "115,540.49",
+     "91,905.85"
+    ],
+    "values": [
+     119057.47,
+     115540.49,
+     91905.85
+    ],
+    "metric": "other_liabilities_and_provisions"
+   },
+   {
+    "label": "TOTAL CAPITAL AND LIABILITIES",
+    "is_total": true,
+    "y": 217.3,
+    "printed": [
+     "2,432,426.04",
+     "2,372,531.00",
+     "2,123,838.97"
+    ],
+    "values": [
+     2432426.04,
+     2372531.0,
+     2123838.97
+    ],
+    "metric": "total_equity_and_liabilities"
+   },
+   {
+    "label": "Cash and balances with Reserve Bank of India",
+    "y": 251.7,
+    "printed": [
+     "73,942.76",
+     "121,024.05",
+     "96,453.83"
+    ],
+    "values": [
+     73942.76,
+     121024.05,
+     96453.83
+    ],
+    "metric": "cash_and_rbi_balances"
+   },
+   {
+    "label": "Balances with banks and money at call and short notice",
+    "y": 263.2,
+    "printed": [
+     "89,104.37",
+     "109,311.11",
+     "68,144.42"
+    ],
+    "values": [
+     89104.37,
+     109311.11,
+     68144.42
+    ],
+    "metric": "balances_with_banks"
+   },
+   {
+    "label": "Investments",
+    "y": 274.8,
+    "printed": [
+     "538,534.25",
+     "492,217.33",
+     "507,706.63"
+    ],
+    "values": [
+     538534.25,
+     492217.33,
+     507706.63
+    ],
+    "metric": "investments"
+   },
+   {
+    "label": "Advances",
+    "y": 286.3,
+    "printed": [
+     "1,631,259.71",
+     "1,553,892.95",
+     "1,364,157.06"
+    ],
+    "values": [
+     1631259.71,
+     1553892.95,
+     1364157.06
+    ],
+    "metric": "advances"
+   },
+   {
+    "label": "Fixed assets",
+    "y": 297.9,
+    "printed": [
+     "13,813.06",
+     "13,922.47",
+     "12,878.47"
+    ],
+    "values": [
+     13813.06,
+     13922.47,
+     12878.47
+    ],
+    "metric": "fixed_assets"
+   },
+   {
+    "label": "Other assets",
+    "y": 309.4,
+    "printed": [
+     "85,771.89",
+     "82,163.09",
+     "74,498.56"
+    ],
+    "values": [
+     85771.89,
+     82163.09,
+     74498.56
+    ],
+    "metric": "other_assets"
+   },
+   {
+    "label": "TOTAL ASSETS",
+    "is_total": true,
+    "y": 320.9,
+    "printed": [
+     "2,432,426.04",
+     "2,372,531.00",
+     "2,123,838.97"
+    ],
+    "values": [
+     2432426.04,
+     2372531.0,
+     2123838.97
+    ],
+    "metric": "total_assets"
+   }
+  ],
+  "identities": [
+   {
+    "target": "TOTAL CAPITAL AND LIABILITIES",
+    "plus": [
+     "Capital",
+     "Employees stock options/units outstanding",
+     "Reserves and surplus",
+     "Deposits",
+     "Borrowings (includes subordinated debt)",
+     "Other liabilities and provisions"
+    ]
+   },
+   {
+    "target": "TOTAL ASSETS",
+    "plus": [
+     "Cash and balances with Reserve Bank of India",
+     "Balances with banks and money at call and short notice",
+     "Investments",
+     "Advances",
+     "Fixed assets",
+     "Other assets"
+    ]
+   },
+   {
+    "target": "TOTAL ASSETS",
+    "plus": [
+     "TOTAL CAPITAL AND LIABILITIES"
+    ]
+   }
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a balance-sheet figure typed as a quarter or year flow",
+   "any fact attributed to the consolidated entity"
+  ]
+ }
+}

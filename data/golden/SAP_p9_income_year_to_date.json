@@ -1,0 +1,612 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "The year-to-date twin of page 8: 'Q1–Q2 2026' is SIX months, January-June",
+  "2026, ending on the same date as the Q2 column on page 8. A resolver that",
+  "keys periods on end date alone would merge the two. The ∆ column is",
+  "excluded as on page 8. Figures from the native text layer.",
+  "Phase 21 (end): the two 'Attributable to ...' rows carry their parent row ('Profit (loss) after tax: ...') like every other row that names no measure alone; printed_label keeps the words as printed. Values untouched.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "SAP",
+ "document": "src/SAP_Q2_2026_statement.pdf",
+ "issuer": "SAP SE",
+ "page": 9,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "page text and render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "(A.2) Consolidated Income Statements – Year-to-Date",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "'Primary Financial Statements of SAP Group (IFRS)' / 'Consolidated Income Statements'",
+  "unit_declaration": {
+   "text": "€ millions, unless otherwise stated",
+   "unit": "million",
+   "currency": "EUR",
+   "scope": "table",
+   "placement": "top-left of the header row"
+  },
+  "bbox_pt": [
+   40,
+   85,
+   555,
+   630
+  ],
+  "bbox_rel": [
+   0.0672,
+   0.101,
+   0.9323,
+   0.7483
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Q1–Q2",
+     "2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-01-01",
+    "period_type": "half_year",
+    "fiscal_label": "H1 2026",
+    "fiscal_year": 2026,
+    "half": 1
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Q1–Q2",
+     "2025"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-01-01",
+    "period_type": "half_year",
+    "fiscal_label": "H1 2025",
+    "fiscal_year": 2025,
+    "half": 1
+   }
+  ],
+  "rows": [
+   {
+    "label": "Cloud",
+    "y": 125.0,
+    "printed": [
+     "12,244",
+     "10,124"
+    ],
+    "values": [
+     12244.0,
+     10124.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Software licenses",
+    "y": 139.7,
+    "printed": [
+     "247",
+     "377"
+    ],
+    "values": [
+     247.0,
+     377.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Software support",
+    "y": 154.3,
+    "printed": [
+     "4,908",
+     "5,403"
+    ],
+    "values": [
+     4908.0,
+     5403.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Software licenses and support",
+    "is_total": true,
+    "y": 169.0,
+    "printed": [
+     "5,155",
+     "5,780"
+    ],
+    "values": [
+     5155.0,
+     5780.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cloud and software",
+    "is_total": true,
+    "y": 183.6,
+    "printed": [
+     "17,399",
+     "15,904"
+    ],
+    "values": [
+     17399.0,
+     15904.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Services",
+    "y": 198.2,
+    "printed": [
+     "2,033",
+     "2,136"
+    ],
+    "values": [
+     2033.0,
+     2136.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total revenue",
+    "is_total": true,
+    "y": 212.9,
+    "printed": [
+     "19,432",
+     "18,040"
+    ],
+    "values": [
+     19432.0,
+     18040.0
+    ],
+    "metric": "revenue"
+   },
+   {
+    "label": "Cost of cloud",
+    "y": 242.2,
+    "printed": [
+     "–3,130",
+     "–2,570"
+    ],
+    "values": [
+     -3130.0,
+     -2570.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cost of software licenses and support",
+    "y": 256.9,
+    "printed": [
+     "–559",
+     "–605"
+    ],
+    "values": [
+     -559.0,
+     -605.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cost of cloud and software",
+    "is_total": true,
+    "y": 271.6,
+    "printed": [
+     "–3,688",
+     "–3,176"
+    ],
+    "values": [
+     -3688.0,
+     -3176.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cost of services",
+    "y": 286.2,
+    "printed": [
+     "–1,543",
+     "–1,638"
+    ],
+    "values": [
+     -1543.0,
+     -1638.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total cost of revenue",
+    "is_total": true,
+    "y": 300.9,
+    "printed": [
+     "–5,232",
+     "–4,813"
+    ],
+    "values": [
+     -5232.0,
+     -4813.0
+    ],
+    "metric": "cost_of_revenue"
+   },
+   {
+    "label": "Gross profit",
+    "is_total": true,
+    "y": 315.5,
+    "printed": [
+     "14,201",
+     "13,226"
+    ],
+    "values": [
+     14201.0,
+     13226.0
+    ],
+    "metric": "gross_profit"
+   },
+   {
+    "label": "Research and development",
+    "y": 330.2,
+    "printed": [
+     "–3,546",
+     "–3,291"
+    ],
+    "values": [
+     -3546.0,
+     -3291.0
+    ],
+    "metric": "research_and_development"
+   },
+   {
+    "label": "Sales and marketing",
+    "y": 344.8,
+    "printed": [
+     "–4,455",
+     "–4,391"
+    ],
+    "values": [
+     -4455.0,
+     -4391.0
+    ],
+    "metric": "sales_and_marketing"
+   },
+   {
+    "label": "General and administration",
+    "y": 359.4,
+    "printed": [
+     "–762",
+     "–719"
+    ],
+    "values": [
+     -762.0,
+     -719.0
+    ],
+    "metric": "general_and_administrative"
+   },
+   {
+    "label": "Restructuring",
+    "y": 374.1,
+    "printed": [
+     "–19",
+     "–18"
+    ],
+    "values": [
+     -19.0,
+     -18.0
+    ],
+    "metric": "restructuring_expense"
+   },
+   {
+    "label": "Other operating income/expense, net",
+    "y": 388.7,
+    "printed": [
+     "–36",
+     "–19"
+    ],
+    "values": [
+     -36.0,
+     -19.0
+    ],
+    "metric": "other_operating_income_expense"
+   },
+   {
+    "label": "Total operating expenses",
+    "is_total": true,
+    "y": 403.4,
+    "printed": [
+     "–14,049",
+     "–13,251"
+    ],
+    "values": [
+     -14049.0,
+     -13251.0
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "Operating profit (loss)",
+    "is_total": true,
+    "y": 418.0,
+    "printed": [
+     "5,383",
+     "4,789"
+    ],
+    "values": [
+     5383.0,
+     4789.0
+    ],
+    "metric": "ebit"
+   },
+   {
+    "label": "Other non-operating income/expense, net",
+    "y": 447.4,
+    "printed": [
+     "–16",
+     "7"
+    ],
+    "values": [
+     -16.0,
+     7.0
+    ],
+    "metric": "other_non_operating_income"
+   },
+   {
+    "label": "Finance income",
+    "y": 462.1,
+    "printed": [
+     "1,000",
+     "722"
+    ],
+    "values": [
+     1000.0,
+     722.0
+    ],
+    "metric": "finance_income"
+   },
+   {
+    "label": "Finance costs",
+    "y": 476.7,
+    "printed": [
+     "–615",
+     "–548"
+    ],
+    "values": [
+     -615.0,
+     -548.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Financial income, net",
+    "is_total": true,
+    "y": 491.3,
+    "printed": [
+     "385",
+     "175"
+    ],
+    "values": [
+     385.0,
+     175.0
+    ],
+    "metric": "financial_income_net"
+   },
+   {
+    "label": "Profit (loss) before tax",
+    "is_total": true,
+    "y": 506.0,
+    "printed": [
+     "5,753",
+     "4,970"
+    ],
+    "values": [
+     5753.0,
+     4970.0
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Income tax expense",
+    "y": 535.3,
+    "printed": [
+     "–1,597",
+     "–1,425"
+    ],
+    "values": [
+     -1597.0,
+     -1425.0
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Profit (loss) after tax",
+    "is_total": true,
+    "y": 549.9,
+    "printed": [
+     "4,155",
+     "3,545"
+    ],
+    "values": [
+     4155.0,
+     3545.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Profit (loss) after tax: Attributable to owners of parent",
+    "y": 564.5,
+    "printed": [
+     "4,112",
+     "3,477"
+    ],
+    "values": [
+     4112.0,
+     3477.0
+    ],
+    "printed_label": "Attributable to owners of parent",
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "Profit (loss) after tax: Attributable to non-controlling interests",
+    "y": 579.2,
+    "printed": [
+     "44",
+     "68"
+    ],
+    "values": [
+     44.0,
+     68.0
+    ],
+    "printed_label": "Attributable to non-controlling interests",
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "Earnings per share, basic (in €)",
+    "unit": "per_share",
+    "currency": "EUR",
+    "value_type": "per_share",
+    "y": 608.6,
+    "printed": [
+     "3.55",
+     "2.98"
+    ],
+    "values": [
+     3.55,
+     2.98
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "Earnings per share, diluted (in €)",
+    "unit": "per_share",
+    "currency": "EUR",
+    "value_type": "per_share",
+    "y": 623.2,
+    "printed": [
+     "3.54",
+     "2.96"
+    ],
+    "values": [
+     3.54,
+     2.96
+    ],
+    "metric": "diluted_eps"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Software licenses and support",
+    "plus": [
+     "Software licenses",
+     "Software support"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Cloud and software",
+    "plus": [
+     "Cloud",
+     "Software licenses and support"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total revenue",
+    "plus": [
+     "Cloud and software",
+     "Services"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Cost of cloud and software",
+    "plus": [
+     "Cost of cloud",
+     "Cost of software licenses and support"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total cost of revenue",
+    "plus": [
+     "Cost of cloud and software",
+     "Cost of services"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Gross profit",
+    "plus": [
+     "Total revenue",
+     "Total cost of revenue"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total operating expenses",
+    "plus": [
+     "Total cost of revenue",
+     "Research and development",
+     "Sales and marketing",
+     "General and administration",
+     "Restructuring",
+     "Other operating income/expense, net"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Operating profit (loss)",
+    "plus": [
+     "Total revenue",
+     "Total operating expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Financial income, net",
+    "plus": [
+     "Finance income",
+     "Finance costs"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit (loss) before tax",
+    "plus": [
+     "Operating profit (loss)",
+     "Other non-operating income/expense, net",
+     "Financial income, net"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit (loss) after tax",
+    "plus": [
+     "Profit (loss) before tax",
+     "Income tax expense"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit (loss) after tax",
+    "plus": [
+     "Profit (loss) after tax: Attributable to owners of parent",
+     "Profit (loss) after tax: Attributable to non-controlling interests"
+    ],
+    "tolerance": 1.0
+   }
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a figure from this page typed as a quarter",
+   "a figure from this page and its page-8 twin resolving to the same period",
+   "a ∆ % figure extracted as a EUR amount"
+  ]
+ }
+}

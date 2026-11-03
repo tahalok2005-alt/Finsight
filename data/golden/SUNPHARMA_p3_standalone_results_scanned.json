@@ -1,0 +1,739 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A SCANNED board-outcome filing (OCR layer: '1,401 .7', '5,31 7. 1', '11 ,151 .4').",
+  "Standalone results in INR MILLION with one decimal; four columns (three quarters and",
+  "the year to 31.03.2026). Every figure read from the render; subtotals re-added.",
+  "Tax is split into the ordinary charge (i) and the tax on exceptional items (ii),",
+  "with no total printed: neither is the total tax expense (metric null). 'Net (gain)",
+  "/ loss on foreign currency transactions' is signed as a LOSS (a gain in brackets),",
+  "the opposite of the taxonomy's gains/(losses) key (metric null). The last line, R&D",
+  "'included above', is a memorandum of costs already in the expenses.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "SUNPHARMA",
+ "document": "src/SUNPHARMA_Q1FY27_board_outcome_results.pdf",
+ "issuer": "Sun Pharmaceutical Industries Limited",
+ "page": 3,
+ "transcription": {
+  "method": "read by eye from the render; positions from the filer's OCR layer",
+  "verified_against": "page render at 210 dpi and the statement's own totals",
+  "date": "2026-09-13"
+ },
+ "table": {
+  "title": "Statement of Unaudited Standalone Financial Results for the Quarter ended June 30, 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "title 'Statement of Unaudited Standalone Financial Results'",
+  "unit_declaration": {
+   "text": "(₹ in Million)",
+   "unit": "million",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   48,
+   118,
+   558,
+   535
+  ],
+  "bbox_rel": [
+   0.0806,
+   0.1401,
+   0.9371,
+   0.6354
+  ],
+  "page_height_pt": 842.04,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter ended",
+    "header_lines": [
+     "30.06.2026",
+     "Unaudited"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter ended",
+    "header_lines": [
+     "31.03.2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter ended",
+    "header_lines": [
+     "30.06.2025",
+     "Unaudited"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c4",
+    "group": "Year ended",
+    "header_lines": [
+     "31.03.2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "I a. Revenue from contracts with customers",
+    "y": 182.2,
+    "printed": [
+     "56,413.1",
+     "48,872.7",
+     "55,592.7",
+     "206,090.2"
+    ],
+    "values": [
+     56413.1,
+     48872.7,
+     55592.7,
+     206090.2
+    ],
+    "metric": null
+   },
+   {
+    "label": "I b. Other operating revenues",
+    "y": 192.5,
+    "printed": [
+     "998.2",
+     "366.1",
+     "356.1",
+     "1,456.2"
+    ],
+    "values": [
+     998.2,
+     366.1,
+     356.1,
+     1456.2
+    ],
+    "metric": "other_operating_revenue"
+   },
+   {
+    "label": "Total revenue from operations (I)",
+    "is_total": true,
+    "y": 202.2,
+    "printed": [
+     "57,411.3",
+     "49,238.8",
+     "55,948.8",
+     "207,546.4"
+    ],
+    "values": [
+     57411.3,
+     49238.8,
+     55948.8,
+     207546.4
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "II Other income",
+    "y": 212.1,
+    "printed": [
+     "1,401.7",
+     "629.3",
+     "1,037.1",
+     "4,193.3"
+    ],
+    "values": [
+     1401.7,
+     629.3,
+     1037.1,
+     4193.3
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "III Total income (I+II)",
+    "is_total": true,
+    "y": 222.2,
+    "printed": [
+     "58,813.0",
+     "49,868.1",
+     "56,985.9",
+     "211,739.7"
+    ],
+    "values": [
+     58813.0,
+     49868.1,
+     56985.9,
+     211739.7
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Cost of materials consumed",
+    "y": 246.1,
+    "printed": [
+     "12,397.4",
+     "12,286.6",
+     "9,979.3",
+     "43,832.7"
+    ],
+    "values": [
+     12397.4,
+     12286.6,
+     9979.3,
+     43832.7
+    ],
+    "metric": "raw_material_cost"
+   },
+   {
+    "label": "Purchases of stock-in-trade",
+    "y": 256.2,
+    "printed": [
+     "2,750.4",
+     "3,119.1",
+     "3,282.5",
+     "13,915.2"
+    ],
+    "values": [
+     2750.4,
+     3119.1,
+     3282.5,
+     13915.2
+    ],
+    "metric": "purchases_of_stock_in_trade"
+   },
+   {
+    "label": "Changes in inventories of finished goods, stock-in-trade and work-in-progress",
+    "y": 266.1,
+    "printed": [
+     "(192.2)",
+     "(3,453.7)",
+     "930.2",
+     "(3,058.3)"
+    ],
+    "values": [
+     -192.2,
+     -3453.7,
+     930.2,
+     -3058.3
+    ],
+    "metric": "changes_in_inventories"
+   },
+   {
+    "label": "Employee benefits expense",
+    "y": 275.8,
+    "printed": [
+     "8,309.3",
+     "7,039.9",
+     "7,389.2",
+     "29,113.0"
+    ],
+    "values": [
+     8309.3,
+     7039.9,
+     7389.2,
+     29113.0
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "Finance costs",
+    "y": 285.7,
+    "printed": [
+     "2,784.8",
+     "2,169.2",
+     "2,384.2",
+     "9,478.4"
+    ],
+    "values": [
+     2784.8,
+     2169.2,
+     2384.2,
+     9478.4
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Depreciation and amortisation expense",
+    "y": 295.8,
+    "printed": [
+     "3,079.2",
+     "3,259.7",
+     "3,109.2",
+     "13,117.2"
+    ],
+    "values": [
+     3079.2,
+     3259.7,
+     3109.2,
+     13117.2
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "Other expenses",
+    "y": 305.9,
+    "printed": [
+     "16,273.3",
+     "22,185.9",
+     "17,168.2",
+     "75,507.9"
+    ],
+    "values": [
+     16273.3,
+     22185.9,
+     17168.2,
+     75507.9
+    ],
+    "metric": "other_expenses"
+   },
+   {
+    "label": "Net (gain) / loss on foreign currency transactions",
+    "y": 315.8,
+    "printed": [
+     "(1,769.0)",
+     "(5,228.7)",
+     "(1,895.9)",
+     "(13,571.0)"
+    ],
+    "values": [
+     -1769.0,
+     -5228.7,
+     -1895.9,
+     -13571.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total expenses (IV)",
+    "is_total": true,
+    "y": 326.0,
+    "printed": [
+     "43,633.2",
+     "41,378.0",
+     "42,346.9",
+     "168,335.1"
+    ],
+    "values": [
+     43633.2,
+     41378.0,
+     42346.9,
+     168335.1
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "V Profit / (loss) before exceptional items and tax (III-IV)",
+    "is_total": true,
+    "y": 336.1,
+    "printed": [
+     "15,179.8",
+     "8,490.1",
+     "14,639.0",
+     "43,404.6"
+    ],
+    "values": [
+     15179.8,
+     8490.1,
+     14639.0,
+     43404.6
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "VI Exceptional items (Refer Note 3 and 4)",
+    "y": 346.0,
+    "printed": [
+     "315.3",
+     "-",
+     "2,876.4",
+     "5,463.4"
+    ],
+    "values": [
+     315.3,
+     "nil",
+     2876.4,
+     5463.4
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "VII Profit / (loss) before tax (V-VI)",
+    "is_total": true,
+    "y": 356.1,
+    "printed": [
+     "14,864.5",
+     "8,490.1",
+     "11,762.6",
+     "37,941.2"
+    ],
+    "values": [
+     14864.5,
+     8490.1,
+     11762.6,
+     37941.2
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "VIII (i) Tax expense / (credit)",
+    "y": 366.2,
+    "printed": [
+     "3,792.4",
+     "2,150.2",
+     "5,317.1",
+     "13,363.2"
+    ],
+    "values": [
+     3792.4,
+     2150.2,
+     5317.1,
+     13363.2
+    ],
+    "metric": null
+   },
+   {
+    "label": "VIII (ii) Tax expense / (credit) - Exceptional (Refer Note 3 and 4)",
+    "y": 376.3,
+    "printed": [
+     "(79.3)",
+     "252.9",
+     "(1,005.1)",
+     "(1,656.2)"
+    ],
+    "values": [
+     -79.3,
+     252.9,
+     -1005.1,
+     -1656.2
+    ],
+    "metric": null
+   },
+   {
+    "label": "IX Profit / (loss) for the period (VII-VIII)",
+    "is_total": true,
+    "y": 385.2,
+    "printed": [
+     "11,151.4",
+     "6,087.0",
+     "7,450.6",
+     "26,234.2"
+    ],
+    "values": [
+     11151.4,
+     6087.0,
+     7450.6,
+     26234.2
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "OCI a.(i) Items that will not be reclassified to profit or loss",
+    "y": 404.9,
+    "printed": [
+     "42.2",
+     "(94.3)",
+     "(28.8)",
+     "(64.4)"
+    ],
+    "values": [
+     42.2,
+     -94.3,
+     -28.8,
+     -64.4
+    ],
+    "metric": "oci_items_not_reclassified"
+   },
+   {
+    "label": "OCI a.(ii) Income tax relating to items that will not be reclassified to profit or loss",
+    "y": 415.0,
+    "printed": [
+     "(10.6)",
+     "26.1",
+     "10.5",
+     "16.2"
+    ],
+    "values": [
+     -10.6,
+     26.1,
+     10.5,
+     16.2
+    ],
+    "metric": "oci_tax_not_reclassified"
+   },
+   {
+    "label": "OCI b.(i) Items that may be reclassified to profit or loss",
+    "y": 424.7,
+    "printed": [
+     "1,886.5",
+     "(1,658.3)",
+     "330.6",
+     "(2,862.8)"
+    ],
+    "values": [
+     1886.5,
+     -1658.3,
+     330.6,
+     -2862.8
+    ],
+    "metric": "oci_items_reclassified"
+   },
+   {
+    "label": "OCI b.(ii) Income tax relating to items that may be reclassified to profit or loss",
+    "y": 434.9,
+    "printed": [
+     "(474.8)",
+     "299.6",
+     "(115.5)",
+     "720.5"
+    ],
+    "values": [
+     -474.8,
+     299.6,
+     -115.5,
+     720.5
+    ],
+    "metric": "oci_tax_reclassified"
+   },
+   {
+    "label": "Total other comprehensive income (a+b) (X)",
+    "is_total": true,
+    "y": 444.8,
+    "printed": [
+     "1,443.3",
+     "(1,426.9)",
+     "196.8",
+     "(2,190.5)"
+    ],
+    "values": [
+     1443.3,
+     -1426.9,
+     196.8,
+     -2190.5
+    ],
+    "metric": "other_comprehensive_income"
+   },
+   {
+    "label": "XI Total comprehensive income for the period (IX+X)",
+    "is_total": true,
+    "y": 456.2,
+    "printed": [
+     "12,594.7",
+     "4,660.1",
+     "7,647.4",
+     "24,043.7"
+    ],
+    "values": [
+     12594.7,
+     4660.1,
+     7647.4,
+     24043.7
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "XII Paid-up equity share capital - face value ₹ 1 each",
+    "stock": true,
+    "y": 466.6,
+    "printed": [
+     "2,399.3",
+     "2,399.3",
+     "2,399.3",
+     "2,399.3"
+    ],
+    "values": [
+     2399.3,
+     2399.3,
+     2399.3,
+     2399.3
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "XIII Other equity",
+    "stock": true,
+    "y": 476.7,
+    "printed": [
+     "",
+     "",
+     "",
+     "221,308.3"
+    ],
+    "values": [
+     null,
+     null,
+     null,
+     221308.3
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "XIV EPS of ₹ 1 each (not annualised for quarters): ₹ (Basic)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 497.1,
+    "printed": [
+     "4.6",
+     "2.5",
+     "3.1",
+     "10.9"
+    ],
+    "values": [
+     4.6,
+     2.5,
+     3.1,
+     10.9
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "XIV EPS of ₹ 1 each (not annualised for quarters): ₹ (Diluted)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 507.2,
+    "printed": [
+     "4.6",
+     "2.5",
+     "3.1",
+     "10.9"
+    ],
+    "values": [
+     4.6,
+     2.5,
+     3.1,
+     10.9
+    ],
+    "metric": "diluted_eps"
+   },
+   {
+    "label": "Research and development expenses incurred (included above)",
+    "y": 529.1,
+    "printed": [
+     "4,635.9",
+     "6,797.0",
+     "6,146.9",
+     "21,635.0"
+    ],
+    "values": [
+     4635.9,
+     6797.0,
+     6146.9,
+     21635.0
+    ],
+    "metric": "research_and_development"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total revenue from operations (I)",
+    "plus": [
+     "I a. Revenue from contracts with customers",
+     "I b. Other operating revenues"
+    ],
+    "tolerance": 0.15
+   },
+   {
+    "target": "III Total income (I+II)",
+    "plus": [
+     "Total revenue from operations (I)",
+     "II Other income"
+    ],
+    "tolerance": 0.15
+   },
+   {
+    "target": "Total expenses (IV)",
+    "plus": [
+     "Cost of materials consumed",
+     "Purchases of stock-in-trade",
+     "Changes in inventories of finished goods, stock-in-trade and work-in-progress",
+     "Employee benefits expense",
+     "Finance costs",
+     "Depreciation and amortisation expense",
+     "Other expenses",
+     "Net (gain) / loss on foreign currency transactions"
+    ],
+    "tolerance": 0.15
+   },
+   {
+    "target": "V Profit / (loss) before exceptional items and tax (III-IV)",
+    "plus": [
+     "III Total income (I+II)"
+    ],
+    "minus": [
+     "Total expenses (IV)"
+    ],
+    "tolerance": 0.15
+   },
+   {
+    "target": "VII Profit / (loss) before tax (V-VI)",
+    "plus": [
+     "V Profit / (loss) before exceptional items and tax (III-IV)"
+    ],
+    "minus": [
+     "VI Exceptional items (Refer Note 3 and 4)"
+    ],
+    "tolerance": 0.15
+   },
+   {
+    "target": "IX Profit / (loss) for the period (VII-VIII)",
+    "plus": [
+     "VII Profit / (loss) before tax (V-VI)"
+    ],
+    "minus": [
+     "VIII (i) Tax expense / (credit)",
+     "VIII (ii) Tax expense / (credit) - Exceptional (Refer Note 3 and 4)"
+    ],
+    "tolerance": 0.15
+   },
+   {
+    "target": "Total other comprehensive income (a+b) (X)",
+    "plus": [
+     "OCI a.(i) Items that will not be reclassified to profit or loss",
+     "OCI a.(ii) Income tax relating to items that will not be reclassified to profit or loss",
+     "OCI b.(i) Items that may be reclassified to profit or loss",
+     "OCI b.(ii) Income tax relating to items that may be reclassified to profit or loss"
+    ],
+    "tolerance": 0.15
+   },
+   {
+    "target": "XI Total comprehensive income for the period (IX+X)",
+    "plus": [
+     "IX Profit / (loss) for the period (VII-VIII)",
+     "Total other comprehensive income (a+b) (X)"
+    ],
+    "tolerance": 0.15
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "INR million reported as crore",
+   "the ordinary tax charge (i) reported as the total tax expense",
+   "a split OCR figure ('11 ,151 .4') read as two numbers",
+   "R&D 'included above' added to the expenses"
+  ]
+ }
+}

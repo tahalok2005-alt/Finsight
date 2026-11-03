@@ -70,7 +70,10 @@ export function SearchView() {
         {error && <ErrorNote error={error} onRetry={refetch} />}
 
         {data && data.total === 0 && (
-          <Empty title={`Nothing matched “${data.query}”`} />
+          <Empty
+            title={`Nothing matched “${data.query}”`}
+            hint="Search covers metric names, entities and periods across every processed document. Try a shorter term, or a metric name such as “revenue”."
+          />
         )}
 
         {data && data.total > 0 && (
@@ -83,7 +86,7 @@ export function SearchView() {
                   {data.results.documents.map((d: any) => (
                     <li key={d.id} className="px-4 py-3">
                       <Link to={`/documents/${d.id}`} className="link font-medium text-sm">
-                        {d.company_name ?? d.filename}
+                        {d.company_name || d.filename}
                       </Link>
                       <p className="text-2xs text-ink-500 mt-0.5">
                         {d.report_period ?? "—"} · {d.status}
@@ -95,7 +98,7 @@ export function SearchView() {
             )}
 
             {data.results.facts?.length > 0 && (
-              <Panel title="Financial facts" bodyClassName="p-0">
+              <Panel title="Financial figures" bodyClassName="p-0">
                 <table className="w-full">
                   <thead>
                     <tr>

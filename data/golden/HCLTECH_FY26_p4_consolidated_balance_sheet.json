@@ -1,0 +1,863 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "Consolidated balance sheet, INR crore, two dates. The page is a scan with",
+  "an OCR text layer; the layer reads TOTAL EQUITY 2026 as '75197' and total",
+  "current liabilities 2025 as '28,1139'. The page prints 75,197 and 28,039",
+  "(checked by eye and by the sums below). Every figure verified on the render.",
+  "Nested lines are labelled with their parent: '(g) Financial assets (i)",
+  "Investments' is non-current investments. Trade receivables and payables",
+  "are printed only as billed and unbilled parts; the total is not printed,",
+  "so neither part is the receivables / payables total (metric null).",
+  "The same statement is repeated on page 24 after the auditors' reports.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "HCLTECH_FY26",
+ "document": "src/HCLTECH_FY26_audited_results.pdf",
+ "issuer": "HCL Technologies Limited",
+ "page": 4,
+ "transcription": {
+  "method": "OCR text layer at recorded y; every figure verified on the render",
+  "verified_against": "page render at 170 dpi",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Consolidated Balance Sheet of HCL Technologies Limited as per Ind AS",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": "Consolidated",
+  "basis_evidence": "table title 'Consolidated Balance Sheet'",
+  "unit_declaration": {
+   "text": "(₹ in crores)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   62,
+   128,
+   568,
+   765
+  ],
+  "bbox_rel": [
+   0.1013,
+   0.1616,
+   0.9281,
+   0.9659
+  ],
+  "page_height_pt": 792,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "As at",
+     "31 March 2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Mar 2026",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "As at",
+     "31 March 2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Mar 2025",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "(a) Property, plant and equipment",
+    "y": 190.7,
+    "printed": [
+     "4,657",
+     "4,501"
+    ],
+    "values": [
+     4657.0,
+     4501.0
+    ],
+    "metric": "ppe"
+   },
+   {
+    "label": "(b) Capital work in progress",
+    "y": 200.1,
+    "printed": [
+     "60",
+     "59"
+    ],
+    "values": [
+     60.0,
+     59.0
+    ],
+    "metric": "capital_work_in_progress"
+   },
+   {
+    "label": "(c) Right-of-use assets",
+    "y": 209.0,
+    "printed": [
+     "3,592",
+     "3,016"
+    ],
+    "values": [
+     3592.0,
+     3016.0
+    ],
+    "metric": "right_of_use_assets"
+   },
+   {
+    "label": "(d) Goodwill",
+    "y": 218.3,
+    "printed": [
+     "23,888",
+     "21,756"
+    ],
+    "values": [
+     23888.0,
+     21756.0
+    ],
+    "metric": "goodwill"
+   },
+   {
+    "label": "(e) Other intangible assets",
+    "y": 227.5,
+    "printed": [
+     "5,160",
+     "6,899"
+    ],
+    "values": [
+     5160.0,
+     6899.0
+    ],
+    "metric": "intangible_assets"
+   },
+   {
+    "label": "(f) Intangible assets under development",
+    "y": 236.6,
+    "printed": [
+     "82",
+     "-"
+    ],
+    "values": [
+     82.0,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "Non-current (g) Financial assets (i) Investments",
+    "y": 254.8,
+    "printed": [
+     "130",
+     "91"
+    ],
+    "values": [
+     130.0,
+     91.0
+    ],
+    "metric": "investments"
+   },
+   {
+    "label": "Non-current (g) Financial assets (ii) Trade receivables - unbilled",
+    "y": 264.2,
+    "printed": [
+     "601",
+     "1,022"
+    ],
+    "values": [
+     601.0,
+     1022.0
+    ],
+    "metric": "unbilled_receivables"
+   },
+   {
+    "label": "Non-current (g) Financial assets (iii) Loans",
+    "y": 273.3,
+    "printed": [
+     "50",
+     "586"
+    ],
+    "values": [
+     50.0,
+     586.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Non-current (g) Financial assets (iv) Others",
+    "y": 282.7,
+    "printed": [
+     "3,585",
+     "2,212"
+    ],
+    "values": [
+     3585.0,
+     2212.0
+    ],
+    "metric": "other_financial_assets"
+   },
+   {
+    "label": "(h) Deferred tax assets (net)",
+    "y": 291.8,
+    "printed": [
+     "1,146",
+     "1,064"
+    ],
+    "values": [
+     1146.0,
+     1064.0
+    ],
+    "metric": "deferred_tax_assets"
+   },
+   {
+    "label": "(i) Other non-current assets",
+    "y": 300.9,
+    "printed": [
+     "2,765",
+     "2,229"
+    ],
+    "values": [
+     2765.0,
+     2229.0
+    ],
+    "metric": "other_non_current_assets"
+   },
+   {
+    "label": "Total non-current assets",
+    "is_total": true,
+    "y": 310.4,
+    "printed": [
+     "45,716",
+     "43,435"
+    ],
+    "values": [
+     45716.0,
+     43435.0
+    ],
+    "metric": "non_current_assets"
+   },
+   {
+    "label": "(a) Inventories",
+    "y": 337.4,
+    "printed": [
+     "239",
+     "133"
+    ],
+    "values": [
+     239.0,
+     133.0
+    ],
+    "metric": "inventory"
+   },
+   {
+    "label": "Current (b) Financial assets (i) Investments",
+    "y": 355.8,
+    "printed": [
+     "6,960",
+     "7,473"
+    ],
+    "values": [
+     6960.0,
+     7473.0
+    ],
+    "metric": "investments"
+   },
+   {
+    "label": "Current (b) Financial assets (ii) Trade receivables: Billed",
+    "y": 374.1,
+    "printed": [
+     "23,585",
+     "19,523"
+    ],
+    "values": [
+     23585.0,
+     19523.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current (b) Financial assets (ii) Trade receivables: Unbilled",
+    "y": 383.4,
+    "printed": [
+     "7,956",
+     "6,319"
+    ],
+    "values": [
+     7956.0,
+     6319.0
+    ],
+    "metric": "unbilled_receivables"
+   },
+   {
+    "label": "(iii) Cash and cash equivalents",
+    "y": 392.6,
+    "printed": [
+     "8,265",
+     "8,245"
+    ],
+    "values": [
+     8265.0,
+     8245.0
+    ],
+    "metric": "cash_and_equivalents"
+   },
+   {
+    "label": "(iv) Other bank balances",
+    "y": 401.7,
+    "printed": [
+     "15,160",
+     "13,044"
+    ],
+    "values": [
+     15160.0,
+     13044.0
+    ],
+    "metric": "other_bank_balances"
+   },
+   {
+    "label": "Current (b) Financial assets (v) Loans",
+    "y": 411.1,
+    "printed": [
+     "1,017",
+     "976"
+    ],
+    "values": [
+     1017.0,
+     976.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current (b) Financial assets (vi) Others",
+    "y": 420.2,
+    "printed": [
+     "1,626",
+     "1,589"
+    ],
+    "values": [
+     1626.0,
+     1589.0
+    ],
+    "metric": "other_financial_assets"
+   },
+   {
+    "label": "(c) Current tax assets (net)",
+    "y": 429.3,
+    "printed": [
+     "226",
+     "148"
+    ],
+    "values": [
+     226.0,
+     148.0
+    ],
+    "metric": "current_tax_assets"
+   },
+   {
+    "label": "(d) Other current assets",
+    "y": 438.4,
+    "printed": [
+     "5,508",
+     "4,659"
+    ],
+    "values": [
+     5508.0,
+     4659.0
+    ],
+    "metric": "other_current_assets"
+   },
+   {
+    "label": "Total current assets",
+    "is_total": true,
+    "y": 447.9,
+    "printed": [
+     "70,542",
+     "62,109"
+    ],
+    "values": [
+     70542.0,
+     62109.0
+    ],
+    "metric": "current_assets"
+   },
+   {
+    "label": "TOTAL ASSETS",
+    "is_total": true,
+    "y": 457.0,
+    "printed": [
+     "116,258",
+     "105,544"
+    ],
+    "values": [
+     116258.0,
+     105544.0
+    ],
+    "metric": "total_assets"
+   },
+   {
+    "label": "(a) Equity share capital",
+    "y": 475.1,
+    "printed": [
+     "543",
+     "543"
+    ],
+    "values": [
+     543.0,
+     543.0
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "(b) Other equity",
+    "y": 484.3,
+    "printed": [
+     "74,622",
+     "69,112"
+    ],
+    "values": [
+     74622.0,
+     69112.0
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "Equity attributable to owners of the Company",
+    "is_total": true,
+    "y": 493.6,
+    "printed": [
+     "75,165",
+     "69,655"
+    ],
+    "values": [
+     75165.0,
+     69655.0
+    ],
+    "metric": "equity_attributable_to_owners"
+   },
+   {
+    "label": "Non-controlling interest",
+    "y": 502.5,
+    "printed": [
+     "32",
+     "18"
+    ],
+    "values": [
+     32.0,
+     18.0
+    ],
+    "metric": "non_controlling_interests"
+   },
+   {
+    "label": "TOTAL EQUITY",
+    "is_total": true,
+    "y": 512.2,
+    "printed": [
+     "75,197",
+     "69,673"
+    ],
+    "values": [
+     75197.0,
+     69673.0
+    ],
+    "metric": "net_worth"
+   },
+   {
+    "label": "Non-current (a) Financial liabilities (i) Borrowings",
+    "y": 548.6,
+    "printed": [
+     "37",
+     "70"
+    ],
+    "values": [
+     37.0,
+     70.0
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Non-current (a) Financial liabilities (ii) Lease liabilities",
+    "y": 557.7,
+    "printed": [
+     "3,180",
+     "2,638"
+    ],
+    "values": [
+     3180.0,
+     2638.0
+    ],
+    "metric": "lease_liabilities"
+   },
+   {
+    "label": "Non-current (a) Financial liabilities (iii) Others",
+    "y": 566.8,
+    "printed": [
+     "1,401",
+     "464"
+    ],
+    "values": [
+     1401.0,
+     464.0
+    ],
+    "metric": "other_financial_liabilities"
+   },
+   {
+    "label": "Non-current (b) Contract liabilities",
+    "y": 576.2,
+    "printed": [
+     "1,162",
+     "1,059"
+    ],
+    "values": [
+     1162.0,
+     1059.0
+    ],
+    "metric": "contract_liabilities"
+   },
+   {
+    "label": "Non-current (c) Provisions",
+    "y": 585.3,
+    "printed": [
+     "2,001",
+     "1,920"
+    ],
+    "values": [
+     2001.0,
+     1920.0
+    ],
+    "metric": "provisions"
+   },
+   {
+    "label": "(d) Deferred tax liabilities (net)",
+    "y": 594.6,
+    "printed": [
+     "1,381",
+     "1,615"
+    ],
+    "values": [
+     1381.0,
+     1615.0
+    ],
+    "metric": "deferred_tax_liabilities"
+   },
+   {
+    "label": "(e) Other non-current liabilities",
+    "y": 603.8,
+    "printed": [
+     "73",
+     "66"
+    ],
+    "values": [
+     73.0,
+     66.0
+    ],
+    "metric": "other_non_current_liabilities"
+   },
+   {
+    "label": "Total non-current liabilities",
+    "is_total": true,
+    "y": 613.0,
+    "printed": [
+     "9,235",
+     "7,832"
+    ],
+    "values": [
+     9235.0,
+     7832.0
+    ],
+    "metric": "non_current_liabilities"
+   },
+   {
+    "label": "Current (a) Financial liabilities (i) Borrowings",
+    "y": 649.6,
+    "printed": [
+     "122",
+     "2,221"
+    ],
+    "values": [
+     122.0,
+     2221.0
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Current (a) Financial liabilities (ii) Lease liabilities",
+    "y": 658.7,
+    "printed": [
+     "1,876",
+     "1,347"
+    ],
+    "values": [
+     1876.0,
+     1347.0
+    ],
+    "metric": "lease_liabilities"
+   },
+   {
+    "label": "Current (a) Financial liabilities (iii) Trade payables: Billed",
+    "y": 677.0,
+    "printed": [
+     "3,726",
+     "3,016"
+    ],
+    "values": [
+     3726.0,
+     3016.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current (a) Financial liabilities (iii) Trade payables: Unbilled",
+    "y": 686.1,
+    "printed": [
+     "3,980",
+     "3,209"
+    ],
+    "values": [
+     3980.0,
+     3209.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current (a) Financial liabilities (iv) Others",
+    "y": 695.5,
+    "printed": [
+     "9,228",
+     "7,009"
+    ],
+    "values": [
+     9228.0,
+     7009.0
+    ],
+    "metric": "other_financial_liabilities"
+   },
+   {
+    "label": "Current (b) Contract liabilities",
+    "y": 704.6,
+    "printed": [
+     "5,053",
+     "4,657"
+    ],
+    "values": [
+     5053.0,
+     4657.0
+    ],
+    "metric": "contract_liabilities"
+   },
+   {
+    "label": "(c) Other current liabilities",
+    "y": 713.7,
+    "printed": [
+     "2,315",
+     "2,278"
+    ],
+    "values": [
+     2315.0,
+     2278.0
+    ],
+    "metric": "other_current_liabilities"
+   },
+   {
+    "label": "Current (d) Provisions",
+    "y": 722.8,
+    "printed": [
+     "1,664",
+     "1,487"
+    ],
+    "values": [
+     1664.0,
+     1487.0
+    ],
+    "metric": "provisions"
+   },
+   {
+    "label": "(e) Current tax liabilities (net)",
+    "y": 732.2,
+    "printed": [
+     "3,862",
+     "2,815"
+    ],
+    "values": [
+     3862.0,
+     2815.0
+    ],
+    "metric": "current_tax_liabilities"
+   },
+   {
+    "label": "Total current liabilities",
+    "is_total": true,
+    "y": 741.4,
+    "printed": [
+     "31,826",
+     "28,039"
+    ],
+    "values": [
+     31826.0,
+     28039.0
+    ],
+    "metric": "current_liabilities"
+   },
+   {
+    "label": "TOTAL LIABILITIES",
+    "is_total": true,
+    "y": 750.8,
+    "printed": [
+     "41,061",
+     "35,871"
+    ],
+    "values": [
+     41061.0,
+     35871.0
+    ],
+    "metric": "total_liabilities"
+   },
+   {
+    "label": "TOTAL EQUITY AND LIABILITIES",
+    "is_total": true,
+    "y": 759.6,
+    "printed": [
+     "116,258",
+     "105,544"
+    ],
+    "values": [
+     116258.0,
+     105544.0
+    ],
+    "metric": "total_equity_and_liabilities"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total non-current assets",
+    "plus": [
+     "(a) Property, plant and equipment",
+     "(b) Capital work in progress",
+     "(c) Right-of-use assets",
+     "(d) Goodwill",
+     "(e) Other intangible assets",
+     "(f) Intangible assets under development",
+     "Non-current (g) Financial assets (i) Investments",
+     "Non-current (g) Financial assets (ii) Trade receivables - unbilled",
+     "Non-current (g) Financial assets (iii) Loans",
+     "Non-current (g) Financial assets (iv) Others",
+     "(h) Deferred tax assets (net)",
+     "(i) Other non-current assets"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total current assets",
+    "plus": [
+     "(a) Inventories",
+     "Current (b) Financial assets (i) Investments",
+     "Current (b) Financial assets (ii) Trade receivables: Billed",
+     "Current (b) Financial assets (ii) Trade receivables: Unbilled",
+     "(iii) Cash and cash equivalents",
+     "(iv) Other bank balances",
+     "Current (b) Financial assets (v) Loans",
+     "Current (b) Financial assets (vi) Others",
+     "(c) Current tax assets (net)",
+     "(d) Other current assets"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "TOTAL ASSETS",
+    "plus": [
+     "Total non-current assets",
+     "Total current assets"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Equity attributable to owners of the Company",
+    "plus": [
+     "(a) Equity share capital",
+     "(b) Other equity"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "TOTAL EQUITY",
+    "plus": [
+     "Equity attributable to owners of the Company",
+     "Non-controlling interest"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total non-current liabilities",
+    "plus": [
+     "Non-current (a) Financial liabilities (i) Borrowings",
+     "Non-current (a) Financial liabilities (ii) Lease liabilities",
+     "Non-current (a) Financial liabilities (iii) Others",
+     "Non-current (b) Contract liabilities",
+     "Non-current (c) Provisions",
+     "(d) Deferred tax liabilities (net)",
+     "(e) Other non-current liabilities"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total current liabilities",
+    "plus": [
+     "Current (a) Financial liabilities (i) Borrowings",
+     "Current (a) Financial liabilities (ii) Lease liabilities",
+     "Current (a) Financial liabilities (iii) Trade payables: Billed",
+     "Current (a) Financial liabilities (iii) Trade payables: Unbilled",
+     "Current (a) Financial liabilities (iv) Others",
+     "Current (b) Contract liabilities",
+     "(c) Other current liabilities",
+     "Current (d) Provisions",
+     "(e) Current tax liabilities (net)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "TOTAL LIABILITIES",
+    "plus": [
+     "Total non-current liabilities",
+     "Total current liabilities"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "TOTAL EQUITY AND LIABILITIES",
+    "plus": [
+     "TOTAL EQUITY",
+     "TOTAL LIABILITIES"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "TOTAL EQUITY AND LIABILITIES",
+    "plus": [
+     "TOTAL ASSETS"
+    ],
+    "tolerance": 0.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "the text layer's '75197' or '28,1139' reported (the page prints 75,197 and 28,039)",
+   "a balance reported as a period flow",
+   "non-current and current borrowings (or investments) merged into one figure",
+   "trade receivables 'Billed' reported as total trade receivables",
+   "the 31 March 2025 column's figure reported as at 31 March 2026"
+  ]
+ }
+}

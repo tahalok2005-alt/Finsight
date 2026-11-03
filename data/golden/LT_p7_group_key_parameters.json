@@ -1,0 +1,207 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "Annexure 1 of the earnings release: 'Group Performance - Key Parameters (in ₹ crore)',",
+  "two quarters OLDEST FIRST, then a '% Var' column that is excluded. Percentage rows",
+  "carry their own '%'. 'Consolidated Profit After Tax' (4,123) is the profit",
+  "ATTRIBUTABLE TO OWNERS on the results page (4122.85), not the group's profit after tax",
+  "(4988.03); the label's literal key is accepted as an alternative. 'Total operational",
+  "expenses' = revenue - EBITDA. Native page; figures from the text layer.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "LT",
+ "document": "src/LT_Q1FY27_results.pdf",
+ "issuer": "Larsen & Toubro Limited",
+ "page": 7,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Group Performance – Key Parameters",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": "Consolidated",
+  "basis_evidence": "heading 'Group Performance'; 'Consolidated Profit After Tax'",
+  "unit_declaration": {
+   "text": "Key Parameters (in ₹ crore)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "inside the row-label header cell"
+  },
+  "bbox_pt": [
+   105,
+   135,
+   480,
+   285
+  ],
+  "bbox_rel": [
+   0.1764,
+   0.1603,
+   0.8063,
+   0.3385
+  ],
+  "page_height_pt": 842.04,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Q1 FY'26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Q1 FY'27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Revenue from operations",
+    "y": 159.1,
+    "printed": [
+     "63,679",
+     "67,942"
+    ],
+    "values": [
+     63679.0,
+     67942.0
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "International revenue %",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 173.7,
+    "printed": [
+     "52",
+     "51"
+    ],
+    "values": [
+     52.0,
+     51.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total operational expenses",
+    "y": 188.2,
+    "printed": [
+     "57,361",
+     "61,826"
+    ],
+    "values": [
+     57361.0,
+     61826.0
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "EBITDA",
+    "y": 202.7,
+    "printed": [
+     "6,318",
+     "6,116"
+    ],
+    "values": [
+     6318.0,
+     6116.0
+    ],
+    "metric": "ebitda"
+   },
+   {
+    "label": "EBITDA %",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 217.3,
+    "printed": [
+     "9.9",
+     "9.0"
+    ],
+    "values": [
+     9.9,
+     9.0
+    ],
+    "metric": "ebitda_margin"
+   },
+   {
+    "label": "Finance costs",
+    "y": 246.3,
+    "printed": [
+     "782",
+     "539"
+    ],
+    "values": [
+     782.0,
+     539.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Depreciation & Amortisation",
+    "y": 260.9,
+    "printed": [
+     "1,033",
+     "1,032"
+    ],
+    "values": [
+     1033.0,
+     1032.0
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "Consolidated Profit After Tax",
+    "y": 275.4,
+    "printed": [
+     "3,617",
+     "4,123"
+    ],
+    "values": [
+     3617.0,
+     4123.0
+    ],
+    "metric": "pat_attributable_to_owners",
+    "metric_alt": [
+     "pat"
+    ]
+   }
+  ],
+  "identities": [
+   {
+    "target": "EBITDA",
+    "plus": [
+     "Revenue from operations"
+    ],
+    "minus": [
+     "Total operational expenses"
+    ],
+    "tolerance": 1.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a '% Var' figure reported as a quarter's value",
+   "the Q1 FY'26 column (printed first) reported as Q1 FY'27",
+   "a percentage row reported in crore"
+  ]
+ }
+}

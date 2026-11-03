@@ -1,0 +1,328 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A native earnings-release table (rupee sign rendered as a backtick). Indian grouping (13,72,936). The '% Growth' column compares the two periods and is not a fact about either; it is excluded. The release's note: amounts 'may not add-up due to rounding off'.",
+  "The basis is not stated on the table (a footnote mentions the Group's consolidated",
+  "statements only for subsidiaries' figures); it is left null rather than inferred.",
+  "'#' marks figures EXCLUDING trading income (footnote under the table): 'Core Operating",
+  "Revenue#' and 'Core Operating Profit#' are differently qualified figures of the same",
+  "measures as 'Operating Revenue' and 'Operating Profit' (a bank's operating profit is",
+  "pre-provision operating profit). The EPS, RoAA and RoE are ANNUALISED quarter figures.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "AXIS_PR",
+ "document": "src/AXIS_Q1FY27_results.pdf",
+ "issuer": "Axis Bank Limited",
+ "page": 7,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Financial Performance",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": null,
+  "basis_evidence": "not stated on the table (the release's figures are the bank's own, but no table says standalone or consolidated)",
+  "unit_declaration": {
+   "text": "₹ crores",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   36,
+   108,
+   560,
+   392
+  ],
+  "bbox_rel": [
+   0.0588,
+   0.1364,
+   0.915,
+   0.4949
+  ],
+  "page_height_pt": 792,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Q1FY27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Q1FY26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Net Interest Income",
+    "y": 143.1,
+    "printed": [
+     "14,646",
+     "13,560"
+    ],
+    "values": [
+     14646.0,
+     13560.0
+    ],
+    "metric": "net_interest_income"
+   },
+   {
+    "label": "Other Income",
+    "y": 172.1,
+    "printed": [
+     "6,735",
+     "7,258"
+    ],
+    "values": [
+     6735.0,
+     7258.0
+    ],
+    "metric": "other_income",
+    "metric_alt": [
+     "non_interest_income"
+    ]
+   },
+   {
+    "label": "Other Income: Fee Income",
+    "y": 186.6,
+    "printed": [
+     "6,156",
+     "5,746"
+    ],
+    "values": [
+     6156.0,
+     5746.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Other Income: Trading Income",
+    "y": 201.2,
+    "printed": [
+     "537",
+     "1,420"
+    ],
+    "values": [
+     537.0,
+     1420.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Other Income: Miscellaneous Income",
+    "y": 215.6,
+    "printed": [
+     "42",
+     "92"
+    ],
+    "values": [
+     42.0,
+     92.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Operating Revenue",
+    "is_total": true,
+    "y": 244.6,
+    "printed": [
+     "21,382",
+     "20,818"
+    ],
+    "values": [
+     21382.0,
+     20818.0
+    ],
+    "metric": "net_total_income"
+   },
+   {
+    "label": "Core Operating Revenue# (excluding trading income)",
+    "y": 259.1,
+    "printed": [
+     "20,844",
+     "19,398"
+    ],
+    "values": [
+     20844.0,
+     19398.0
+    ],
+    "metric": "net_total_income"
+   },
+   {
+    "label": "Operating Expenses",
+    "y": 273.7,
+    "printed": [
+     "9,722",
+     "9,303"
+    ],
+    "values": [
+     9722.0,
+     9303.0
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "Operating Profit",
+    "is_total": true,
+    "y": 288.2,
+    "printed": [
+     "11,659",
+     "11,515"
+    ],
+    "values": [
+     11659.0,
+     11515.0
+    ],
+    "metric": "pre_provision_operating_profit"
+   },
+   {
+    "label": "Core Operating Profit# (excluding trading income)",
+    "y": 302.6,
+    "printed": [
+     "11,122",
+     "10,095"
+    ],
+    "values": [
+     11122.0,
+     10095.0
+    ],
+    "metric": "pre_provision_operating_profit"
+   },
+   {
+    "label": "Net Profit/(Loss)",
+    "y": 331.6,
+    "printed": [
+     "7,114",
+     "5,806"
+    ],
+    "values": [
+     7114.0,
+     5806.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "EPS Diluted (₹) annualized",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 346.0,
+    "printed": [
+     "91.24",
+     "74.75"
+    ],
+    "values": [
+     91.24,
+     74.75
+    ],
+    "metric": "diluted_eps"
+   },
+   {
+    "label": "Return on Average Assets (annualized)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 360.7,
+    "printed": [
+     "1.51",
+     "1.47"
+    ],
+    "values": [
+     1.51,
+     1.47
+    ],
+    "metric": "roa"
+   },
+   {
+    "label": "Return on Equity (annualized)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 375.2,
+    "printed": [
+     "14.16",
+     "13.14"
+    ],
+    "values": [
+     14.16,
+     13.14
+    ],
+    "metric": "roe"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Other Income",
+    "plus": [
+     "Other Income: Fee Income",
+     "Other Income: Trading Income",
+     "Other Income: Miscellaneous Income"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "Operating Revenue",
+    "plus": [
+     "Net Interest Income",
+     "Other Income"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "Core Operating Revenue# (excluding trading income)",
+    "plus": [
+     "Operating Revenue"
+    ],
+    "minus": [
+     "Other Income: Trading Income"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "Operating Profit",
+    "plus": [
+     "Operating Revenue"
+    ],
+    "minus": [
+     "Operating Expenses"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "Core Operating Profit# (excluding trading income)",
+    "plus": [
+     "Core Operating Revenue# (excluding trading income)"
+    ],
+    "minus": [
+     "Operating Expenses"
+    ],
+    "tolerance": 1.5
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a '% Growth' figure reported as a quarter's value",
+   "the core (excluding trading income) and reported operating profit merged into one figure",
+   "an annualised EPS or return reported as a plain quarterly figure without its qualifier"
+  ]
+ }
+}

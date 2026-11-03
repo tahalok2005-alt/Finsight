@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Check, FileSearch, History, Pencil, X } from "lucide-react";
 import { api } from "../../api/client";
+import clsx from "clsx";
+import { describePeriod } from "../../utils/period";
 import {
   ConfidenceChip, Empty, ErrorNote, Spinner, ValidationChip,
 } from "../../components/ui";
@@ -86,7 +88,7 @@ export function ReviewTab({
       {!data?.items.length ? (
         <Empty
           title="Nothing needs review"
-          hint="Facts enter this queue when their confidence is low or an arithmetic check disagreed with the document."
+          hint="Figures enter this queue when their confidence is low or an arithmetic check disagreed with the document."
         />
       ) : (
         <ul className="divide-y divide-ink-850">
@@ -101,11 +103,19 @@ export function ReviewTab({
                     {item.entity && (
                       <span className="text-2xs text-ink-400">{item.entity}</span>
                     )}
-                    {item.period && (
-                      <span className="chip bg-ink-800 border border-ink-700 text-ink-300">
-                        {item.period}
-                      </span>
-                    )}
+                    {/* A reviewer cannot judge a figure without knowing the
+                        period it belongs to, so the period is spelled out here
+                        the same way it is in the figures table. */}
+                    <span
+                      className={clsx(
+                        "text-2xs",
+                        describePeriod(item).certainty === "none"
+                          ? "text-warn-400" : "text-ink-200",
+                      )}
+                      title={describePeriod(item).title}
+                    >
+                      {describePeriod(item).primary}
+                    </span>
                     <ConfidenceChip
                       band={item.confidence_band}
                       value={item.confidence}
@@ -117,6 +127,20 @@ export function ReviewTab({
                       </span>
                     )}
                   </div>
+
+                  {item.review_reason && (
+                    <p className="mt-1.5 text-2xs text-ink-400">
+                      {item.review_reason}
+                    </p>
+                  )}
+                  {(item.anomalies ?? []).slice(0, 2).map((a) => (
+                    <p
+                      key={a.anomaly_id}
+                      className="mt-1 text-2xs text-ink-500 border-l-2 border-warn-400/50 pl-2"
+                    >
+                      {a.reason}
+                    </p>
+                  ))}
 
                   <div className="mt-2 flex items-baseline gap-3">
                     <span className="num text-lg font-semibold">

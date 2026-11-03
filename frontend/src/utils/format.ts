@@ -28,7 +28,7 @@ export function formatValue(
 }
 
 const CURRENCY_SYMBOL: Record<string, string> = {
-  INR: "₹", USD: "$", EUR: "€", GBP: "£", JPY: "¥", AED: "AED ",
+  INR: "₹", USD: "$", EUR: "€", GBP: "£", JPY: "¥", AED: "AED ", CHF: "CHF ",
 };
 
 export function currencySymbol(code?: string | null): string {
@@ -135,14 +135,17 @@ export const STATUS_LABEL: Record<string, string> = {
   TABLE_ANALYSIS: "Reconstructing tables",
   EXTRACTION: "Extracting facts",
   VALIDATING_FACTS: "Validating figures",
+  ANALYSING: "Analysing financials",
   COMPLETED: "Completed",
   PARTIALLY_COMPLETED: "Partially completed",
   REQUIRES_REVIEW: "Requires review",
   FAILED: "Failed",
 };
 
+/** States in which nothing further will happen without the user asking. */
 export const TERMINAL_STATUSES = new Set([
   "COMPLETED", "PARTIALLY_COMPLETED", "REQUIRES_REVIEW", "FAILED",
+  "CANCELLED", "INTERRUPTED",
 ]);
 
 export const STAGE_LABEL: Record<string, string> = {
@@ -155,6 +158,7 @@ export const STAGE_LABEL: Record<string, string> = {
   charts: "Chart detection",
   extraction: "Financial extraction",
   validating_facts: "Fact validation",
+  analysis: "Financial analysis",
 };
 
 export const REGION_COLOR: Record<string, string> = {

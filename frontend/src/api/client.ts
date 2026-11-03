@@ -1,7 +1,11 @@
 import type {
-  ChartDto, CommentaryDto, ComparisonRow, DocumentSummary, FinancialFact,
-  GuidanceDto, Overview, PageDetail, PageInfo, Paged, ProcessingStatus,
-  ReviewItem, TableDto, ValidationDto,
+  DocumentDiagnostics,
+  AnomalyDto, ChartDto, CommentaryDto, ComparisonRow, DerivedMetricDto,
+  ControlAck, DocumentControl, DocumentSummary, EntityDto, EntityNode,
+  FactExplanationDto, FinancialFact,
+  GuidanceDto, InsightDto, Overview, PageDetail, PageInfo, Paged,
+  ProcessingStatus, RelationDto, ReviewItem, RiskDto, StatementGroup, TableDto,
+  TableSemanticsDto, ValidationDto,
 } from "../types";
 
 export const API = "/api/v1";
@@ -97,6 +101,16 @@ export const api = {
   getStatus: (id: string) => request<ProcessingStatus>(`/documents/${id}/status`),
   deleteDocument: (id: string) =>
     request<void>(`/documents/${id}`, { method: "DELETE" }),
+  // ------------------------------------------------------------- lifecycle
+  getControl: (id: string) =>
+    request<DocumentControl>(`/documents/${id}/control`),
+  pauseDocument: (id: string) =>
+    request<ControlAck>(`/documents/${id}/pause`, { method: "POST" }),
+  resumeDocument: (id: string) =>
+    request<ControlAck>(`/documents/${id}/resume`, { method: "POST" }),
+  cancelDocument: (id: string) =>
+    request<ControlAck>(`/documents/${id}/cancel`, { method: "POST" }),
+
   reprocess: (id: string, forceOcr = false) =>
     request<{ job_id: string }>(
       `/documents/${id}/reprocess${qs({ force_ocr: forceOcr })}`,
@@ -136,6 +150,9 @@ export const api = {
       xhr.send(form);
     }),
 
+  /** What the run understood, and what it cost. Read by the document brief. */
+  diagnostics: (id: string) =>
+    request<DocumentDiagnostics>(`/documents/${id}/diagnostics`),
   pages: (id: string) => request<Paged<PageInfo>>(`/documents/${id}/pages`),
   page: (id: string, n: number, opts: { ocr?: boolean; regions?: boolean } = {}) =>
     request<PageDetail>(
@@ -215,6 +232,90 @@ export const api = {
       guidance_changes: Record<string, any>;
     }>(`/compare${qs(p)}`),
 
+  /** Delete several documents at once, reusing the single-delete lifecycle. */
+  bulkDelete: (documentIds: string[]) =>
+    request<{
+      requested: number;
+      deleted: string[];
+      missing: string[];
+      busy: string[];
+      failed: { document_id: string; error: string }[];
+    }>("/documents/bulk-delete", {
+      method: "POST",
+      body: JSON.stringify({ document_ids: documentIds }),
+    }),
+
   exportUrl: (id: string, format: "json" | "csv" | "xlsx") =>
     `${API}/documents/${id}/export?format=${format}`,
+
+  /** Fetch an export as a blob, so a failure surfaces instead of a blank tab. */
+  exportFile: async (id: string, format: "json" | "csv" | "xlsx") => {
+    const res = await fetch(`${API}/documents/${id}/export?format=${format}`);
+    if (!res.ok) {
+      let detail = `Export failed (${res.status})`;
+      try {
+        const body = await res.json();
+        if (body?.detail) detail = String(body.detail);
+      } catch { /* a non-JSON error body leaves the status message */ }
+      throw new ApiError(res.status, "export_failed", detail);
+    }
+    // Prefer the name the server chose; it carries the document's own title.
+    const disposition = res.headers.get("Content-Disposition") ?? "";
+    const named = /filename="?([^"]+)"?/.exec(disposition);
+    return {
+      blob: await res.blob(),
+      filename: named?.[1] ?? `finsight-${id}.${format}`,
+    };
+  },
+
+  // ---------------------------------------------------- financial intelligence
+  entities: (id: string) =>
+    request<{ items: EntityDto[]; hierarchy: EntityNode[]; total: number }>(
+      `/documents/${id}/entities`,
+    ),
+  financialSummary: (id: string, entityId?: string) =>
+    request<{ statements: StatementGroup[]; total_facts: number }>(
+      `/documents/${id}/financial-summary${qs({ entity_id: entityId })}`,
+    ),
+  derivedMetrics: (id: string, q: { period?: string; entity_id?: string } = {}) =>
+    request<{
+      items: DerivedMetricDto[];
+      total: number;
+      disagreements: number;
+      note: string;
+    }>(`/documents/${id}/derived-metrics${qs(q)}`),
+  insights: (id: string, q: { insight_type?: string; limit?: number } = {}) =>
+    request<{ items: InsightDto[]; total: number; note: string }>(
+      `/documents/${id}/insights${qs(q)}`,
+    ),
+  anomalies: (id: string, q: { severity?: string } = {}) =>
+    request<{
+      items: AnomalyDto[];
+      total: number;
+      by_severity: Record<string, number>;
+      by_type: Record<string, number>;
+    }>(`/documents/${id}/anomalies${qs(q)}`),
+  risks: (id: string, q: { category?: string } = {}) =>
+    request<{
+      items: RiskDto[];
+      total: number;
+      by_category: Record<string, number>;
+      by_severity: Record<string, number>;
+      forward_looking: number;
+      note: string;
+    }>(`/documents/${id}/risks${qs(q)}`),
+  relations: (id: string, q: { fact_id?: string; kind?: string } = {}) =>
+    request<{
+      items: RelationDto[];
+      total: number;
+      by_kind: Record<string, number>;
+    }>(`/documents/${id}/relations${qs(q)}`),
+  explanation: (id: string, factId: string) =>
+    request<FactExplanationDto>(
+      `/documents/${id}/financials/${factId}/explanation`,
+    ),
+  tableSemantics: (id: string, statement?: string) =>
+    request<{ items: TableSemanticsDto[]; total: number }>(
+      `/documents/${id}/table-semantics${qs({ statement })}`,
+    ),
 };

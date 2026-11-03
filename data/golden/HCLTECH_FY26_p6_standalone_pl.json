@@ -1,0 +1,853 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "STANDALONE Ind AS results, INR crore, five columns as on page 2. A scan with an OCR",
+  "layer ('1,Q32', '(908'', '11122' for (1,122), '/31\\' for (31)); every figure read from",
+  "the render and every subtotal re-added.",
+  "A LOSS QUARTER: profit before tax (1,808), profit (900), EPS (3.33) -- negative",
+  "profits, not costs. TWO exceptional items (labour codes; a bilateral advance pricing",
+  "agreement) with no printed total: in the year column both are non-nil, so neither",
+  "line is 'exceptional items' as a whole (metric null for both).",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "HCLTECH_FY26",
+ "document": "src/HCLTECH_FY26_audited_results.pdf",
+ "issuer": "HCL Technologies Limited",
+ "page": 6,
+ "transcription": {
+  "method": "OCR text layer for positions; every figure verified on the render",
+  "verified_against": "page render at 170 dpi",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Standalone Statement of Financial Results of HCL Technologies Limited as per Ind AS",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "table title 'Standalone Statement of Financial Results'",
+  "unit_declaration": {
+   "text": "(₹ in crores)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right, above the year column"
+  },
+  "bbox_pt": [
+   62,
+   140,
+   572,
+   655
+  ],
+  "bbox_rel": [
+   0.1013,
+   0.1768,
+   0.9346,
+   0.827
+  ],
+  "page_height_pt": 792,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Three months ended",
+    "header_lines": [
+     "31 March",
+     "2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": "Three months ended",
+    "header_lines": [
+     "31 December",
+     "2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": "2025-10-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q3 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c3",
+    "group": "Three months ended",
+    "header_lines": [
+     "31 March",
+     "2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2025-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY25",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c4",
+    "group": "Year ended",
+    "header_lines": [
+     "31 March",
+     "2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c5",
+    "group": "Year ended",
+    "header_lines": [
+     "31 March",
+     "2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Revenue from operations",
+    "y": 201.2,
+    "printed": [
+     "12,890",
+     "15,239",
+     "13,432",
+     "55,031",
+     "51,105"
+    ],
+    "values": [
+     12890.0,
+     15239.0,
+     13432.0,
+     55031.0,
+     51105.0
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "Other income",
+    "y": 210.8,
+    "printed": [
+     "1,245",
+     "291",
+     "285",
+     "2,205",
+     "1,234"
+    ],
+    "values": [
+     1245.0,
+     291.0,
+     285.0,
+     2205.0,
+     1234.0
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "Total income",
+    "is_total": true,
+    "y": 219.9,
+    "printed": [
+     "14,135",
+     "15,530",
+     "13,717",
+     "57,236",
+     "52,339"
+    ],
+    "values": [
+     14135.0,
+     15530.0,
+     13717.0,
+     57236.0,
+     52339.0
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Purchase of stock-in-trade",
+    "y": 246.8,
+    "printed": [
+     "35",
+     "36",
+     "41",
+     "127",
+     "133"
+    ],
+    "values": [
+     35.0,
+     36.0,
+     41.0,
+     127.0,
+     133.0
+    ],
+    "metric": "purchases_of_stock_in_trade"
+   },
+   {
+    "label": "Changes in inventories of stock-in-trade",
+    "y": 256.2,
+    "printed": [
+     "4",
+     "(5)",
+     "(2)",
+     "-",
+     "13"
+    ],
+    "values": [
+     4.0,
+     -5.0,
+     -2.0,
+     "nil",
+     13.0
+    ],
+    "metric": "changes_in_inventories"
+   },
+   {
+    "label": "Employee benefits expense",
+    "y": 265.5,
+    "printed": [
+     "6,492",
+     "6,483",
+     "5,860",
+     "25,323",
+     "22,414"
+    ],
+    "values": [
+     6492.0,
+     6483.0,
+     5860.0,
+     25323.0,
+     22414.0
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "Outsourcing costs",
+    "y": 274.7,
+    "printed": [
+     "2,136",
+     "2,389",
+     "2,218",
+     "8,852",
+     "7,437"
+    ],
+    "values": [
+     2136.0,
+     2389.0,
+     2218.0,
+     8852.0,
+     7437.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Finance costs",
+    "y": 283.8,
+    "printed": [
+     "29",
+     "63",
+     "41",
+     "243",
+     "156"
+    ],
+    "values": [
+     29.0,
+     63.0,
+     41.0,
+     243.0,
+     156.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Depreciation and amortization expense",
+    "y": 292.9,
+    "printed": [
+     "555",
+     "630",
+     "577",
+     "2,316",
+     "2,320"
+    ],
+    "values": [
+     555.0,
+     630.0,
+     577.0,
+     2316.0,
+     2320.0
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "Other expenses",
+    "y": 302.0,
+    "printed": [
+     "959",
+     "946",
+     "905",
+     "3,670",
+     "3,392"
+    ],
+    "values": [
+     959.0,
+     946.0,
+     905.0,
+     3670.0,
+     3392.0
+    ],
+    "metric": "other_expenses"
+   },
+   {
+    "label": "Total expenses",
+    "is_total": true,
+    "y": 311.6,
+    "printed": [
+     "10,210",
+     "10,542",
+     "9,640",
+     "40,531",
+     "35,865"
+    ],
+    "values": [
+     10210.0,
+     10542.0,
+     9640.0,
+     40531.0,
+     35865.0
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "Profit before exceptional items and tax",
+    "is_total": true,
+    "y": 320.5,
+    "printed": [
+     "3,925",
+     "4,988",
+     "4,077",
+     "16,705",
+     "16,474"
+    ],
+    "values": [
+     3925.0,
+     4988.0,
+     4077.0,
+     16705.0,
+     16474.0
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "Exceptional Items: One-time impact of New Labour Codes (refer note 3)",
+    "y": 347.9,
+    "printed": [
+     "-",
+     "948",
+     "-",
+     "948",
+     "-"
+    ],
+    "values": [
+     "nil",
+     948.0,
+     "nil",
+     948.0,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "Exceptional Items: One-time impact of a material Bilateral Advance Pricing Agreement (BAPA) (refer note 4)",
+    "y": 357.0,
+    "printed": [
+     "5,733",
+     "-",
+     "-",
+     "5,733",
+     "-"
+    ],
+    "values": [
+     5733.0,
+     "nil",
+     "nil",
+     5733.0,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "Profit (loss) before tax",
+    "is_total": true,
+    "y": 382.8,
+    "printed": [
+     "(1,808)",
+     "4,040",
+     "4,077",
+     "10,024",
+     "16,474"
+    ],
+    "values": [
+     -1808.0,
+     4040.0,
+     4077.0,
+     10024.0,
+     16474.0
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Tax expense: Current tax expense (credit)",
+    "y": 410.0,
+    "printed": [
+     "(326)",
+     "981",
+     "1,027",
+     "2,743",
+     "3,344"
+    ],
+    "values": [
+     -326.0,
+     981.0,
+     1027.0,
+     2743.0,
+     3344.0
+    ],
+    "metric": "current_tax"
+   },
+   {
+    "label": "Tax expense: Deferred tax charge (credit)",
+    "y": 419.1,
+    "printed": [
+     "(582)",
+     "77",
+     "5",
+     "(346)",
+     "864"
+    ],
+    "values": [
+     -582.0,
+     77.0,
+     5.0,
+     -346.0,
+     864.0
+    ],
+    "metric": "deferred_tax"
+   },
+   {
+    "label": "Total tax expense (refer note 3 and 4)",
+    "is_total": true,
+    "y": 428.7,
+    "printed": [
+     "(908)",
+     "1,058",
+     "1,032",
+     "2,397",
+     "4,208"
+    ],
+    "values": [
+     -908.0,
+     1058.0,
+     1032.0,
+     2397.0,
+     4208.0
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Profit (loss) for the period / year (refer note 5)",
+    "is_total": true,
+    "y": 446.0,
+    "printed": [
+     "(900)",
+     "2,982",
+     "3,045",
+     "7,627",
+     "12,266"
+    ],
+    "values": [
+     -900.0,
+     2982.0,
+     3045.0,
+     7627.0,
+     12266.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "OCI (A)(i) Items that will not be reclassified to statement of profit and loss",
+    "y": 476.2,
+    "printed": [
+     "(583)",
+     "43",
+     "54",
+     "(577)",
+     "6"
+    ],
+    "values": [
+     -583.0,
+     43.0,
+     54.0,
+     -577.0,
+     6.0
+    ],
+    "metric": "oci_items_not_reclassified"
+   },
+   {
+    "label": "OCI (A)(ii) Income tax relating to items that will not be reclassified to statement of profit and loss",
+    "y": 484.7,
+    "printed": [
+     "147",
+     "(11)",
+     "(16)",
+     "148",
+     "20"
+    ],
+    "values": [
+     147.0,
+     -11.0,
+     -16.0,
+     148.0,
+     20.0
+    ],
+    "metric": "oci_tax_not_reclassified"
+   },
+   {
+    "label": "OCI (B)(i) Items that will be reclassified to statement of profit and loss",
+    "y": 502.6,
+    "printed": [
+     "(922)",
+     "(86)",
+     "177",
+     "(1,872)",
+     "(112)"
+    ],
+    "values": [
+     -922.0,
+     -86.0,
+     177.0,
+     -1872.0,
+     -112.0
+    ],
+    "metric": "oci_items_reclassified"
+   },
+   {
+    "label": "OCI (B)(ii) Income tax relating to items that will be reclassified to statement of profit and loss",
+    "y": 512.0,
+    "printed": [
+     "236",
+     "23",
+     "(40)",
+     "486",
+     "5"
+    ],
+    "values": [
+     236.0,
+     23.0,
+     -40.0,
+     486.0,
+     5.0
+    ],
+    "metric": "oci_tax_reclassified"
+   },
+   {
+    "label": "Total other comprehensive income (loss), net of tax",
+    "is_total": true,
+    "y": 529.7,
+    "printed": [
+     "(1,122)",
+     "(31)",
+     "175",
+     "(1,815)",
+     "(81)"
+    ],
+    "values": [
+     -1122.0,
+     -31.0,
+     175.0,
+     -1815.0,
+     -81.0
+    ],
+    "metric": "other_comprehensive_income"
+   },
+   {
+    "label": "Total comprehensive income (loss) for the period / year",
+    "is_total": true,
+    "y": 538.6,
+    "printed": [
+     "(2,022)",
+     "2,951",
+     "3,220",
+     "5,812",
+     "12,185"
+    ],
+    "values": [
+     -2022.0,
+     2951.0,
+     3220.0,
+     5812.0,
+     12185.0
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "Paid-up equity share capital (Face value ₹ 2 each)",
+    "stock": true,
+    "y": 556.7,
+    "printed": [
+     "543",
+     "543",
+     "543",
+     "543",
+     "543"
+    ],
+    "values": [
+     543.0,
+     543.0,
+     543.0,
+     543.0,
+     543.0
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Other equity",
+    "stock": true,
+    "y": 566.0,
+    "printed": [
+     "",
+     "",
+     "",
+     "25,355",
+     "34,397"
+    ],
+    "values": [
+     null,
+     null,
+     null,
+     25355.0,
+     34397.0
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "Earnings per equity share of ₹ 2 each: Basic (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 593.6,
+    "printed": [
+     "(3.33)",
+     "11.02",
+     "11.24",
+     "28.17",
+     "45.25"
+    ],
+    "values": [
+     -3.33,
+     11.02,
+     11.24,
+     28.17,
+     45.25
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "Earnings per equity share of ₹ 2 each: Diluted (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 602.7,
+    "printed": [
+     "(3.33)",
+     "11.01",
+     "11.23",
+     "28.12",
+     "45.21"
+    ],
+    "values": [
+     -3.33,
+     11.01,
+     11.23,
+     28.12,
+     45.21
+    ],
+    "metric": "diluted_eps"
+   },
+   {
+    "label": "Dividend per equity share of ₹ 2 each: Interim dividend paid (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 630.3,
+    "printed": [
+     "12",
+     "12",
+     "12",
+     "54",
+     "54"
+    ],
+    "values": [
+     12.0,
+     12.0,
+     12.0,
+     54.0,
+     54.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Dividend per equity share of ₹ 2 each: Special interim dividend paid (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 639.5,
+    "printed": [
+     "-",
+     "-",
+     "6",
+     "-",
+     "6"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     6.0,
+     "nil",
+     6.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Dividend per equity share of ₹ 2 each: Total dividend paid (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 649.0,
+    "printed": [
+     "12",
+     "12",
+     "18",
+     "54",
+     "60"
+    ],
+    "values": [
+     12.0,
+     12.0,
+     18.0,
+     54.0,
+     60.0
+    ],
+    "metric": null
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total income",
+    "plus": [
+     "Revenue from operations",
+     "Other income"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total expenses",
+    "plus": [
+     "Purchase of stock-in-trade",
+     "Changes in inventories of stock-in-trade",
+     "Employee benefits expense",
+     "Outsourcing costs",
+     "Finance costs",
+     "Depreciation and amortization expense",
+     "Other expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before exceptional items and tax",
+    "plus": [
+     "Total income"
+    ],
+    "minus": [
+     "Total expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit (loss) before tax",
+    "plus": [
+     "Profit before exceptional items and tax"
+    ],
+    "minus": [
+     "Exceptional Items: One-time impact of New Labour Codes (refer note 3)",
+     "Exceptional Items: One-time impact of a material Bilateral Advance Pricing Agreement (BAPA) (refer note 4)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total tax expense (refer note 3 and 4)",
+    "plus": [
+     "Tax expense: Current tax expense (credit)",
+     "Tax expense: Deferred tax charge (credit)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit (loss) for the period / year (refer note 5)",
+    "plus": [
+     "Profit (loss) before tax"
+    ],
+    "minus": [
+     "Total tax expense (refer note 3 and 4)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total other comprehensive income (loss), net of tax",
+    "plus": [
+     "OCI (A)(i) Items that will not be reclassified to statement of profit and loss",
+     "OCI (A)(ii) Income tax relating to items that will not be reclassified to statement of profit and loss",
+     "OCI (B)(i) Items that will be reclassified to statement of profit and loss",
+     "OCI (B)(ii) Income tax relating to items that will be reclassified to statement of profit and loss"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total comprehensive income (loss) for the period / year",
+    "plus": [
+     "Profit (loss) for the period / year (refer note 5)",
+     "Total other comprehensive income (loss), net of tax"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Dividend per equity share of ₹ 2 each: Total dividend paid (in ₹)",
+    "plus": [
+     "Dividend per equity share of ₹ 2 each: Interim dividend paid (in ₹)",
+     "Dividend per equity share of ₹ 2 each: Special interim dividend paid (in ₹)"
+    ],
+    "tolerance": 0.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "a loss (1,808) reported as a positive profit, or as a cost",
+   "one of two exceptional items reported as total exceptional items",
+   "standalone figures attributed to the consolidated group",
+   "the quarter to 31 March 2026 and the year to 31 March 2026 resolving to one period"
+  ]
+ }
+}

@@ -1,0 +1,228 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "An NBFC's press-release KPI table, 'Rs in Cr.', two quarters OLDEST FIRST, then a",
+  "'Growth (Y-o-Y)' column that is excluded. Costs print with a MINUS SIGN ('-3,466'),",
+  "not brackets. 'Net Income' here is total income LESS finance cost (7,331 - 3,466 =",
+  "3,865) -- NOT net income in the sense of profit (metric net_total_income). 'Total",
+  "Expenses' is operating expenses: finance cost and loan losses are separate lines",
+  "(PBT = net income - total expenses - loan losses); the literal key is accepted too.",
+  "AUM is a balance at the quarter end. The basis is not stated on the table: null.",
+  "Native page; figures from the text layer.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "CHOLA_PR",
+ "document": "src/CHOLA_Q1FY27_press_release.pdf",
+ "issuer": "Cholamandalam Investment and Finance Company Limited",
+ "page": 1,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Performance Highlights",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": null,
+  "basis_evidence": "not stated on the table",
+  "unit_declaration": {
+   "text": "Rs in Cr.",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   100,
+   288,
+   480,
+   492
+  ],
+  "bbox_rel": [
+   0.1634,
+   0.3636,
+   0.7843,
+   0.6212
+  ],
+  "page_height_pt": 792,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Q1 FY 26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Q1 FY 27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Disbursements",
+    "y": 345.9,
+    "printed": [
+     "24,325",
+     "29,612"
+    ],
+    "values": [
+     24325.0,
+     29612.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "AUM",
+    "stock": true,
+    "y": 363.0,
+    "printed": [
+     "2,07,663",
+     "2,54,392"
+    ],
+    "values": [
+     207663.0,
+     254392.0
+    ],
+    "metric": "aum"
+   },
+   {
+    "label": "Total Income",
+    "y": 380.2,
+    "printed": [
+     "7,331",
+     "8,933"
+    ],
+    "values": [
+     7331.0,
+     8933.0
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Finance Cost",
+    "y": 397.4,
+    "printed": [
+     "-3,466",
+     "-4,003"
+    ],
+    "values": [
+     -3466.0,
+     -4003.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Net Income (total income less finance cost)",
+    "is_total": true,
+    "y": 414.6,
+    "printed": [
+     "3,865",
+     "4,930"
+    ],
+    "values": [
+     3865.0,
+     4930.0
+    ],
+    "metric": "net_total_income"
+   },
+   {
+    "label": "Total Expenses (operating expenses)",
+    "y": 431.7,
+    "printed": [
+     "-1,453",
+     "-1,787"
+    ],
+    "values": [
+     -1453.0,
+     -1787.0
+    ],
+    "metric": "operating_expenses",
+    "metric_alt": [
+     "total_expenses"
+    ]
+   },
+   {
+    "label": "Loan Losses",
+    "y": 448.9,
+    "printed": [
+     "-882",
+     "-922"
+    ],
+    "values": [
+     -882.0,
+     -922.0
+    ],
+    "metric": "impairment_on_financial_instruments"
+   },
+   {
+    "label": "Profit Before Tax",
+    "is_total": true,
+    "y": 466.1,
+    "printed": [
+     "1,530",
+     "2,220"
+    ],
+    "values": [
+     1530.0,
+     2220.0
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Profit After Tax",
+    "is_total": true,
+    "y": 483.2,
+    "printed": [
+     "1,136",
+     "1,654"
+    ],
+    "values": [
+     1136.0,
+     1654.0
+    ],
+    "metric": "pat"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Net Income (total income less finance cost)",
+    "plus": [
+     "Total Income",
+     "Finance Cost"
+    ],
+    "tolerance": 1.5
+   },
+   {
+    "target": "Profit Before Tax",
+    "plus": [
+     "Net Income (total income less finance cost)",
+     "Total Expenses (operating expenses)",
+     "Loan Losses"
+    ],
+    "tolerance": 1.5
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "'Net Income' (income less finance cost) reported as profit",
+   "a Y-o-Y growth % reported as a quarter's value",
+   "a minus-signed cost reported as a positive figure, or the reverse",
+   "the Q1 FY 26 column (printed first) reported as Q1 FY 27"
+  ]
+ }
+}

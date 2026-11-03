@@ -1,0 +1,181 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output.",
+  "A stacked bar chart (CET-1 + AT-1 + Tier-2, total printed above each bar)",
+  "and two single-series bar charts. Every value is AS AT a date: capital ratios",
+  "are stocks, not flows. The two dotted regulatory-minimum lines (8.80, 12.30)",
+  "are thresholds, not figures for a period, and are not facts here.",
+  "The stack closes: CET-1 + AT-1 + Tier-2 = total for every date.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "SBI_PPT",
+ "document": "src/SBI_Q1FY27_analyst_presentation.pdf",
+ "issuer": "State Bank of India",
+ "page": 26,
+ "transcription": {
+  "method": "chart data labels read by eye from the slide render",
+  "verified_against": "sbi_ppt_p26.png",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Strong Capital Buffers",
+  "statement": "kpi",
+  "nature": "point_in_time",
+  "basis": null,
+  "basis_evidence": "not stated on the slide",
+  "unit_declaration": {
+   "text": "(%) on each chart title",
+   "unit": "percent",
+   "currency": null,
+   "scope": "table",
+   "placement": "each chart title"
+  },
+  "bbox_pt": [
+   40,
+   70,
+   910,
+   480
+  ],
+  "bbox_rel": [
+   0.0417,
+   0.1296,
+   0.9479,
+   0.8889
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Jun 25"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2025"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Mar 26"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Mar 2026"
+   },
+   {
+    "id": "c3",
+    "group": null,
+    "header_lines": [
+     "Jun 26"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Capital Ratios (%) total",
+    "is_total": true,
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 150.0,
+    "values": [
+     14.63,
+     15.4,
+     15.67
+    ],
+    "metric": "capital_adequacy_ratio"
+   },
+   {
+    "label": "Capital Ratios (%) CET-1",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 330.0,
+    "values": [
+     11.1,
+     12.29,
+     12.89
+    ],
+    "metric": "cet1_ratio"
+   },
+   {
+    "label": "Capital Ratios (%) AT-1",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 210.0,
+    "values": [
+     1.35,
+     1.04,
+     1.01
+    ],
+    "metric": "at1_ratio"
+   },
+   {
+    "label": "Capital Ratios (%) Tier-2",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 180.0,
+    "values": [
+     2.18,
+     2.07,
+     1.77
+    ],
+    "metric": "tier_2_ratio"
+   },
+   {
+    "label": "RWA to Total Assets (%)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 170.0,
+    "values": [
+     53.01,
+     51.98,
+     52.56
+    ],
+    "metric": null
+   },
+   {
+    "label": "Credit Risk Weighted Assets on Advances to Gross Advances (%)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 390.0,
+    "values": [
+     56.02,
+     54.31,
+     53.33
+    ],
+    "metric": null
+   }
+  ],
+  "identities": [
+   {
+    "target": "Capital Ratios (%) total",
+    "plus": [
+     "Capital Ratios (%) CET-1",
+     "Capital Ratios (%) AT-1",
+     "Capital Ratios (%) Tier-2"
+    ],
+    "tolerance": 0.011
+   }
+  ],
+  "page_height_pt": 540.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a regulatory minimum (8.80, 12.30) reported as SBI's own ratio",
+   "a capital ratio typed as a quarter flow"
+  ]
+ }
+}

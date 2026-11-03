@@ -40,7 +40,8 @@ Liveness plus a real dependency check.
 The engines and configuration actually in force — useful for reproducibility.
 Reports each OCR engine's real availability (an engine that cannot run says so
 rather than claiming it can), render settings, validation tolerances, confidence
-thresholds, limits, and whether the optional local LLM is enabled.
+thresholds and limits. Its `llm` block is a reserved field and always reports
+`enabled: false`: no language model is used.
 
 ### `GET /overview`
 Dashboard summary across every document: counts by status, extraction volume,

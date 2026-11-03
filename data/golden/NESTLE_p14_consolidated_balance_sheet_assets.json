@@ -1,0 +1,374 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "IFRS condensed interim statements in MILLIONS OF CHF. Figures use a SPACE as the",
+  "thousands separator ('43 109', '(23 118)'): one figure, not two. A 'Notes' column of",
+  "note numbers (2, 3, 5, 6, 8) sits between the labels and the figures and is NOT a",
+  "figure; beside 'Assets held for sale' it reads '2' next to '5 451', which run together",
+  "would be 25 451.",
+  "Balances at June 30, 2026 and at the previous YEAR END (December 31, 2025), not",
+  "at June 30, 2025. Assets on this page; liabilities and equity on page 15.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NESTLE",
+ "document": "src/NESTLE_HY2026_half_year_report.pdf",
+ "issuer": "Nestlé S.A.",
+ "page": 14,
+ "transcription": {
+  "method": "native text layer at recorded y; layout checked on the render",
+  "verified_against": "page text and the statements' own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Consolidated balance sheet as at June 30, 2026 (assets)",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": "Consolidated",
+  "basis_evidence": "title 'Consolidated balance sheet'",
+  "unit_declaration": {
+   "text": "In millions of CHF",
+   "unit": "million",
+   "currency": "CHF",
+   "scope": "table",
+   "placement": "top-left, above the labels"
+  },
+  "bbox_pt": [
+   26,
+   90,
+   570,
+   415
+  ],
+  "bbox_rel": [
+   0.0437,
+   0.1221,
+   0.9575,
+   0.5631
+  ],
+  "page_height_pt": 737.008,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "June 30,",
+     "2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "December 31,",
+     "2025"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Dec 2025"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Current assets: Cash and cash equivalents",
+    "y": 157.3,
+    "printed": [
+     "3 551",
+     "4 579"
+    ],
+    "values": [
+     3551.0,
+     4579.0
+    ],
+    "metric": "cash_and_equivalents"
+   },
+   {
+    "label": "Current assets: Short-term investments",
+    "y": 169.3,
+    "printed": [
+     "2 583",
+     "1 651"
+    ],
+    "values": [
+     2583.0,
+     1651.0
+    ],
+    "metric": "investments"
+   },
+   {
+    "label": "Current assets: Inventories",
+    "y": 181.3,
+    "printed": [
+     "13 261",
+     "12 813"
+    ],
+    "values": [
+     13261.0,
+     12813.0
+    ],
+    "metric": "inventory"
+   },
+   {
+    "label": "Current assets: Trade and other receivables",
+    "y": 193.3,
+    "printed": [
+     "10 021",
+     "10 561"
+    ],
+    "values": [
+     10021.0,
+     10561.0
+    ],
+    "metric": "receivables"
+   },
+   {
+    "label": "Current assets: Prepayments",
+    "y": 205.3,
+    "printed": [
+     "783",
+     "479"
+    ],
+    "values": [
+     783.0,
+     479.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Current assets: Derivative assets",
+    "y": 217.3,
+    "printed": [
+     "690",
+     "295"
+    ],
+    "values": [
+     690.0,
+     295.0
+    ],
+    "metric": "derivative_assets"
+   },
+   {
+    "label": "Current assets: Current income tax assets",
+    "y": 229.3,
+    "printed": [
+     "1 237",
+     "1 383"
+    ],
+    "values": [
+     1237.0,
+     1383.0
+    ],
+    "metric": "current_tax_assets"
+   },
+   {
+    "label": "Current assets: Assets held for sale",
+    "y": 241.3,
+    "printed": [
+     "5 451",
+     "208"
+    ],
+    "values": [
+     5451.0,
+     208.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total current assets",
+    "is_total": true,
+    "y": 253.2,
+    "printed": [
+     "37 577",
+     "31 969"
+    ],
+    "values": [
+     37577.0,
+     31969.0
+    ],
+    "metric": "current_assets"
+   },
+   {
+    "label": "Non-current assets: Property, plant and equipment",
+    "y": 289.3,
+    "printed": [
+     "31 031",
+     "32 549"
+    ],
+    "values": [
+     31031.0,
+     32549.0
+    ],
+    "metric": "ppe"
+   },
+   {
+    "label": "Non-current assets: Goodwill",
+    "y": 301.3,
+    "printed": [
+     "26 782",
+     "27 636"
+    ],
+    "values": [
+     26782.0,
+     27636.0
+    ],
+    "metric": "goodwill"
+   },
+   {
+    "label": "Non-current assets: Intangible assets",
+    "y": 313.3,
+    "printed": [
+     "14 994",
+     "16 673"
+    ],
+    "values": [
+     14994.0,
+     16673.0
+    ],
+    "metric": "intangible_assets"
+   },
+   {
+    "label": "Non-current assets: Investments in associates and joint ventures",
+    "y": 325.3,
+    "printed": [
+     "11 637",
+     "12 096"
+    ],
+    "values": [
+     11637.0,
+     12096.0
+    ],
+    "metric": "investments_equity_method"
+   },
+   {
+    "label": "Non-current assets: Financial assets",
+    "y": 337.3,
+    "printed": [
+     "3 677",
+     "3 641"
+    ],
+    "values": [
+     3677.0,
+     3641.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Non-current assets: Derivative assets",
+    "y": 349.3,
+    "printed": [
+     "261",
+     "229"
+    ],
+    "values": [
+     261.0,
+     229.0
+    ],
+    "metric": "derivative_assets"
+   },
+   {
+    "label": "Non-current assets: Employee benefits assets and reimbursement rights",
+    "y": 361.3,
+    "printed": [
+     "1 497",
+     "1 412"
+    ],
+    "values": [
+     1497.0,
+     1412.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Non-current assets: Deferred tax assets",
+    "y": 373.3,
+    "printed": [
+     "928",
+     "946"
+    ],
+    "values": [
+     928.0,
+     946.0
+    ],
+    "metric": "deferred_tax_assets"
+   },
+   {
+    "label": "Total non-current assets",
+    "is_total": true,
+    "y": 385.2,
+    "printed": [
+     "90 807",
+     "95 182"
+    ],
+    "values": [
+     90807.0,
+     95182.0
+    ],
+    "metric": "non_current_assets"
+   },
+   {
+    "label": "Total assets",
+    "is_total": true,
+    "y": 409.2,
+    "printed": [
+     "128 384",
+     "127 151"
+    ],
+    "values": [
+     128384.0,
+     127151.0
+    ],
+    "metric": "total_assets"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total current assets",
+    "plus": [
+     "Current assets: Cash and cash equivalents",
+     "Current assets: Short-term investments",
+     "Current assets: Inventories",
+     "Current assets: Trade and other receivables",
+     "Current assets: Prepayments",
+     "Current assets: Derivative assets",
+     "Current assets: Current income tax assets",
+     "Current assets: Assets held for sale"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total non-current assets",
+    "plus": [
+     "Non-current assets: Property, plant and equipment",
+     "Non-current assets: Goodwill",
+     "Non-current assets: Intangible assets",
+     "Non-current assets: Investments in associates and joint ventures",
+     "Non-current assets: Financial assets",
+     "Non-current assets: Derivative assets",
+     "Non-current assets: Employee benefits assets and reimbursement rights",
+     "Non-current assets: Deferred tax assets"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total assets",
+    "plus": [
+     "Total current assets",
+     "Total non-current assets"
+    ],
+    "tolerance": 1.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "the note number '2' run into '5 451' (reported as 25 451)",
+   "a space-grouped figure read as two numbers",
+   "the December 31, 2025 comparative reported as June 30, 2025",
+   "a balance typed as a half-year flow"
+  ]
+ }
+}

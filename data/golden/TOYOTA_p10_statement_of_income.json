@@ -1,0 +1,427 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "IFRS condensed quarterly statements of a JAPANESE filer, in YEN MILLIONS, each line rounded on its own (subtotals may differ from the sum of printed lines by a few million; identity tolerance 3). Toyota fiscal",
+  "year ends March 31: 'FY2027 First Quarter' is April 1 - June 30, 2026. A nil is printed",
+  "as a FULLWIDTH dash ('－'), not '-'. Native page; figures from the text layer.",
+  "First quarters ended June 30, 2025 and 2026, OLDEST FIRST. Costs print as positive",
+  "figures and are deducted. 'Net income' is printed twice (as the result and as the",
+  "total of its attribution); the second is a repeat and not a separate fact.",
+  "'Other income (loss), net' is a NET non-operating line (the taxonomy's",
+  "other_non_operating_income); the plain other-income reading is accepted too.",
+  "(Corrected 2026-09-13: first transcribed as having no key, which was wrong.)",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "TOYOTA",
+ "document": "src/TOYOTA_FY2027_1Q_financial_summary.pdf",
+ "issuer": "Toyota Motor Corporation",
+ "page": 10,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text and the statements' own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Unaudited Condensed Quarterly Consolidated Statement of Income",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "title '... Consolidated Statement of Income'",
+  "unit_declaration": {
+   "text": "Yen in millions",
+   "unit": "million",
+   "currency": "JPY",
+   "scope": "table",
+   "placement": "top-right, above the columns"
+  },
+  "bbox_pt": [
+   50,
+   182,
+   560,
+   632
+  ],
+  "bbox_rel": [
+   0.084,
+   0.2162,
+   0.9407,
+   0.7507
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "For the first quarter ended",
+    "header_lines": [
+     "June 30, 2025"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "FY2026 Q1 (Toyota)"
+   },
+   {
+    "id": "c2",
+    "group": "For the first quarter ended",
+    "header_lines": [
+     "June 30, 2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "FY2027 Q1 (Toyota)"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Sales revenues: Sales of products",
+    "y": 240.8,
+    "printed": [
+     "11,129,393",
+     "12,142,263"
+    ],
+    "values": [
+     11129393.0,
+     12142263.0
+    ],
+    "metric": "sale_of_products"
+   },
+   {
+    "label": "Sales revenues: Financial services",
+    "y": 255.8,
+    "printed": [
+     "1,123,933",
+     "1,383,137"
+    ],
+    "values": [
+     1123933.0,
+     1383137.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total sales revenues",
+    "is_total": true,
+    "y": 271.3,
+    "printed": [
+     "12,253,326",
+     "13,525,400"
+    ],
+    "values": [
+     12253326.0,
+     13525400.0
+    ],
+    "metric": "revenue"
+   },
+   {
+    "label": "Costs and expenses: Cost of products sold",
+    "y": 301.8,
+    "printed": [
+     "9,337,703",
+     "10,185,856"
+    ],
+    "values": [
+     9337703.0,
+     10185856.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Costs and expenses: Cost of financial services",
+    "y": 316.8,
+    "printed": [
+     "719,810",
+     "901,297"
+    ],
+    "values": [
+     719810.0,
+     901297.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Costs and expenses: Selling, general and administrative",
+    "y": 331.8,
+    "printed": [
+     "1,029,672",
+     "1,374,774"
+    ],
+    "values": [
+     1029672.0,
+     1374774.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total costs and expenses",
+    "is_total": true,
+    "y": 347.2,
+    "printed": [
+     "11,087,185",
+     "12,461,927"
+    ],
+    "values": [
+     11087185.0,
+     12461927.0
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "Operating income",
+    "is_total": true,
+    "y": 362.8,
+    "printed": [
+     "1,166,141",
+     "1,063,473"
+    ],
+    "values": [
+     1166141.0,
+     1063473.0
+    ],
+    "metric": "ebit"
+   },
+   {
+    "label": "Share of profit (loss) of investments accounted for using the equity method",
+    "y": 378.3,
+    "printed": [
+     "141,044",
+     "210,685"
+    ],
+    "values": [
+     141044.0,
+     210685.0
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Other finance income",
+    "y": 393.3,
+    "printed": [
+     "153,721",
+     "850,594"
+    ],
+    "values": [
+     153721.0,
+     850594.0
+    ],
+    "metric": "finance_income"
+   },
+   {
+    "label": "Other finance costs",
+    "y": 408.3,
+    "printed": [
+     "(6,211)",
+     "(285,617)"
+    ],
+    "values": [
+     -6211.0,
+     -285617.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Foreign exchange gain (loss), net",
+    "y": 423.3,
+    "printed": [
+     "(212,375)",
+     "112,378"
+    ],
+    "values": [
+     -212375.0,
+     112378.0
+    ],
+    "metric": "fx_gains_losses"
+   },
+   {
+    "label": "Other income (loss), net",
+    "y": 438.3,
+    "printed": [
+     "9,832",
+     "12,348"
+    ],
+    "values": [
+     9832.0,
+     12348.0
+    ],
+    "metric": "other_non_operating_income",
+    "metric_alt": [
+     "other_income"
+    ]
+   },
+   {
+    "label": "Income before income taxes",
+    "is_total": true,
+    "y": 453.8,
+    "printed": [
+     "1,252,152",
+     "1,963,862"
+    ],
+    "values": [
+     1252152.0,
+     1963862.0
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Income tax expense",
+    "y": 469.3,
+    "printed": [
+     "379,959",
+     "412,136"
+    ],
+    "values": [
+     379959.0,
+     412136.0
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Net income",
+    "is_total": true,
+    "y": 484.8,
+    "printed": [
+     "872,193",
+     "1,551,725"
+    ],
+    "values": [
+     872193.0,
+     1551725.0
+    ],
+    "metric": "pat",
+    "metric_alt": [
+     "net_income"
+    ]
+   },
+   {
+    "label": "Net income attributable to: Toyota Motor Corporation",
+    "y": 515.2,
+    "printed": [
+     "841,345",
+     "1,477,044"
+    ],
+    "values": [
+     841345.0,
+     1477044.0
+    ],
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "Net income attributable to: Non-controlling interests",
+    "y": 530.2,
+    "printed": [
+     "30,848",
+     "74,681"
+    ],
+    "values": [
+     30848.0,
+     74681.0
+    ],
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "Earnings per share attributable to Toyota Motor Corporation: Basic (Yen)",
+    "unit": "per_share",
+    "currency": "JPY",
+    "value_type": "per_share",
+    "y": 607.8,
+    "printed": [
+     "64.56",
+     "120.69"
+    ],
+    "values": [
+     64.56,
+     120.69
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "Earnings per share attributable to Toyota Motor Corporation: Diluted (Yen)",
+    "unit": "per_share",
+    "currency": "JPY",
+    "value_type": "per_share",
+    "y": 624.3,
+    "printed": [
+     "64.56",
+     "120.69"
+    ],
+    "values": [
+     64.56,
+     120.69
+    ],
+    "metric": "diluted_eps"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total sales revenues",
+    "plus": [
+     "Sales revenues: Sales of products",
+     "Sales revenues: Financial services"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Total costs and expenses",
+    "plus": [
+     "Costs and expenses: Cost of products sold",
+     "Costs and expenses: Cost of financial services",
+     "Costs and expenses: Selling, general and administrative"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Operating income",
+    "plus": [
+     "Total sales revenues"
+    ],
+    "minus": [
+     "Total costs and expenses"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Income before income taxes",
+    "plus": [
+     "Operating income",
+     "Share of profit (loss) of investments accounted for using the equity method",
+     "Other finance income",
+     "Other finance costs",
+     "Foreign exchange gain (loss), net",
+     "Other income (loss), net"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Net income",
+    "plus": [
+     "Income before income taxes"
+    ],
+    "minus": [
+     "Income tax expense"
+    ],
+    "tolerance": 3.0
+   },
+   {
+    "target": "Net income",
+    "plus": [
+     "Net income attributable to: Toyota Motor Corporation",
+     "Net income attributable to: Non-controlling interests"
+    ],
+    "tolerance": 3.0
+   }
+  ],
+  "excluded_rows": [
+   {
+    "y": 545.8,
+    "reason": "'Net income' repeated as the total of its attribution"
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "the June 30, 2025 quarter (printed first) reported as the June 30, 2026 quarter",
+   "Toyota's first quarter typed as a calendar Q1 (January-March)",
+   "yen reported as another currency"
+  ]
+ }
+}

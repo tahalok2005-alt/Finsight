@@ -1,0 +1,564 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A SCANNED filing: lines 16-35 of the consolidated results, continuing page 16 under",
+  "the same five columns. Two EPS lines per period, INCLUDING and EXCLUDING the net",
+  "movement in regulatory deferral balances (basic = diluted): differently qualified",
+  "facts. 'Net worth*' EXCLUDES the fly ash utilisation reserve and OCI items. Ratios",
+  "are multiples, margins percentages; line 29 is a dash throughout (no facts).",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "NTPC_FY26",
+ "document": "src/NTPC_FY26_annual_results.pdf",
+ "issuer": "NTPC Limited",
+ "page": 17,
+ "transcription": {
+  "method": "read by eye from the render; positions from the filer's OCR layer",
+  "verified_against": "page render at 170-220 dpi and the statement's own totals",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "STATEMENT OF AUDITED CONSOLIDATED FINANCIAL RESULTS (continued)",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "title 'STATEMENT OF AUDITED CONSOLIDATED FINANCIAL RESULTS'",
+  "unit_declaration": {
+   "text": "₹ Crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   45,
+   68,
+   585,
+   540
+  ],
+  "bbox_rel": [
+   0.0756,
+   0.0808,
+   0.9831,
+   0.6416
+  ],
+  "page_height_pt": 841.68,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.03.2026",
+     "(Audited - refer note 14)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.12.2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": "2025-10-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q3 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c3",
+    "group": null,
+    "header_lines": [
+     "Quarter ended",
+     "31.03.2025",
+     "(Audited - refer note 14)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2025-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY25",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c4",
+    "group": null,
+    "header_lines": [
+     "Year ended",
+     "31.03.2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c5",
+    "group": null,
+    "header_lines": [
+     "Year ended",
+     "31.03.2025",
+     "(Audited)"
+    ],
+    "period_end": "2025-03-31",
+    "period_start": "2024-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY25",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "16 EPS (of ₹10/- each) (not annualised) (including net movement in regulatory deferral account balances): Basic and Diluted (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 125.3,
+    "printed": [
+     "10.81",
+     "5.66",
+     "7.85",
+     "27.90",
+     "24.16"
+    ],
+    "values": [
+     10.81,
+     5.66,
+     7.85,
+     27.9,
+     24.16
+    ],
+    "metric": "eps",
+    "metric_alt": [
+     "diluted_eps"
+    ]
+   },
+   {
+    "label": "17 EPS (of ₹10/- each) (not annualised) (excluding net movement in regulatory deferral account balances): Basic and Diluted (in ₹)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 155.5,
+    "printed": [
+     "17.84",
+     "4.97",
+     "5.48",
+     "30.44",
+     "20.34"
+    ],
+    "values": [
+     17.84,
+     4.97,
+     5.48,
+     30.44,
+     20.34
+    ],
+    "metric": "eps",
+    "metric_alt": [
+     "diluted_eps"
+    ]
+   },
+   {
+    "label": "18 Paid-up equity share capital (Face value of share ₹ 10/- each)",
+    "stock": true,
+    "y": 186.5,
+    "printed": [
+     "9696.67",
+     "9696.67",
+     "9696.67",
+     "9696.67",
+     "9696.67"
+    ],
+    "values": [
+     9696.67,
+     9696.67,
+     9696.67,
+     9696.67,
+     9696.67
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "19 Paid-up debt capital",
+    "stock": true,
+    "y": 204.8,
+    "printed": [
+     "267258.20",
+     "258206.58",
+     "247575.12",
+     "267258.20",
+     "247575.12"
+    ],
+    "values": [
+     267258.2,
+     258206.58,
+     247575.12,
+     267258.2,
+     247575.12
+    ],
+    "metric": "paid_up_debt_capital"
+   },
+   {
+    "label": "20 Other equity excluding revaluation reserve",
+    "stock": true,
+    "y": 213.1,
+    "printed": [
+     "193479.00",
+     "185212.52",
+     "174374.49",
+     "193479.00",
+     "174374.49"
+    ],
+    "values": [
+     193479.0,
+     185212.52,
+     174374.49,
+     193479.0,
+     174374.49
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "21 Net worth* (excluding fly ash utilisation reserve and items of OCI)",
+    "stock": true,
+    "y": 228.2,
+    "printed": [
+     "203023.74",
+     "193389.62",
+     "182881.09",
+     "203023.74",
+     "182881.09"
+    ],
+    "values": [
+     203023.74,
+     193389.62,
+     182881.09,
+     203023.74,
+     182881.09
+    ],
+    "metric": "net_worth"
+   },
+   {
+    "label": "22 Debenture redemption reserve",
+    "stock": true,
+    "y": 238.5,
+    "printed": [
+     "2705.61",
+     "2713.20",
+     "2871.12",
+     "2705.61",
+     "2871.12"
+    ],
+    "values": [
+     2705.61,
+     2713.2,
+     2871.12,
+     2705.61,
+     2871.12
+    ],
+    "metric": null
+   },
+   {
+    "label": "23 Capital redemption reserve",
+    "stock": true,
+    "y": 246.2,
+    "printed": [
+     "197.89",
+     "197.89",
+     "197.89",
+     "197.89",
+     "197.89"
+    ],
+    "values": [
+     197.89,
+     197.89,
+     197.89,
+     197.89,
+     197.89
+    ],
+    "metric": null
+   },
+   {
+    "label": "24 Debt equity ratio (Paid-up debt capital / Shareholder's Equity)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 253.4,
+    "printed": [
+     "1.32",
+     "1.32",
+     "1.34",
+     "1.32",
+     "1.34"
+    ],
+    "values": [
+     1.32,
+     1.32,
+     1.34,
+     1.32,
+     1.34
+    ],
+    "metric": "debt_to_equity"
+   },
+   {
+    "label": "25 Debt service coverage ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 270.3,
+    "printed": [
+     "0.74",
+     "1.10",
+     "1.07",
+     "1.23",
+     "1.29"
+    ],
+    "values": [
+     0.74,
+     1.1,
+     1.07,
+     1.23,
+     1.29
+    ],
+    "metric": null
+   },
+   {
+    "label": "26 Interest service coverage ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 310.8,
+    "printed": [
+     "5.21",
+     "4.38",
+     "4.44",
+     "4.42",
+     "4.14"
+    ],
+    "values": [
+     5.21,
+     4.38,
+     4.44,
+     4.42,
+     4.14
+    ],
+    "metric": "interest_coverage"
+   },
+   {
+    "label": "27 Current ratio (Current assets / Current liabilities)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 341.2,
+    "printed": [
+     "0.82",
+     "0.87",
+     "0.92",
+     "0.82",
+     "0.92"
+    ],
+    "values": [
+     0.82,
+     0.87,
+     0.92,
+     0.82,
+     0.92
+    ],
+    "metric": "current_ratio"
+   },
+   {
+    "label": "28 Long term debt to working capital ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 358.6,
+    "printed": [
+     "39.48",
+     "18.46",
+     "16.26",
+     "39.48",
+     "16.26"
+    ],
+    "values": [
+     39.48,
+     18.46,
+     16.26,
+     39.48,
+     16.26
+    ],
+    "metric": null
+   },
+   {
+    "label": "29 Bad debts to account receivable ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 389.6,
+    "printed": [
+     "-",
+     "-",
+     "-",
+     "-",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "30 Current liability ratio",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 407.3,
+    "printed": [
+     "0.33",
+     "0.31",
+     "0.31",
+     "0.33",
+     "0.31"
+    ],
+    "values": [
+     0.33,
+     0.31,
+     0.31,
+     0.33,
+     0.31
+    ],
+    "metric": null
+   },
+   {
+    "label": "31 Total debts to total assets ratio (Paid up debt capital / Total assets)",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 430.0,
+    "printed": [
+     "0.48",
+     "0.47",
+     "0.47",
+     "0.48",
+     "0.47"
+    ],
+    "values": [
+     0.48,
+     0.47,
+     0.47,
+     0.48,
+     0.47
+    ],
+    "metric": "debt_to_assets"
+   },
+   {
+    "label": "32 Debtors turnover ratio - Annualised",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 448.2,
+    "printed": [
+     "5.91",
+     "5.95",
+     "5.70",
+     "5.20",
+     "5.42"
+    ],
+    "values": [
+     5.91,
+     5.95,
+     5.7,
+     5.2,
+     5.42
+    ],
+    "metric": null
+   },
+   {
+    "label": "33 Inventory turnover ratio - Annualised",
+    "unit": "ratio",
+    "currency": null,
+    "value_type": "ratio",
+    "y": 466.6,
+    "printed": [
+     "11.25",
+     "10.94",
+     "11.28",
+     "10.02",
+     "10.24"
+    ],
+    "values": [
+     11.25,
+     10.94,
+     11.28,
+     10.02,
+     10.24
+    ],
+    "metric": null
+   },
+   {
+    "label": "34 Operating margin (%) (Earnings before interest and tax / Revenue from operations)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 483.1,
+    "printed": [
+     "26.39",
+     "23.00",
+     "24.76",
+     "23.60",
+     "22.26"
+    ],
+    "values": [
+     26.39,
+     23.0,
+     24.76,
+     23.6,
+     22.26
+    ],
+    "metric": "ebit_margin"
+   },
+   {
+    "label": "35 Net profit margin (%) (Profit for the period / Revenue from operations)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 500.0,
+    "printed": [
+     "21.36",
+     "12.21",
+     "15.85",
+     "14.70",
+     "12.73"
+    ],
+    "values": [
+     21.36,
+     12.21,
+     15.85,
+     14.7,
+     12.73
+    ],
+    "metric": "net_margin"
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "the including- and excluding-regulatory-deferral EPS merged into one unqualified EPS",
+   "a ratio or margin reported in crore",
+   "a dash (line 29) extracted as 0"
+  ]
+ }
+}

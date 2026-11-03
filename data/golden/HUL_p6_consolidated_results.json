@@ -1,0 +1,1131 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "The PARTICULARS column sits in the MIDDLE of the table: the two June-quarter",
+  "columns (2026, 2025) are to its LEFT, the March quarter and the year to its",
+  "RIGHT, each group under its own header ('Unaudited results for the quarter",
+  "ended 30th June' / 'Audited results for the'). A reader that assumes labels",
+  "on the left will misassign every column. The statement separates CONTINUING",
+  "from DISCONTINUED operations. '(0)' and '0' are printed rounded zeros and",
+  "are facts; '-' is a dash and is not. Figures from the native text layer.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "HUL",
+ "document": "src/HUL_JQ26_results.pdf",
+ "issuer": "Hindustan Unilever Limited",
+ "page": 6,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "page text and render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "CONSOLIDATED FINANCIAL RESULTS FOR THE QUARTER ENDED 30TH JUNE, 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "statement title",
+  "unit_declaration": {
+   "text": "(Rs in crores)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   95,
+   100,
+   535,
+   715
+  ],
+  "bbox_rel": [
+   0.1552,
+   0.1263,
+   0.8742,
+   0.9028
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Unaudited results for the quarter ended 30th June",
+    "header_lines": [
+     "2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited",
+    "position": "left of labels"
+   },
+   {
+    "id": "c2",
+    "group": "Unaudited results for the quarter ended 30th June",
+    "header_lines": [
+     "2025"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited",
+    "position": "left of labels"
+   },
+   {
+    "id": "c3",
+    "group": "Audited results for the",
+    "header_lines": [
+     "Quarter ended",
+     "31st March",
+     "2026"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited",
+    "position": "right of labels"
+   },
+   {
+    "id": "c4",
+    "group": "Audited results for the",
+    "header_lines": [
+     "Year ended",
+     "31st March",
+     "2026"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited",
+    "position": "right of labels"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Sale of products",
+    "y": 169.7,
+    "printed": [
+     "17,149",
+     "15,552",
+     "16,172",
+     "63,636"
+    ],
+    "values": [
+     17149.0,
+     15552.0,
+     16172.0,
+     63636.0
+    ],
+    "metric": "sale_of_products"
+   },
+   {
+    "label": "Sale of services",
+    "y": 176.5,
+    "printed": [
+     "35",
+     "27",
+     "35",
+     "127"
+    ],
+    "values": [
+     35.0,
+     27.0,
+     35.0,
+     127.0
+    ],
+    "metric": "sale_of_services"
+   },
+   {
+    "label": "Other operating revenue",
+    "y": 183.2,
+    "printed": [
+     "157",
+     "178",
+     "144",
+     "705"
+    ],
+    "values": [
+     157.0,
+     178.0,
+     144.0,
+     705.0
+    ],
+    "metric": "other_operating_revenue"
+   },
+   {
+    "label": "Other income",
+    "y": 190.1,
+    "printed": [
+     "188",
+     "201",
+     "264",
+     "751"
+    ],
+    "values": [
+     188.0,
+     201.0,
+     264.0,
+     751.0
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "TOTAL INCOME",
+    "is_total": true,
+    "y": 196.8,
+    "printed": [
+     "17,529",
+     "15,958",
+     "16,615",
+     "65,219"
+    ],
+    "values": [
+     17529.0,
+     15958.0,
+     16615.0,
+     65219.0
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Cost of materials consumed",
+    "y": 210.4,
+    "printed": [
+     "5,429",
+     "5,264",
+     "5,205",
+     "20,981"
+    ],
+    "values": [
+     5429.0,
+     5264.0,
+     5205.0,
+     20981.0
+    ],
+    "metric": "raw_material_cost"
+   },
+   {
+    "label": "Purchases of stock-in-trade",
+    "y": 217.0,
+    "printed": [
+     "3,321",
+     "2,738",
+     "3,101",
+     "11,113"
+    ],
+    "values": [
+     3321.0,
+     2738.0,
+     3101.0,
+     11113.0
+    ],
+    "metric": "purchases_of_stock_in_trade"
+   },
+   {
+    "label": "Changes in inventories of finished goods, work-in-progress and stock-in-trade",
+    "y": 224.0,
+    "printed": [
+     "3",
+     "(173)",
+     "(175)",
+     "(429)"
+    ],
+    "values": [
+     3.0,
+     -173.0,
+     -175.0,
+     -429.0
+    ],
+    "metric": "changes_in_inventories"
+   },
+   {
+    "label": "Employee benefits expense",
+    "y": 230.7,
+    "printed": [
+     "769",
+     "689",
+     "847",
+     "3,175"
+    ],
+    "values": [
+     769.0,
+     689.0,
+     847.0,
+     3175.0
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "Finance costs",
+    "y": 237.5,
+    "printed": [
+     "75",
+     "122",
+     "76",
+     "410"
+    ],
+    "values": [
+     75.0,
+     122.0,
+     76.0,
+     410.0
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Depreciation and amortisation expense",
+    "y": 244.3,
+    "printed": [
+     "353",
+     "326",
+     "348",
+     "1,333"
+    ],
+    "values": [
+     353.0,
+     326.0,
+     348.0,
+     1333.0
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "Other expenses: Advertising and promotion",
+    "y": 257.7,
+    "printed": [
+     "1,657",
+     "1,598",
+     "1,509",
+     "6,261"
+    ],
+    "values": [
+     1657.0,
+     1598.0,
+     1509.0,
+     6261.0
+    ],
+    "metric": "advertising_and_promotion"
+   },
+   {
+    "label": "Other expenses: Others",
+    "y": 264.5,
+    "printed": [
+     "2,215",
+     "2,001",
+     "2,023",
+     "8,313"
+    ],
+    "values": [
+     2215.0,
+     2001.0,
+     2023.0,
+     8313.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "TOTAL EXPENSES",
+    "is_total": true,
+    "y": 271.3,
+    "printed": [
+     "13,822",
+     "12,565",
+     "12,934",
+     "51,157"
+    ],
+    "values": [
+     13822.0,
+     12565.0,
+     12934.0,
+     51157.0
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "Profit before exceptional items and tax and before share of equity-accounted investee",
+    "is_total": true,
+    "y": 283.8,
+    "printed": [
+     "3,707",
+     "3,393",
+     "3,681",
+     "14,062"
+    ],
+    "values": [
+     3707.0,
+     3393.0,
+     3681.0,
+     14062.0
+    ],
+    "metric": "pbt_before_associates"
+   },
+   {
+    "label": "Share of loss of equity-accounted investee, net of tax",
+    "y": 290.6,
+    "printed": [
+     "-",
+     "(1)",
+     "(4)",
+     "(15)"
+    ],
+    "values": [
+     "nil",
+     -1.0,
+     -4.0,
+     -15.0
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "PROFIT BEFORE EXCEPTIONAL ITEMS AND TAX",
+    "is_total": true,
+    "y": 297.3,
+    "printed": [
+     "3,707",
+     "3,392",
+     "3,677",
+     "14,047"
+    ],
+    "values": [
+     3707.0,
+     3392.0,
+     3677.0,
+     14047.0
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "Exceptional items [net (charge) / credit]",
+    "y": 304.2,
+    "printed": [
+     "(75)",
+     "(125)",
+     "247",
+     "(235)"
+    ],
+    "values": [
+     -75.0,
+     -125.0,
+     247.0,
+     -235.0
+    ],
+    "metric": "exceptional_items"
+   },
+   {
+    "label": "Profit before tax",
+    "is_total": true,
+    "y": 310.9,
+    "printed": [
+     "3,632",
+     "3,267",
+     "3,924",
+     "13,812"
+    ],
+    "values": [
+     3632.0,
+     3267.0,
+     3924.0,
+     13812.0
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Tax expenses: Current tax",
+    "y": 324.4,
+    "printed": [
+     "(939)",
+     "(485)",
+     "(885)",
+     "(3,163)"
+    ],
+    "values": [
+     -939.0,
+     -485.0,
+     -885.0,
+     -3163.0
+    ],
+    "metric": "current_tax"
+   },
+   {
+    "label": "Tax expenses: Deferred tax (charge) / credit",
+    "y": 331.3,
+    "printed": [
+     "(13)",
+     "(41)",
+     "(37)",
+     "3"
+    ],
+    "values": [
+     -13.0,
+     -41.0,
+     -37.0,
+     3.0
+    ],
+    "metric": "deferred_tax"
+   },
+   {
+    "label": "PROFIT FOR THE PERIOD / YEAR FROM CONTINUING OPERATIONS (A)",
+    "is_total": true,
+    "y": 338.0,
+    "printed": [
+     "2,680",
+     "2,741",
+     "3,002",
+     "10,652"
+    ],
+    "values": [
+     2680.0,
+     2741.0,
+     3002.0,
+     10652.0
+    ],
+    "metric": "pat_continuing"
+   },
+   {
+    "label": "Profit / (loss) before exceptional items and tax from discontinued operations",
+    "y": 358.3,
+    "printed": [
+     "-",
+     "38",
+     "-",
+     "(135)"
+    ],
+    "values": [
+     "nil",
+     38.0,
+     "nil",
+     -135.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Exceptional items of discontinued operations [net (charge) / credit]",
+    "y": 365.2,
+    "printed": [
+     "-",
+     "(2)",
+     "(8)",
+     "4,471"
+    ],
+    "values": [
+     "nil",
+     -2.0,
+     -8.0,
+     4471.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Tax (charge) / credit of discontinued operations",
+    "y": 371.9,
+    "printed": [
+     "-",
+     "(9)",
+     "-",
+     "71"
+    ],
+    "values": [
+     "nil",
+     -9.0,
+     "nil",
+     71.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "PROFIT / (LOSS) FOR THE PERIOD / YEAR FROM DISCONTINUED OPERATIONS (B)",
+    "is_total": true,
+    "y": 378.7,
+    "printed": [
+     "-",
+     "27",
+     "(8)",
+     "4,407"
+    ],
+    "values": [
+     "nil",
+     27.0,
+     -8.0,
+     4407.0
+    ],
+    "metric": "pat_discontinued"
+   },
+   {
+    "label": "PROFIT FOR THE PERIOD / YEAR (C = A+B)",
+    "is_total": true,
+    "y": 392.3,
+    "printed": [
+     "2,680",
+     "2,768",
+     "2,994",
+     "15,059"
+    ],
+    "values": [
+     2680.0,
+     2768.0,
+     2994.0,
+     15059.0
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Remeasurements of the net defined benefit plans",
+    "y": 419.4,
+    "printed": [
+     "-",
+     "-",
+     "8",
+     "8"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     8.0,
+     8.0
+    ],
+    "metric": "oci_remeasurement_benefit_plans"
+   },
+   {
+    "label": "Tax on above (remeasurements)",
+    "y": 426.2,
+    "printed": [
+     "-",
+     "-",
+     "(2)",
+     "(2)"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     -2.0,
+     -2.0
+    ],
+    "metric": "oci_tax_not_reclassified"
+   },
+   {
+    "label": "Fair value of debt instruments through other comprehensive income",
+    "y": 446.5,
+    "printed": [
+     "-",
+     "-",
+     "1",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     1.0,
+     "nil"
+    ],
+    "metric": null
+   },
+   {
+    "label": "Tax on above (debt instruments)",
+    "y": 453.4,
+    "printed": [
+     "-",
+     "-",
+     "(0)",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     -0.0,
+     "nil"
+    ],
+    "metric": "oci_tax_reclassified"
+   },
+   {
+    "label": "Fair value of cash flow hedges through other comprehensive income",
+    "y": 466.9,
+    "printed": [
+     "15",
+     "(22)",
+     "305",
+     "268"
+    ],
+    "values": [
+     15.0,
+     -22.0,
+     305.0,
+     268.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Tax on above (cash flow hedges)",
+    "y": 473.7,
+    "printed": [
+     "73",
+     "(0)",
+     "(77)",
+     "(73)"
+    ],
+    "values": [
+     73.0,
+     -0.0,
+     -77.0,
+     -73.0
+    ],
+    "metric": "oci_tax_reclassified"
+   },
+   {
+    "label": "Exchange differences on translation of financial statements of foreign operations",
+    "y": 487.2,
+    "printed": [
+     "(0)",
+     "0",
+     "0",
+     "1"
+    ],
+    "values": [
+     -0.0,
+     0.0,
+     0.0,
+     1.0
+    ],
+    "metric": "foreign_currency_translation_reserve"
+   },
+   {
+    "label": "Tax on above (translation)",
+    "y": 494.0,
+    "printed": [
+     "-",
+     "-",
+     "-",
+     "-"
+    ],
+    "values": [
+     "nil",
+     "nil",
+     "nil",
+     "nil"
+    ],
+    "metric": "oci_tax_reclassified"
+   },
+   {
+    "label": "OTHER COMPREHENSIVE INCOME FOR THE PERIOD / YEAR (D)",
+    "is_total": true,
+    "y": 506.6,
+    "printed": [
+     "88",
+     "(22)",
+     "235",
+     "202"
+    ],
+    "values": [
+     88.0,
+     -22.0,
+     235.0,
+     202.0
+    ],
+    "metric": "other_comprehensive_income"
+   },
+   {
+    "label": "TOTAL COMPREHENSIVE INCOME FOR THE PERIOD / YEAR (C+D)",
+    "is_total": true,
+    "y": 520.2,
+    "printed": [
+     "2,768",
+     "2,746",
+     "3,229",
+     "15,261"
+    ],
+    "values": [
+     2768.0,
+     2746.0,
+     3229.0,
+     15261.0
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "Net profit attributable to: a) Owners of the holding company",
+    "y": 540.5,
+    "printed": [
+     "2,673",
+     "2,756",
+     "2,992",
+     "15,040"
+    ],
+    "values": [
+     2673.0,
+     2756.0,
+     2992.0,
+     15040.0
+    ],
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "Net profit attributable to: b) Non-controlling interest",
+    "y": 547.3,
+    "printed": [
+     "7",
+     "12",
+     "2",
+     "19"
+    ],
+    "values": [
+     7.0,
+     12.0,
+     2.0,
+     19.0
+    ],
+    "metric": "nci_share_of_profit"
+   },
+   {
+    "label": "Other comprehensive income attributable to: a) Owners of the holding company",
+    "y": 567.6,
+    "printed": [
+     "88",
+     "(22)",
+     "235",
+     "202"
+    ],
+    "values": [
+     88.0,
+     -22.0,
+     235.0,
+     202.0
+    ],
+    "metric": "oci_attributable_to_owners"
+   },
+   {
+    "label": "Other comprehensive income attributable to: b) Non-controlling interest",
+    "y": 574.3,
+    "printed": [
+     "(0)",
+     "0",
+     "(0)",
+     "(0)"
+    ],
+    "values": [
+     -0.0,
+     0.0,
+     -0.0,
+     -0.0
+    ],
+    "metric": "oci_attributable_to_nci"
+   },
+   {
+    "label": "Total comprehensive income attributable to: a) Owners of the holding company",
+    "y": 594.8,
+    "printed": [
+     "2,761",
+     "2,734",
+     "3,227",
+     "15,242"
+    ],
+    "values": [
+     2761.0,
+     2734.0,
+     3227.0,
+     15242.0
+    ],
+    "metric": "tci_attributable_to_owners"
+   },
+   {
+    "label": "Total comprehensive income attributable to: b) Non-controlling interest",
+    "y": 601.5,
+    "printed": [
+     "7",
+     "12",
+     "2",
+     "19"
+    ],
+    "values": [
+     7.0,
+     12.0,
+     2.0,
+     19.0
+    ],
+    "metric": "tci_attributable_to_nci"
+   },
+   {
+    "label": "Paid up equity share capital (face value of Re. 1 per share)",
+    "stock": true,
+    "y": 614.1,
+    "printed": [
+     "235",
+     "235",
+     "235",
+     "235"
+    ],
+    "values": [
+     235.0,
+     235.0,
+     235.0,
+     235.0
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Other equity",
+    "stock": true,
+    "y": 620.8,
+    "printed": [
+     "",
+     "",
+     "",
+     "48,504"
+    ],
+    "values": [
+     null,
+     null,
+     null,
+     48504.0
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "EPS for continuing operations: Basic (in Rs.)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 648.0,
+    "printed": [
+     "11.38",
+     "11.62",
+     "12.76",
+     "45.25"
+    ],
+    "values": [
+     11.38,
+     11.62,
+     12.76,
+     45.25
+    ],
+    "metric": null
+   },
+   {
+    "label": "EPS for continuing operations: Diluted (in Rs.)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 654.7,
+    "printed": [
+     "11.38",
+     "11.62",
+     "12.76",
+     "45.25"
+    ],
+    "values": [
+     11.38,
+     11.62,
+     12.76,
+     45.25
+    ],
+    "metric": null
+   },
+   {
+    "label": "EPS for discontinued operations: Basic (in Rs.)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 675.2,
+    "printed": [
+     "-",
+     "0.11",
+     "(0.03)",
+     "18.76"
+    ],
+    "values": [
+     "nil",
+     0.11,
+     -0.03,
+     18.76
+    ],
+    "metric": null
+   },
+   {
+    "label": "EPS for discontinued operations: Diluted (in Rs.)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 681.9,
+    "printed": [
+     "-",
+     "0.11",
+     "(0.04)",
+     "18.75"
+    ],
+    "values": [
+     "nil",
+     0.11,
+     -0.04,
+     18.75
+    ],
+    "metric": null
+   },
+   {
+    "label": "EPS for continuing and discontinued operations: Basic (in Rs.)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 702.3,
+    "printed": [
+     "11.38",
+     "11.73",
+     "12.73",
+     "64.01"
+    ],
+    "values": [
+     11.38,
+     11.73,
+     12.73,
+     64.01
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "EPS for continuing and discontinued operations: Diluted (in Rs.)",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 709.0,
+    "printed": [
+     "11.38",
+     "11.73",
+     "12.72",
+     "64.00"
+    ],
+    "values": [
+     11.38,
+     11.73,
+     12.72,
+     64.0
+    ],
+    "metric": "diluted_eps"
+   }
+  ],
+  "identities": [
+   {
+    "target": "TOTAL INCOME",
+    "plus": [
+     "Sale of products",
+     "Sale of services",
+     "Other operating revenue",
+     "Other income"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "TOTAL EXPENSES",
+    "plus": [
+     "Cost of materials consumed",
+     "Purchases of stock-in-trade",
+     "Changes in inventories of finished goods, work-in-progress and stock-in-trade",
+     "Employee benefits expense",
+     "Finance costs",
+     "Depreciation and amortisation expense",
+     "Other expenses: Advertising and promotion",
+     "Other expenses: Others"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before exceptional items and tax and before share of equity-accounted investee",
+    "plus": [
+     "TOTAL INCOME"
+    ],
+    "minus": [
+     "TOTAL EXPENSES"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "PROFIT BEFORE EXCEPTIONAL ITEMS AND TAX",
+    "plus": [
+     "Profit before exceptional items and tax and before share of equity-accounted investee",
+     "Share of loss of equity-accounted investee, net of tax"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Profit before tax",
+    "plus": [
+     "PROFIT BEFORE EXCEPTIONAL ITEMS AND TAX",
+     "Exceptional items [net (charge) / credit]"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "PROFIT FOR THE PERIOD / YEAR FROM CONTINUING OPERATIONS (A)",
+    "plus": [
+     "Profit before tax",
+     "Tax expenses: Current tax",
+     "Tax expenses: Deferred tax (charge) / credit"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "PROFIT / (LOSS) FOR THE PERIOD / YEAR FROM DISCONTINUED OPERATIONS (B)",
+    "plus": [
+     "Profit / (loss) before exceptional items and tax from discontinued operations",
+     "Exceptional items of discontinued operations [net (charge) / credit]",
+     "Tax (charge) / credit of discontinued operations"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "PROFIT FOR THE PERIOD / YEAR (C = A+B)",
+    "plus": [
+     "PROFIT FOR THE PERIOD / YEAR FROM CONTINUING OPERATIONS (A)",
+     "PROFIT / (LOSS) FOR THE PERIOD / YEAR FROM DISCONTINUED OPERATIONS (B)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "OTHER COMPREHENSIVE INCOME FOR THE PERIOD / YEAR (D)",
+    "plus": [
+     "Remeasurements of the net defined benefit plans",
+     "Tax on above (remeasurements)",
+     "Fair value of debt instruments through other comprehensive income",
+     "Tax on above (debt instruments)",
+     "Fair value of cash flow hedges through other comprehensive income",
+     "Tax on above (cash flow hedges)",
+     "Exchange differences on translation of financial statements of foreign operations",
+     "Tax on above (translation)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "TOTAL COMPREHENSIVE INCOME FOR THE PERIOD / YEAR (C+D)",
+    "plus": [
+     "PROFIT FOR THE PERIOD / YEAR (C = A+B)",
+     "OTHER COMPREHENSIVE INCOME FOR THE PERIOD / YEAR (D)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "PROFIT FOR THE PERIOD / YEAR (C = A+B)",
+    "plus": [
+     "Net profit attributable to: a) Owners of the holding company",
+     "Net profit attributable to: b) Non-controlling interest"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "TOTAL COMPREHENSIVE INCOME FOR THE PERIOD / YEAR (C+D)",
+    "plus": [
+     "Total comprehensive income attributable to: a) Owners of the holding company",
+     "Total comprehensive income attributable to: b) Non-controlling interest"
+    ],
+    "tolerance": 1.0
+   }
+  ],
+  "page_height_pt": 792.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a left-hand column's figure assigned to a right-hand period, or the reverse",
+   "a discontinued-operations figure reported as the continuing figure",
+   "the Q4 FY26 column and the FY26 column resolving to the same period",
+   "a '-' extracted as 0"
+  ]
+ }
+}

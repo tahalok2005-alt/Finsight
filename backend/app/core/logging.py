@@ -26,6 +26,12 @@ def configure_logging(level: str | None = None, json_logs: bool | None = None) -
     lvl = (level or settings.log_level).upper()
     use_json = settings.log_json if json_logs is None else json_logs
 
+    try:
+        # A legacy code page cannot encode every character OCR produces; a log
+        # line is written with escapes instead of raising a logging error.
+        sys.stdout.reconfigure(errors="backslashreplace")
+    except (AttributeError, ValueError):
+        pass
     logging.basicConfig(
         format="%(message)s",
         stream=sys.stdout,

@@ -1,0 +1,198 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "Five quarter-end dates headed 'Jun-25' ... 'Jun-26' (month-year, no day, no 'as",
+  "at'), oldest first. Balances and ratios at those dates. Stage 3 (Ind AS",
+  "credit-impaired) is NOT the RBI NPA: the stage table above prints 'NPA as per RBI",
+  "(incl Sec)' separately (10,354; 4.50%; PCR 35.49%). The stage-3 ratio and",
+  "coverage are therefore qualified measures and are not the unqualified gross NPA",
+  "ratio or provision coverage ratio (metric null for every row).",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "CHOLA_PR",
+ "document": "src/CHOLA_Q1FY27_press_release.pdf",
+ "issuer": "Cholamandalam Investment and Finance Company Limited",
+ "page": 3,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "Stage 3 trend (Rs in Cr.)",
+  "statement": "kpi",
+  "nature": "point_in_time",
+  "basis": null,
+  "basis_evidence": "not stated on the table",
+  "unit_declaration": {
+   "text": "Rs in Cr.",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   55,
+   550,
+   565,
+   652
+  ],
+  "bbox_rel": [
+   0.0899,
+   0.6944,
+   0.9232,
+   0.8232
+  ],
+  "page_height_pt": 792,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Jun-25"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 2025-06-30"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Sep-25"
+    ],
+    "period_end": "2025-09-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 2025-09-30"
+   },
+   {
+    "id": "c3",
+    "group": null,
+    "header_lines": [
+     "Dec-25"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 2025-12-31"
+   },
+   {
+    "id": "c4",
+    "group": null,
+    "header_lines": [
+     "Mar-26"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 2026-03-31"
+   },
+   {
+    "id": "c5",
+    "group": null,
+    "header_lines": [
+     "Jun-26"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 2026-06-30"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Gross Assets - Stage 1 & 2",
+    "y": 590.9,
+    "printed": [
+     "1,85,382",
+     "1,91,454",
+     "2,01,976",
+     "2,15,175",
+     "2,22,683"
+    ],
+    "values": [
+     185382.0,
+     191454.0,
+     201976.0,
+     215175.0,
+     222683.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Gross Assets - Stage 3",
+    "y": 608.6,
+    "printed": [
+     "6,040",
+     "6,627",
+     "7,013",
+     "6,767",
+     "7,565"
+    ],
+    "values": [
+     6040.0,
+     6627.0,
+     7013.0,
+     6767.0,
+     7565.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Stage 3 Assets to Total Gross Assets",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 626.2,
+    "printed": [
+     "3.16",
+     "3.35",
+     "3.36",
+     "3.05",
+     "3.29"
+    ],
+    "values": [
+     3.16,
+     3.35,
+     3.36,
+     3.05,
+     3.29
+    ],
+    "metric": null
+   },
+   {
+    "label": "Coverage Ratio (%) - Stage 3",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 643.9,
+    "printed": [
+     "43.72",
+     "43.23",
+     "43.03",
+     "47.29",
+     "45.73"
+    ],
+    "values": [
+     43.72,
+     43.23,
+     43.03,
+     47.29,
+     45.73
+    ],
+    "metric": null
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "a month-year head ('Jun-25') read as a month's flow or as June 2026",
+   "the stage-3 ratio reported as the RBI gross NPA ratio",
+   "the stage-3 coverage reported as the unqualified provision coverage ratio"
+  ]
+ }
+}

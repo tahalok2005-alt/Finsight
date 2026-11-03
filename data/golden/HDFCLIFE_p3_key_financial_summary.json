@@ -1,0 +1,171 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A LIFE INSURER's release: APE, new business and renewal premium, embedded value,",
+  "value of new business, new business margin, solvency -- measures the taxonomy has",
+  "no keys for (metric null), so any key a fact claims for them is wrong. The 'YoY'",
+  "column is a comparison and is excluded.",
+  "'Key Financial Summary' in ₹ crore; the table breaks across pages 3 and 4",
+  "(this file is its page-3 part). New business + renewal premium = total premium.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "HDFCLIFE",
+ "document": "src/HDFCLIFE_Q1FY27_press_release.pdf",
+ "issuer": "HDFC Life Insurance Company Limited",
+ "page": 3,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-13"
+ },
+ "table": {
+  "title": "Key Financial Summary (Key Financial and Actuarial Metrics)",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": null,
+  "basis_evidence": "not stated on the table",
+  "unit_declaration": {
+   "text": "₹ Crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-left"
+  },
+  "bbox_pt": [
+   72,
+   610,
+   530,
+   756
+  ],
+  "bbox_rel": [
+   0.1209,
+   0.7245,
+   0.8903,
+   0.8979
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Q1 FY27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Q1 FY26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Individual APE",
+    "y": 655.5,
+    "printed": [
+     "2,969",
+     "2,777"
+    ],
+    "values": [
+     2969.0,
+     2777.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total APE",
+    "y": 674.1,
+    "printed": [
+     "3,515",
+     "3,225"
+    ],
+    "values": [
+     3515.0,
+     3225.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "New Business Premium (Indl + Group)",
+    "y": 692.7,
+    "printed": [
+     "8,143",
+     "7,272"
+    ],
+    "values": [
+     8143.0,
+     7272.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Renewal Premium (Indl + Group)",
+    "y": 711.3,
+    "printed": [
+     "9,023",
+     "7,603"
+    ],
+    "values": [
+     9023.0,
+     7603.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total Premium",
+    "is_total": true,
+    "y": 729.9,
+    "printed": [
+     "17,166",
+     "14,875"
+    ],
+    "values": [
+     17166.0,
+     14875.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Assets Under Management",
+    "stock": true,
+    "y": 748.5,
+    "printed": [
+     "4,00,870",
+     "3,55,897"
+    ],
+    "values": [
+     400870.0,
+     355897.0
+    ],
+    "metric": "aum"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total Premium",
+    "plus": [
+     "New Business Premium (Indl + Group)",
+     "Renewal Premium (Indl + Group)"
+    ],
+    "tolerance": 1.0
+   }
+  ]
+ },
+ "acceptance": {
+  "must_never": [
+   "an insurer's premium or APE filed as revenue or other income",
+   "a YoY % reported as a quarter's value"
+  ]
+ }
+}

@@ -64,10 +64,19 @@ def get_session_factory() -> sessionmaker[Session]:
 
 
 def init_db(drop: bool = False) -> None:
+    # importing the intelligence models registers them on the shared
+    # metadata, so create_all covers the whole schema
+    from app.database import models_intelligence  # noqa: F401,PLC0415
+    from app.database.migrations import migrate  # noqa: PLC0415
     eng = get_engine()
     if drop:
         Base.metadata.drop_all(eng)
     Base.metadata.create_all(eng)
+    # ``create_all`` creates missing *tables* but never alters existing ones,
+    # so a database written by an earlier version keeps its old columns and
+    # every query against a new one fails.  This brings such a database up to
+    # the current schema; on a fresh one it finds nothing to do.
+    migrate(eng)
 
 
 def reset_engine(url: str | None = None) -> None:

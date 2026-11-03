@@ -1,0 +1,209 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document BY EYE, NOT from FinSight output.",
+  "The results as PRINTED IN A NEWSPAPER (Jansatta, page 5), scanned into the",
+  "filing. The page also carries OTHER COMPANIES' results -- India",
+  "Infrastructure Finance Company and Pluxee, in Hindi -- and unrelated public",
+  "notices. Every figure below belongs to C.E. Info Systems; any fact FinSight",
+  "attributes to this issuer from outside the top-left block is a wrong fact.",
+  "Unit: Rs. in LAKHS. The page's text layer is unmapped glyphs and was not",
+  "used. The 'Reserves ... as shown in the Balance Sheet of previous year' row",
+  "is excluded as ambiguous in period (as for Indian Bank).",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "MAPMYINDIA",
+ "document": "src/MAPMYINDIA_Q1FY27_newspaper_results.pdf",
+ "issuer": "C.E. Info Systems Limited (MapmyIndia)",
+ "page": 2,
+ "transcription": {
+  "method": "read by eye from 1.5-1.6x crops of the scanned newspaper page",
+  "verified_against": "mmi_p2_a/b.png",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "EXTRACT OF STATEMENT OF UNAUDITED CONSOLIDATED FINANCIAL RESULTS FOR THE QUARTER ENDED JUNE 30, 2026",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "basis_evidence": "title and the 'Consolidated' group head",
+  "unit_declaration": {
+   "text": "(Rs. in Lakhs unless othewise stated)",
+   "unit": "lakh",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right (the page misspells 'otherwise')"
+  },
+  "bbox_pt": [
+   10,
+   230,
+   780,
+   640
+  ],
+  "bbox_rel": [
+   0.0067,
+   0.0965,
+   0.52,
+   0.2685
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Consolidated / Quarter ended",
+    "header_lines": [
+     "30.06.2026",
+     "Unaudited"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "group": "Consolidated / Quarter ended",
+    "header_lines": [
+     "31.03.2026",
+     "Audited (refer note 3)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "Consolidated / Quarter ended",
+    "header_lines": [
+     "30.06.2025",
+     "Unaudited"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c4",
+    "group": "Consolidated / For the year ended",
+    "header_lines": [
+     "31.03.2026",
+     "Audited"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Revenue from operations (net)",
+    "y": 345,
+    "values": [
+     13972,
+     14504,
+     12161,
+     47410
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "Net Profit / (Loss) for the period (before Tax, Exceptional and / or Extraordinary items)",
+    "y": 365,
+    "values": [
+     6644,
+     7445,
+     6184,
+     19571
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "Net Profit / (Loss) for the period before tax (after Exceptional and / or Extraordinary items)",
+    "y": 385,
+    "values": [
+     6644,
+     7445,
+     6184,
+     19571
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Net Profit / (Loss) for the period after tax (after Exceptional and / or Extraordinary items)",
+    "y": 405,
+    "values": [
+     5038,
+     5216,
+     4738,
+     14076
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Total Comprehensive Income for the period [Comprising Profit / (Loss) for the period (after tax) and Other Comprehensive Income (after tax)]",
+    "y": 425,
+    "values": [
+     4965,
+     5191,
+     4588,
+     13612
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "Paid Up Equity Share Capital (Face Value Rs. 2/-)",
+    "stock": true,
+    "y": 560,
+    "values": [
+     1095,
+     1095,
+     1088,
+     1095
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Earnings per share (a) Basic",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 585,
+    "values": [
+     9.09,
+     9.28,
+     8.48,
+     24.56
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "Earnings per share (b) Diluted",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "y": 595,
+    "values": [
+     9.05,
+     9.24,
+     8.39,
+     24.46
+    ],
+    "metric": "diluted_eps"
+   }
+  ],
+  "page_height_pt": 2383.68,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a figure from India Infrastructure Finance Company's or Pluxee's results attributed to C.E. Info Systems",
+   "a lakh figure reported as crore or million",
+   "any fact from this block attributed to the standalone entity"
+  ]
+ }
+}

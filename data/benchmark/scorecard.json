@@ -1,0 +1,243 @@
+[
+ {
+  "key": "HDFC",
+  "cold": true,
+  "pages": 16,
+  "failed_pages": 0,
+  "seconds": 174.4,
+  "pages_per_minute": 5.51,
+  "facts": 70,
+  "high_confidence": 39,
+  "review_required": 15,
+  "unknown_period": 12,
+  "unknown_unit_or_currency": 0,
+  "corroborated": 4,
+  "conflicts": 0,
+  "resolution": {
+   "identical_repeat": 4,
+   "uncertain": 8,
+   "different_definition": 1
+  },
+  "strategies": {
+   "table_cell": 66,
+   "narrative_sentence": 4
+  },
+  "tables_detected": 26,
+  "tables_yielding_facts": 7,
+  "charts_detected": 11,
+  "chart_facts": 0,
+  "entities": {
+   "Consolidated": 45,
+   "Standalone": 25
+  },
+  "page_ms": {
+   "p50": 39760.0,
+   "p95": 56990.0,
+   "max": 64366.0
+  },
+  "stage_seconds": {
+   "validating": 0.1,
+   "rendering": 152.0,
+   "ocr": 152.0,
+   "layout": 152.0,
+   "document_assembly": 0.1,
+   "tables": 0.3,
+   "charts": 2.1,
+   "extraction": 19.7,
+   "validating_facts": 0.0,
+   "analysis": 0.0
+  },
+  "slowest_pages": [
+   {
+    "page": 9,
+    "ms": 64366,
+    "ocr_ms": 62589,
+    "elements": 265
+   },
+   {
+    "page": 11,
+    "ms": 56990,
+    "ocr_ms": 55244,
+    "elements": 55
+   },
+   {
+    "page": 10,
+    "ms": 50990,
+    "ocr_ms": 49049,
+    "elements": 116
+   },
+   {
+    "page": 8,
+    "ms": 47529,
+    "ocr_ms": 45791,
+    "elements": 199
+   },
+   {
+    "page": 12,
+    "ms": 44314,
+    "ocr_ms": 42750,
+    "elements": 49
+   }
+  ]
+ },
+ {
+  "key": "PAYTM",
+  "cold": true,
+  "pages": 18,
+  "failed_pages": 0,
+  "seconds": 144.6,
+  "pages_per_minute": 7.47,
+  "facts": 25,
+  "high_confidence": 6,
+  "review_required": 13,
+  "unknown_period": 11,
+  "unknown_unit_or_currency": 0,
+  "corroborated": 3,
+  "conflicts": 2,
+  "resolution": {
+   "identical_repeat": 3,
+   "genuine_conflict": 2,
+   "uncertain": 8
+  },
+  "strategies": {
+   "narrative_sentence": 4,
+   "table_cell": 10,
+   "spatial_grid": 11
+  },
+  "tables_detected": 9,
+  "tables_yielding_facts": 2,
+  "charts_detected": 6,
+  "chart_facts": 0,
+  "entities": {
+   "Consolidated": 2,
+   "Consumer Payments": 23
+  },
+  "page_ms": {
+   "p50": 18867.0,
+   "p95": 31821.0,
+   "max": 32590.0
+  },
+  "stage_seconds": {
+   "validating": 0.1,
+   "rendering": 128.5,
+   "ocr": 128.5,
+   "layout": 128.5,
+   "document_assembly": 0.1,
+   "tables": 0.1,
+   "charts": 8.2,
+   "extraction": 7.6,
+   "validating_facts": 0.0,
+   "analysis": 0.0
+  },
+  "slowest_pages": [
+   {
+    "page": 17,
+    "ms": 32590,
+    "ocr_ms": 30926,
+    "elements": 43
+   },
+   {
+    "page": 18,
+    "ms": 31821,
+    "ocr_ms": 30680,
+    "elements": 42
+   },
+   {
+    "page": 10,
+    "ms": 28408,
+    "ocr_ms": 27053,
+    "elements": 45
+   },
+   {
+    "page": 7,
+    "ms": 24228,
+    "ocr_ms": 22625,
+    "elements": 66
+   },
+   {
+    "page": 8,
+    "ms": 23172,
+    "ocr_ms": 21971,
+    "elements": 30
+   }
+  ]
+ },
+ {
+  "key": "GROWW",
+  "cold": true,
+  "pages": 14,
+  "failed_pages": 0,
+  "seconds": 133.0,
+  "pages_per_minute": 6.32,
+  "facts": 118,
+  "high_confidence": 102,
+  "review_required": 29,
+  "unknown_period": 118,
+  "unknown_unit_or_currency": 0,
+  "corroborated": 1,
+  "conflicts": 0,
+  "resolution": {
+   "uncertain": 104,
+   "identical_repeat": 1
+  },
+  "strategies": {
+   "table_cell": 118
+  },
+  "tables_detected": 22,
+  "tables_yielding_facts": 6,
+  "charts_detected": 1,
+  "chart_facts": 0,
+  "entities": {
+   "Consolidated": 118
+  },
+  "page_ms": {
+   "p50": 33056.0,
+   "p95": 46306.0,
+   "max": 52660.0
+  },
+  "stage_seconds": {
+   "validating": 0.2,
+   "rendering": 114.7,
+   "ocr": 114.7,
+   "layout": 114.7,
+   "document_assembly": 0.0,
+   "tables": 0.0,
+   "charts": 0.2,
+   "extraction": 17.8,
+   "validating_facts": 0.0,
+   "analysis": 0.0
+  },
+  "slowest_pages": [
+   {
+    "page": 7,
+    "ms": 52660,
+    "ocr_ms": 50935,
+    "elements": 87
+   },
+   {
+    "page": 11,
+    "ms": 46306,
+    "ocr_ms": 44951,
+    "elements": 81
+   },
+   {
+    "page": 3,
+    "ms": 38816,
+    "ocr_ms": 37135,
+    "elements": 59
+   },
+   {
+    "page": 1,
+    "ms": 37642,
+    "ocr_ms": 36405,
+    "elements": 51
+   },
+   {
+    "page": 6,
+    "ms": 37120,
+    "ocr_ms": 35266,
+    "elements": 170
+   }
+  ]
+ }
+]

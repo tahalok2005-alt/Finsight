@@ -1,0 +1,554 @@
+{
+ "$comment": [
+  "GOLDEN FACTS. Ground truth read from the source document by eye, against",
+  "the rendered page image -- NOT from FinSight output. Where FinSight and",
+  "this file disagree, this file is right unless the source proves otherwise.",
+  "",
+  "Verified 2026-09-10 against crops of the 200dpi render of page 6:",
+  "  scratch/p19/groww_p6_header.png   -- the four-level header block",
+  "  scratch/p19/groww_p6_missing.png  -- rows whose empty cells hold a dash",
+  "  scratch/p19/groww_p6_equity.png   -- rows present only in the year column",
+  "  scratch/p19/groww_p6_eps.png      -- per-share rows, not crore",
+  "",
+  "x_range values are 200dpi render pixels and come from the table's own drawn",
+  "vertical rulings, which are visible in the header crop.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "GROWW",
+ "document": "groww Results.pdf",
+ "issuer": "Billionbrains Garage Ventures Limited (Groww)",
+ "page": 6,
+ "table": {
+  "title": "Statement of the unaudited consolidated financial results",
+  "nature": "period_flow",
+  "basis": "Consolidated",
+  "unit_declaration": {
+   "text": "All amounts are in INR Crores, unless otherwise stated",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "overridable_by_row": true
+  },
+  "header_levels": [
+   {
+    "level": 0,
+    "kind": "group",
+    "y": 414
+   },
+   {
+    "level": 1,
+    "kind": "day_month",
+    "y": 435
+   },
+   {
+    "level": 2,
+    "kind": "year",
+    "y": 455
+   },
+   {
+    "level": 3,
+    "kind": "audit_status",
+    "y": 479
+   },
+   {
+    "level": 4,
+    "kind": "note_ref",
+    "y": 498
+   }
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "index": 1,
+    "x_range": [
+     869,
+     1000
+    ],
+    "group": "Quarter ended",
+    "header_lines": [
+     "30 June",
+     "2026",
+     "(Unaudited)"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "audit_status": "unaudited",
+    "note_ref": null
+   },
+   {
+    "id": "c2",
+    "index": 2,
+    "x_range": [
+     1000,
+     1131
+    ],
+    "group": "Quarter ended",
+    "header_lines": [
+     "31 March",
+     "2026",
+     "(Audited)",
+     "(Refer Note 3)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "audit_status": "audited",
+    "note_ref": "Refer Note 3"
+   },
+   {
+    "id": "c3",
+    "index": 3,
+    "x_range": [
+     1131,
+     1256
+    ],
+    "group": "Quarter ended",
+    "header_lines": [
+     "30 June",
+     "2025",
+     "(Audited)",
+     "(Refer Note 4)"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "audit_status": "audited",
+    "note_ref": "Refer Note 4"
+   },
+   {
+    "id": "c4",
+    "index": 4,
+    "x_range": [
+     1256,
+     1400
+    ],
+    "group": "Year ended",
+    "header_lines": [
+     "31 March",
+     "2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "audit_status": "audited",
+    "note_ref": null
+   }
+  ],
+  "$rows_comment": [
+   "values are aligned to columns c1..c4.",
+   "  number -> a printed figure",
+   "  \"nil\"  -> the source prints a dash, meaning nil. No fact expected.",
+   "  null   -> the cell is blank. No fact expected.",
+   "unit/currency default to the table declaration unless the row overrides."
+  ],
+  "rows": [
+   {
+    "label": "Revenue from operations",
+    "y": 542,
+    "values": [
+     1501.42,
+     1505.37,
+     904.4,
+     4644.58
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "Other income",
+    "y": 564,
+    "values": [
+     47.25,
+     30.17,
+     44.07,
+     171.3
+    ],
+    "metric": "other_income"
+   },
+   {
+    "label": "Total income",
+    "y": 587,
+    "is_total": true,
+    "values": [
+     1548.67,
+     1535.54,
+     948.47,
+     4815.88
+    ],
+    "metric": "total_income"
+   },
+   {
+    "label": "Employee benefits expense",
+    "y": 650,
+    "values": [
+     182.0,
+     173.4,
+     136.63,
+     590.83
+    ],
+    "metric": "employee_cost"
+   },
+   {
+    "label": "Finance costs",
+    "y": 671,
+    "values": [
+     7.31,
+     8.0,
+     16.42,
+     45.94
+    ],
+    "metric": "finance_costs"
+   },
+   {
+    "label": "Depreciation and amortisation expense",
+    "y": 693,
+    "values": [
+     17.63,
+     24.46,
+     7.14,
+     47.87
+    ],
+    "metric": "depreciation"
+   },
+   {
+    "label": "Other expenses",
+    "y": 712,
+    "values": [
+     348.74,
+     393.32,
+     284.48,
+     1307.35
+    ],
+    "metric": "other_expenses"
+   },
+   {
+    "label": "Total expenses",
+    "y": 734,
+    "is_total": true,
+    "values": [
+     555.68,
+     599.18,
+     444.67,
+     1991.99
+    ],
+    "metric": "total_expenses"
+   },
+   {
+    "label": "Profit before share of net loss of associate and tax for the period/year",
+    "y": 778,
+    "values": [
+     992.99,
+     936.36,
+     503.8,
+     2823.89
+    ],
+    "metric": "pbt_before_associates"
+   },
+   {
+    "label": "Share of net loss of associate accounted for using equity method (net of tax)",
+    "y": 821,
+    "values": [
+     -0.72,
+     -0.66,
+     -0.63,
+     -2.47
+    ],
+    "metric": "share_of_associates"
+   },
+   {
+    "label": "Profit before tax for the period/year",
+    "y": 862,
+    "values": [
+     992.27,
+     935.7,
+     503.17,
+     2821.42
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "Current tax",
+    "y": 930,
+    "$comment": "The reported bug. Four columns, four distinct periods.",
+    "values": [
+     260.4,
+     268.55,
+     133.06,
+     770.24
+    ],
+    "metric": "current_tax"
+   },
+   {
+    "label": "Deferred tax credit",
+    "y": 949,
+    "values": [
+     -3.17,
+     -19.21,
+     -8.24,
+     -31.83
+    ],
+    "metric": "deferred_tax"
+   },
+   {
+    "label": "Total tax expense for the period/year",
+    "y": 969,
+    "is_total": true,
+    "values": [
+     257.23,
+     249.34,
+     124.82,
+     738.41
+    ],
+    "metric": "tax_expense"
+   },
+   {
+    "label": "Profit for the period/year",
+    "y": 1013,
+    "values": [
+     735.04,
+     686.36,
+     378.35,
+     2083.01
+    ],
+    "metric": "pat"
+   },
+   {
+    "label": "Remeasurement gains/(losses) on defined employee benefit plans",
+    "y": 1122,
+    "values": [
+     -0.1,
+     0.76,
+     -1.73,
+     -0.97
+    ],
+    "metric": "oci_remeasurement_benefit_plans"
+   },
+   {
+    "label": "Remeasurement gains on investment carried at fair value",
+    "y": 1144,
+    "$comment": "Dashes in c1 and c3. Assigning by order would put 11.31 in c1 -- a year wrong.",
+    "values": [
+     "nil",
+     11.31,
+     "nil",
+     21.8
+    ],
+    "metric": "oci_fair_value_investments"
+   },
+   {
+    "label": "Income tax relating to above",
+    "y": 1166,
+    "values": [
+     0.03,
+     -1.95,
+     0.44,
+     -3.02
+    ],
+    "metric": "oci_tax_not_reclassified"
+   },
+   {
+    "label": "Foreign currency translation reserve",
+    "y": 1207,
+    "$comment": "Dash in c3 only. 0.20 appears in both c2 and c4 -- duplicate values across columns are legitimate.",
+    "values": [
+     0.03,
+     0.2,
+     "nil",
+     0.2
+    ],
+    "metric": "foreign_currency_translation_reserve"
+   },
+   {
+    "label": "Other comprehensive income, net of tax for the period/year",
+    "y": 1227,
+    "values": [
+     -0.04,
+     10.32,
+     -1.29,
+     18.01
+    ],
+    "metric": "other_comprehensive_income"
+   },
+   {
+    "label": "Total comprehensive income for the period/year",
+    "y": 1248,
+    "is_total": true,
+    "values": [
+     735.0,
+     696.68,
+     377.06,
+     2101.02
+    ],
+    "metric": "total_comprehensive_income"
+   },
+   {
+    "label": "Profit for the period/year attributable to: Shareholders of the Company",
+    "y": 1313,
+    "values": [
+     735.04,
+     686.36,
+     378.35,
+     2083.01
+    ],
+    "metric": "pat_attributable_to_owners"
+   },
+   {
+    "label": "Other comprehensive income/(loss) for the period/year attributable to: Shareholders of the Company",
+    "y": 1405,
+    "values": [
+     -0.04,
+     10.32,
+     -1.29,
+     18.01
+    ],
+    "metric": "oci_attributable_to_owners"
+   },
+   {
+    "label": "Paid up equity share capital (Face Value : INR 2/- per share)",
+    "y": 1470,
+    "$comment": "Blank in c1..c3 -- a balance-sheet item shown only for the year.",
+    "values": [
+     null,
+     null,
+     null,
+     1247.81
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Other equity",
+    "y": 1491,
+    "$comment": "Source prints 8,403.55. OCR reads '8.403.55' -- a known recognition error, recorded here as the source has it.",
+    "values": [
+     null,
+     null,
+     null,
+     8403.55
+    ],
+    "known_ocr_error": "8.403.55",
+    "metric": "other_equity"
+   },
+   {
+    "label": "a) Basic earnings per share",
+    "y": 1577,
+    "$comment": "Per share, NOT crore. The row heading above declares INR 2/- per share.",
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "unit_evidence": "Earnings per share in INR (Face Value : INR 2/- per share)",
+    "values": [
+     1.19,
+     1.11,
+     0.66,
+     3.47
+    ],
+    "metric": "eps"
+   },
+   {
+    "label": "b) Diluted earnings per share",
+    "y": 1598,
+    "unit": "per_share",
+    "currency": "INR",
+    "value_type": "per_share",
+    "unit_evidence": "Earnings per share in INR (Face Value : INR 2/- per share)",
+    "values": [
+     1.17,
+     1.09,
+     0.63,
+     3.4
+    ],
+    "metric": "diluted_eps"
+   }
+  ],
+  "page_height_pt": 792.0,
+  "y_units": "px200"
+ },
+ "acceptance": {
+  "$comment": "The minimum this table must satisfy. Named so a failure reads plainly.",
+  "expected_fact_count": 100,
+  "must_produce": [
+   {
+    "row": "Current tax",
+    "column": "c1",
+    "value": 260.4,
+    "period_end": "2026-06-30",
+    "period_type": "quarter",
+    "unit": "crore",
+    "currency": "INR"
+   },
+   {
+    "row": "Current tax",
+    "column": "c2",
+    "value": 268.55,
+    "period_end": "2026-03-31",
+    "period_type": "quarter",
+    "unit": "crore",
+    "currency": "INR"
+   },
+   {
+    "row": "Current tax",
+    "column": "c3",
+    "value": 133.06,
+    "period_end": "2025-06-30",
+    "period_type": "quarter",
+    "unit": "crore",
+    "currency": "INR"
+   },
+   {
+    "row": "Current tax",
+    "column": "c4",
+    "value": 770.24,
+    "period_end": "2026-03-31",
+    "period_type": "fiscal_year",
+    "unit": "crore",
+    "currency": "INR"
+   },
+   {
+    "row": "a) Basic earnings per share",
+    "column": "c1",
+    "value": 1.19,
+    "period_end": "2026-06-30",
+    "unit": "per_share",
+    "currency": "INR"
+   },
+   {
+    "row": "Remeasurement gains on investment carried at fair value",
+    "column": "c2",
+    "value": 11.31,
+    "period_end": "2026-03-31",
+    "period_type": "quarter"
+   },
+   {
+    "row": "Remeasurement gains on investment carried at fair value",
+    "column": "c4",
+    "value": 21.8,
+    "period_end": "2026-03-31",
+    "period_type": "fiscal_year"
+   }
+  ],
+  "must_not_produce": [
+   {
+    "why": "nil cells are not zero-valued facts",
+    "row": "Remeasurement gains on investment carried at fair value",
+    "column": "c1"
+   },
+   {
+    "why": "nil cells are not zero-valued facts",
+    "row": "Foreign currency translation reserve",
+    "column": "c3"
+   },
+   {
+    "why": "blank cells are not facts",
+    "row": "Paid up equity share capital (Face Value : INR 2/- per share)",
+    "column": "c1"
+   }
+  ],
+  "must_never": [
+   "any fact from this table with period_basis = not_applicable",
+   "any fact from this table with no period and HIGH confidence",
+   "basic or diluted earnings per share carrying unit = crore",
+   "a period outside 2025-04-01 .. 2026-06-30"
+  ]
+ }
+}

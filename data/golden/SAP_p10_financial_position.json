@@ -1,0 +1,740 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "The column heads are bare years ('2026', '2025'). The dates exist only in",
+  "the title line 'as at 6/30/2026 and 12/31/2025' -- US month-first numeric",
+  "dates -- so the comparative column is December 31, 2025, NOT June 30, 2025,",
+  "and a resolver that assumes 'same date, prior year' is wrong here. Six line",
+  "names repeat under current and non-current liabilities; golden labels carry",
+  "the section. Figures from the native text layer.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "SAP",
+ "document": "src/SAP_Q2_2026_statement.pdf",
+ "issuer": "SAP SE",
+ "page": 10,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "page text and render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "(B) Consolidated Statements of Financial Position as at 6/30/2026 and 12/31/2025",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": "Consolidated",
+  "basis_evidence": "'Consolidated Statements of Financial Position'",
+  "unit_declaration": {
+   "text": "€ millions",
+   "unit": "million",
+   "currency": "EUR",
+   "scope": "table",
+   "placement": "top-left of each header row"
+  },
+  "bbox_pt": [
+   40,
+   85,
+   555,
+   707
+  ],
+  "bbox_rel": [
+   0.0672,
+   0.101,
+   0.9323,
+   0.8397
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "2026"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026",
+    "date_evidence": "title: 'as at 6/30/2026 and 12/31/2025'"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "2025"
+    ],
+    "period_end": "2025-12-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Dec 2025",
+    "date_evidence": "title: 'as at 6/30/2026 and 12/31/2025'"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Cash and cash equivalents",
+    "y": 146.8,
+    "printed": [
+     "10,511",
+     "8,220"
+    ],
+    "values": [
+     10511.0,
+     8220.0
+    ],
+    "metric": "cash_and_equivalents"
+   },
+   {
+    "label": "Other financial assets (current)",
+    "y": 158.9,
+    "printed": [
+     "1,114",
+     "1,552"
+    ],
+    "values": [
+     1114.0,
+     1552.0
+    ],
+    "metric": "other_financial_assets"
+   },
+   {
+    "label": "Trade and other receivables (current)",
+    "y": 171.6,
+    "printed": [
+     "7,076",
+     "6,675"
+    ],
+    "values": [
+     7076.0,
+     6675.0
+    ],
+    "metric": "receivables"
+   },
+   {
+    "label": "Other non-financial assets (current)",
+    "y": 184.2,
+    "printed": [
+     "3,267",
+     "3,212"
+    ],
+    "values": [
+     3267.0,
+     3212.0
+    ],
+    "metric": "other_non_financial_assets"
+   },
+   {
+    "label": "Tax assets (current)",
+    "y": 196.8,
+    "printed": [
+     "680",
+     "598"
+    ],
+    "values": [
+     680.0,
+     598.0
+    ],
+    "metric": "tax_assets",
+    "metric_alt": [
+     "current_tax_assets"
+    ]
+   },
+   {
+    "label": "Total current assets",
+    "is_total": true,
+    "y": 209.4,
+    "printed": [
+     "22,649",
+     "20,256"
+    ],
+    "values": [
+     22649.0,
+     20256.0
+    ],
+    "metric": "current_assets"
+   },
+   {
+    "label": "Goodwill",
+    "y": 222.0,
+    "printed": [
+     "30,408",
+     "29,014"
+    ],
+    "values": [
+     30408.0,
+     29014.0
+    ],
+    "metric": "goodwill"
+   },
+   {
+    "label": "Intangible assets",
+    "y": 234.6,
+    "printed": [
+     "2,638",
+     "2,282"
+    ],
+    "values": [
+     2638.0,
+     2282.0
+    ],
+    "metric": "intangible_assets"
+   },
+   {
+    "label": "Property, plant, and equipment",
+    "y": 247.2,
+    "printed": [
+     "4,504",
+     "4,497"
+    ],
+    "values": [
+     4504.0,
+     4497.0
+    ],
+    "metric": "ppe"
+   },
+   {
+    "label": "Other financial assets (non-current)",
+    "y": 259.8,
+    "printed": [
+     "8,123",
+     "7,269"
+    ],
+    "values": [
+     8123.0,
+     7269.0
+    ],
+    "metric": "other_financial_assets"
+   },
+   {
+    "label": "Trade and other receivables (non-current)",
+    "y": 272.6,
+    "printed": [
+     "149",
+     "218"
+    ],
+    "values": [
+     149.0,
+     218.0
+    ],
+    "metric": "receivables"
+   },
+   {
+    "label": "Other non-financial assets (non-current)",
+    "y": 285.3,
+    "printed": [
+     "4,450",
+     "4,419"
+    ],
+    "values": [
+     4450.0,
+     4419.0
+    ],
+    "metric": "other_non_financial_assets"
+   },
+   {
+    "label": "Tax assets (non-current)",
+    "y": 297.9,
+    "printed": [
+     "307",
+     "244"
+    ],
+    "values": [
+     307.0,
+     244.0
+    ],
+    "metric": "tax_assets",
+    "metric_alt": [
+     "non_current_tax_assets"
+    ]
+   },
+   {
+    "label": "Deferred tax assets",
+    "y": 310.5,
+    "printed": [
+     "2,381",
+     "2,163"
+    ],
+    "values": [
+     2381.0,
+     2163.0
+    ],
+    "metric": "deferred_tax_assets"
+   },
+   {
+    "label": "Total non-current assets",
+    "is_total": true,
+    "y": 323.1,
+    "printed": [
+     "52,960",
+     "50,106"
+    ],
+    "values": [
+     52960.0,
+     50106.0
+    ],
+    "metric": "non_current_assets"
+   },
+   {
+    "label": "Total assets",
+    "is_total": true,
+    "y": 335.7,
+    "printed": [
+     "75,609",
+     "70,362"
+    ],
+    "values": [
+     75609.0,
+     70362.0
+    ],
+    "metric": "total_assets"
+   },
+   {
+    "label": "Trade and other payables (current)",
+    "y": 388.2,
+    "printed": [
+     "2,747",
+     "2,431"
+    ],
+    "values": [
+     2747.0,
+     2431.0
+    ],
+    "metric": "payables"
+   },
+   {
+    "label": "Tax liabilities (current)",
+    "y": 400.0,
+    "printed": [
+     "1,359",
+     "968"
+    ],
+    "values": [
+     1359.0,
+     968.0
+    ],
+    "metric": "tax_liabilities",
+    "metric_alt": [
+     "current_tax_liabilities"
+    ]
+   },
+   {
+    "label": "Financial liabilities (current)",
+    "y": 412.6,
+    "printed": [
+     "1,966",
+     "2,050"
+    ],
+    "values": [
+     1966.0,
+     2050.0
+    ],
+    "metric": "financial_liabilities"
+   },
+   {
+    "label": "Other non-financial liabilities (current)",
+    "y": 425.2,
+    "printed": [
+     "3,699",
+     "4,849"
+    ],
+    "values": [
+     3699.0,
+     4849.0
+    ],
+    "metric": "other_non_financial_liabilities"
+   },
+   {
+    "label": "Provisions (current)",
+    "y": 437.8,
+    "printed": [
+     "119",
+     "537"
+    ],
+    "values": [
+     119.0,
+     537.0
+    ],
+    "metric": "provisions"
+   },
+   {
+    "label": "Contract liabilities (current)",
+    "y": 450.4,
+    "printed": [
+     "9,843",
+     "6,581"
+    ],
+    "values": [
+     9843.0,
+     6581.0
+    ],
+    "metric": "contract_liabilities"
+   },
+   {
+    "label": "Total current liabilities",
+    "is_total": true,
+    "y": 463.0,
+    "printed": [
+     "19,734",
+     "17,416"
+    ],
+    "values": [
+     19734.0,
+     17416.0
+    ],
+    "metric": "current_liabilities"
+   },
+   {
+    "label": "Trade and other payables (non-current)",
+    "y": 475.7,
+    "printed": [
+     "1",
+     "2"
+    ],
+    "values": [
+     1.0,
+     2.0
+    ],
+    "metric": "payables"
+   },
+   {
+    "label": "Tax liabilities (non-current)",
+    "y": 488.3,
+    "printed": [
+     "670",
+     "562"
+    ],
+    "values": [
+     670.0,
+     562.0
+    ],
+    "metric": "tax_liabilities",
+    "metric_alt": [
+     "non_current_tax_liabilities"
+    ]
+   },
+   {
+    "label": "Financial liabilities (non-current)",
+    "y": 500.9,
+    "printed": [
+     "8,541",
+     "6,021"
+    ],
+    "values": [
+     8541.0,
+     6021.0
+    ],
+    "metric": "financial_liabilities"
+   },
+   {
+    "label": "Other non-financial liabilities (non-current)",
+    "y": 513.5,
+    "printed": [
+     "456",
+     "524"
+    ],
+    "values": [
+     456.0,
+     524.0
+    ],
+    "metric": "other_non_financial_liabilities"
+   },
+   {
+    "label": "Provisions (non-current)",
+    "y": 526.1,
+    "printed": [
+     "611",
+     "550"
+    ],
+    "values": [
+     611.0,
+     550.0
+    ],
+    "metric": "provisions"
+   },
+   {
+    "label": "Deferred tax liabilities",
+    "y": 538.7,
+    "printed": [
+     "211",
+     "72"
+    ],
+    "values": [
+     211.0,
+     72.0
+    ],
+    "metric": "deferred_tax_liabilities"
+   },
+   {
+    "label": "Contract liabilities (non-current)",
+    "y": 551.3,
+    "printed": [
+     "136",
+     "144"
+    ],
+    "values": [
+     136.0,
+     144.0
+    ],
+    "metric": "contract_liabilities"
+   },
+   {
+    "label": "Total non-current liabilities",
+    "is_total": true,
+    "y": 563.9,
+    "printed": [
+     "10,627",
+     "7,873"
+    ],
+    "values": [
+     10627.0,
+     7873.0
+    ],
+    "metric": "non_current_liabilities"
+   },
+   {
+    "label": "Total liabilities",
+    "is_total": true,
+    "y": 576.5,
+    "printed": [
+     "30,361",
+     "25,288"
+    ],
+    "values": [
+     30361.0,
+     25288.0
+    ],
+    "metric": "total_liabilities"
+   },
+   {
+    "label": "Issued capital",
+    "y": 589.1,
+    "printed": [
+     "1,229",
+     "1,229"
+    ],
+    "values": [
+     1229.0,
+     1229.0
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Share premium",
+    "y": 601.7,
+    "printed": [
+     "2,969",
+     "2,778"
+    ],
+    "values": [
+     2969.0,
+     2778.0
+    ],
+    "metric": "share_premium"
+   },
+   {
+    "label": "Retained earnings",
+    "y": 614.3,
+    "printed": [
+     "48,579",
+     "47,345"
+    ],
+    "values": [
+     48579.0,
+     47345.0
+    ],
+    "metric": "retained_earnings"
+   },
+   {
+    "label": "Other components of equity",
+    "y": 627.0,
+    "printed": [
+     "1,155",
+     "182"
+    ],
+    "values": [
+     1155.0,
+     182.0
+    ],
+    "metric": "other_components_of_equity"
+   },
+   {
+    "label": "Treasury shares",
+    "y": 639.6,
+    "printed": [
+     "–9,190",
+     "–6,948"
+    ],
+    "values": [
+     -9190.0,
+     -6948.0
+    ],
+    "metric": "treasury_shares"
+   },
+   {
+    "label": "Equity attributable to owners of parent",
+    "is_total": true,
+    "y": 652.3,
+    "printed": [
+     "44,742",
+     "44,586"
+    ],
+    "values": [
+     44742.0,
+     44586.0
+    ],
+    "metric": "equity_attributable_to_owners"
+   },
+   {
+    "label": "Non-controlling interests",
+    "y": 676.2,
+    "printed": [
+     "505",
+     "488"
+    ],
+    "values": [
+     505.0,
+     488.0
+    ],
+    "metric": "non_controlling_interests"
+   },
+   {
+    "label": "Total equity",
+    "is_total": true,
+    "y": 688.8,
+    "printed": [
+     "45,248",
+     "45,073"
+    ],
+    "values": [
+     45248.0,
+     45073.0
+    ],
+    "metric": "net_worth"
+   },
+   {
+    "label": "Total equity and liabilities",
+    "is_total": true,
+    "y": 701.4,
+    "printed": [
+     "75,609",
+     "70,362"
+    ],
+    "values": [
+     75609.0,
+     70362.0
+    ],
+    "metric": "total_equity_and_liabilities"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total current assets",
+    "plus": [
+     "Cash and cash equivalents",
+     "Other financial assets (current)",
+     "Trade and other receivables (current)",
+     "Other non-financial assets (current)",
+     "Tax assets (current)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total non-current assets",
+    "plus": [
+     "Goodwill",
+     "Intangible assets",
+     "Property, plant, and equipment",
+     "Other financial assets (non-current)",
+     "Trade and other receivables (non-current)",
+     "Other non-financial assets (non-current)",
+     "Tax assets (non-current)",
+     "Deferred tax assets"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total assets",
+    "plus": [
+     "Total current assets",
+     "Total non-current assets"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total current liabilities",
+    "plus": [
+     "Trade and other payables (current)",
+     "Tax liabilities (current)",
+     "Financial liabilities (current)",
+     "Other non-financial liabilities (current)",
+     "Provisions (current)",
+     "Contract liabilities (current)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total non-current liabilities",
+    "plus": [
+     "Trade and other payables (non-current)",
+     "Tax liabilities (non-current)",
+     "Financial liabilities (non-current)",
+     "Other non-financial liabilities (non-current)",
+     "Provisions (non-current)",
+     "Deferred tax liabilities",
+     "Contract liabilities (non-current)"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total liabilities",
+    "plus": [
+     "Total current liabilities",
+     "Total non-current liabilities"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Equity attributable to owners of parent",
+    "plus": [
+     "Issued capital",
+     "Share premium",
+     "Retained earnings",
+     "Other components of equity",
+     "Treasury shares"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total equity",
+    "plus": [
+     "Equity attributable to owners of parent",
+     "Non-controlling interests"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total equity and liabilities",
+    "plus": [
+     "Total liabilities",
+     "Total equity"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Total assets",
+    "plus": [
+     "Total equity and liabilities"
+    ],
+    "tolerance": 0.01
+   }
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "the 2025 column resolved to June 30, 2025",
+   "a balance typed as a quarter or half-year flow",
+   "INR anywhere on this page"
+  ]
+ }
+}

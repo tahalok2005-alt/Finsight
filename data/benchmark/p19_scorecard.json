@@ -1,0 +1,27 @@
+[
+  {
+    "key": "PAYTM",
+    "seconds": 40.6,
+    "pages": 6,
+    "facts": 26,
+    "tables": 9,
+    "table_shapes": {
+      "unclassified": 5,
+      "point_in_time": 3,
+      "period_flow": 1
+    },
+    "facts_from_periodized_tables": 10,
+    "periodized_with_period": 10,
+    "periodized_without_period": 0,
+    "period_coverage_on_periodized": 1.0,
+    "MISLEADING_high_conf_no_period": 0,
+    "not_applicable_total": 0,
+    "not_applicable_on_periodized": 0,
+    "held_by_safety_gate": 0,
+    "requires_review": 2,
+    "unknown_unit_or_currency": 0,
+    "table_validation_findings": {
+      "cells_outside_their_columns": 3
+    }
+  }
+]

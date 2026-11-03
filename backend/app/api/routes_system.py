@@ -81,8 +81,13 @@ def overview(session: DbSession) -> dict:
     by_status = {r[0]: r[1] for r in session.execute(
         select(Document.status, func.count()).group_by(Document.status)).all()}
 
+    # Both spellings of the file name. The client types this list as the same
+    # document shape it gets everywhere else, which calls the field
+    # original_filename; sending only "filename" left every unnamed document on
+    # the overview with a blank row where its name should be.
     recent = [{
-        "id": d.id, "filename": d.original_filename, "title": d.title,
+        "id": d.id, "filename": d.original_filename,
+        "original_filename": d.original_filename, "title": d.title,
         "company_name": d.company_name, "report_period": d.report_period,
         "status": d.status, "page_count": d.page_count,
         "created_at": d.created_at, "processing_ms": d.processing_ms,

@@ -3,48 +3,112 @@
 @tailwind utilities;
 
 @layer base {
-  :root { color-scheme: dark; }
+  :root { color-scheme: light; }
   html, body, #root { height: 100%; }
   body {
-    @apply bg-ink-950 text-ink-100 antialiased;
-    font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+    @apply bg-ink-950 text-ink-200 antialiased;
+    /* tabular figures everywhere: financial columns must align down the page */
+    font-feature-settings: "cv02", "cv03", "cv04", "tnum", "ss01";
+    font-size: 0.9375rem;
   }
+  /* A financial figure is read by position as much as by value, so numbers are
+     always tabular and never re-flow as digits change. */
+  .num, table td, table th { font-variant-numeric: tabular-nums; }
+
   ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { @apply bg-ink-900; }
+  ::-webkit-scrollbar-track { @apply bg-ink-950; }
   ::-webkit-scrollbar-thumb { @apply bg-ink-700 rounded; }
   ::-webkit-scrollbar-thumb:hover { @apply bg-ink-600; }
+
+  :focus-visible { @apply outline-none ring-2 ring-accent-500/50 ring-offset-0; }
 }
 
 @layer components {
-  .panel { @apply bg-ink-900 border border-ink-800 rounded-lg; }
+  /* ---------------------------------------------------------------- surface */
+  .panel { @apply bg-ink-900 border border-ink-750 rounded-lg shadow-panel; }
   .panel-head {
-    @apply px-4 py-3 border-b border-ink-800 flex items-center justify-between;
+    @apply px-4 h-12 border-b border-ink-750 flex items-center
+           justify-between gap-3 shrink-0;
   }
+  .panel-title {
+    @apply text-2xs font-semibold uppercase tracking-wider text-ink-400;
+  }
+
+  /* ------------------------------------------------------------- typography */
+  .page-title { @apply text-xl font-semibold tracking-tight text-ink-50; }
+  .page-sub { @apply text-xs text-ink-400; }
+  .label { @apply text-2xs uppercase tracking-wider text-ink-400 font-medium; }
+  .value-lg { @apply text-2xl font-semibold text-ink-50 num tracking-tight; }
+  .muted { @apply text-ink-400; }
+
+  /* ----------------------------------------------------------------- button */
   .btn {
-    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm
-           font-medium transition-colors disabled:opacity-40
-           disabled:cursor-not-allowed;
+    /* whitespace-nowrap matters: a two-word label like "Re-queue" wrapping
+       inside a table cell is the difference between a control and a mess */
+    @apply inline-flex items-center justify-center gap-1.5 h-8 px-3 rounded-md
+           text-xs font-medium transition-colors select-none whitespace-nowrap
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-inherit;
   }
-  .btn-primary { @apply btn bg-accent-600 hover:bg-accent-500 text-white; }
+  .btn-primary { @apply btn bg-accent-600 hover:bg-accent-700 text-white; }
   .btn-ghost {
-    @apply btn bg-ink-800 hover:bg-ink-700 text-ink-200 border border-ink-700;
+    @apply btn bg-ink-900 hover:bg-ink-850 text-ink-200 border border-ink-700;
   }
-  .btn-sm { @apply px-2 py-1 text-xs; }
+  .btn-quiet { @apply btn text-ink-400 hover:text-ink-100 hover:bg-ink-850; }
+  .btn-danger {
+    @apply btn bg-ink-900 text-fail-400 border border-fail-500/35
+           hover:bg-fail-600 hover:text-white hover:border-fail-600;
+  }
+  .btn-lg { @apply h-10 px-5 text-sm; }
+
   .input {
-    @apply bg-ink-850 border border-ink-700 rounded-md px-3 py-1.5 text-sm
-           text-ink-100 placeholder-ink-400 focus:outline-none
-           focus:ring-1 focus:ring-accent-500 focus:border-accent-500;
+    @apply bg-ink-900 border border-ink-700 rounded-md h-8 px-3 text-xs
+           text-ink-100 placeholder-ink-500 focus:outline-none
+           focus:ring-2 focus:ring-accent-500/40 focus:border-accent-500;
   }
+
+  /* ------------------------------------------------------------------ chips */
   .chip {
-    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-2xs
-           font-medium uppercase tracking-wide;
+    @apply inline-flex items-center gap-1 px-2 h-[20px] rounded
+           text-3xs font-semibold uppercase tracking-wide whitespace-nowrap;
   }
+  .chip-neutral { @apply chip bg-ink-800 text-ink-300 border border-ink-700; }
+  .chip-run     { @apply chip bg-run-900 text-run-400 border border-run-500/25; }
+  .chip-hold    { @apply chip bg-hold-900 text-hold-400 border border-hold-500/25; }
+  .chip-pass    { @apply chip bg-pass-900 text-pass-400 border border-pass-500/25; }
+  .chip-warn    { @apply chip bg-warn-900 text-warn-400 border border-warn-500/25; }
+  .chip-fail    { @apply chip bg-fail-900 text-fail-400 border border-fail-500/25; }
+
+  /* --------------------------------------------------- table (plain cells) */
+  /* Used directly by the figure tables. Padding is deliberately generous:
+     a financial row is read line by line, and the tight cells were most of
+     why the old screens felt like a spreadsheet dump. */
   .th {
     @apply text-2xs uppercase tracking-wider text-ink-400 font-semibold
-           px-3 py-2 text-left sticky top-0 bg-ink-900 z-10
-           border-b border-ink-800;
+           px-4 py-3 text-left sticky top-0 bg-ink-900 z-10
+           border-b border-ink-750;
   }
-  .td { @apply px-3 py-2 text-sm border-b border-ink-850/70 align-top; }
+  .td { @apply px-4 py-3 text-sm border-b border-ink-750 align-top; }
   .num { @apply font-mono tabular-nums; }
   .link { @apply text-accent-400 hover:text-accent-300 hover:underline; }
+  .btn-sm { @apply px-2.5 h-7 text-xs; }
+
+  /* ------------------------------------------------------------------ table */
+  /* Rows are tall and padding is generous on purpose: a financial table is
+     read one line at a time, and tight rows are what made the old screens
+     feel like a spreadsheet dump. */
+  .grid-table { @apply w-full text-xs border-collapse; }
+  .grid-table thead th {
+    @apply text-2xs uppercase tracking-wider text-ink-400 font-medium
+           text-left px-4 h-11 border-b border-ink-750 bg-ink-900
+           sticky top-0 z-10 whitespace-nowrap;
+  }
+  .grid-table tbody td {
+    @apply px-4 py-3 border-b border-ink-750 text-ink-200 align-top;
+  }
+  .grid-table tbody tr:hover td { @apply bg-ink-850; }
+  .grid-table .n { @apply text-right num text-ink-100; }
+
+  /* Row-level emphasis without a second card: a subtle left rule reads as
+     structure, where a nested bordered box reads as clutter. */
+  .rule-l { @apply border-l-2 border-ink-700 pl-3; }
 }

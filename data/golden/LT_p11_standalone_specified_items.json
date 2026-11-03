@@ -1,0 +1,183 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A STANDALONE table inside the NOTES of the CONSOLIDATED results: note (vi) says 'The",
+  "specified items of the standalone financial results of the Company ... are given",
+  "below'. The table itself has no title; its basis is stated only in that sentence.",
+  "Same four columns as page 9. Native page; figures from the text layer.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "LT",
+ "document": "src/LT_Q1FY27_results.pdf",
+ "issuer": "Larsen & Toubro Limited",
+ "page": 11,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-12"
+ },
+ "table": {
+  "title": "(vi) specified items of the standalone financial results",
+  "statement": "income_statement",
+  "nature": "period_flow",
+  "basis": "Standalone",
+  "basis_evidence": "note (vi): 'The specified items of the standalone financial results of the Company'",
+  "unit_declaration": {
+   "text": "₹ Crore",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   15,
+   450,
+   830,
+   600
+  ],
+  "bbox_rel": [
+   0.0178,
+   0.378,
+   0.9858,
+   0.504
+  ],
+  "page_height_pt": 1190.52,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter ended",
+    "header_lines": [
+     "June 30,",
+     "2026",
+     "[Reviewed]"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27",
+    "audit_status": "reviewed"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter ended",
+    "header_lines": [
+     "March 31,",
+     "2026",
+     "[Audited]",
+     "[Note (iv)]"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter ended",
+    "header_lines": [
+     "June 30,",
+     "2025",
+     "[Reviewed]"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26",
+    "audit_status": "reviewed"
+   },
+   {
+    "id": "c4",
+    "group": "Year ended",
+    "header_lines": [
+     "March 31,",
+     "2026",
+     "[Audited]"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2025-04-01",
+    "period_type": "fiscal_year",
+    "fiscal_label": "FY26",
+    "audit_status": "audited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "a) Revenue from operations",
+    "y": 541.3,
+    "printed": [
+     "36024.07",
+     "47190.86",
+     "33470.73",
+     "153680.17"
+    ],
+    "values": [
+     36024.07,
+     47190.86,
+     33470.73,
+     153680.17
+    ],
+    "metric": "revenue_from_operations"
+   },
+   {
+    "label": "b) Profit before exceptional items and tax",
+    "y": 557.2,
+    "printed": [
+     "5180.05",
+     "5297.99",
+     "4040.09",
+     "16262.95"
+    ],
+    "values": [
+     5180.05,
+     5297.99,
+     4040.09,
+     16262.95
+    ],
+    "metric": "pbt_before_exceptional"
+   },
+   {
+    "label": "c) Profit before tax (after exceptional items)",
+    "y": 573.2,
+    "printed": [
+     "5180.05",
+     "4697.99",
+     "4040.09",
+     "9141.22"
+    ],
+    "values": [
+     5180.05,
+     4697.99,
+     4040.09,
+     9141.22
+    ],
+    "metric": "pbt"
+   },
+   {
+    "label": "d) Net profit after tax (after exceptional items)",
+    "y": 589.1,
+    "printed": [
+     "4455.26",
+     "3560.92",
+     "3485.30",
+     "6287.13"
+    ],
+    "values": [
+     4455.26,
+     3560.92,
+     3485.3,
+     6287.13
+    ],
+    "metric": "pat"
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "these standalone figures attributed to the group (the page is otherwise consolidated)",
+   "the quarter to March 31, 2026 and the year to March 31, 2026 resolving to one period"
+  ]
+ }
+}

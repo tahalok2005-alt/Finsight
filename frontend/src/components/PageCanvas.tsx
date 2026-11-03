@@ -124,7 +124,7 @@ export function PageCanvas({
             src={imageUrl}
             alt="Rendered document page"
             className={clsx(
-              "w-full block bg-white rounded transition-opacity",
+              "w-full block bg-ink-900 rounded transition-opacity",
               loaded ? "opacity-100" : "opacity-0",
             )}
             onLoad={() => setLoaded(true)}

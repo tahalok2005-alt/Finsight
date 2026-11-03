@@ -1,0 +1,337 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A slide KPI grid: monetary rows (₹ in Crores, declared inside the header",
+  "cell 'Particulars (₹ in Crores)') and ratio rows (%) in one table. Column",
+  "heads are the filer's fiscal labels with no dates ('Q1FY26', no space).",
+  "The two 'Growth (%)' columns compare periods and are excluded; several of",
+  "their cells are in bps, not %. Figures in Indian grouping (1,17,830).",
+  "Figures from the slide's text layer; layout confirmed on the render.",
+  "The basis is not stated on the slide; it is left null rather than guessed.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "SBI_PPT",
+ "document": "src/SBI_Q1FY27_analyst_presentation.pdf",
+ "issuer": "State Bank of India",
+ "page": 19,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "slide render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "Financials – at a glance",
+  "statement": "kpi",
+  "nature": "periodized_kpi",
+  "basis": null,
+  "basis_evidence": "not stated on the slide",
+  "unit_declaration": {
+   "text": "Particulars (₹ in Crores)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "inside the row-label header cell"
+  },
+  "bbox_pt": [
+   40,
+   105,
+   910,
+   465
+  ],
+  "bbox_rel": [
+   0.0417,
+   0.1944,
+   0.9479,
+   0.8611
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "Quarter Ended",
+    "header_lines": [
+     "Q1FY26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   },
+   {
+    "id": "c2",
+    "group": "Quarter Ended",
+    "header_lines": [
+     "Q4FY26"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": "2026-01-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q4 FY26"
+   },
+   {
+    "id": "c3",
+    "group": "Quarter Ended",
+    "header_lines": [
+     "Q1FY27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Interest Income",
+    "y": 186.7,
+    "printed": [
+     "1,17,830",
+     "1,23,098",
+     "1,27,896"
+    ],
+    "values": [
+     117830.0,
+     123098.0,
+     127896.0
+    ],
+    "metric": "interest_earned"
+   },
+   {
+    "label": "Interest Expenses",
+    "y": 209.2,
+    "printed": [
+     "76,923",
+     "78,718",
+     "80,904"
+    ],
+    "values": [
+     76923.0,
+     78718.0,
+     80904.0
+    ],
+    "metric": "interest_expended",
+    "metric_alt": [
+     "finance_costs"
+    ]
+   },
+   {
+    "label": "Net Interest Income",
+    "y": 228.8,
+    "printed": [
+     "40,907",
+     "44,380",
+     "46,992"
+    ],
+    "values": [
+     40907.0,
+     44380.0,
+     46992.0
+    ],
+    "metric": "net_interest_income"
+   },
+   {
+    "label": "Non Interest Income",
+    "y": 251.2,
+    "printed": [
+     "17,511",
+     "17,314",
+     "15,923"
+    ],
+    "values": [
+     17511.0,
+     17314.0,
+     15923.0
+    ],
+    "metric": "non_interest_income"
+   },
+   {
+    "label": "Operating Income",
+    "y": 273.6,
+    "printed": [
+     "58,418",
+     "61,694",
+     "62,915"
+    ],
+    "values": [
+     58418.0,
+     61694.0,
+     62915.0
+    ],
+    "metric": "net_total_income"
+   },
+   {
+    "label": "Operating Expenses",
+    "y": 296.1,
+    "printed": [
+     "27,874",
+     "33,990",
+     "29,386"
+    ],
+    "values": [
+     27874.0,
+     33990.0,
+     29386.0
+    ],
+    "metric": "operating_expenses"
+   },
+   {
+    "label": "Operating Profit",
+    "y": 318.5,
+    "printed": [
+     "30,544",
+     "27,704",
+     "33,529"
+    ],
+    "values": [
+     30544.0,
+     27704.0,
+     33529.0
+    ],
+    "metric": "pre_provision_operating_profit"
+   },
+   {
+    "label": "Total Provisions",
+    "y": 340.9,
+    "printed": [
+     "11,384",
+     "8,020",
+     "12,408"
+    ],
+    "values": [
+     11384.0,
+     8020.0,
+     12408.0
+    ],
+    "metric": "provisions_and_contingencies"
+   },
+   {
+    "label": "Net Profit",
+    "y": 363.4,
+    "printed": [
+     "19,160",
+     "19,684",
+     "21,121"
+    ],
+    "values": [
+     19160.0,
+     19684.0,
+     21121.0
+    ],
+    "metric": "pat",
+    "metric_alt": [
+     "pat_attributable_to_owners"
+    ]
+   },
+   {
+    "label": "NIM (Whole Bank) (%)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 387.2,
+    "printed": [
+     "2.89",
+     "2.81",
+     "2.86"
+    ],
+    "values": [
+     2.89,
+     2.81,
+     2.86
+    ],
+    "metric": "net_interest_margin"
+   },
+   {
+    "label": "NIM (Domestic) (%)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 409.6,
+    "printed": [
+     "3.01",
+     "2.93",
+     "3.00"
+    ],
+    "values": [
+     3.01,
+     2.93,
+     3.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Cost to Income Ratio (%)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 432.0,
+    "printed": [
+     "47.71",
+     "55.09",
+     "46.71"
+    ],
+    "values": [
+     47.71,
+     55.09,
+     46.71
+    ],
+    "metric": "cost_to_income_ratio"
+   },
+   {
+    "label": "Cost to Assets (%)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 454.5,
+    "printed": [
+     "1.66",
+     "1.84",
+     "1.54"
+    ],
+    "values": [
+     1.66,
+     1.84,
+     1.54
+    ],
+    "metric": "cost_to_assets"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Net Interest Income",
+    "plus": [
+     "Interest Income"
+    ],
+    "minus": [
+     "Interest Expenses"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Operating Income",
+    "plus": [
+     "Net Interest Income",
+     "Non Interest Income"
+    ],
+    "tolerance": 1.0
+   },
+   {
+    "target": "Operating Profit",
+    "plus": [
+     "Operating Income"
+    ],
+    "minus": [
+     "Operating Expenses"
+    ],
+    "tolerance": 1.0
+   }
+  ],
+  "page_height_pt": 540.0,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "a growth-column figure extracted as a crore amount",
+   "a bps figure extracted as a percent",
+   "NIM carrying crore"
+  ]
+ }
+}

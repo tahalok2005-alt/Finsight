@@ -1,0 +1,387 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "The consolidated counterpart of page 3. Capital, employee stock options and",
+  "the three date columns are IDENTICAL to the standalone sheet, while reserves,",
+  "deposits and totals differ. A system that merges bases would see equal",
+  "values and 'confirm' them, or unequal values and raise a false conflict;",
+  "both are wrong. Figures from the native text layer; header from the render.",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "ICICI",
+ "document": "src/ICICI_Q1FY27_results.pdf",
+ "issuer": "ICICI Bank Limited",
+ "page": 10,
+ "transcription": {
+  "method": "native text layer at recorded y + header read by eye",
+  "verified_against": "page render",
+  "date": "2026-09-11"
+ },
+ "table": {
+  "title": "SUMMARISED CONSOLIDATED BALANCE SHEET",
+  "statement": "balance_sheet",
+  "nature": "point_in_time",
+  "basis": "Consolidated",
+  "basis_evidence": "statement title",
+  "unit_declaration": {
+   "text": "(₹ in crore)",
+   "unit": "crore",
+   "currency": "INR",
+   "scope": "table",
+   "placement": "top-right"
+  },
+  "bbox_pt": [
+   15,
+   55,
+   590,
+   334
+  ],
+  "bbox_rel": [
+   0.0252,
+   0.0653,
+   0.9911,
+   0.3967
+  ],
+  "columns": [
+   {
+    "id": "c1",
+    "group": "At",
+    "header_lines": [
+     "June 30, 2026",
+     "(Unaudited)"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2026",
+    "audit_status": "unaudited"
+   },
+   {
+    "id": "c2",
+    "group": "At",
+    "header_lines": [
+     "March 31, 2026",
+     "(Audited)"
+    ],
+    "period_end": "2026-03-31",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 31 Mar 2026",
+    "audit_status": "audited"
+   },
+   {
+    "id": "c3",
+    "group": "At",
+    "header_lines": [
+     "June 30, 2025",
+     "(Unaudited)"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": null,
+    "period_type": "point_in_time",
+    "fiscal_label": "as at 30 Jun 2025",
+    "audit_status": "unaudited"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Capital",
+    "y": 120.9,
+    "printed": [
+     "1,434.94",
+     "1,432.23",
+     "1,427.32"
+    ],
+    "values": [
+     1434.94,
+     1432.23,
+     1427.32
+    ],
+    "metric": "share_capital"
+   },
+   {
+    "label": "Employee stock options/units outstanding",
+    "y": 132.5,
+    "printed": [
+     "2,712.72",
+     "2,682.07",
+     "2,142.54"
+    ],
+    "values": [
+     2712.72,
+     2682.07,
+     2142.54
+    ],
+    "metric": "esop_outstanding"
+   },
+   {
+    "label": "Reserves and surplus",
+    "y": 144.0,
+    "printed": [
+     "376,382.05",
+     "358,946.11",
+     "326,045.55"
+    ],
+    "values": [
+     376382.05,
+     358946.11,
+     326045.55
+    ],
+    "metric": "other_equity"
+   },
+   {
+    "label": "Minority interest",
+    "y": 155.5,
+    "printed": [
+     "17,533.42",
+     "16,510.96",
+     "15,813.67"
+    ],
+    "values": [
+     17533.42,
+     16510.96,
+     15813.67
+    ],
+    "metric": "non_controlling_interests"
+   },
+   {
+    "label": "Deposits",
+    "y": 167.0,
+    "printed": [
+     "1,870,362.74",
+     "1,830,020.12",
+     "1,641,136.66"
+    ],
+    "values": [
+     1870362.74,
+     1830020.12,
+     1641136.66
+    ],
+    "metric": "total_deposits"
+   },
+   {
+    "label": "Borrowings (includes subordinated debt)",
+    "y": 178.7,
+    "printed": [
+     "226,317.72",
+     "220,264.28",
+     "215,148.97"
+    ],
+    "values": [
+     226317.72,
+     220264.28,
+     215148.97
+    ],
+    "metric": "debt"
+   },
+   {
+    "label": "Policyholders' funds",
+    "y": 190.2,
+    "printed": [
+     "314,692.25",
+     "296,499.07",
+     "308,119.60"
+    ],
+    "values": [
+     314692.25,
+     296499.07,
+     308119.6
+    ],
+    "metric": "policyholders_funds"
+   },
+   {
+    "label": "Other liabilities and provisions",
+    "y": 201.7,
+    "printed": [
+     "192,971.05",
+     "188,143.13",
+     "158,801.65"
+    ],
+    "values": [
+     192971.05,
+     188143.13,
+     158801.65
+    ],
+    "metric": "other_liabilities_and_provisions"
+   },
+   {
+    "label": "Total Capital and Liabilities",
+    "is_total": true,
+    "y": 213.2,
+    "printed": [
+     "3,002,406.89",
+     "2,914,497.97",
+     "2,668,635.96"
+    ],
+    "values": [
+     3002406.89,
+     2914497.97,
+     2668635.96
+    ],
+    "metric": "total_equity_and_liabilities"
+   },
+   {
+    "label": "Cash and balances with Reserve Bank of India",
+    "y": 247.6,
+    "printed": [
+     "74,009.08",
+     "121,237.19",
+     "96,512.74"
+    ],
+    "values": [
+     74009.08,
+     121237.19,
+     96512.74
+    ],
+    "metric": "cash_and_rbi_balances"
+   },
+   {
+    "label": "Balances with banks and money at call and short notice",
+    "y": 259.2,
+    "printed": [
+     "122,484.20",
+     "143,743.53",
+     "100,308.43"
+    ],
+    "values": [
+     122484.2,
+     143743.53,
+     100308.43
+    ],
+    "metric": "balances_with_banks"
+   },
+   {
+    "label": "Investments",
+    "y": 270.7,
+    "printed": [
+     "939,300.36",
+     "870,719.88",
+     "905,884.30"
+    ],
+    "values": [
+     939300.36,
+     870719.88,
+     905884.3
+    ],
+    "metric": "investments"
+   },
+   {
+    "label": "Advances",
+    "y": 282.3,
+    "printed": [
+     "1,729,327.48",
+     "1,644,657.97",
+     "1,445,593.02"
+    ],
+    "values": [
+     1729327.48,
+     1644657.97,
+     1445593.02
+    ],
+    "metric": "advances"
+   },
+   {
+    "label": "Fixed assets",
+    "y": 293.8,
+    "printed": [
+     "17,329.29",
+     "17,420.34",
+     "16,166.85"
+    ],
+    "values": [
+     17329.29,
+     17420.34,
+     16166.85
+    ],
+    "metric": "fixed_assets"
+   },
+   {
+    "label": "Other Assets",
+    "y": 305.3,
+    "printed": [
+     "109,406.43",
+     "106,169.01",
+     "95,711.19"
+    ],
+    "values": [
+     109406.43,
+     106169.01,
+     95711.19
+    ],
+    "metric": "other_assets"
+   },
+   {
+    "label": "Goodwill on consolidation",
+    "y": 316.9,
+    "printed": [
+     "10,550.05",
+     "10,550.05",
+     "8,459.43"
+    ],
+    "values": [
+     10550.05,
+     10550.05,
+     8459.43
+    ],
+    "metric": "goodwill"
+   },
+   {
+    "label": "Total Assets",
+    "is_total": true,
+    "y": 328.5,
+    "printed": [
+     "3,002,406.89",
+     "2,914,497.97",
+     "2,668,635.96"
+    ],
+    "values": [
+     3002406.89,
+     2914497.97,
+     2668635.96
+    ],
+    "metric": "total_assets"
+   }
+  ],
+  "identities": [
+   {
+    "target": "Total Capital and Liabilities",
+    "plus": [
+     "Capital",
+     "Employee stock options/units outstanding",
+     "Reserves and surplus",
+     "Minority interest",
+     "Deposits",
+     "Borrowings (includes subordinated debt)",
+     "Policyholders' funds",
+     "Other liabilities and provisions"
+    ]
+   },
+   {
+    "target": "Total Assets",
+    "plus": [
+     "Cash and balances with Reserve Bank of India",
+     "Balances with banks and money at call and short notice",
+     "Investments",
+     "Advances",
+     "Fixed assets",
+     "Other Assets",
+     "Goodwill on consolidation"
+    ]
+   },
+   {
+    "target": "Total Assets",
+    "plus": [
+     "Total Capital and Liabilities"
+    ]
+   }
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt"
+ },
+ "acceptance": {
+  "must_never": [
+   "any fact attributed to the standalone entity",
+   "a conflict raised between this sheet and the standalone sheet for the same line"
+  ]
+ }
+}

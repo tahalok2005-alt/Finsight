@@ -54,6 +54,10 @@ class Document(Base, TimestampMixin):
 
     status: Mapped[str] = mapped_column(String(32), nullable=False, index=True)
     error: Mapped[str | None] = mapped_column(Text)
+    #: A short, human-readable note about where a run stopped -- "Paused at
+    #: page 41 of 165".  Shown beside the status so a stopped document
+    #: explains itself without the reader opening it.
+    progress_note: Mapped[str | None] = mapped_column(String(256))
 
     page_count: Mapped[int] = mapped_column(Integer, default=0)
     pdf_version: Mapped[str | None] = mapped_column(String(32))
@@ -117,6 +121,13 @@ class Page(Base, TimestampMixin):
     ocr_element_count: Mapped[int] = mapped_column(Integer, default=0)
     ocr_mean_confidence: Mapped[float | None] = mapped_column(Float)
     ocr_duration_ms: Mapped[float | None] = mapped_column(Float)
+    #: Wall time this page spent in the page loop, end to end.  Without it a
+    #: run that slows down cannot be told from one that is simply long, and the
+    #: only honest answer to "which page is it stuck on" is a guess.
+    duration_ms: Mapped[float | None] = mapped_column(Float)
+    #: measured capture defects of this page, and which image OCR read
+    image_quality: Mapped[dict] = mapped_column(JSONVariant, default=dict)
+    ocr_image: Mapped[str] = mapped_column(String(64), default="original")
 
     region_count: Mapped[int] = mapped_column(Integer, default=0)
     table_count: Mapped[int] = mapped_column(Integer, default=0)
@@ -348,8 +359,19 @@ class FinancialFactRow(Base, TimestampMixin):
     canonical_metric: Mapped[str] = mapped_column(String(96), nullable=False, index=True)
     metric_display: Mapped[str] = mapped_column(String(256), default="")
     entity: Mapped[str | None] = mapped_column(String(256), index=True)
+    # Entity identity, so facts group and roll up without matching on names.
+    entity_id: Mapped[str | None] = mapped_column(String(64), index=True)
+    entity_type: Mapped[str] = mapped_column(String(24), default="unknown")
+    parent_entity_id: Mapped[str | None] = mapped_column(String(64))
+    # Where the metric sits in the taxonomy.
+    statement: Mapped[str] = mapped_column(String(24), default="unknown", index=True)
+    category: Mapped[str] = mapped_column(String(24), default="other", index=True)
     kind: Mapped[str] = mapped_column(String(24), default="table_cell", index=True)
     nature: Mapped[str] = mapped_column(String(16), default="actual", index=True)
+    # Reported by the document, or computed here -- never conflated.
+    derivation: Mapped[str] = mapped_column(String(16), default="reported", index=True)
+    formula: Mapped[str | None] = mapped_column(String(256))
+    input_fact_ids: Mapped[list] = mapped_column(JSONVariant, default=list)
 
     value: Mapped[float | None] = mapped_column(Float)
     raw_value: Mapped[str] = mapped_column(String(128), default="")
@@ -363,12 +385,32 @@ class FinancialFactRow(Base, TimestampMixin):
     fiscal_year: Mapped[int | None] = mapped_column(Integer, index=True)
     quarter: Mapped[int | None] = mapped_column(Integer)
     period_raw: Mapped[str | None] = mapped_column(String(128))
+    #: The exact dates the resolver established from the source, ISO-8601.
+    #: These are persisted rather than recomputed because a fiscal label cannot
+    #: reproduce them: a 52/53-week filer's "Q3 FY25" ends on 28 June 2025, and
+    #: re-deriving it from the label yields 30 June -- a fabricated date two
+    #: days out.  NULL means the source never established one.
+    period_start: Mapped[str | None] = mapped_column(String(10))
+    period_end: Mapped[str | None] = mapped_column(String(10), index=True)
+    #: The resolver's own confidence in the period, distinct from the
+    #: confidence in the figure's value.
+    period_confidence: Mapped[float | None] = mapped_column(Float)
+    #: stated | derived | inherited | unknown -- see :class:`PeriodBasis`.
+    period_basis: Mapped[str | None] = mapped_column(String(16))
     comparison_period: Mapped[str | None] = mapped_column(String(64))
     comparison_value: Mapped[float | None] = mapped_column(Float)
 
     growth: Mapped[float | None] = mapped_column(Float)
     growth_type: Mapped[str | None] = mapped_column(String(16))
     growth_reported: Mapped[bool] = mapped_column(Boolean, default=False)
+    # The independently recomputed change, kept alongside whatever the document
+    # reported so the two are always comparable.
+    growth_calculated: Mapped[float | None] = mapped_column(Float)
+    change_absolute: Mapped[float | None] = mapped_column(Float)
+    change_bps: Mapped[float | None] = mapped_column(Float)
+    duplicate_resolution: Mapped[str | None] = mapped_column(String(32))
+    unit_inferred: Mapped[bool] = mapped_column(Boolean, default=False)
+    currency_inferred: Mapped[bool] = mapped_column(Boolean, default=False)
 
     confidence: Mapped[float] = mapped_column(Float, default=0.0, index=True)
     confidence_band: Mapped[str] = mapped_column(String(24), default="LOW", index=True)
@@ -376,6 +418,9 @@ class FinancialFactRow(Base, TimestampMixin):
 
     validation_status: Mapped[str] = mapped_column(String(24), default="NOT_CHECKED", index=True)
     requires_review: Mapped[bool] = mapped_column(Boolean, default=False, index=True)
+    #: Which of the review reasons applies, so the flag can say what to look at
+    #: rather than only that something is wrong.
+    review_reason: Mapped[str | None] = mapped_column(String(32))
     review_state: Mapped[str] = mapped_column(String(16), default="pending", index=True)
 
     source_page: Mapped[int] = mapped_column(Integer, default=0, index=True)

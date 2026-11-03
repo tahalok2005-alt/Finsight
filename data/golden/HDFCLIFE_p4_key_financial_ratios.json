@@ -1,0 +1,165 @@
+{
+ "$comment": [
+  "GOLDEN FACTS read from the source document, NOT from FinSight output.",
+  "A LIFE INSURER's release: APE, new business and renewal premium, embedded value,",
+  "value of new business, new business margin, solvency -- measures the taxonomy has",
+  "no keys for (metric null), so any key a fact claims for them is wrong. The 'YoY'",
+  "column is a comparison and is excluded.",
+  "'Key Financial Ratios', percentages with their own '%'. Two cells print two",
+  "figures each ('84%/65%' for 13-month / 61-month persistency) and two print",
+  "five and four ('44/22/11/8/15'); none of them is ONE figure and none is",
+  "transcribed. Operating RoEV is on a rolling 12-month basis (footnote 3).",
+  "Phase 22: every row carries 'metric', the canonical key its printed label names, decided by reading the label in its statement (null: the taxonomy has no key for the line); 'metric_alt' lists keys that name the same measure. The scorer checks the key, not only the printed label."
+ ],
+ "doc_key": "HDFCLIFE",
+ "document": "src/HDFCLIFE_Q1FY27_press_release.pdf",
+ "issuer": "HDFC Life Insurance Company Limited",
+ "page": 4,
+ "transcription": {
+  "method": "native text layer at recorded y",
+  "verified_against": "page text",
+  "date": "2026-09-13"
+ },
+ "table": {
+  "title": "Key Financial Ratios",
+  "statement": "ratios",
+  "nature": "periodized_kpi",
+  "basis": null,
+  "basis_evidence": "not stated on the table",
+  "unit_declaration": {
+   "text": "(percentages marked in each cell)",
+   "unit": null,
+   "currency": null,
+   "scope": "cell",
+   "placement": "in the cells"
+  },
+  "bbox_pt": [
+   72,
+   176,
+   530,
+   388
+  ],
+  "bbox_rel": [
+   0.1209,
+   0.209,
+   0.8903,
+   0.4609
+  ],
+  "page_height_pt": 841.92,
+  "y_units": "pt",
+  "columns": [
+   {
+    "id": "c1",
+    "group": null,
+    "header_lines": [
+     "Q1 FY27"
+    ],
+    "period_end": "2026-06-30",
+    "period_start": "2026-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY27"
+   },
+   {
+    "id": "c2",
+    "group": null,
+    "header_lines": [
+     "Q1 FY26"
+    ],
+    "period_end": "2025-06-30",
+    "period_start": "2025-04-01",
+    "period_type": "quarter",
+    "fiscal_label": "Q1 FY26"
+   }
+  ],
+  "rows": [
+   {
+    "label": "New Business Margins (footnote 2)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 219.3,
+    "printed": [
+     "25.0",
+     "25.1"
+    ],
+    "values": [
+     25.0,
+     25.1
+    ],
+    "metric": null
+   },
+   {
+    "label": "Operating Return on EV (rolling 12-month basis)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 237.9,
+    "printed": [
+     "14.7",
+     "16.3"
+    ],
+    "values": [
+     14.7,
+     16.3
+    ],
+    "metric": null
+   },
+   {
+    "label": "Total Expenses / Total Premium",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 256.5,
+    "printed": [
+     "22.6",
+     "21.9"
+    ],
+    "values": [
+     22.6,
+     21.9
+    ],
+    "metric": null
+   },
+   {
+    "label": "Solvency Ratio",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 275.1,
+    "printed": [
+     "185",
+     "192"
+    ],
+    "values": [
+     185.0,
+     192.0
+    ],
+    "metric": null
+   },
+   {
+    "label": "Individual WRP market share (Overall)",
+    "unit": "percent",
+    "currency": null,
+    "value_type": "percentage",
+    "y": 313.4,
+    "printed": [
+     "11.2",
+     "12.1"
+    ],
+    "values": [
+     11.2,
+     12.1
+    ],
+    "metric": null
+   }
+  ],
+  "identities": []
+ },
+ "acceptance": {
+  "must_never": [
+   "'84%/65%' or '44/22/11/8/15' read as one figure",
+   "'Total Expenses / Total Premium' filed as total expenses",
+   "an insurer's operating return on embedded value filed as return on equity"
+  ]
+ }
+}

@@ -15,7 +15,8 @@
     "pages that were rasterised into the image-only fixture, with page",
     "numbers remapped to their new positions.  The values themselves",
     "were read off the original document by eye and are unchanged; no",
-    "pipeline output was consulted."
+    "pipeline output was consulted.",
+    "Phase 22: entries with 'qualification' are the figures page 1 states on a footnoted basis -- 1Q FY26 profit lines exclude the 8,924 crore gain on listed investments; capital expenditure excludes spectrum. See PHASE_22_REPORT.md. Values untouched."
   ],
   "facts": [
     {
@@ -86,7 +87,8 @@
       "unit": "crore",
       "currency": "INR",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "ebitda",
@@ -123,7 +125,8 @@
       "value": 18.0,
       "unit": "percent",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "ebitda_margin",
@@ -242,7 +245,8 @@
       "unit": "crore",
       "currency": "INR",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "pbt",
@@ -322,7 +326,8 @@
       "unit": "crore",
       "currency": "INR",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "pat",
@@ -362,7 +367,8 @@
       "unit": "crore",
       "currency": "INR",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "pat_after_associates",
@@ -382,7 +388,8 @@
       "unit": "crore",
       "currency": "INR",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "capex",
@@ -392,7 +399,8 @@
       "unit": "crore",
       "currency": "INR",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "capex",
@@ -402,7 +410,8 @@
       "unit": "crore",
       "currency": "INR",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "capex",
@@ -412,7 +421,8 @@
       "unit": "crore",
       "currency": "INR",
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "outstanding_debt",
@@ -526,7 +536,8 @@
       "period": "Q1 FY26",
       "value": 0.6,
       "page": 1,
-      "source_page": 1
+      "source_page": 1,
+      "qualification": "excluding"
     },
     {
       "canonical_metric": "gross_revenue",

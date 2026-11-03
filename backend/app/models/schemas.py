@@ -12,10 +12,15 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field
 
 from app.models.enums import (
-    CellRole, ChartType, CommentaryTopic, ConfidenceBand, Currency, DocumentStatus,
-    FactKind, GrowthType, JobState, MagnitudeUnit, PeriodType, RegionType,
-    ReviewAction, ReviewState, StageStatus, StatementNature, ValidationSeverity,
-    ValidationStatus, ValueType,
+    PeriodBasis,
+    AnomalyType, CellRole, ChartType, ColumnRole, CommentaryTopic,
+    ConfidenceBand, Currency, DerivationStatus, DocumentStatus,
+    DuplicateResolution, EntityType, FactKind, GrowthType, InsightType,
+    JobState, MagnitudeUnit, MetricCategory, PeriodType, QualificationType, RegionType,
+    RelationKind, ReviewAction, ReviewReason, ReviewState, RiskCategory,
+    Severity,
+    StageStatus, StatementNature, StatementType, TableType,
+    ValidationSeverity, ValidationStatus, ValueType,
 )
 
 
@@ -191,6 +196,11 @@ class TableColumn(Base):
     x_end: float = 0.0
     period_label: str | None = None
     normalized_period: str | None = None
+    #: The period as the resolver actually established it, dates and all.
+    #: ``normalized_period`` is only its label; re-parsing that label loses the
+    #: source's exact dates -- a 52/53-week filer's "Q3 FY25" ends 28 June, and
+    #: the label alone re-derives 30 June.  Facts read this, not the label.
+    period_resolved: NormalizedPeriod | None = None
     is_growth_column: bool = False
     growth_type: GrowthType | None = None
     numeric_ratio: float = 0.0
@@ -208,6 +218,11 @@ class ExtractedTable(Base):
     n_cols: int
     columns: list[TableColumn] = Field(default_factory=list)
     cells: list[TableCell] = Field(default_factory=list)
+    #: What the reconstruction concluded about this table: its shape (are the
+    #: columns periods?) and the header block it read. Facts consult the shape
+    #: to decide whether a missing period is a defect or a property of the
+    #: table, which is a question nothing downstream could otherwise answer.
+    meta: dict[str, Any] = Field(default_factory=dict)
     detector: str = "ruling+projection"
     confidence: float = 0.0
     has_ruling_lines: bool = False
@@ -284,10 +299,17 @@ class NormalizedPeriod(Base):
     period_type: PeriodType = PeriodType.UNKNOWN
     fiscal_year: int | None = None
     quarter: int | None = None
+    #: The exact dates the *source* supports.  When the document printed
+    #: "Three Months Ended June 28, 2025" these are that period, to the day --
+    #: not the calendar month end a fiscal label would imply.  A resolver that
+    #: could not establish them leaves them None; None is the honest answer and
+    #: a later stage must never fill it in from the label.
     start_date: str | None = None
     end_date: str | None = None
     is_fiscal: bool = True
     confidence: float = 0.0
+    #: How this period was arrived at.  Set where the period is decided.
+    basis: PeriodBasis = PeriodBasis.UNKNOWN
 
     @property
     def sort_key(self) -> tuple:
@@ -323,6 +345,23 @@ class ConfidenceBreakdown(Base):
     notes: list[str] = Field(default_factory=list)
 
 
+class Qualification(Base):
+    """The basis a figure is stated on, when the source states one.
+
+    Promoted only where it materially distinguishes financial facts: a
+    results release's first page prints last year's quarter "excluding" a
+    one-off gain, the statutory statement prints it including the gain, and
+    both are the quarter's profit before tax. Without this they were one fact
+    in conflict with itself.
+    """
+    qualification_type: QualificationType
+    qualification_label: str
+    #: column_head | footnote | row_label | table_title
+    qualification_source: str
+    footnote_reference: str | None = None
+    source_text: str = ""
+
+
 class FinancialFact(Base):
     fact_id: str
     document_id: str
@@ -334,8 +373,30 @@ class FinancialFact(Base):
         description="Reporting entity/segment the fact belongs to, inferred from "
                     "the enclosing section (e.g. a subsidiary or business segment).",
     )
+    entity_id: str | None = Field(
+        default=None,
+        description="Stable id of the reporting entity, so facts can be grouped "
+                    "and rolled up without string matching on names.",
+    )
+    entity_type: EntityType = EntityType.UNKNOWN
+    parent_entity_id: str | None = None
+    statement: StatementType = StatementType.UNKNOWN
+    category: MetricCategory = MetricCategory.OTHER
     kind: FactKind = FactKind.TABLE_CELL
     nature: StatementNature = StatementNature.ACTUAL
+    derivation: DerivationStatus = Field(
+        default=DerivationStatus.REPORTED,
+        description="Whether the document stated this figure or the system "
+                    "computed it. Never allowed to blur.",
+    )
+    formula: str | None = Field(
+        default=None,
+        description="Human-readable formula, for calculated facts only.",
+    )
+    input_fact_ids: list[str] = Field(
+        default_factory=list,
+        description="The facts a calculated value was computed from.",
+    )
 
     value: float | None = None
     raw_value: str = ""
@@ -352,6 +413,19 @@ class FinancialFact(Base):
     growth: float | None = None
     growth_type: GrowthType | None = None
     growth_reported: bool = False
+    growth_calculated: float | None = Field(
+        default=None,
+        description="Growth recomputed from the value pair, stored even when "
+                    "the document reported its own figure, so the two can "
+                    "always be compared.",
+    )
+    change_absolute: float | None = None
+    change_bps: float | None = None
+    duplicate_resolution: DuplicateResolution | None = None
+    #: The stated basis of the figure, where the source gives one (Phase 22).
+    qualification: Qualification | None = None
+    unit_inferred: bool = False
+    currency_inferred: bool = False
 
     confidence: float = 0.0
     confidence_band: ConfidenceBand = ConfidenceBand.LOW
@@ -359,6 +433,8 @@ class FinancialFact(Base):
 
     validation_status: ValidationStatus = ValidationStatus.NOT_CHECKED
     requires_review: bool = False
+    #: Why, when it does. None whenever requires_review is False.
+    review_reason: ReviewReason | None = None
     review_state: ReviewState = ReviewState.PENDING
 
     source_page: int = 0
@@ -443,8 +519,17 @@ class PageInfo(Base):
     ocr_engine: str | None = None
     ocr_signature: str | None = None
     ocr_duration_ms: float | None = None
+    #: Wall time for this page across the whole page loop.
+    duration_ms: float | None = None
     ocr_element_count: int = 0
     ocr_mean_confidence: float | None = None
+    #: measured capture defects of the rendered page: skew, noise, contrast,
+    #: illumination, sharpness and effective text height
+    image_quality: dict[str, Any] = Field(default_factory=dict)
+    #: which image the OCR text was read from.  Always the rendered page
+    #: itself: no enhanced or intermediate image feeds extraction, so every
+    #: bounding box addresses pixels the reader can be shown.
+    ocr_image: str = "original"
     section_title: str | None = None
     entity_hint: str | None = None
     region_count: int = 0
@@ -548,3 +633,240 @@ class ReviewRequest(Base):
     reviewer: str = "analyst"
     note: str | None = None
     new_value: dict[str, Any] | None = None
+
+
+# ===========================================================================
+# Milestone 2 — financial intelligence schemas
+# ===========================================================================
+class EntityDto(Base):
+    """A reporting unit named by the document."""
+    entity_id: str
+    entity_name: str
+    entity_type: EntityType = EntityType.UNKNOWN
+    parent_entity_id: str | None = None
+    aliases: list[str] = Field(default_factory=list)
+    confidence: float = 0.0
+    source: str = "heading"
+    first_page: int | None = None
+    evidence: str = ""
+    fact_count: int = 0
+
+
+class ColumnSemantics(Base):
+    """What a reconstructed table column means, beyond its header text."""
+    index: int
+    header: str = ""
+    role: ColumnRole = ColumnRole.UNKNOWN
+    period: str | None = None
+    period_type: PeriodType | None = None
+    fiscal_year: int | None = None
+    quarter: int | None = None
+    is_current: bool = False
+    comparison_of: int | None = Field(
+        default=None,
+        description="Index of the column this one is a stated change against.")
+    growth_type: GrowthType | None = None
+    unit: MagnitudeUnit | None = None
+    currency: Currency | None = None
+    confidence: float = 0.0
+
+
+class TableSemantics(Base):
+    """Semantic interpretation layered over a reconstructed table."""
+    table_id: str
+    document_id: str
+    page_number: int
+    table_type: TableType = TableType.OTHER
+    statement: StatementType = StatementType.UNKNOWN
+    title: str = ""
+    entity_id: str | None = None
+    entity_name: str | None = None
+    periods: list[str] = Field(default_factory=list)
+    current_period: str | None = None
+    comparison_period: str | None = None
+    sequential_period: str | None = None
+    unit: MagnitudeUnit | None = None
+    currency: Currency | None = None
+    columns: list[ColumnSemantics] = Field(default_factory=list)
+    row_metrics: dict[str, str] = Field(
+        default_factory=dict,
+        description="Row index -> canonical metric, for rows the taxonomy knows.")
+    confidence: float = 0.0
+    notes: list[str] = Field(default_factory=list)
+
+
+class DerivedMetric(Base):
+    """A figure the system computed, with the arithmetic that produced it.
+
+    Kept structurally distinct from a reported fact so a calculated number can
+    never be presented as something management stated.
+    """
+    id: str
+    document_id: str
+    canonical_metric: str
+    metric_display: str = ""
+    entity_id: str | None = None
+    entity_name: str | None = None
+    period: str | None = None
+    value: float | None = None
+    base_value: float | None = Field(
+        default=None,
+        description="The result in absolute base units, which is what any "
+                    "further calculation chains off.")
+    value_type: ValueType = ValueType.UNKNOWN
+    unit: MagnitudeUnit = MagnitudeUnit.NONE
+    currency: Currency = Currency.UNKNOWN
+    formula: str = ""
+    inputs: dict[str, str] = Field(
+        default_factory=dict,
+        description="Formula variable -> fact id.")
+    input_fact_ids: list[str] = Field(
+        default_factory=list,
+        description="Every reported fact this figure was computed from.")
+    derived_inputs: list[str] = Field(
+        default_factory=list,
+        description="Other derived metrics used as inputs, so a chain of "
+                    "calculations stays traceable.")
+    input_values: dict[str, float] = Field(default_factory=dict)
+    reported_fact_id: str | None = Field(
+        default=None,
+        description="The document's own figure for the same measure, when it "
+                    "published one, so the two can be compared.")
+    reported_value: float | None = None
+    agrees_with_reported: bool | None = None
+    difference: float | None = None
+    confidence: float = 0.0
+    derivation: DerivationStatus = DerivationStatus.CALCULATED
+    source_pages: list[int] = Field(default_factory=list)
+    definition: str = ""
+    notes: str = ""
+
+
+class FactRelation(Base):
+    """A typed link between two facts."""
+    id: str
+    document_id: str
+    from_fact_id: str
+    to_fact_id: str
+    kind: RelationKind
+    detail: dict[str, Any] = Field(default_factory=dict)
+    confidence: float = 1.0
+
+
+class RiskStatement(Base):
+    """A source-supported risk or cautionary statement."""
+    id: str
+    document_id: str
+    page_number: int
+    region_id: str | None = None
+    text: str
+    category: RiskCategory = RiskCategory.OTHER
+    categories: list[RiskCategory] = Field(default_factory=list)
+    entity_id: str | None = None
+    entity_name: str | None = None
+    period: str | None = None
+    trigger_phrase: str = ""
+    severity: Severity = Severity.INFO
+    is_forward_looking: bool = False
+    confidence: float = 0.0
+    bbox: BBoxModel | None = None
+
+
+class Insight(Base):
+    """A deterministic, source-backed observation.
+
+    Every insight is generated by an explicit rule from facts that exist, and
+    names those facts.  Nothing is inferred beyond what the arithmetic supports.
+    """
+    id: str
+    document_id: str
+    insight_type: InsightType
+    headline: str
+    detail: str = ""
+    entity_id: str | None = None
+    entity_name: str | None = None
+    metric: str | None = None
+    periods: list[str] = Field(default_factory=list)
+    supporting_fact_ids: list[str] = Field(default_factory=list)
+    value: float | None = None
+    comparison_value: float | None = None
+    change: float | None = None
+    change_unit: str | None = None
+    derivation: DerivationStatus = DerivationStatus.CALCULATED
+    confidence: float = 0.0
+    source_pages: list[int] = Field(default_factory=list)
+
+
+class Anomaly(Base):
+    """An explainable flag on something unusual in the extracted data."""
+    id: str
+    document_id: str
+    anomaly_type: AnomalyType
+    severity: Severity = Severity.MEDIUM
+    message: str
+    reason: str = Field(
+        default="",
+        description="Why this was flagged, in terms a reviewer can check.")
+    entity_id: str | None = None
+    entity_name: str | None = None
+    metric: str | None = None
+    period: str | None = None
+    observed_value: float | None = None
+    expected_value: float | None = None
+    deviation: float | None = None
+    threshold: float | None = None
+    fact_ids: list[str] = Field(default_factory=list)
+    source_pages: list[int] = Field(default_factory=list)
+    requires_review: bool = True
+
+
+class ConfidenceComponent(Base):
+    """One named contribution to a fact's confidence, with its reason."""
+    name: str
+    value: float
+    weight: float
+    reason: str = ""
+
+
+class FactExplanation(Base):
+    """A deterministic, source-grounded answer to 'why do you believe this?'."""
+    fact_id: str
+    document_id: str
+    metric: str
+    metric_display: str = ""
+    canonical_metric: str = ""
+    metric_definition: str = ""
+    value: float | None = None
+    formatted_value: str = ""
+    entity_name: str | None = None
+    entity_type: EntityType = EntityType.UNKNOWN
+    period: str | None = None
+    period_basis: str = ""
+    unit: MagnitudeUnit = MagnitudeUnit.NONE
+    currency: Currency = Currency.UNKNOWN
+    source_page: int = 0
+    why_this_metric: str = ""
+    why_this_period: str = ""
+    why_this_entity: str = ""
+    why_this_unit: str = ""
+    confidence: float = 0.0
+    confidence_band: ConfidenceBand = ConfidenceBand.LOW
+    confidence_components: list[ConfidenceComponent] = Field(default_factory=list)
+    validation_summary: list[dict[str, Any]] = Field(default_factory=list)
+    derivation: DerivationStatus = DerivationStatus.REPORTED
+    derivation_note: str = Field(
+        default="",
+        description="Whether the figure was reported or calculated, how any "
+                    "change on it was obtained, and how a duplicate collision "
+                    "was resolved.")
+    formula: str | None = None
+    inputs: list[dict[str, Any]] = Field(default_factory=list)
+    related_facts: list[dict[str, Any]] = Field(default_factory=list)
+    provenance: Provenance | None = None
+    review_history: list[dict[str, Any]] = Field(default_factory=list)
+    requires_review: bool = False
+    generated_by: str = Field(
+        default="deterministic templates over recorded evidence (no language "
+                "model, no external API)",
+        description="How this explanation was produced. Stated explicitly so a "
+                    "reader knows no text here was generated by a model.")

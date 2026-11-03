@@ -128,7 +128,7 @@ export function ProvenancePanel({
                 <img
                   src={data.crop_url}
                   alt="Cropped source region"
-                  className="w-full rounded border border-ink-700 bg-white"
+                  className="w-full rounded border border-ink-700 bg-ink-900"
                 />
               </div>
             )}
