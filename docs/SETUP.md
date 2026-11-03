@@ -178,7 +178,10 @@ cd frontend && npm run build          # emits frontend/dist
 cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 1
 ```
 
-Serve `frontend/dist` from any static host and point `/api` at the backend.
+Simplest: let the API serve the build itself, from the same address, by
+setting `FINSIGHT_STATIC_DIR=../frontend/dist`. Or serve `frontend/dist` from
+any static host and route `/api` to the backend. The container in the
+repository root does the former — see [DEPLOY.md](DEPLOY.md).
 
 Use `--workers 1`: the job queue is in-process, so multiple uvicorn workers
 would each run their own queue. To scale horizontally, replace

@@ -72,11 +72,15 @@ class JobQueue:
     # ------------------------------------------------------------- execution
     def _run(self, job_id: str, document_id: str, job_type: str,
              force_ocr: bool, mode: str | None = None) -> None:
-        from app.services.processor import process_document  # local: avoids cycle
-
-        with session_scope() as session:
-            repo.claim_job(session, job_id)
+        # Everything, the import and the claim included, happens inside the
+        # try. An exception that escapes this method lands in a Future nobody
+        # reads: a container whose OpenCV could not load left its document at
+        # QUEUED forever, with no error and not one log line saying why.
         try:
+            from app.services.processor import process_document  # local: avoids cycle
+
+            with session_scope() as session:
+                repo.claim_job(session, job_id)
             if job_type in ("process", "reprocess"):
                 from app.core.modes import ProcessingMode  # noqa: PLC0415
                 process_document(

@@ -12,7 +12,9 @@ from fastapi.responses import JSONResponse
 from app.api import (
     routes_data, routes_documents, routes_intelligence, routes_system,
 )
+from app.api.frontend import mount_frontend
 from app.config.settings import settings
+from app.core.access import install_access_control
 from app.core.errors import FinSightError
 from app.core.logging import configure_logging, get_logger
 from app.database.session import init_db
@@ -54,7 +56,9 @@ async def lifespan(app: FastAPI):
     usable = [n for n, i in engines.items() if i.get("available")]
     log.info("api.startup", version=settings.app_version,
              environment=settings.environment, ocr_engines=usable,
-             configured_engine=settings.ocr_engine)
+             configured_engine=settings.ocr_engine,
+             password_required=PASSWORD_REQUIRED,
+             serving_dashboard=settings.static_dir is not None)
     if settings.ocr_engine not in usable:
         # Loud, but not fatal: uploads will fail honestly at the OCR stage.
         log.error("api.ocr_engine_unavailable",
@@ -82,6 +86,8 @@ app.add_middleware(
     allow_headers=["*"],
     expose_headers=["Content-Disposition"],
 )
+
+PASSWORD_REQUIRED = install_access_control(app)
 
 
 @app.middleware("http")
@@ -133,8 +139,12 @@ app.include_router(routes_data.search_router, prefix=api)
 app.include_router(routes_data.meta_router, prefix=api)
 
 
-@app.get("/", include_in_schema=False)
-def root() -> dict:
-    return {"name": settings.app_name, "version": settings.app_version,
-            "docs": "/docs", "api": settings.api_prefix,
-            "health": f"{settings.api_prefix}/health"}
+if settings.static_dir is not None:
+    # registered last: its catch-all route must not shadow any API route
+    mount_frontend(app, settings.static_dir)
+else:
+    @app.get("/", include_in_schema=False)
+    def root() -> dict:
+        return {"name": settings.app_name, "version": settings.app_version,
+                "docs": "/docs", "api": settings.api_prefix,
+                "health": f"{settings.api_prefix}/health"}

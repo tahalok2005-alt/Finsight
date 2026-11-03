@@ -1,0 +1,18 @@
+# For a server you control. Put HTTPS in front of it (see docs/DEPLOY.md):
+# the shared password travels with every request.
+#
+#   FINSIGHT_ACCESS_PASSWORD=change-me docker compose up -d --build
+services:
+  finsight:
+    build: .
+    image: finsight:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:7860:7860"
+    environment:
+      FINSIGHT_ACCESS_PASSWORD: ${FINSIGHT_ACCESS_PASSWORD:?set FINSIGHT_ACCESS_PASSWORD}
+    volumes:
+      - finsight-data:/app/data
+
+volumes:
+  finsight-data:

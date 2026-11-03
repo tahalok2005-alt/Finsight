@@ -241,6 +241,17 @@ Open <http://localhost:5173>, drop a PDF on the upload page, and watch it
 process. Full instructions, including the command-line path, are in
 [docs/SETUP.md](docs/SETUP.md).
 
+Or run the whole application as one container:
+
+```bash
+docker build -t finsight .
+docker run --rm -p 7860:7860 finsight      # then open http://localhost:7860
+```
+
+To deploy it — Hugging Face Spaces for a free demo, or your own server — see
+[docs/DEPLOY.md](docs/DEPLOY.md). Set `FINSIGHT_ACCESS_PASSWORD` before
+putting it on a public address.
+
 To process the acceptance document without the UI:
 
 ```bash
@@ -252,7 +263,8 @@ cd backend && python cli.py ingest ../data/benchmark/Media_Release_RIL_Q1_FY2026
 | Document | Contents |
 |---|---|
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Pipeline design, every technology choice and why, data model, limitations |
-| [docs/SETUP.md](docs/SETUP.md) | Installation, configuration, running, troubleshooting, deployment |
+| [docs/SETUP.md](docs/SETUP.md) | Installation, configuration, running, troubleshooting |
+| [docs/DEPLOY.md](docs/DEPLOY.md) | One-container deployment: Hugging Face Spaces, your own server, the shared password |
 | [docs/API.md](docs/API.md) | Every endpoint with request and response shapes |
 | [docs/EVALUATION.md](docs/EVALUATION.md) | Metrics, ground-truth methodology, baseline comparison, results |
 | [docs/VISUAL_ONLY.md](docs/VISUAL_ONLY.md) | The visual-only audit: enforcement, image-only test, three-mode comparison |

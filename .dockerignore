@@ -1,0 +1,17 @@
+# The build needs backend/ and frontend/ sources only. Without this file the
+# build context would include ~9 GB of local renders, caches and corpus runs.
+.git
+.venv
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/*.pyc
+frontend/dist
+data
+scratch
+docs
+backend/tests
+.claude
+.env
+*.log
+PHASE_22_REPORT.md

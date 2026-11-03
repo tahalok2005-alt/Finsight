@@ -8,7 +8,11 @@
 #              exist, so it was not taken on.
 #   opencv-python - opencv-python and opencv-python-headless install the
 #              same 'cv2' module and overwrite each other.  Only the
-#              headless build is kept: the server draws nothing on screen.
+#              headless build is pinned: the server draws nothing on screen.
+#              rapidocr-onnxruntime still pulls the desktop build in as its
+#              own dependency. That loads on Windows and macOS, but not on a
+#              Linux server without X11 libraries, so the Dockerfile removes
+#              it after installing (see the comment there).
 
 annotated-doc==0.0.5
 annotated-types==0.8.0

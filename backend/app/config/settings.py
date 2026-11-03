@@ -12,7 +12,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Literal
 
-from pydantic import Field, field_validator
+from pydantic import Field, SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # repo root = .../backend/app/config/settings.py -> up 4
@@ -205,6 +205,17 @@ class Settings(BaseSettings):
         "http://127.0.0.1:5173",
         "http://localhost:4173",
     )
+
+    # ------------------------------------------------------------- deployment
+    #: The built dashboard (``frontend/dist``). When set, the API serves it
+    #: from the same origin, so one process is the whole application. Never
+    #: guessed from the repository: a stale ``dist`` left over from a local
+    #: build would otherwise take over ``/`` on a developer's machine.
+    static_dir: Path | None = None
+    #: A shared password for a deployed instance. Unset, there is no login --
+    #: the right default on a laptop and the wrong one on a public URL, where
+    #: anyone could otherwise upload, read and delete every document.
+    access_password: SecretStr | None = None
 
     @field_validator("data_dir", "upload_dir", "render_dir", "cache_dir", "export_dir")
     @classmethod

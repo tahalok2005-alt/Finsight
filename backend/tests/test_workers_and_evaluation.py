@@ -65,6 +65,64 @@ class TestJobQueue:
             assert doc.error
 
 
+class TestAJobThatCannotStart:
+    """A failure before the pipeline runs is still a recorded failure."""
+
+    def _queued(self, tmp_path, doc_id):
+        with session_scope() as s:
+            repo.create_document(
+                s, document_id=doc_id, filename="a.pdf", original_filename="a.pdf",
+                stored_path=str(tmp_path / "a.pdf"), content_hash="1" * 64,
+                size_bytes=1)
+
+    def test_a_failed_import_fails_the_document_instead_of_hanging(
+            self, tmp_path, monkeypatch):
+        import builtins
+
+        from app.workers.queue import JobQueue
+
+        real_import = builtins.__import__
+
+        def broken(name, *args, **kwargs):
+            # what the container hit: cv2 could not load its native library
+            if name == "app.services.processor":
+                raise ImportError("libxcb.so.1: cannot open shared object file")
+            return real_import(name, *args, **kwargs)
+
+        self._queued(tmp_path, "jobdoc0003")
+        monkeypatch.setattr(builtins, "__import__", broken)
+        q = JobQueue(max_workers=1)
+        job_id = q.submit("jobdoc0003")
+        q.wait(job_id, timeout=30)
+        q.shutdown(wait=True)
+        monkeypatch.setattr(builtins, "__import__", real_import)
+
+        with session_scope() as s:
+            doc = repo.get_document(s, "jobdoc0003")
+            assert doc.status == DocumentStatus.FAILED.value
+            assert "libxcb" in (doc.error or "")
+            assert s.get(JobRow, job_id).state == "failed"
+
+    def test_a_failed_claim_fails_the_document_instead_of_hanging(
+            self, tmp_path, monkeypatch):
+        from app.workers.queue import JobQueue
+
+        def refuse(*_a, **_k):
+            raise RuntimeError("database is locked")
+
+        self._queued(tmp_path, "jobdoc0004")
+        monkeypatch.setattr(repo, "claim_job", refuse)
+        q = JobQueue(max_workers=1)
+        job_id = q.submit("jobdoc0004")
+        q.wait(job_id, timeout=30)
+        q.shutdown(wait=True)
+
+        with session_scope() as s:
+            doc = repo.get_document(s, "jobdoc0004")
+            assert doc.status == DocumentStatus.FAILED.value
+            assert "database is locked" in (doc.error or "")
+
+
 @pytest.mark.slow
 class TestEvaluation:
     @pytest.fixture
